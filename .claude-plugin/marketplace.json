@@ -1,0 +1,14 @@
+{
+  "name": "r-analysis-workflow",
+  "description": "R Analysis Workflow: set up, document, report and review R biomedical analysis projects published on GitHub.",
+  "owner": {
+    "name": "Vagish Hemmige"
+  },
+  "plugins": [
+    {
+      "name": "r-analysis-workflow",
+      "source": ".",
+      "description": "Set up, document, report and review R biomedical analysis projects: analysis plans, AGENTS.md, Quarto explainer sites, GitHub workflow, and blind clinical, statistical, coding and librarian reviews."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "r-analysis-workflow",
+  "version": "0.1.8",
+  "description": "Set up, document, report and review R biomedical analysis projects: analysis plans, AGENTS.md, Quarto explainer sites, GitHub workflow, and blind clinical, statistical, coding and librarian reviews.",
+  "author": {
+    "name": "Vagish Hemmige"
+  },
+  "license": "MIT",
+  "keywords": [
+    "R",
+    "epidemiology",
+    "Quarto",
+    "research",
+    "gtsummary"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "R Analysis Workflow",
+        "shortDescription": "R research project workflows",
+        "longDescription": "Workflows for R analysis projects that publish their code and methods on GitHub: project setup from a shared blueprint, analysis plans (STROBE+RECORD, CHEERS 2022 or descriptive) with open decisions as GitHub issues, AGENTS.md with one row per data source and its access package, a Quarto site that explains each script from its actual source, reporting with flowchart, gtsummary, ggplot2 and ggsurvfit, collaborator onboarding, and reviews by independent clinician, clinician-researcher, statistician, coding-expert and librarian reviewers using only published material. Uses installed Posit skills where relevant.",
+        "developerName": "Vagish Hemmige",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Set up my R analysis project from my latest RMD and protocol.",
+          "Run a full blind review of this repository.",
+          "Write the Quarto page for the script I just added to main.R."
+        ]
+      }
+    }
+  }
+}

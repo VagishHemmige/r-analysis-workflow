@@ -1,0 +1,10 @@
+# Provenance
+
+- Requirements and decisions come from the author's working sessions with ChatGPT and Claude, including the analysis-plan, STROBE/RECORD, GitHub-protection and statistical-checklist discussions.
+- Templates were derived from the author's analysis repositories: Cryptococcus-cost-analysis, Cryptococcus-donor-screening-CEA, Cryptococcus-missed-diagnosis-USRDS, HOPE-CDC-analysis-2026 and USRDS-PDF-analysis-project. Study-specific content and personal contact details were removed. HIV-SLK-outcomes was not used as a template source.
+- `REPOSITORY-BLUEPRINT.md` is the author's blueprint as committed in those repositories, with its tree realigned and optional files marked.
+- Collaborator onboarding is adapted in original wording from the goal-first approach of Academic Records' initializer; none of its machinery is bundled.
+- Posit skills are invoked when installed, not redistributed.
+- 0.1.7 changes come from the author's decisions on the gaps found in the 2026-10-26 user simulation, and from comparing the personal-instructions template with the author's own project instructions for Cryptococcus-cost-analysis (general rules taken; personal reviewer-only rules left out). GitHub steps follow GitHub's documentation (Pages, milestones, repository transfer, checked 2026-10-26).
+- 0.1.8 changes come from the maintainer's decisions on a blind review of 0.1.7 (2026-10-26). Guideline entries in `assets/guidelines.bib` and the published graphics-principles paper were checked in PubMed; GitHub plan limits for Pages and rulesets against GitHub's documentation; `fc_view()` and `ggcuminc()` against their package documentation.
+- External guidance (gtsummary, ggsurvfit, flowchart, Quarto and knitr documentation; Wilke; R4DS; finalfit; Lusa et al.; Zabor; the PSI/EFSPI graphics principles; KMunicate; STROBE, RECORD and CHEERS) is linked, not copied.

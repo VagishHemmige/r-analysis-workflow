@@ -1,0 +1,43 @@
+---
+output:
+  github_document:
+    html_preview: false
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<!-- badges: start -->
+[![Status](https://img.shields.io/badge/status-preliminary_analysis-yellow)](#)
+[![Methods](https://img.shields.io/badge/methods-under_development-blue)](#)
+[![Not for Citation](https://img.shields.io/badge/use-not_for_citation-lightgrey)](#)
+<!-- [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE.md) -->
+<!-- badges: end -->
+
+# Project title
+
+The goal of this analysis is to [one sentence: the question]. It uses [data sources].
+
+This analysis is currently in progress.
+
+The full analysis website, which explains the code step by step, is available at:
+https://OWNER.github.io/REPOSITORY/
+
+## Documentation
+
+- [`analysis-plan.md`](analysis-plan.md): what the analysis is meant to do
+- [`ARCHITECTURE.md`](ARCHITECTURE.md): how the code is organized
+- [`AGENTS.md`](AGENTS.md): how to work in this repository
+- [Issues](https://github.com/OWNER/REPOSITORY/issues): open decisions and known gaps
+
+## Running the analysis
+
+Run `R/main.R` from the project root. [Name any restricted data and the access package that locates it, for example: "Requires authorized access to the USRDS files, located through the usRds package."]
+
+<!-- Results: add only when the figures and tables are cleared for public release. -->
