@@ -29,7 +29,7 @@ Changes reach the default branch through pull requests; see [GitHub workflow](gi
 
 At the end of a working session, ask whether anything unfinished (a draft change, text waiting on someone's approval, a request still to send) should be saved to the repository, and offer where: a draft pull request, an issue comment marked as a draft, or a new issue. Check it against the project's disclosure rules first; anything holding results from restricted data that are not cleared for release stays where it is, and the person is told why. A new chat will not remember it.
 
-Before posting or sending anything as a person (an issue comment, a pull-request description, an email), show them the exact text and wait for their go-ahead, unless their own instructions waive this.
+Before posting or sending anything as a person (an issue comment, a pull-request description, an email), show them the exact text and wait for their go-ahead, unless their own instructions waive this. When writing that a person decided, said or wrote something, link the record it comes from (an issue comment, commit, or email relayed in an issue); if there is none, ask rather than attribute it.
 
 When changing or reviewing files for a person, show each file where they can read it (the host's file pane or preview, if it has one) before the change and again after it, one file at a time, unless their instructions say otherwise.
 
