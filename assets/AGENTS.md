@@ -104,7 +104,7 @@ The **Access** column of "Data sources" says which sources are restricted. For e
 - **AI agents never read restricted data.** Anything an agent opens, prints, or summarizes is sent to the model provider. Agents do not open data files or patient-level objects, print rows, or display identifiers, person-level dates, or small geographies. Agents also do not open outputs from restricted data that are not yet cleared for release (for example `tables/` and `figures/` while they are ignored). Agents write code, review it, and run it on **synthetic data**; results on real data are produced by an authorized person. The only exception is what the Data sources table explicitly allows for a source, and only within those words.
 - **Synthetic data** are built in code, labelled as synthetic, and never derived from real records.
 - **Disclosure.** <The governing agreement's small-cell rule, including flowchart boxes, complementary cells and risk tables; figures that may not be published.> Check every output before it leaves the approved environment, including scripts, comments, commit messages, issues, pull-request text and review reports (see R scripts).
-- **Credentials and paid APIs.** Never commit keys, tokens, or `.Renviron`. Ask before paid, bulk, or uncached API calls.
+- **Credentials and paid APIs.** Never commit keys, tokens, or `.Renviron`. Ask before paid, bulk, or uncached API calls. Before a paid batch, make one call with the exact package version, model and settings, and check the result before running the rest. Which model or service version to use is the person's choice; an agent proposes, with the cost if known, and does not switch it on its own.
 
 ## Coding conventions
 
@@ -113,6 +113,7 @@ The **Access** column of "Data sources" says which sources are restricted. For e
 - **Joins** use `join_by()` with an explicit `relationship` where possible. After every interval join and every join of records to people, assert that rows did not multiply, and decide deliberately what happens to unmatched rows.
 - **Dates and windows** are written as inclusive offsets from the index date, matching the plan, and the edges are tested on synthetic data.
 - **Code that turns model output into reported numbers** lives in named functions in `R/functions.R`, tested on synthetic data with a known answer.
+- **Package APIs:** before writing code that calls a package (data access, modelling, an API client such as ellmer), read the help page and NEWS/changelog for the installed version, including known issues. Do not write calls from memory of how a package used to behave. Tests that replace a package or service with a fake check our own logic only: before relying on the code, call the installed package once for real (on synthetic or public data, or one cheap call for a paid service) and check the result has the shape the code expects.
 - **Style:** readable for a clinician-analyst who learned R from online guides. Pipes and dplyr/tidyr verbs for data; stringr or glue for text; case_when() for conditions. Repeated steps as a for-loop over names or a named list indexed by name (results[[group]][[year]]). Avoid the apply family, Reduce, do.call(rbind, lapply()), indexing by position and reshaping with matrix() or sweep(). Base R that is required (matrix algebra, model internals) stays inside a named, tested function with a comment saying why. Layout follows the tidyverse style guide. Style changes go in their own commits.
 
 ## Checks for any change
@@ -121,6 +122,7 @@ Check the items that apply before opening a pull request.
 
 - **Plan:** does the change implement the plan as written, and does it leave every open decision open?
 - **Data sources:** does it use the access package's functions, and does their documented behavior match what the plan needs?
+- **Package APIs:** for new or changed calls to a package, does the pull request name the installed version and the help page or NEWS entry relied on?
 - **Cohort:** do the flowchart steps' order, denominators, and labels match their conditions, and can each count be reproduced from code?
 - **Joins and denominators:** no unintended row multiplication; missing, suppressed, and zero kept distinct.
 - **Reported numbers:** does each estimate match the plan's estimand, and do tables, figures, and site prose say what the code actually computes?
