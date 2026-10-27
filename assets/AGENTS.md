@@ -92,7 +92,7 @@ The site documents the code. It does not run the analysis.
 
 ## Outputs
 
-- Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` and `figures/`. <Tracked, because they need no review before release | Gitignored until <the governing review> clears them for release, under the disclosure rules below.>
+- Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` and `figures/`. <Tracked, because they need no review before release | Gitignored until <the governing review> clears them for release, under the disclosure rules below.> <If tables/ and figures/ are gitignored, say why: restricted data (agents may not open them; see Restricted data) or publication timing only (the data are public; agents may read them).>
 - Published figures need alt text.
 - <`README.Rmd` is the source of `README.md`; edit the `.Rmd` and re-knit. | `README.md` is edited directly.>
 
@@ -113,7 +113,7 @@ The **Access** column of "Data sources" says which sources are restricted. For e
 - **Joins** use `join_by()` with an explicit `relationship` where possible. After every interval join and every join of records to people, assert that rows did not multiply, and decide deliberately what happens to unmatched rows.
 - **Dates and windows** are written as inclusive offsets from the index date, matching the plan, and the edges are tested on synthetic data.
 - **Code that turns model output into reported numbers** lives in named functions in `R/functions.R`, tested on synthetic data with a known answer.
-- **Style:** readable for a clinician-analyst who learned R from online guides. Pipes and dplyr/tidyr verbs for data; stringr or glue for text; case_when() for conditions. Repeated steps as a for-loop over names or a named list indexed by name (results[[organ]][[year]]). Avoid the apply family, Reduce, do.call(rbind, lapply()), indexing by position and reshaping with matrix() or sweep(). Base R that is required (matrix algebra, model internals) stays inside a named, tested function with a comment saying why. Layout follows the tidyverse style guide. Style changes go in their own commits.
+- **Style:** readable for a clinician-analyst who learned R from online guides. Pipes and dplyr/tidyr verbs for data; stringr or glue for text; case_when() for conditions. Repeated steps as a for-loop over names or a named list indexed by name (results[[group]][[year]]). Avoid the apply family, Reduce, do.call(rbind, lapply()), indexing by position and reshaping with matrix() or sweep(). Base R that is required (matrix algebra, model internals) stays inside a named, tested function with a comment saying why. Layout follows the tidyverse style guide. Style changes go in their own commits.
 
 ## Checks for any change
 
