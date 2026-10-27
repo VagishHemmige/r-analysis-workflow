@@ -23,7 +23,7 @@
 **Record changes in git.**
 
 - While the plan is a draft, git history is the change record. Commit each design change on its own. The commit message gives the reason and says whether any results that depend on it had already been seen.
-- When the plan is locked (before outcome data are analyzed, or at registration), tag the commit (`sap-v1.0`) and, if registering, cite the OSF or other registration and the tag in the plan header. From then on, every change also gets a dated entry under **Amendments after locking**, saying what changed, why, and whether it was made before or after seeing outcome data, plus a new tag (`sap-v1.1`).
+- When the plan is locked (before outcome data are analyzed, or at registration), add an empty **Amendments after locking** section and tag that commit (`sap-v1.0`); if registering, cite the OSF or other registration and the tag in the plan header. From then on, every change also gets a dated entry there, saying what changed, why, and whether it was made before or after seeing outcome data, plus a new tag (`sap-v1.1`).
 
 **Keep it a plan.** No results, no implementation status (that belongs in Issues), no code structure (that belongs in `ARCHITECTURE.md`), no working conventions (that belong in `AGENTS.md`).
 
