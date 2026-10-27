@@ -31,6 +31,8 @@ At the end of a working session, ask whether anything unfinished (a draft change
 
 Before posting or sending anything as a person (an issue comment, a pull-request description, an email), show them the exact text and wait for their go-ahead, unless their own instructions waive this.
 
+When changing or reviewing files for a person, show each file where they can read it (the host's file pane or preview, if it has one) before the change and again after it, one file at a time, unless their instructions say otherwise.
+
 Before creating or changing several things in the repository at once (for example a pull request with the plan, the website and several issues), say what will be built and ask whether to build it all now or one piece at a time, unless the person's working style is hands-off. Afterwards, whatever the working style, walk the person through what was made in their name: where to see it, what each piece is, and what they should read before anyone else does, pitched at what they have said about their experience.
 
 If files uploaded to a person's LLM project differ from the repository's copies, the repository wins unless the person says theirs is newer; then compare the two and show them the differences before anything changes. Otherwise tell the person the files have drifted.

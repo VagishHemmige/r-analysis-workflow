@@ -9,7 +9,7 @@ Read [conventions](../../references/conventions.md), the project's AGENTS.md and
 
 ## 1. Fix what is being reviewed
 
-Choose and state the copy and revision as the [conventions](../../references/conventions.md) describe. A pull request or branch is reviewed against its merge base; a single commit against its parent; a whole-project review covers the current state. 
+Choose and state the copy and revision as the [conventions](../../references/conventions.md) describe. A pull request or branch is reviewed against its merge base; a single commit against its parent; a whole-project review covers the current state. A change review reads every file the change touches (code, tests, plan, pages, docs/, AGENTS.md, lockfiles), not a sample, and lists them in the report; a file not read is named as not reviewed, with the reason.
 
 ## 2. Choose the review
 
