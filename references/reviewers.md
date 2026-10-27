@@ -44,7 +44,7 @@ Reviewers load the installed Posit skills that fit their role, apply them within
 | | `quarto-authoring` | Site configuration, chunk options, cross-references and citations |
 | | `describe-design` | Whether `ARCHITECTURE.md` still matches the code (assess only; refreshing it is separate work) |
 | | `review-testing` | Only when the repository has tests (for example synthetic-data tests of helper functions) |
-| | `r-tidyverse-style` | Only when the directing person asks for a style review; style findings are reported as presentation |
+| | `r-tidyverse-style` | Always for readability idioms: code that breaks "Writing R code" in [conventions](conventions.md) (apply family, Reduce, positional indexing, matrix reshaping, sprintf/formatC) is a maintainability finding. Formatting and naming only when the directing person asks for a style review; those findings are presentation |
 
 The package-development skills (`testing-r-packages`, `lifecycle`, `create-release-checklist`) do not apply to analysis projects.
 
