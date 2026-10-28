@@ -18,6 +18,15 @@ Version 0.1.9. A skills-only plugin for R biomedical analysis projects whose cod
 
 Installing grants no data access or GitHub permissions; see Dependencies.
 
+## Using it
+
+Ask in plain words; you don't need to name a skill. For example:
+
+- "Set up my R analysis project from my latest RMD and protocol."
+- "I'm joining this project and I'm new to GitHub. Where do I start?"
+- "Write the Quarto page for the script I just added to main.R."
+- "Run a full blind review of this repository."
+
 ## Skills
 
 | Skill | Use it to |
