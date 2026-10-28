@@ -2,6 +2,14 @@
 
 Version 0.1.9. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
 
+## Install
+
+- **Claude** (chat, Desktop and Cowork; paid plans): open **Customize** → **Plugins** → **Add** → **Add marketplace** → **Add from a repository**, enter `VagishHemmige/r-analysis-workflow`, then install **R Analysis Workflow**. It also syncs to Claude Code on the same account.
+- **Claude Code:** `claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow`
+- **ChatGPT:** <your steps>
+
+Installing grants no data access or GitHub permissions; see Dependencies.
+
 ## Skills
 
 | Skill | Use it to |
