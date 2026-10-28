@@ -1,6 +1,37 @@
 # R Analysis Workflow
 
-Version 0.1.8. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
+Version 0.1.9. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
+
+**Who it's for.** Anyone working on such a project: clinicians who will never write R, students who know R but not GitHub, statisticians and maintainers.
+
+**Where to start.**
+- Starting a project, or tidying an existing one: `initialize-analysis`.
+- Joining or leaving a project: `onboard-collaborator`.
+- Adding or changing a script: `document-analysis`, then `report-analysis` for tables and figures.
+- Checking work before it is merged or published: `review-analysis`.
+
+## Install
+
+- **Claude** (chat, Desktop and Cowork; paid plans): open **Customize** → **Plugins** → **Add** → **Add marketplace** → **Add from a repository**, enter `VagishHemmige/r-analysis-workflow`, then install **R Analysis Workflow**. It also syncs to Claude Code on the same account.
+- **Claude Code:** `claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow`
+- **ChatGPT:** Install Plugin Creator, then ask it to create a plugin from this repository: `https://github.com/VagishHemmige/r-analysis-workflow`. For subsequent updates, ask Plugin Creator to update the existing R Analysis Workflow plugin from the repository, preserving its identity. This is an explicitly requested update, not automatic GitHub synchronization. Workspace administrators also have a separate GitHub marketplace import and daily-sync option; see [OpenAI's plugin documentation](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+
+Installing grants no data access or GitHub permissions; see Dependencies.
+
+## Updating
+
+- **Claude Code:** auto-update is off for this marketplace by default. Turn it on in `/plugin` → **Marketplaces** → `r-analysis-workflow` → **Enable auto-update**, or update by hand:
+  `claude plugin update r-analysis-workflow@r-analysis-workflow`
+- **ChatGPT** (not yet tested): mention `@plugin-creator` and your existing R Analysis Workflow plugin, and ask it to update from the repository.
+
+## Using it
+
+Ask in plain words; you don't need to name a skill. For example:
+
+- "Set up my R analysis project from my latest RMD and protocol."
+- "I'm joining this project and I'm new to GitHub. Where do I start?"
+- "Write the Quarto page for the script I just added to main.R."
+- "Run a full blind review of this repository."
 
 ## Skills
 
@@ -31,3 +62,9 @@ Uses installed Posit skills where relevant (`quarto-authoring`, `describe-design
 Shared material lives once at the plugin root, as OpenAI's own plugins do with shared references: `references/` for guidance and `assets/` for templates (the Quarto starter, AGENTS.md, personal instructions). Each skill is a single `SKILL.md` that links to them with `../../`. Edit a reference once and every skill sees the change. The ChatGPT manifest follows the Agent Plugins standard (a root `plugin.json`), which ChatGPT accepts; OpenAI's own plugins use `.codex-plugin/plugin.json`. The manifest is `plugin.json` for ChatGPT, with a matching `.claude-plugin/plugin.json` for Claude (claude.ai, Cowork and Claude Code); keep the two in step. Run `python3 check_links.py` before releasing; it checks the links and that the manifests agree.
 
 See VALIDATION.md for what has been checked and SOURCES.md for provenance. Original text and code are MIT licensed; linked external content keeps its own license.
+
+## Before you rely on it
+
+The plugin guides an assistant; it does not check your science. Review what it produces, as you would a new collaborator's work, before it goes into a plan, a paper or a decision. VALIDATION.md lists what has and has not been tested.
+
+New to skills? See [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills) (Claude) or [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt).

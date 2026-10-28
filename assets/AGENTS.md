@@ -92,7 +92,7 @@ The site documents the code. It does not run the analysis.
 
 ## Outputs
 
-- Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` and `figures/`. <Tracked, because they need no review before release | Gitignored until <the governing review> clears them for release, under the disclosure rules below.>
+- Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` and `figures/`. <Tracked, because they need no review before release | Gitignored until <the governing review> clears them for release, under the disclosure rules below.> <If tables/ and figures/ are gitignored, say why: restricted data (agents may not open them; see Restricted data) or publication timing only (the data are public; agents may read them).>
 - Published figures need alt text.
 - <`README.Rmd` is the source of `README.md`; edit the `.Rmd` and re-knit. | `README.md` is edited directly.>
 
@@ -104,7 +104,7 @@ The **Access** column of "Data sources" says which sources are restricted. For e
 - **AI agents never read restricted data.** Anything an agent opens, prints, or summarizes is sent to the model provider. Agents do not open data files or patient-level objects, print rows, or display identifiers, person-level dates, or small geographies. Agents also do not open outputs from restricted data that are not yet cleared for release (for example `tables/` and `figures/` while they are ignored). Agents write code, review it, and run it on **synthetic data**; results on real data are produced by an authorized person. The only exception is what the Data sources table explicitly allows for a source, and only within those words.
 - **Synthetic data** are built in code, labelled as synthetic, and never derived from real records.
 - **Disclosure.** <The governing agreement's small-cell rule, including flowchart boxes, complementary cells and risk tables; figures that may not be published.> Check every output before it leaves the approved environment, including scripts, comments, commit messages, issues, pull-request text and review reports (see R scripts).
-- **Credentials and paid APIs.** Never commit keys, tokens, or `.Renviron`. Ask before paid, bulk, or uncached API calls.
+- **Credentials and paid APIs.** Never commit keys, tokens, or `.Renviron`. Ask before paid, bulk, or uncached API calls. Before a paid batch, make one call with the exact package version, model and settings, and check the result before running the rest. Which model or service version to use is the person's choice; an agent proposes, with the cost if known, and does not switch it on its own.
 
 ## Coding conventions
 
@@ -113,7 +113,8 @@ The **Access** column of "Data sources" says which sources are restricted. For e
 - **Joins** use `join_by()` with an explicit `relationship` where possible. After every interval join and every join of records to people, assert that rows did not multiply, and decide deliberately what happens to unmatched rows.
 - **Dates and windows** are written as inclusive offsets from the index date, matching the plan, and the edges are tested on synthetic data.
 - **Code that turns model output into reported numbers** lives in named functions in `R/functions.R`, tested on synthetic data with a known answer.
-- **Style:** the tidyverse style guide. Style changes go in their own commits.
+- **Package APIs:** read the help page and NEWS for the installed version before calling a package; don't write calls from memory. A test that fakes a package checks only our own logic, so call the real package once (synthetic data, or one cheap call) before relying on the code.
+- **Style:** readable for a clinician-analyst who learned R from online guides: pipes and dplyr/tidyr verbs, case_when(), loops over names or named lists rather than the apply family, Reduce or positional indexing. Required base R goes in a named, tested function. Tidyverse layout; style changes in their own commits.
 
 ## Checks for any change
 
@@ -121,6 +122,7 @@ Check the items that apply before opening a pull request.
 
 - **Plan:** does the change implement the plan as written, and does it leave every open decision open?
 - **Data sources:** does it use the access package's functions, and does their documented behavior match what the plan needs?
+- **Package APIs:** for new or changed calls to a package, does the pull request name the installed version and the help page or NEWS entry relied on?
 - **Cohort:** do the flowchart steps' order, denominators, and labels match their conditions, and can each count be reproduced from code?
 - **Joins and denominators:** no unintended row multiplication; missing, suppressed, and zero kept distinct.
 - **Reported numbers:** does each estimate match the plan's estimand, and do tables, figures, and site prose say what the code actually computes?
