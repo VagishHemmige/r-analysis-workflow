@@ -14,9 +14,15 @@ Version 0.1.9. A skills-only plugin for R biomedical analysis projects whose cod
 
 - **Claude** (chat, Desktop and Cowork; paid plans): open **Customize** → **Plugins** → **Add** → **Add marketplace** → **Add from a repository**, enter `VagishHemmige/r-analysis-workflow`, then install **R Analysis Workflow**. It also syncs to Claude Code on the same account.
 - **Claude Code:** `claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow`
-- **ChatGPT:** <your steps>
+- **ChatGPT:** Install Plugin Creator, then ask it to create a plugin from this repository: `https://github.com/VagishHemmige/r-analysis-workflow`. For subsequent updates, ask Plugin Creator to update the existing R Analysis Workflow plugin from the repository, preserving its identity. This is an explicitly requested update, not automatic GitHub synchronization. Workspace administrators also have a separate GitHub marketplace import and daily-sync option; see [OpenAI's plugin documentation](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
 
 Installing grants no data access or GitHub permissions; see Dependencies.
+
+## Updating
+
+- **Claude Code:** auto-update is off for this marketplace by default. Turn it on in `/plugin` → **Marketplaces** → `r-analysis-workflow` → **Enable auto-update**, or update by hand:
+  `claude plugin update r-analysis-workflow@r-analysis-workflow`
+- **ChatGPT** (not yet tested): mention `@plugin-creator` and your existing R Analysis Workflow plugin, and ask it to update from the repository.
 
 ## Using it
 

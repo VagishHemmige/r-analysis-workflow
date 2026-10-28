@@ -17,6 +17,7 @@ What was checked, and what was not.
 - **`check_links.py`** now also checks `#anchors`, the links in `assets/` (except the starter templates) and manifest keywords; it caught three planted errors in a scratch copy.
 - **`.gitignore` template:** `/data-raw/` ignores files of any format there (tested with `git check-ignore`).
 - **0.1.9 changes** (from the 2026-10-26 user simulation of 0.1.8, continued to publication: readable R in conventions and the AGENTS.md template; read the installed version's package documentation, one real call past a fake, pilot paid batches; say why outputs are ignored; a change review reads every changed file; show files before and after changing them; attribute a decision or words only with a linked record; empty Amendments section at locking): every link resolves (`check_links.py`). The readable-R rule was in force for the simulated revision; new code followed it and tested statistical code was left alone. Record in the source's `testing/runs/2026-10-26-user-simulation-0.1.8/`.
+- **README install and update steps** (0.1.9): the Claude and Claude Code steps were checked against Anthropic's documentation (Use plugins in Claude; Install and manage plugins) on 2026-10-27, and the ChatGPT steps against OpenAI's Plugins in ChatGPT the same day. This is a documentation check, not an installation test.
 
 ## Not yet checked
 
@@ -27,5 +28,6 @@ What was checked, and what was not.
 - The model-reporting recipes (GEE, mixed models, `add_global_p()`, multiple imputation) have not been executed on synthetic data.
 - Upload to claude.ai and use in chat and Cowork: Anthropic's documentation describes supporting files inside each skill's folder and does not say whether skills there can read the shared root folders through `../../`. Check on first upload.
 - Use in ChatGPT: whether its skills follow `../../` links to the shared root folders as Codex plugins do, and read the non-Markdown starter files. Check this on first use.
+- No install or update route in the README has been tried end to end. The ChatGPT route is a proposed workflow: OpenAI documents installing Plugin Creator and updating a plugin through it, but not creating one from a GitHub URL or keeping its identity on update; the workspace marketplace import needs a ChatGPT marketplace catalog, which this repository does not have.
 - Real-user testing of the setup questionnaire.
 - No scientific results were reproduced.
