@@ -1,0 +1,20 @@
+---
+title: "Overview"
+format: html
+---
+
+## Clinical background
+
+<Why the question matters, with verified citations from `references.bib`. Details go on the [clinical background](quarto/background.qmd) page.>
+
+## What this analysis does
+
+<The data sources and the question, in two or three sentences.>
+
+## Methods
+
+<A short summary for readers. The authoritative specification is [`analysis-plan.md`](https://github.com/OWNER/REPOSITORY/blob/BRANCH/analysis-plan.md).>
+
+## Status
+
+<Preliminary, under review, or final. Link the GitHub Issues for open decisions.>

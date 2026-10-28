@@ -5,7 +5,7 @@ description: Help someone join an R analysis project, or leave one, at the level
 
 If the linked plugin files cannot be opened, say so and continue from the repository's own AGENTS.md and analysis plan; do not guess their contents.
 
-Read [onboarding](../../references/onboarding.md), the project's AGENTS.md and README, and the person's own instructions. Start from what they want to contribute and what they already know. Give one next step at a time and keep their earlier answers.
+Read [onboarding](references/onboarding.md), the project's AGENTS.md and README, and the person's own instructions. Start from what they want to contribute and what they already know. Give one next step at a time and keep their earlier answers.
 
 ## Explain the project through its own documents
 
@@ -25,7 +25,7 @@ Use the project as it is now; do not assume the person can read code or knows th
 
 ## Leaving
 
-When someone is leaving or handing over, follow "Leaving a project" in [onboarding](../../references/onboarding.md).
+When someone is leaving or handing over, follow "Leaving a project" in [onboarding](references/onboarding.md).
 
 ## Boundaries
 

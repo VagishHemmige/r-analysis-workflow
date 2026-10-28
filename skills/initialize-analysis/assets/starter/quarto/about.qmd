@@ -1,0 +1,12 @@
+---
+title: "About"
+format: html
+---
+
+<Contributors, approved contact information, and how collaborators can contribute under the repository's rules.>
+
+## Other portions of the analysis
+
+-   [**Setup**](setup.qmd): packages and shared constants.
+-   [**Functions**](functions.qmd): reusable helper functions.
+-   [**1. Example step**](example.qmd): <one line on what the script does>.

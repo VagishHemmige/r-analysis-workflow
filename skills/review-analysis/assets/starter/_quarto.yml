@@ -1,0 +1,81 @@
+# Replace Author Name, Affiliation, Site title, OWNER, REPOSITORY and BRANCH
+# (here and in the page links) before the first render.
+# Requires the custom-callout extension: see the plugin's references/quarto.md.
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - quarto/**
+
+author:
+  - name: "Author Name"
+    affiliations:
+      - "Affiliation"
+
+website:
+  title: "Site title"
+  site-url: https://OWNER.github.io/REPOSITORY
+  repo-url: https://github.com/OWNER/REPOSITORY
+  repo-branch: BRANCH   # the repository's actual default branch
+  repo-actions: [edit, issue]
+  page-navigation: true
+
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+
+      - section: Background
+        contents:
+          - href: quarto/background.qmd
+            text: Clinical background
+
+      - section: Setup and helper functions
+        contents:
+          - href: quarto/setup.qmd
+            text: Setup
+          - href: quarto/functions.qmd
+            text: Functions
+
+      # One numbered page per definitive script, in the order main.R sources them.
+      - section: Data processing and analysis
+        contents:
+          - href: quarto/example.qmd
+            text: 1. Example step
+
+      # Add when R/tables.R and R/figures.R exist:
+      # - section: Tables and figures
+      #   contents:
+      #     - href: quarto/tables.qmd
+      #       text: Tables
+      #     - href: quarto/figures.qmd
+      #       text: Figures
+
+      - href: quarto/about.qmd
+        text: About
+
+custom-callout:
+  Rcode:
+    icon: true
+    icon-symbol: "💻"
+    color: pink
+
+filters:
+  - custom-callout
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+    code-tools: true
+    page-layout: full
+    code-summary: "Click to show/hide R Code"
+
+# The site shows code; it never runs the analysis. Chunks that must run
+# (read_chunk imports, results pages reading public outputs) set eval: true.
+execute:
+  eval: false

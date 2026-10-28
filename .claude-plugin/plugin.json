@@ -1,6 +1,6 @@
 {
   "name": "r-analysis-workflow",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Set up, document, report and review R biomedical analysis projects: analysis plans, AGENTS.md, Quarto explainer sites, GitHub workflow, and blind clinical, statistical, coding and librarian reviews.",
   "author": {
     "name": "Vagish Hemmige"

@@ -1,0 +1,44 @@
+---
+title: "1. Example step"
+format: html
+---
+
+<One sentence: what this script does and what it produces for later scripts.>
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/example.R`](https://github.com/OWNER/REPOSITORY/blob/BRANCH/R/example.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/OWNER/REPOSITORY/blob/BRANCH/R/setup.R)
+-   [`R/functions.R`](https://github.com/OWNER/REPOSITORY/blob/BRANCH/R/functions.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/example.R")
+```
+
+## Create synthetic input
+
+<For a real step: purpose, inputs and where they come from, the transformation, the assumptions and plan sections it implements, and what it produces. Explain why, not only what.>
+
+```{r}
+#| label: create-synthetic-input
+#| eval: false
+```
+
+## Compute summary
+
+<Explain the step's reasoning and link the downstream script that uses its output.>
+
+```{r}
+#| label: compute-summary
+#| eval: false
+```

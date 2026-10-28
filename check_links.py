@@ -5,11 +5,17 @@
 - The two manifests (plugin.json for ChatGPT, .claude-plugin/plugin.json for
   Claude) agree on name, version, description, author, license and keywords.
 
+- No link in a skill's folder points outside that folder.
+- Every skill's copies of the shared files match references/ and assets/ at
+  the plugin root (see build_skills.py).
+
 Run from the plugin root: python3 check_links.py
-Links inside code fences, and links in assets/starter/ (which point within a
-future project), are skipped.
+Links inside code fences, and links in the starter templates (which point
+within a future project), are skipped.
 """
 import json, os, re, sys
+
+from build_skills import stale
 
 LINK = re.compile(r"\]\(([^)\s]+)\)")
 FENCE = re.compile(r"^(`{3,}).*?^\1\s*$", re.S | re.M)
@@ -29,7 +35,7 @@ def anchors(path):
 
 bad = []
 for d, _, files in os.walk("."):
-    if d.startswith("./assets/starter"):
+    if "/assets/starter" in d:
         continue
     for f in files:
         if not f.endswith(".md"):
@@ -40,7 +46,10 @@ for d, _, files in os.walk("."):
                 continue
             target, _, anchor = t.partition("#")
             path = os.path.normpath(os.path.join(d, target)) if target else p
-            if not os.path.exists(path):
+            skill = os.sep.join(os.path.normpath(p).split(os.sep)[:2])
+            if skill.startswith("skills" + os.sep) and not path.startswith(skill + os.sep):
+                bad.append(f"{p} -> {t} (leaves the skill folder; ChatGPT packages only the skill's own folder)")
+            elif not os.path.exists(path):
                 bad.append(f"{p} -> {t} (file not found)")
             elif anchor and path.endswith(".md") and anchor not in anchors(path):
                 bad.append(f"{p} -> {t} (no such heading)")
@@ -51,6 +60,7 @@ if os.path.exists(".claude-plugin/plugin.json"):
     for k in ("name", "version", "description", "author", "license", "keywords"):
         if a.get(k) != b.get(k):
             bad.append(f"manifests differ on {k}: plugin.json and .claude-plugin/plugin.json")
+bad += stale()
 if bad:
     sys.exit("Problems:\n  " + "\n  ".join(bad))
-print("All links and anchors resolve; manifests agree.")
+print("All links and anchors resolve; manifests agree; skill copies are current.")

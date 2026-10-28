@@ -5,7 +5,7 @@ description: Write or update the explanatory Quarto website and ARCHITECTURE.md 
 
 If the linked plugin files cannot be opened, say so and continue from the repository's own AGENTS.md and analysis plan; do not guess their contents.
 
-Read [conventions](../../references/conventions.md), [Quarto guidance](../../references/quarto.md) and the project's AGENTS.md. Use the Posit `quarto-authoring` skill for Quarto work and `describe-design` for ARCHITECTURE.md; if either is not installed, say so and continue without claiming it was used. The starter templates are in [assets/starter](../../assets/starter/_quarto.yml).
+Read [conventions](references/conventions.md), [Quarto guidance](references/quarto.md) and the project's AGENTS.md. Use the Posit `quarto-authoring` skill for Quarto work and `describe-design` for ARCHITECTURE.md; if either is not installed, say so and continue without claiming it was used. The starter templates are in [assets/starter](assets/starter/_quarto.yml).
 
 Documentation describes what the code does now. Planned behavior belongs in the plan; open work belongs in GitHub Issues.
 
@@ -14,7 +14,7 @@ Documentation describes what the code does now. Planned behavior belongs in the 
 A script joins when `R/main.R` sources it. In the same pull request:
 
 1. **Label the script.** Divide it into `## ---- step-name` sections: kebab-case, describing the step, unique across all scripts. Labels never change what the code does. Give it the header comment AGENTS.md requires.
-2. **Write its page** in `quarto/`, named after the script, following [the example page](../../assets/starter/quarto/example.qmd): one-sentence purpose, the Source code callout linking the script and its helpers on GitHub, the hidden `knitr::read_chunk("../R/<script>.R")` import, then one section per label with prose followed by an empty `eval: false` chunk.
+2. **Write its page** in `quarto/`, named after the script, following [the example page](assets/starter/quarto/example.qmd): one-sentence purpose, the Source code callout linking the script and its helpers on GitHub, the hidden `knitr::read_chunk("../R/<script>.R")` import, then one section per label with prose followed by an empty `eval: false` chunk.
 3. **Add it to the sidebar** in `_quarto.yml`, numbered in the order `main.R` sources it, and to the list on the About page.
 4. **Link neighbours.** Link the scripts it depends on and the ones that use its output.
 5. **Render, check and commit `docs/`** (see "Before committing").
