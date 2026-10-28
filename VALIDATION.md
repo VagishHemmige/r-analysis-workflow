@@ -1,4 +1,4 @@
-# Validation — 0.1.10, 2026-10-28
+# Validation — 0.1.11, 2026-10-28
 
 What was checked, and what was not.
 
@@ -18,6 +18,7 @@ What was checked, and what was not.
 - **`.gitignore` template:** `/data-raw/` ignores files of any format there (tested with `git check-ignore`).
 - **0.1.9 changes** (from the 2026-10-26 user simulation of 0.1.8, continued to publication: readable R in conventions and the AGENTS.md template; read the installed version's package documentation, one real call past a fake, pilot paid batches; say why outputs are ignored; a change review reads every changed file; show files before and after changing them; attribute a decision or words only with a linked record; empty Amendments section at locking): every link resolves (`check_links.py`). The readable-R rule was in force for the simulated revision; new code followed it and tested statistical code was left alone. Record in the source's `testing/runs/2026-10-26-user-simulation-0.1.8/`.
 - **README install and update steps** (0.1.9): the Claude and Claude Code steps were checked against Anthropic's documentation (Use plugins in Claude; Install and manage plugins) on 2026-10-27, and the ChatGPT steps against OpenAI's Plugins in ChatGPT the same day. This is a documentation check, not an installation test.
+- **0.1.11 changes** (when an agent asks before acting: one section in `conventions.md` where the working style decides how much to ask, step by step when none is set, with rules that hold in every style; optional alternatives proposed before they are committed, compared on synthetic data; matching lines in the AGENTS.md and personal instructions templates): the three conflicts this replaces (hands-off against showing each file, drafts outside the repository against saving drafts at the end of a session, AGENTS.md's default against proposing alternatives first) were checked by reading the plugin. Every link resolves and every skill's copies are current (`check_links.py`).
 
 ## Not yet checked
 
@@ -29,5 +30,6 @@ What was checked, and what was not.
 - Upload to claude.ai and use in chat and Cowork: Anthropic's documentation describes supporting files inside each skill's folder, which 0.1.10 now follows. Check on first upload.
 - Use in ChatGPT of 0.1.10: whether each cloud skill's bundle now holds its copied files, whether the skill reader follows links between them (for example `conventions.md` → `github-workflow.md` → `onboarding.md` → `assets/project-instructions.md`), and whether it opens the non-Markdown files (`guidelines.bib`, the starter's `.yml`, `.qmd`, `.R` and `gitignore.template`). Check on first use.
 - No install or update route in the README has been tried end to end. The ChatGPT route is a proposed workflow: OpenAI documents installing Plugin Creator and updating a plugin through it, but not creating one from a GitHub URL or keeping its identity on update; the workspace marketplace import needs a ChatGPT marketplace catalog, which this repository does not have.
+- The 0.1.11 asking rules have not been run in a simulated session under each working style, nor has the alternatives comparison (synthetic-data run, side-by-side display) been tried in ChatGPT or Claude.
 - Real-user testing of the setup questionnaire.
 - No scientific results were reproduced.
