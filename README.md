@@ -1,6 +1,6 @@
 # R Analysis Workflow
 
-Version 0.1.8. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
+Version 0.1.9. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
 
 ## Skills
 
