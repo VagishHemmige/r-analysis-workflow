@@ -17,7 +17,7 @@ Working style: <pick one starting point, then adjust>
 - Review only: read, review and suggest. Never change files or the repository; any change you think is needed waits for my explicit yes.
 - Step by step: propose each change and wait for my yes, then make it on a branch and explain it.
 - Hands-off: build on branches and open pull requests, with their descriptions, without asking at each step, then walk me through what you made. Anything else posted as me (issue comments, replies to others, emails) is shown to me first.
-In every style: nothing else is posted or sent as me, or sent to the PI or anyone else, without my approval (hands-off covers only its own pull requests); scientific decisions stay with the deciders.
+In every style: nothing else is posted or sent as me, or sent to the PI or anyone else, without my approval (hands-off covers only its own pull requests); another way of writing something already agreed is proposed to me before it is committed; scientific decisions stay with the deciders.
 Authorized actions: <state local editing/organization, execution, installations, Git commits/branches/PRs, external comments and publication separately; retain existing authorization>.
 Data access boundaries: <approved folders/environment and applicable policy/DUA references; no credentials>.
 Private references: <authorized locations, if any>.
