@@ -2,6 +2,14 @@
 
 Version 0.1.9. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
 
+**Who it's for.** Anyone working on such a project: clinicians who will never write R, students who know R but not GitHub, statisticians and maintainers.
+
+**Where to start.**
+- Starting a project, or tidying an existing one: `initialize-analysis`.
+- Joining or leaving a project: `onboard-collaborator`.
+- Adding or changing a script: `document-analysis`, then `report-analysis` for tables and figures.
+- Checking work before it is merged or published: `review-analysis`.
+
 ## Install
 
 - **Claude** (chat, Desktop and Cowork; paid plans): open **Customize** → **Plugins** → **Add** → **Add marketplace** → **Add from a repository**, enter `VagishHemmige/r-analysis-workflow`, then install **R Analysis Workflow**. It also syncs to Claude Code on the same account.
