@@ -56,3 +56,9 @@ Uses installed Posit skills where relevant (`quarto-authoring`, `describe-design
 Shared material lives once at the plugin root, as OpenAI's own plugins do with shared references: `references/` for guidance and `assets/` for templates (the Quarto starter, AGENTS.md, personal instructions). Each skill is a single `SKILL.md` that links to them with `../../`. Edit a reference once and every skill sees the change. The ChatGPT manifest follows the Agent Plugins standard (a root `plugin.json`), which ChatGPT accepts; OpenAI's own plugins use `.codex-plugin/plugin.json`. The manifest is `plugin.json` for ChatGPT, with a matching `.claude-plugin/plugin.json` for Claude (claude.ai, Cowork and Claude Code); keep the two in step. Run `python3 check_links.py` before releasing; it checks the links and that the manifests agree.
 
 See VALIDATION.md for what has been checked and SOURCES.md for provenance. Original text and code are MIT licensed; linked external content keeps its own license.
+
+## Before you rely on it
+
+The plugin guides an assistant; it does not check your science. Review what it produces, as you would a new collaborator's work, before it goes into a plan, a paper or a decision. VALIDATION.md lists what has and has not been tested.
+
+New to skills? See [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills) (Claude) or [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt).
