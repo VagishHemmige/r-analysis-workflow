@@ -1,0 +1,6 @@
+---
+title: "Clinical background"
+format: html
+---
+
+<The clinical or scientific motivation, with verified citations from `references.bib`.>

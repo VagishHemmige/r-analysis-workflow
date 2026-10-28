@@ -5,17 +5,17 @@ description: Build and check the reporting of an R biomedical analysis with flow
 
 If the linked plugin files cannot be opened, say so and continue from the repository's own AGENTS.md and analysis plan; do not guess their contents.
 
-Read [reporting guidance](../../references/reporting.md), [conventions](../../references/conventions.md), the analysis plan and the project's AGENTS.md first.
+Read [reporting guidance](references/reporting.md), [conventions](references/conventions.md), the analysis plan and the project's AGENTS.md first.
 
 ## Boundaries
 
 - **The plan decides; reporting follows.** Model, covariates, functional forms, estimand, missing-data handling and the target journal's style come from the plan. Where the plan leaves one open, open or point to a decision issue instead of choosing through a reporting helper.
-- **Data.** Write and test reporting code on synthetic data. Agents do not read restricted data; real results are produced by an authorized person in the approved environment, and every table, figure and flowchart box passes the project's disclosure rules (see [data handling](../../references/data-handling.md)) before it leaves.
+- **Data.** Write and test reporting code on synthetic data. Agents do not read restricted data; real results are produced by an authorized person in the approved environment, and every table, figure and flowchart box passes the project's disclosure rules (see [data handling](references/data-handling.md)) before it leaves.
 - **Code.** Write calls as `package::function()`. Check the installed package versions and their official documentation before giving recipes that depend on version. Link to the references; do not copy them.
 
 ## Order of work
 
-Follow the sections of the [reporting guidance](../../references/reporting.md) in order, using those that apply to the design:
+Follow the sections of the [reporting guidance](references/reporting.md) in order, using those that apply to the design:
 
 1. **Participant flow:** the cohort built with the flowchart package, so the diagram and the analytic data come from the same code.
 2. **Descriptions and missingness:** every analysis variable, with missing counts shown, and missingness patterns.

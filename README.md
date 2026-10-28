@@ -1,6 +1,6 @@
 # R Analysis Workflow
 
-Version 0.1.9. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
+Version 0.1.10. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
 
 **Who it's for.** Anyone working on such a project: clinicians who will never write R, students who know R but not GitHub, statisticians and maintainers.
 
@@ -59,7 +59,7 @@ Uses installed Posit skills where relevant (`quarto-authoring`, `describe-design
 
 ## Layout
 
-Shared material lives once at the plugin root, as OpenAI's own plugins do with shared references: `references/` for guidance and `assets/` for templates (the Quarto starter, AGENTS.md, personal instructions). Each skill is a single `SKILL.md` that links to them with `../../`. Edit a reference once and every skill sees the change. The ChatGPT manifest follows the Agent Plugins standard (a root `plugin.json`), which ChatGPT accepts; OpenAI's own plugins use `.codex-plugin/plugin.json`. The manifest is `plugin.json` for ChatGPT, with a matching `.claude-plugin/plugin.json` for Claude (claude.ai, Cowork and Claude Code); keep the two in step. Run `python3 check_links.py` before releasing; it checks the links and that the manifests agree.
+Shared material has one source at the plugin root: `references/` for guidance and `assets/` for templates (the Quarto starter, AGENTS.md, personal instructions). Edit it there only. ChatGPT's cloud skills package only each skill's own folder, so each skill also carries generated copies of the shared files it uses, at the same paths (`skills/<skill>/references/`, `skills/<skill>/assets/`), and its `SKILL.md` links to those copies. After changing a `SKILL.md` or anything in `references/` or `assets/`, run `python3 build_skills.py` and commit the regenerated copies with the change. The ChatGPT manifest follows the Agent Plugins standard (a root `plugin.json`), which ChatGPT accepts; OpenAI's own plugins use `.codex-plugin/plugin.json`. The manifest is `plugin.json` for ChatGPT, with a matching `.claude-plugin/plugin.json` for Claude (claude.ai, Cowork and Claude Code); keep the two in step. Run `python3 check_links.py` before releasing; it checks the links, that the manifests agree, and that every skill's copies match the shared files.
 
 See VALIDATION.md for what has been checked and SOURCES.md for provenance. Original text and code are MIT licensed; linked external content keeps its own license.
 

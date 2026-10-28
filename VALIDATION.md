@@ -1,10 +1,10 @@
-# Validation — 0.1.9, 2026-10-27
+# Validation — 0.1.10, 2026-10-28
 
 What was checked, and what was not.
 
 ## Checked
 
-- **Layout:** follows OpenAI's curated plugins (github.com/openai/plugins, checked 2026-10-26), whose skills ship non-Markdown files and link to shared plugin-level `references/` with `../../`. Every relative link resolves (`check_links.py`). Version 0.1.4 installed in ChatGPT with this manifest format.
+- **Layout (0.1.10):** in ChatGPT, 0.1.9's cloud skills loaded `SKILL.md` but could not open the shared root files through `../../`; each skill's downloadable bundle held only its `SKILL.md`, while a local 0.1.8 install resolved the same links (reported by ChatGPT, 2026-10-27). The Agent Skills specification has skills link to files relative to their own folder. In OpenAI's curated plugins (github.com/openai/plugins, cloned 2026-10-27), 230 skills keep their own `references/`, and only 6 of 62 plugins link up to plugin-root files with `../../`; that repository is for Codex, which reads files from disk. 0.1.10 therefore copies each skill's shared files into its folder (`build_skills.py`). Tested: each skill folder copied alone resolves every link inside itself; `check_links.py` fails when a copy is edited by hand or a shared file is changed without rebuilding. Version 0.1.4 installed in ChatGPT with this manifest format.
 - **Quarto starter:** rendered with Quarto 1.7.32 and the custom-callout extension; all pages build, source sections import through `knitr::read_chunk()`, and the Rcode callout, code folding and sidebar display correctly (inspected visually). `R/main.R` runs in a fresh session.
 - **README template:** knits to `README.md` with `rmarkdown`.
 - **`.gitignore`:** tested in a scratch repository with `git check-ignore`: `docs/`, scripts and settings files are tracked; data formats, credentials, `figures/` and `tables/` are ignored; a narrow exception (`!output/*.csv`) works.
@@ -26,8 +26,8 @@ What was checked, and what was not.
 - Reviewers have not been rerun since their access rules and prompts were revised, including the 0.1.7 combining step (known findings, team-package headings), the coding expert's tracked-file check and the real-data check suggestions.
 - The 0.1.7 and 0.1.8 changes were tested in the 2026-10-26 user simulation; the 0.1.9 changes have not been tested by a rerun, and the readable-R rule not on a large new analysis.
 - The model-reporting recipes (GEE, mixed models, `add_global_p()`, multiple imputation) have not been executed on synthetic data.
-- Upload to claude.ai and use in chat and Cowork: Anthropic's documentation describes supporting files inside each skill's folder and does not say whether skills there can read the shared root folders through `../../`. Check on first upload.
-- Use in ChatGPT: whether its skills follow `../../` links to the shared root folders as Codex plugins do, and read the non-Markdown starter files. Check this on first use.
+- Upload to claude.ai and use in chat and Cowork: Anthropic's documentation describes supporting files inside each skill's folder, which 0.1.10 now follows. Check on first upload.
+- Use in ChatGPT of 0.1.10: whether each cloud skill's bundle now holds its copied files, whether the skill reader follows links between them (for example `conventions.md` → `github-workflow.md` → `onboarding.md` → `assets/project-instructions.md`), and whether it opens the non-Markdown files (`guidelines.bib`, the starter's `.yml`, `.qmd`, `.R` and `gitignore.template`). Check on first use.
 - No install or update route in the README has been tried end to end. The ChatGPT route is a proposed workflow: OpenAI documents installing Plugin Creator and updating a plugin through it, but not creating one from a GitHub URL or keeping its identity on update; the workspace marketplace import needs a ChatGPT marketplace catalog, which this repository does not have.
 - Real-user testing of the setup questionnaire.
 - No scientific results were reproduced.
