@@ -5,6 +5,7 @@
 - The two manifests (plugin.json for ChatGPT, .claude-plugin/plugin.json for
   Claude) agree on name, version, description, author, license and keywords.
 
+- No link in a skill's folder points outside that folder.
 - Every skill's copies of the shared files match references/ and assets/ at
   the plugin root (see build_skills.py).
 
@@ -45,7 +46,10 @@ for d, _, files in os.walk("."):
                 continue
             target, _, anchor = t.partition("#")
             path = os.path.normpath(os.path.join(d, target)) if target else p
-            if not os.path.exists(path):
+            skill = os.sep.join(os.path.normpath(p).split(os.sep)[:2])
+            if skill.startswith("skills" + os.sep) and not path.startswith(skill + os.sep):
+                bad.append(f"{p} -> {t} (leaves the skill folder; ChatGPT packages only the skill's own folder)")
+            elif not os.path.exists(path):
                 bad.append(f"{p} -> {t} (file not found)")
             elif anchor and path.endswith(".md") and anchor not in anchors(path):
                 bad.append(f"{p} -> {t} (no such heading)")
