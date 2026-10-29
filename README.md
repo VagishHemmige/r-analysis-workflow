@@ -9,6 +9,7 @@ Version 0.1.12. A skills-only plugin for R biomedical analysis projects whose co
 - Joining or leaving a project: `onboard-collaborator`.
 - Adding or changing a script: `document-analysis`, then `report-analysis` for tables and figures.
 - Checking work before it is merged or published: `review-analysis`.
+- Before the website, tables or figures go public: the Release review in `review-analysis` checks for anything from restricted data not yet cleared for release, credentials and missing alt text; then a person signs off.
 
 ## Install
 
