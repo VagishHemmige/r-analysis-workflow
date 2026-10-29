@@ -10,4 +10,11 @@ Adapt patterns deliberately. Keep approved public/synthetic fixtures outside who
 
 Whether `figures/` and `tables/` are tracked is asked during setup. When outputs require review before release (for example USRDS review before publication), they stay ignored until the governing review clears them; then remove the two lines from .gitignore and inspect the contents before staging. When outputs need no review, track them from the start. `docs/` is always tracked because it is the published site, so it never contains results from restricted data unless the review that AGENTS.md names has cleared those outputs for release. Apply each source's actual disclosure rules; do not universalize one study's small-cell threshold.
 
-If restricted material is committed or pushed, stop, tell the person who holds the data agreement, and follow GitHub's guidance on removing sensitive data from a repository. Deleting the file in a new commit does not remove it from history or from forks.
+## If something was pushed by mistake
+
+- Stop pushing.
+- If it is a password, token or key, revoke it first.
+- For restricted data, tell the PI and whoever the agreement names; the agreement decides what follows.
+- Deleting the file in a new commit does not remove it from the history, from forks or from anyone's clone.
+- Removing it from the history is the maintainer's job, following GitHub's [removing sensitive data from a repository](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository). It needs branch protection turned off for a while.
+- Agents do not attempt the removal.
