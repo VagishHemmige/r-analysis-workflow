@@ -2,6 +2,76 @@
 
 Applies to any analysis repository, whatever its default branch is called and whoever owns it. Use the repository's actual default branch; do not rename it unless the maintainer asks.
 
+## Setting up from R
+
+For a maintainer who has R and wants to set up or check the repository from the console. Anyone without R uses the website steps in the sections below. The person runs every command; agents suggest them and never run them.
+
+Find out where things stand first: the person runs `usethis::git_sitrep()` in the project folder and shares the result. Suggest only the next step whose indication applies, one at a time, and check again after each.
+
+| Indication | Command | What it changes |
+|---|---|---|
+| No project folder yet | `usethis::create_project("<path>")` | Creates the folder as an RStudio project. |
+| `git_sitrep()` shows no Git name or email | `usethis::use_git_config(user.name = "<name>", user.email = "<email>")` | Sets the Git identity on this computer. The email appears in every public commit; GitHub offers a private no-reply address. |
+| `git_sitrep()` shows no GitHub token | `usethis::create_github_token()`, then `gitcreds::gitcreds_set()` | Creates a token on GitHub and stores it on this computer. Never paste a token into a chat. |
+| Not a Git repository, and `file.exists(".gitignore")` is `FALSE` | Save the adapted starter `.gitignore` under exactly that name, and review it (see `data-handling.md`) | Nothing in Git yet. No Git step comes before this one. |
+| Not a Git repository; `.gitignore` in place and reviewed | `usethis::use_git()` and answer **no** when it offers to commit; run `gert::git_status()` and read the whole list; when it is right, run `usethis::use_git()` again and answer yes | Starts Git, then makes the first commit. The prompt shows only the first ten files, so the full list is read with `git_status()`. If it shows any data file, an output that should be ignored, or a file nobody recognises, stop, fix `.gitignore` and check again. |
+| Git repository with no GitHub remote | `usethis::use_github()` (public unless told otherwise) | Creates the repository on GitHub and pushes the first commit. From here the files are public. |
+| The check below shows the default branch unprotected | The ruleset call below | Protects the default branch, as in "Protect the default branch" below. |
+| The check below shows `docs/` on the default branch and Pages off | `usethis::use_github_pages(branch = "<default branch>", path = "/docs")` | Publishes the site, as in "Publishing the website" below. |
+
+The check reads the settings rather than assuming them, so it can be rerun at any time, for example after the repository is transferred:
+
+```r
+remote <- gh::gh_tree_remote()
+api <- function(endpoint, ...) {
+  tryCatch(
+    gh::gh(endpoint, owner = remote$username, repo = remote$repo, ...),
+    http_error_404 = function(e) NULL
+  )
+}
+branch <- api("GET /repos/{owner}/{repo}")$default_branch
+
+# Protected by a ruleset, or by classic branch protection
+rules <- api("GET /repos/{owner}/{repo}/rules/branches/{branch}", branch = branch)
+rule_types <- vapply(rules, function(rule) rule$type, character(1))
+protected <-
+  all(c("pull_request", "deletion", "non_fast_forward") %in% rule_types) ||
+  !is.null(api("GET /repos/{owner}/{repo}/branches/{branch}/protection", branch = branch))
+
+docs_merged <- !is.null(api("GET /repos/{owner}/{repo}/contents/docs", ref = branch))
+pages_on <- !is.null(api("GET /repos/{owner}/{repo}/pages"))
+
+cat("Default branch:", branch, "\nProtected:", protected,
+    "\ndocs/ merged:", docs_merged, "\nPages on:", pages_on, "\n")
+```
+
+The ruleset call, matching the website steps below (0 approvals, empty bypass list):
+
+```r
+gh::gh(
+  "POST /repos/{owner}/{repo}/rulesets",
+  owner = remote$username, repo = remote$repo,
+  name = "Protect default branch",
+  target = "branch",
+  enforcement = "active",
+  conditions = list(ref_name = list(include = list("~DEFAULT_BRANCH"), exclude = list())),
+  bypass_actors = list(),
+  rules = list(
+    list(type = "deletion"),
+    list(type = "non_fast_forward"),
+    list(type = "pull_request", parameters = list(
+      required_approving_review_count = 0,
+      dismiss_stale_reviews_on_push = FALSE,
+      require_code_owner_review = FALSE,
+      require_last_push_approval = FALSE,
+      required_review_thread_resolution = FALSE
+    ))
+  )
+)
+```
+
+The same limits apply as on the website: a token with admin rights on the repository, and on GitHub Free a private repository has neither rulesets nor Pages.
+
 ## Protect the default branch
 
 Every change reaches the default branch through a pull request. This makes each change visible before it lands, including changes made by agents working through a person's GitHub account, which GitHub treats as that person.
