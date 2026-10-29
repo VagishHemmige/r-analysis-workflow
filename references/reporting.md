@@ -1,6 +1,6 @@
 # Biomedical EDA, Table 1 and fitted-model reporting
 
-Links provide implementation details; do not reproduce source chapters or documentation. Model decisions belong in analysis-plan.md. Always write calls as package::function(), including ggplot2::aes() and helpers; operators and locally defined functions are exceptions.
+Links provide implementation details; do not reproduce source chapters or documentation. Model decisions belong in analysis-plan.md. Always write calls as package::function(), including ggplot2::aes() and helpers; operators and locally defined functions are exceptions. After rendering any table, check that every variable row shows its readable label, not the raw variable name.
 
 ## Participant flow (STROBE diagram)
 
