@@ -1,6 +1,6 @@
 # R Analysis Workflow
 
-Version 0.1.11. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
+Version 0.1.12. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
 
 **Who it's for.** Anyone working on such a project: clinicians who will never write R, students who know R but not GitHub, statisticians and maintainers.
 
@@ -9,6 +9,7 @@ Version 0.1.11. A skills-only plugin for R biomedical analysis projects whose co
 - Joining or leaving a project: `onboard-collaborator`.
 - Adding or changing a script: `document-analysis`, then `report-analysis` for tables and figures.
 - Checking work before it is merged or published: `review-analysis`.
+- Before the website, tables or figures go public: the Release review in `review-analysis` checks for anything from restricted data not yet cleared for release, credentials and missing alt text; then a person signs off.
 
 ## Install
 
