@@ -127,6 +127,7 @@ Check the items that apply before opening a pull request.
 - **Joins and denominators:** no unintended row multiplication; missing, suppressed, and zero kept distinct.
 - **Reported numbers:** does each estimate match the plan's estimand, and do tables, figures, and site prose say what the code actually computes?
 - **Structure:** is `ARCHITECTURE.md` current; are chunk labels unique and found by their pages; does every definitive script have a page and sidebar entry; does any site chunk run analysis code? Only the hidden `read_chunk()` import, and results pages reading outputs cleared for release, run.
+- **Disclosure:** search every changed tracked file, and the commit messages and pull-request text, for dates, record IDs, names, absolute paths and numbers that could come from restricted data. Read each hit in context; legitimate ones (plan dates, deciders' names, synthetic examples) stay.
 - **Execution:** does `main.R` run in a fresh session with relative paths; are any saved intermediates or caches stale?
 
 <Project-specific checks: add the checks this design needs, for example matching, coverage and cost checks for a claims cohort, or CRS, catchment and denominator checks for a geographic analysis.>
