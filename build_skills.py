@@ -12,12 +12,15 @@ file links to it. A link to a folder brings the whole folder (as
 initialize-analysis does with assets/starter/, since a project is set up from
 all of it).
 
-Run from the plugin root after changing a SKILL.md, references/ or assets/:
+The plugin is the plugin/ folder of the repository; this script works there
+wherever it is run from. Run it after changing a SKILL.md, references/ or assets/:
     python3 build_skills.py           rebuild every skill's copies
     python3 build_skills.py --check   fail if any copy is missing or stale
 Commit the regenerated copies with the change. check_links.py runs the check.
 """
 import filecmp, os, re, shutil, sys, tempfile
+
+PLUGIN = os.path.join(os.path.dirname(os.path.abspath(__file__)), "plugin")
 
 LINK = re.compile(r"\]\(([^)\s]+)\)")
 FENCE = re.compile(r"^(`{3,}).*?^\1\s*$", re.S | re.M)
@@ -92,6 +95,7 @@ def stale():
 
 
 if __name__ == "__main__":
+    os.chdir(PLUGIN)
     if "--check" in sys.argv:
         p = stale()
         if p:
