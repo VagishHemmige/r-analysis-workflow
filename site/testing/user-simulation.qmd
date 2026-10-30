@@ -1,0 +1,52 @@
+---
+title: "User simulation (Test B)"
+---
+
+*Written for version 0.1.13. Full procedure: [testing/README.md, Test B](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md#test-b-user-simulation). Scenario: [scenario.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/scenario.md).*
+
+Every person in this test, and in its records, is a simulated persona played by an AI agent. None of them is a real person, and the project uses only public data.
+
+## What it tests
+
+Whether a person with no GitHub account and no R can start a project from nothing with the plugin, and whether the people who come after can pick it up from the repository alone, through to a finished, reviewed analysis.
+
+## The project
+
+A new observational analysis: is an elevated level of serum free light chains associated with death from any cause, independent of age, sex and kidney function? It uses the public `flchain` dataset from the R survival package, which needs no data agreement.
+
+## The panel
+
+| Persona | Who they are | File |
+|---|---|---|
+| Student lead 1 | A medical student on a four-week elective; never used GitHub; no R on her laptop | [student-novice.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/personas/student-novice.md) |
+| Student lead 2 | An MD/MPH student who knows R but not Git; arrives with no handover | [student-r-no-github.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/personas/student-r-no-github.md) |
+| PI | A busy physician-investigator who maintains the repository; terse, skims, uses only GitHub's website and email | [pi.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/personas/pi.md) |
+| PI as lead | The same PI leading the work himself between clinical duties | [pi-as-lead.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/personas/pi-as-lead.md) |
+| Clinician-scientist | A nephrologist who uses neither R nor GitHub and replies by email | [clinician-scientist.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/personas/clinician-scientist.md) |
+| Biostatistician | Fluent in R and GitHub; comments on issues and may push to change the model directly | [biostatistician.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/personas/biostatistician.md) |
+| Revision lead | A cardiology fellow learning R, handling reviewer comments six months later | [student-revision.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/personas/student-revision.md) |
+
+## The roles in a run
+
+- **Assistant**: stands in for ChatGPT with the plugin installed. A fresh one for every session, because a new chat remembers nothing. It follows only the plugin. Its brief: [assistant-brief.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/assistant-brief.md).
+- **Personas**: one per person, kept across that person's sessions, because people remember even when chats don't. A persona never sees the plugin and writes only what the person would type.
+- **Check-in**: stands in for a scheduled task, run fresh each time it is due, reporting what is waiting on its person.
+- **Orchestrator**: passes messages word for word, carries out website actions a person says they did (creating a repository, merging, switching on the site), injects the scenario's events, keeps the gap log, and never helps either side.
+
+The world they share, a simulated GitHub made of folders, issues and pull requests as files, and email inboxes, is described in [world.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/world.md).
+
+## The scenario
+
+Fourteen steps take the project from the first student's first hour to a resubmitted paper: a first pull request, the PI's review, input from the clinician by email and the statistician on GitHub, decisions, the first student leaving without being prompted to hand over, a second student arriving with nothing but the repository link, the statistician pushing to change the model, a blind review of the finished repository, the PI finishing the analysis, and a revision lead handling reviewer comments six months later.
+
+A variant has the first student create the repository under her own account, to test whether anything raises transferring it before she leaves, and whether the website survives the transfer.
+
+## How it is scored
+
+For each person: how many exchanges before a first real contribution; whether they understood what was built in their name; jargon left unexplained; anything the assistant got wrong about the repository; any time it asked for installs, tokens or data it shouldn't have; and any decision it made that belonged to a decider. Then a list of checks on the plugin's own rules, each with the exchange that shows it. For the handover: how long the next lead took to find out where things stood, and what they could not recover.
+
+## Rules for the orchestrator
+
+Each comes from an error in an earlier run: relay by copying from the saved file, never by summary; personas write their own text; compute every number given to anyone; never supply invented content from a real publication; label simulated state; give no hints to either side; keep each person's workspace separate; and run each check-in when it is due rather than assuming its output.
+
+Results are on [Runs](runs.qmd).

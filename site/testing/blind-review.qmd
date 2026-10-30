@@ -1,0 +1,31 @@
+---
+title: "Blind review (Test A)"
+---
+
+*Written for version 0.1.13. Full procedure: [testing/README.md, Test A](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md#test-a-blind-review). Reviewer prompts: [reviewers.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md).*
+
+## What it tests
+
+The plugin's [review](../using/review.qmd) uses five reviewers, each a separate assistant:
+
+- **Clinician reader**: is it clear, relevant and understandable to a clinician?
+- **Clinician-researcher**: are the definitions, cohort and outcomes clinically valid?
+- **Statistician**: do the methods fit the question, and does the code do what the plan says?
+- **Coding expert**: is the code correct, readable, and safe to keep in a public repository?
+- **Librarian**: do the citations exist, and do they say what the plan claims they say?
+
+Test A checks whether these reviewers find real problems, keep to their roles, and never step outside the data rules.
+
+## How it runs
+
+1. **Pick a public repository and fix one commit.** Every reviewer reads the same version.
+2. **Build one packet per reviewer**: only the files that reviewer's role reviews, copied from that commit.
+3. **Start each reviewer as a separate assistant with a fresh context.** It sees its packet and public material its role needs (package documentation, cited papers, code sets, guidelines), and never the other reviewers' reports or the conversation that produced the work.
+4. **Combine the reports.** Every claimed error is checked against the source before it is listed; anything that doesn't hold is withdrawn or downgraded and listed under corrections. Findings already known from the repository's issues are marked with their status.
+5. **Score each reviewer**: did it stay in its role; how many findings were verified, withdrawn or unverifiable; which findings no other reviewer made; where reviewers independently found the same thing; what it said it couldn't assess and why; and any breach of the data rules (there should be none).
+
+## What a good result looks like
+
+Reviewers that each find something the others missed, independent rediscovery of the same problem by more than one, few withdrawn claims, and no data-rule breaches. A reviewer that says it couldn't check something points either to a fault in how its packet was built, which is then fixed, or to a real limit.
+
+Results are on [Runs](runs.qmd).

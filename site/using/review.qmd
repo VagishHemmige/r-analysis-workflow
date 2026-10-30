@@ -1,0 +1,52 @@
+---
+title: "Review"
+subtitle: "Skill: review-analysis"
+---
+
+*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md).*
+
+## What it is for
+
+Checking work before it is merged or made public: a single change, the plan, the website against the code, or the whole project.
+
+## When to use it
+
+- Before asking a colleague to look at a pull request.
+- When the plan is drafted, or before it is locked.
+- Before the website, tables or figures go public.
+- Whenever you want a second opinion on the project as it stands.
+
+## What happens
+
+You choose the kind of review, or describe what you want checked and the assistant picks:
+
+| Review | What it checks |
+|---|---|
+| Change | A pull request or branch, every file it touches, against the plan and the project's rules |
+| Plan ↔ code | Every part of the plan has code, and the code settles nothing the plan leaves open |
+| Plan | The plan is complete, its methods fit the question, and its citations say what it claims |
+| Site ↔ code | The website explains the code as it is |
+| Architecture | `ARCHITECTURE.md` matches the scripts |
+| Repository | The required files, the data-sources table, `.gitignore` and protection of the main copy |
+| Reporting | The flow diagram, tables, models and numbers in prose agree |
+| Release | Nothing restricted or uncleared, no credentials, and alt text, before anything goes public; then a person signs off |
+
+Most reviews use some of five **blind reviewers**: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. Each works as a separate assistant with only the files its role needs and public material such as cited papers, without seeing the other reviewers' findings or the conversation that produced the work. A final step checks every claimed error against the source before reporting it, and marks findings already known from issues.
+
+## What it will not do
+
+- Change anything while reviewing. Acting on the findings comes afterwards, one at a time, as you choose.
+- Give reviewers restricted data. Reviewers read only code, documentation and material cleared for release, so a review stays within the project's data agreements.
+
+## Ask it, for example
+
+- "Review pull request #12 before my supervisor sees it."
+- "Run a full blind review of this repository."
+- "Check the site is ready to go public."
+
+## Where the detail lives
+
+- [The blind reviewers](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md): what each reads, its prompt, and how reports are combined
+- [Data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md), for the Release review
+
+How the reviewers themselves are tested is on [Blind review (Test A)](../testing/blind-review.qmd).

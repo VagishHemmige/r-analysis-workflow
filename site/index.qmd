@@ -1,0 +1,44 @@
+---
+title: "R Analysis Workflow"
+subtitle: "A plugin that helps an AI assistant set up, explain, report and review R analysis projects published on GitHub"
+---
+
+*Written for version 0.1.13.*
+
+## What it is
+
+R Analysis Workflow is a plugin for ChatGPT and Claude. A plugin is a set of instructions the assistant reads when a task calls for them, so it works the same way every time and in every chat. This one is for biomedical analyses written in R, whose code and methods are published on GitHub and explained on a website. It is not for building R packages.
+
+With the plugin installed, you ask in plain words ("Help me start this project", "I'm joining this project and I'm new to GitHub") and the assistant follows the plugin's steps.
+
+## Who it is for
+
+Anyone working on such a project:
+
+- clinicians who will never write R, and who contribute through the plan, the website and the discussion of open questions;
+- students who know some R but not GitHub, or neither, often leading a project for a few weeks before handing it on;
+- statisticians, who review methods and decide statistical questions;
+- the person who maintains the repository, often the principal investigator.
+
+The plugin does not assume which of these you are. It asks what you want to do and how much help you want.
+
+## What a project built with it has
+
+- **An analysis plan** (`analysis-plan.md`) that decides the science. The code does what the plan says.
+- **Decision issues** on GitHub for each scientific question still open. Only the named **deciders** settle them; the assistant drafts the options and never chooses.
+- **R code** in labelled sections, with the analysis run from one script.
+- **A website** that explains each step of the code in plain language for a clinician reader. It shows the real code, and never runs the analysis.
+- **AGENTS.md**, the rules any assistant follows in that project: who decides what, which data it may never read, and how changes are made.
+- **Pull requests** for every change to the main copy, so each change can be seen and checked before it goes in.
+
+## Where to start
+
+- [Install](install.qmd) the plugin.
+- Then, depending on what you are doing: [start a project](using/start.qmd), [join or leave one](using/join-leave.qmd), [explain the code](using/explain.qmd), [report results](using/report.qmd) or [review the work](using/review.qmd).
+- To see how the plugin is checked, read [How it's tested](testing/index.qmd) and [Problems it solves](problems.qmd).
+
+## Before you rely on it
+
+The plugin guides an assistant; it does not check your science. Review what the assistant produces as you would a new collaborator's work, before it goes into a plan, a paper or a decision. [VALIDATION.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md) lists what has and has not been tested.
+
+The source, including every instruction the assistant reads, is on [GitHub](https://github.com/VagishHemmige/r-analysis-workflow). Original text and code are MIT licensed.

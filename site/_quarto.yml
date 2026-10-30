@@ -1,0 +1,63 @@
+# Site about the plugin. The source is this folder. A GitHub Action
+# (.github/workflows/publish.yml) renders it and publishes it to the gh-pages
+# branch, which GitHub Pages serves. Nothing here is installed with the
+# plugin (the plugin is the plugin/ folder).
+# Pages are written by hand at the level that changes slowly, and link to the
+# source on GitHub for detail. Each page says which version it was written for.
+project:
+  type: website
+  output-dir: _site
+
+author:
+  - name: "Vagish Hemmige"
+
+website:
+  title: "R Analysis Workflow"
+  site-url: https://vagishhemmige.github.io/r-analysis-workflow
+  repo-url: https://github.com/VagishHemmige/r-analysis-workflow
+  repo-branch: main
+  page-navigation: true
+
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: install.qmd
+        text: Install
+
+      - section: Using the plugin
+        contents:
+          - href: using/start.qmd
+            text: Start a project
+          - href: using/explain.qmd
+            text: Explain the code
+          - href: using/report.qmd
+            text: Report results
+          - href: using/review.qmd
+            text: Review
+          - href: using/join-leave.qmd
+            text: Join or leave a project
+
+      - section: Testing
+        contents:
+          - href: testing/index.qmd
+            text: How it's tested
+          - href: testing/blind-review.qmd
+            text: Blind review (Test A)
+          - href: testing/user-simulation.qmd
+            text: User simulation (Test B)
+          - href: testing/runs.qmd
+            text: Runs
+
+      - href: problems.qmd
+        text: Problems it solves
+      - href: sites.qmd
+        text: Sites built with it
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    page-layout: full

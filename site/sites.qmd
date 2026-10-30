@@ -1,0 +1,11 @@
+---
+title: "Sites built with it"
+---
+
+*Written for version 0.1.13.*
+
+None are listed yet.
+
+This page will list public project websites built with the plugin from the start. If you have built one, open an [issue on the plugin's repository](https://github.com/VagishHemmige/r-analysis-workflow/issues) with its address.
+
+To see what a project site looks like before then, the plugin's [starter files](https://github.com/VagishHemmige/r-analysis-workflow/tree/main/plugin/assets/starter) hold a small example site with made-up code.

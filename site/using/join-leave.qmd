@@ -1,0 +1,59 @@
+---
+title: "Join or leave a project"
+subtitle: "Skill: onboard-collaborator"
+---
+
+*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md).*
+
+## What it is for
+
+Helping someone start contributing to a project at the level of help they want, and helping someone who is leaving hand over so the next person can carry on from the repository alone.
+
+## Joining
+
+The assistant starts from what you want to contribute and what you already know, and gives one next step at a time. It explains the project through its own documents:
+
+- **the website**, the way in for anyone who doesn't code;
+- **the analysis plan**, which says what the analysis must do, with markers for questions still open;
+- **GitHub issues**, which hold those open questions and known gaps;
+- **AGENTS.md**, which says how work is done here and who decides what;
+- **ARCHITECTURE.md**, for people who will work on the code.
+
+Ways to contribute:
+
+- **Clinical input without code**: comment on a decision issue with evidence and reasoning, or review the plan or the site. Only the named deciders settle a question, but anyone can inform one. A decider who doesn't use GitHub can decide by email; their exact words are then posted in the issue.
+- **Code**: a change on a branch, offered as a pull request. The assistant explains only the Git steps your own tool needs.
+- **Review**: anyone can ask for one (see [Review](review.qmd)).
+
+It also offers your own ChatGPT or Claude project for the repository, with instructions for how you like to work (review only, step by step, or hands-off), and an optional check-in that reports what is waiting on you.
+
+When you take over from someone, it starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person's files or chats.
+
+## Leaving
+
+When you say you are leaving, or a check-in sees your end date coming, the assistant works through four things with you:
+
+1. **Documents** that exist only in a chat, on your laptop or in email, moved into the repository.
+2. **Open issues and pull requests**: finished, handed on, closed with a reason, or left open with a note saying what each waits on.
+3. **Requests you made** that have no answer yet, recorded so they aren't lost.
+4. **Ownership**: if you own the repository, transferring it to the PI, and then fixing the website links and switching the site back on, since GitHub does not redirect the website.
+
+Not everything has to be finished. Something left open with a clear note is fine.
+
+## What it will not do
+
+- Require R, Git or Quarto for work that doesn't need them.
+- Ask you to paste a token or password.
+- Change account settings, install software or publish without your say-so.
+
+## Ask it, for example
+
+- "Explain this project's question and show where I can help with the protocol. Assume I can't read R."
+- "I know R but not GitHub. Help me make one contribution."
+- "My rotation ends Friday. Help me hand over."
+
+## Where the detail lives
+
+- [Onboarding and leaving a project](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md)
+- [Personal instructions template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md)
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/), for learning Git with R

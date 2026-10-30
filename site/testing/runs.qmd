@@ -1,0 +1,18 @@
+---
+title: "Runs"
+---
+
+*Written for version 0.1.13. Records: [testing/runs](https://github.com/VagishHemmige/r-analysis-workflow/tree/main/testing/runs). Every person named in them is a simulated persona.*
+
+One line per run, newest first. Each record has a scorecard (what worked, what partly worked, what failed, with the evidence) and run notes (setup, environment, and anything the orchestrator got wrong).
+
+- **2026-10-27, plugin 0.1.9, Targeted re-test (Test B).** The 0.1.9 changes: a change review that reads every file, package documentation for the installed version, attribution only with a record, and the empty amendments section at locking, each against a planted defect. [scorecard](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-27-retest-0.1.9/scorecard.md) · [run notes](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-27-retest-0.1.9/run-notes.md) · [setup](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/setups/retest-0.1.9.md).
+- **2026-10-26, plugin 0.1.8, User simulation (Test B), continued to publication.** Two student leads, a novice and an R user, from nothing to a locked plan and a first analysis; then the PI as lead to submission, and a revision lead to publication. [scorecard](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/scorecard.md) · [continuation scorecard](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/scorecard-continuation.md) · [run notes](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/run-notes.md).
+- **2026-10-26, plugin 0.1.8, Blind review (Test A).** All five reviewers on the simulated project's repository at commit 16f9124. Results in the [0.1.8 scorecard](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/scorecard.md); full record not in this repository.
+
+## Earlier checks without a record here
+
+These are described in [VALIDATION.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md), but their records are not in this repository:
+
+- **Blind review (Test A)** of four reviewers (clinician reader, clinician-researcher, statistician, coding expert) on Cryptococcus-cost-analysis at commit 015aa6b.
+- **Blind review of the plugin itself** (0.1.7, 2026-10-26): five reviewers read only the shipped plugin and its stated principles; 46 findings, which 0.1.8 acted on.
