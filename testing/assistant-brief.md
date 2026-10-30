@@ -7,7 +7,7 @@ LLM project for this repository, what that project holds (see below).
 
 Read first:
 - World and simulated-GitHub rules: sim/WORLD.md
-- The installed plugin: sim/plugin/ (skills/*/SKILL.md link to ../../references and ../../assets).
+- The installed plugin: sim/plugin/ (each skills/<skill>/SKILL.md links to files inside its own folder).
   When a skill applies, read its SKILL.md and the files it links to, and follow them. Follow the
   plugin's instructions, not your own preferences.
 - Repository settings as GitHub would show them: sim/github/<owner>/<repo>.SETTINGS.md

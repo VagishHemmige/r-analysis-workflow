@@ -4,22 +4,29 @@ Two tests, both run by an orchestrating agent (Claude Code or similar) that can 
 
 | Test | Question it answers | Files |
 |---|---|---|
-| **A. Blind review** | Do the reviewer prompts find real problems, stay in role, and stay within data rules? | `../references/reviewers.md`, this file |
-| **B. User simulation** | Can a novice lead start a project from nothing with the plugin, and can the next lead pick it up? | `world.md`, `assistant-brief.md`, `personas/`, `scenario.md` |
+| **A. Blind review** | Do the reviewer prompts find real problems, stay in role, and stay within data rules? | `../plugin/references/reviewers.md`, this file |
+| **B. User simulation** | Can a novice lead start a project from nothing with the plugin, and can the next lead pick it up? | `world.md`, `assistant-brief.md`, `personas/`, `scenario.md`, `setups/` |
 
-Record every run in `runs/<date>-<test>/`: the transcripts, the gap log and the scorecard. Fix the plugin from the gap log, then rerun the affected part.
+Before a run, write down where it starts (see "Setups and worlds"). Keep the transcripts and the gap log outside the repository; `runs/<date>-<test>/` gets the scorecard and the run notes (plugin commit, environment, setup used, deviations). Turn each gap that is still open into an issue on the plugin repository. Fix the plugin from those issues, then rerun the affected part.
+
+## Setups and worlds
+
+A run that does not start from nothing (a re-test, a planted defect, a later step of Test B) starts from a world: the simulated GitHub, inboxes and projects at a given moment. Record it so the run can be repeated:
+
+- **Setup file:** `setups/<name>.md` says what the run starts from (a saved world, or another setup plus changes), every change planted in it and why, each trap and what passing looks like, the dates the world is set at, and what the personas are told. Planted file changes are kept beside it as patches (`setups/<name>/*.diff`), written so `git apply` reproduces them.
+- **Saved world:** at the end of any run whose state a later test may start from, save the world as `worlds/<name>.tar.gz`: each simulated repository as a git bundle (`git bundle create <repo>.bundle --all`, which keeps branches and tags), and the issue, pull-request, settings, inbox and project files as they are. Simulated content only: no real data, and nothing copied from real publications. A world that was not saved cannot be rebuilt exactly; its setup file says so and describes it instead.
 
 ## Environment
 
 - R with: survival, tidyverse, ggplot2, broom, labelled, mice, geepack, patchwork, flextable. Add gtsummary, flowchart, ggsurvfit, gt and finalfit where they can be installed, so that reporting code actually runs; record in the run notes which were missing.
 - Quarto (1.7 or later) and the custom-callout extension (copy `_extensions/` from any of the maintainer's analysis repositories).
 - git. A simulated GitHub is just folders (see `world.md`); no GitHub account is needed.
-- The plugin under test, unpacked, at `sim/plugin/`.
+- The plugin under test: the repository's `plugin/` folder at a recorded commit, copied to `sim/plugin/`.
 
 ## Test A: blind review
 
-1. **Choose a public repository and fix the commit.** Record the commit hash.
-2. **Build one packet per reviewer** from that commit, following the packet lists in `references/reviewers.md`. Copy only those files into `packets/<reviewer>/`. For the statistician and coding expert, add the source of each team-maintained data-access package the analysis uses (cloned at the version used, or the default branch; record which).
+1. **Choose a public repository and fix the commit.** Record the commit hash; that, with the plugin commit, is this test's setup.
+2. **Build one packet per reviewer** from that commit, following the packet lists in `plugin/references/reviewers.md`. Copy only those files into `packets/<reviewer>/`. For the statistician and coding expert, add the source of each team-maintained data-access package the analysis uses (cloned at the version used, or the default branch; record which).
 3. **Start each reviewer as a separate agent with a fresh context.** Its prompt is, in order: the packet location and access rules ("read only your packet, plus public material your role needs: data-access package source and documentation, cited sources, code sets and guidelines; never other reviewers' reports"); the shared rules block from `reviewers.md` with `<commit>` and `<repository>` filled in; the reviewer's own prompt block. Each writes its report to `reports/<reviewer>.md`. Run them in parallel.
 4. **Combine as the non-blind orchestrator** using the combining prompt in `reviewers.md`. Before listing any finding as a verified error, check it against the source yourself (grep the code, read the line). Withdraw or downgrade what does not hold and list it under "Corrections". Check factual claims about regulations or literature with a search. Check each finding against the repository's issues, and report known ones with their current status; list findings that trace to a team-maintained package under that package's heading.
 5. **Score** each reviewer:
@@ -63,7 +70,7 @@ Each comes from an error in an earlier run; log any breach in the run notes.
 3. Start a fresh assistant agent with the brief and that message. If the person has an LLM project for the repository, name it in the agent's instructions, and say whether this run lets project chats see each other (record the setting in the run notes; whether ChatGPT allows it is not yet confirmed). Say whether the person has email connected. It does its work with tools, then returns exactly what the user would see.
 4. Relay the reply to the persona agent, and its answer back to the same assistant agent. Continue until the person's session goal is met, they give up, or about eight exchanges.
 5. Between sessions, run the other people (PI decisions, collaborator comments) as their persona agents, each reading what they would really see: the pull request, the issues, the plan as rendered on the default branch, or an email.
-6. Save both sides of every exchange to `runs/.../transcripts/`, and copy each session's transcript into the person's `sim/projects/<person>/chats/` if they have a project.
+6. Save both sides of every exchange as transcripts, outside the repository (see above), and copy each session's transcript into the person's `sim/projects/<person>/chats/` if they have a project.
 
 ### Check-ins
 
@@ -71,7 +78,7 @@ Between steps, for each person with a check-in in `sim/projects/<person>/checkin
 
 ### Gap log
 
-After every assistant reply, record in `gaps.md`:
+After every assistant reply, record in the gap log (kept outside the repository):
 
 - **GAP**: something the plugin did not cover, so the assistant improvised or the user got stuck. Note what the assistant invented.
 - **Good**: something the plugin made go right that should be kept.
