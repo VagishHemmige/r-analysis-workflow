@@ -1,0 +1,190 @@
+---
+title: "Problems it solves"
+---
+
+*Written for version 0.1.13.*
+
+Each entry names a problem an analysis project can run into, the plugin rule that addresses it, the version that added the rule, and how it fared in testing. Entries are ordered by the stage of a project where the problem arises.
+
+**What this page does and doesn't claim.** It describes risks the plugin is built to handle. It does not claim what would happen without the plugin: no run has yet compared the same scenario with and without it. The test results come from simulated users (see [How it's tested](testing/index.qmd)). Versions before 0.1.7 are not recorded in this repository, so rules from then are marked "before 0.1.7".
+
+Test results use the scorecards' scale: **✔** worked as intended, **~** worked partly or only because a person caught it, **✘** failed, **not yet tested**.
+
+[s08]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/scorecard.md
+[s08c]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/scorecard-continuation.md
+[s09]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-27-retest-0.1.9/scorecard.md
+[val]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md
+[conv]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md
+[plan]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/analysis-plan.md
+[gh]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md
+[onb]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md
+[data]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md
+[agents]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md
+[init]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md
+[doc]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md
+[rev]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md
+[revs]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md
+[build]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/build_skills.py
+
+## Getting the plugin to work
+
+### The assistant can't open the plugin's shared guidance
+
+- **The risk:** ChatGPT's skills package only each skill's own folder, so guidance shared between skills was out of reach and every skill ran without it.
+- **What the plugin does:** keeps one source copy of each shared file and generates a copy inside every skill that uses it ([build_skills.py][build]); the release check fails if a copy is stale.
+- **Since:** 0.1.10.
+- **Tested:** each skill folder resolves every link inside itself when copied alone; not yet tested in ChatGPT ([VALIDATION.md][val]).
+
+## Starting a project
+
+### A novice can't get from an idea to a working repository
+
+- **The risk:** a student with no GitHub account and no R is asked to install tools, learn Git and set up a repository before anything useful happens.
+- **What the plugin does:** a short questionnaire, one question at a time, reusing what is already known, with no installs until the work needs them ([initialize-analysis][init]).
+- **Since:** before 0.1.7; setting up from R added in 0.1.12.
+- **Tested:** **✔** a novice went from nothing to a public repository, protected main copy, setup notes, a draft pull request and her own assistant project in one session ([0.1.8 scorecard][s08]).
+
+### The main copy is unprotected, or the website never goes live
+
+- **The risk:** a repository's rules say changes go through pull requests when nothing enforces it, or a site is built but never switched on.
+- **What the plugin does:** gives the maintainer the steps to protect the default branch and switch on GitHub Pages, reminds them when the first site is merged, and offers a check that reads the actual settings rather than assuming them ([GitHub workflow][gh]).
+- **Since:** Pages reminder 0.1.7; the settings check 0.1.12.
+- **Tested:** **not yet tested**. The 0.1.12 check has not been run ([VALIDATION.md][val]).
+
+### Data or secrets end up in a public repository
+
+- **The risk:** data files, credentials or outputs not yet cleared are committed, and deleting them later doesn't remove them from history.
+- **What the plugin does:** a `.gitignore` adapted to the project and reviewed before the first commit, the full file list read before committing, and steps for what to do if something was pushed by mistake ([data handling][data]).
+- **Since:** `.gitignore` before 0.1.7; reading the file list and the steps after a mistake 0.1.12.
+- **Tested:** the ignore rules were tested with `git check-ignore` in a scratch repository ([VALIDATION.md][val]).
+
+## Deciding the science
+
+### Someone settles a scientific question who shouldn't
+
+- **The risk:** a student, or an assistant, quietly chooses a cut-off, covariate or exclusion in code, and nobody can later say who decided or why.
+- **What the plugin does:** the analysis plan decides; every open choice is a decision issue on GitHub settled only by a named decider; assistants draft options and never choose ([analysis plan][plan]). The deciders are asked for at setup.
+- **Since:** before 0.1.7; deciders asked at setup 0.1.8.
+- **Tested:** **✔** across two student leads, an impatient statistician and a clinician who used only email ([0.1.8 scorecard][s08]); **✔** through peer review six months later ([continuation scorecard][s08c]).
+
+### Input from a collaborator who doesn't use GitHub is lost
+
+- **The risk:** a clinician's decision arrives by email or in a meeting, lives in one person's inbox, and is gone when they leave.
+- **What the plugin does:** whoever received it posts the decider's exact words in the decision issue, with name, date and how it was given; a summary from memory doesn't settle anything ([analysis plan][plan]).
+- **Since:** 0.1.8.
+- **Tested:** **✔** throughout ([0.1.8 scorecard][s08]). **✘** on consent: a collaborator's whole email was posted to a public repository before she knew it was public; no rule yet covers this.
+
+### A decision is credited to the wrong person
+
+- **The risk:** a draft says "Dr. X decided" when Dr. X didn't, or puts someone's words in another's mouth.
+- **What the plugin does:** writing that a person decided, said or wrote something needs a link to the record; if there is none, the assistant asks instead ([conventions][conv]).
+- **Since:** 0.1.9.
+- **Tested:** **~** in 0.1.8, before the rule, two wrong attributions were caught only by the people concerned ([continuation scorecard][s08c]); **✔** in the 0.1.9 re-test, where an agreement given only verbally was not asserted ([0.1.9 scorecard][s09]).
+
+### The plan changes after results are seen, without a record
+
+- **The risk:** a locked plan is edited once results are in, and a reader can't tell what was planned from what was chosen afterwards.
+- **What the plugin does:** at locking, an empty "Amendments after locking" section and a tag; every later change gets a dated entry saying whether it was made before or after outcome data were seen, and a new tag ([analysis plan][plan]).
+- **Since:** the amendment rule before 0.1.9; the empty section at locking 0.1.9.
+- **Tested:** **~** in 0.1.8 the rule never reached the repository and three claims about when results had been seen proved false ([continuation scorecard][s08c]); **✔** in the 0.1.9 re-test, the section was added at locking ([0.1.9 scorecard][s09]).
+
+## Working with an assistant
+
+### Something is posted in a person's name that they never saw
+
+- **The risk:** an assistant posts an issue comment, a pull-request description or an email as the person, with wording they wouldn't have used.
+- **What the plugin does:** shows the exact text first and waits for a go-ahead, unless the person's own instructions waive it ([conventions][conv]).
+- **Since:** 0.1.7.
+- **Tested:** **~** mostly held, with two conflicts with other rules ([0.1.8 scorecard][s08]); **✔** throughout the continuation, where it let a person correct the provenance of his own text before it was posted ([continuation scorecard][s08c]).
+
+### Work is left in a chat or a download, and lost
+
+- **The risk:** a new chat remembers nothing, so a draft that lives only in an old chat or a downloads folder is gone.
+- **What the plugin does:** at the end of a session, asks whether anything unfinished should be saved to the repository and offers where ([conventions][conv]); a check-in looks for drafts that never got there ([onboarding][onb]).
+- **Since:** 0.1.7.
+- **Tested:** **~** worked in most sessions; failed once, when prepared changes were kept as downloads and one was lost ([0.1.8 scorecard][s08]).
+
+### The assistant asks too much, or too little
+
+- **The risk:** a novice is swamped by questions, or an assistant builds a whole setup on its own reading of the first request.
+- **What the plugin does:** how much to ask depends on the working style the person chose (review only, step by step, or hands-off), step by step when none is set, with rules that hold in every style ([conventions][conv]).
+- **Since:** working styles 0.1.7; one consolidated rule 0.1.11.
+- **Tested:** **not yet tested** in a simulated session under each style ([VALIDATION.md][val]).
+
+### Directions to click through menus that don't exist
+
+- **The risk:** an assistant describes a menu path from memory, and a novice can't find it.
+- **What the plugin does:** use the plugin's own steps, check the app's current help pages, or say it isn't sure and describe what to look for ([conventions][conv]).
+- **Since:** 0.1.7.
+- **Tested:** **~** in the 0.1.9 re-test, one click path for GitHub was given with no source and not flagged as unchecked ([0.1.9 scorecard][s09]).
+
+### Code written from memory for the wrong package version
+
+- **The risk:** code works against the version the assistant remembers, not the one installed, and fails or silently changes results.
+- **What the plugin does:** read the documentation of the installed version, including its news; test past any fake once against the real package; name the version relied on in the pull request ([AGENTS.md template][agents]).
+- **Since:** 0.1.9.
+- **Tested:** **✔** read the project's locked version and its documentation, and said plainly what it couldn't run; **✘** the suggested pull-request text didn't name the version ([0.1.9 scorecard][s09]).
+
+### Code a clinician-analyst can't read
+
+- **The risk:** assistant-written R is dense with constructs that someone who learned R from online guides can't follow, so nobody on the team can check it.
+- **What the plugin does:** a readable-R rule for new code, and any style-only change to tested code must show identical outputs ([conventions][conv]).
+- **Since:** 0.1.9.
+- **Tested:** **✔** on new code early in the continuation; not yet on a large new analysis ([continuation scorecard][s08c]).
+
+## Code and the website
+
+### The website stops describing the actual code
+
+- **The risk:** a page holds a pasted copy of code that has since changed, so readers are told the analysis does something it doesn't.
+- **What the plugin does:** pages import labelled sections from the scripts themselves, and are updated in the same pull request as the code ([document-analysis][doc]).
+- **Since:** before 0.1.7.
+- **Tested:** **✔** pages imported the real code; **~** pages went stale between pull requests ([0.1.8 scorecard][s08]).
+
+### Pull requests pile up and nobody knows the merge order
+
+- **The risk:** a change built on another unmerged change leaves the reviewer to work out an order, and conflicts follow.
+- **What the plugin does:** every pull request is based on the default branch; a change that needs an unmerged one waits for it or is folded into it ([GitHub workflow][gh]).
+- **Since:** 0.1.7.
+- **Tested:** **✔** test merges before advising; a stacked branch kept off a pull request until its base merged ([0.1.8 scorecard][s08]).
+
+## Review
+
+### A review misses part of what changed
+
+- **The risk:** a reviewer reads the file the author mentioned and misses an unrelated file that came along in the same commit.
+- **What the plugin does:** a change review reads every file the change touches and lists them; a file not read is named, with the reason ([review-analysis][rev]).
+- **Since:** 0.1.9.
+- **Tested:** **✔** in the 0.1.9 re-test, all four planted defects across five files were found, plus one that wasn't planted ([0.1.9 scorecard][s09]).
+
+### A reviewer's claimed error isn't real
+
+- **The risk:** an assistant reviewer reports a confident error that doesn't hold, and someone acts on it.
+- **What the plugin does:** five blind reviewers, and a combining step that checks every claimed error against the source before listing it ([reviewers][revs]).
+- **Since:** before 0.1.7.
+- **Tested:** **✔** in the blind review at the end of the 0.1.8 simulation, each reviewer stayed in role, unverifiable claims were marked as such, and no data rule was breached ([0.1.8 scorecard][s08]). **✘** the full panel was never offered for the pull request that implemented the primary analysis.
+
+## Going public
+
+### Results go public before anyone meant them to
+
+- **The risk:** tables, figures or estimates reach a public repository or website before they are cleared, or before the paper.
+- **What the plugin does:** whether outputs are tracked is decided at setup and the reason recorded; no results in code, comments or other repository text; a Release review before anything goes public, then a person signs off ([data handling][data], [review-analysis][rev]).
+- **Since:** 0.1.8 to 0.1.12 (results out of repository text 0.1.8; the reason for ignoring outputs 0.1.9; the Disclosure check 0.1.12).
+- **Tested:** **~** in the continuation, outputs tracked by the project's `.gitignore` would have carried real estimates to the public repository while the assistant advised keeping them off, and its own audit of what was public was incomplete ([continuation scorecard][s08c]).
+
+## Handing over
+
+### The next lead can't find out where things stand
+
+- **The risk:** a rotating student leaves, and the next one has only a repository link and no idea what was done, decided or promised.
+- **What the plugin does:** the next person starts from the repository, not the last person's files; leaving follows four steps (documents, open work, pending requests, ownership), started by the person or by a check-in that sees their end date ([onboarding][onb]).
+- **Since:** 0.1.7.
+- **Tested:** **✔** the hand-over was started by the plugin's own scheduled reminder, and the next lead rebuilt the state from the repository in one reply ([0.1.8 scorecard][s08]).
+
+### Transferring the repository breaks the website
+
+- **The risk:** a student who owns the repository leaves; after the transfer the old site address stops working, because GitHub doesn't redirect websites.
+- **What the plugin does:** raises the transfer before the student leaves, orders it last, and lists the links to update and the site to switch on again ([onboarding][onb]).
+- **Since:** 0.1.7.
+- **Tested:** **~** the transfer was done in the right order, but old links were still on the site at the end ([0.1.8 scorecard][s08]).

@@ -1,0 +1,27 @@
+---
+title: "How it's tested"
+---
+
+*Written for version 0.1.13. Full procedure: [testing/README.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md).*
+
+A plugin is a set of instructions, so testing it means watching assistants follow those instructions and checking what they actually did. Two tests do this, both run by an orchestrating agent that starts independent assistants, passes messages between them and keeps the record. Neither needs ChatGPT itself. They stand in for real use, which remains the final check.
+
+| Test | Question it answers |
+|---|---|
+| [Blind review (Test A)](blind-review.qmd) | Do the five reviewers find real problems, stay in their roles, and stay within data rules? |
+| [User simulation (Test B)](user-simulation.qmd) | Can a novice start a project from nothing with the plugin, and can the next person pick it up? |
+
+## How a run is recorded
+
+- **Before a run**, its starting point is written down: the plugin commit, and for a run that doesn't start from nothing, the simulated world it starts from and every defect planted in it, with what passing looks like. These are the [setups](https://github.com/VagishHemmige/r-analysis-workflow/tree/main/testing/setups).
+- **During a run**, every gap is logged as it appears: something the plugin didn't cover, something it made go right, or a tension between two of its rules.
+- **After a run**, the repository keeps its scorecard and run notes (environment, setup used, and anything the orchestrator got wrong). Transcripts and the gap log are working material and are kept outside the repository. Each gap still open becomes an issue on the plugin's repository.
+- **Then** the plugin is fixed from those issues, one decision at a time by the maintainer, and the affected part is run again.
+
+The list of runs is on [Runs](runs.qmd). What the fixes add up to is on [Problems it solves](../problems.qmd).
+
+## What the tests can't show
+
+- How ChatGPT or Claude themselves behave with the plugin installed. The assistants in the tests follow the plugin as written, in a sandbox.
+- What happens with real restricted data. Tests use public or made-up data only.
+- What happens without the plugin. No run has yet compared the same scenario without it.

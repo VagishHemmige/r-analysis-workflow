@@ -12,6 +12,11 @@
 - LICENSE at the root (for GitHub) and plugin/LICENSE (installed) are the same.
 - Every relative link in the repository's own Markdown files (README.md,
   VALIDATION.md, SOURCES.md) resolves.
+- Every link in the site's pages (site/**/*.qmd) resolves: relative links to
+  another page, and links to this repository's files on GitHub
+  (github.com/VagishHemmige/r-analysis-workflow/blob|tree/main/<path>) to a
+  file or folder that exists here. Anchors on those GitHub links are checked
+  against the file's headings.
 
 The plugin is the plugin/ folder; run from anywhere: python3 check_links.py
 Links inside code fences, and links in the starter templates (which point
@@ -54,6 +59,32 @@ for f in sorted(os.listdir(ROOT)):
             bad.append(f"{f} -> {t} (file not found)")
         elif anchor and path.endswith(".md") and anchor not in anchors(path):
             bad.append(f"{f} -> {t} (no such heading)")
+
+SITE = os.path.join(ROOT, "site")
+REPO = re.compile(r"^https://github\.com/VagishHemmige/r-analysis-workflow/(?:blob|tree)/main/([^)\s#]+)(?:#(\S+))?$")
+REF = re.compile(r"^\[[^\]]+\]:\s*(\S+)", re.M)
+for d, _, files in os.walk(SITE):
+    if os.sep + "." in d:
+        continue
+    for f in files:
+        if not f.endswith(".qmd"):
+            continue
+        p = os.path.join(d, f)
+        rel = os.path.relpath(p, ROOT)
+        body = FENCE.sub("", open(p, encoding="utf-8").read())
+        for t in LINK.findall(body) + REF.findall(body):
+            m = REPO.match(t)
+            if m:
+                path, anchor = os.path.join(ROOT, m.group(1)), m.group(2)
+            elif re.match(r"^[a-z]+:", t) or t.startswith("#") or t.startswith("["):
+                continue
+            else:
+                target, _, anchor = t.partition("#")
+                path = os.path.normpath(os.path.join(d, target))
+            if not os.path.exists(path):
+                bad.append(f"{rel} -> {t} (not found)")
+            elif anchor and path.endswith(".md") and anchor not in anchors(path):
+                bad.append(f"{rel} -> {t} (no such heading)")
 
 os.chdir(PLUGIN)
 for d, _, files in os.walk("."):

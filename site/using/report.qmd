@@ -1,0 +1,48 @@
+---
+title: "Report results"
+subtitle: "Skill: report-analysis"
+---
+
+*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/report-analysis/SKILL.md).*
+
+## What it is for
+
+Building the tables, figures and numbers a paper reports, so that every count and estimate comes from the code that produced it and matches the analysis plan.
+
+## When to use it
+
+- You are ready to build the participant flow diagram, Table 1, survival curves or model tables.
+- You want to check that the numbers in a draft agree with each other and with what was fitted.
+
+## What happens
+
+The work follows a fixed order, using the parts that fit the design:
+
+1. **Participant flow**: the diagram of who was included and excluded, built by the same code that builds the analysis dataset (with the flowchart package), so the two can't disagree.
+2. **Descriptions and missingness**: every analysis variable, with missing values shown.
+3. **Table 1**, grouped the way the plan says (with gtsummary).
+4. **Two-variable and stratified summaries**, where the plan calls for them.
+5. **Repeated measurements over time**, where they exist.
+6. **Time to event**: follow-up, events and censoring, before any model.
+7. **Figures**, following published principles for clear statistical graphics, with survival curves in the KMunicate style and rules for small counts.
+8. **Model tables** that report the model actually fitted.
+
+Before finishing it checks that every number reconciles with the flow diagram, that estimates and their labels match the fitted model, and that every number written in prose comes from a computed value, never retyped.
+
+## What it will not do
+
+- Choose the model, covariates or how missing data are handled. Those come from the plan; an open one becomes a decision issue.
+- Read restricted data. It writes and tests the code on made-up data; a person with access runs it on the real data, and every output passes the project's disclosure rules before it leaves.
+
+## Ask it, for example
+
+- "Build Table 1 from the analysis dataset, grouped by exposure as in the plan."
+- "Make the Kaplan–Meier figure with a risk table."
+- "Check that the numbers in the results section match the tables."
+
+## Where the detail lives
+
+- [Reporting guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reporting.md)
+- [Data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md)
+
+For an independent check afterwards, ask for the Reporting review (see [Review](review.qmd)).

@@ -1,0 +1,51 @@
+---
+title: "Start a project"
+subtitle: "Skill: initialize-analysis"
+---
+
+*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md).*
+
+## What it is for
+
+Setting up a new analysis project, or tidying an existing one (a folder of scripts, or one long R Markdown file), so it becomes a GitHub repository in a consistent layout that the next person can pick up.
+
+## When to use it
+
+- You have an idea, a protocol or an old script, and no repository yet.
+- You have a repository that grew without a plan and want it organized.
+- A setup was started in an earlier chat and not finished.
+
+## What happens
+
+The assistant asks a short set of questions, one at a time, and reuses anything you have already told it or that is already in the files. It does not ask you to install R or Git unless the work needs them; a clinician can help with the protocol from the browser.
+
+Then it proposes a setup plan and, once you agree, drafts:
+
+- **the analysis plan** (`analysis-plan.md`), from a template that fits the design (observational, economic or descriptive), with a **decision issue** for every scientific choice still open rather than a guess;
+- **AGENTS.md**, the project's rules for any assistant: who the deciders are and for what, every data source and the package that reads it, and what an assistant may never read;
+- **the website starter**, a README, a reference list, and a `.gitignore` that keeps data and secrets out of the repository;
+- **steps for the maintainer** to protect the main copy, so every change arrives through a pull request, and to switch on the website.
+
+It also offers, without requiring them: your own ChatGPT or Claude project for this repository with instructions filled in for how you like to work, milestones with dates, and a periodic check-in that tells you what is waiting on you.
+
+## What it will not do
+
+- Choose a scientific option. It drafts the options; a decider settles them.
+- Open data that may be restricted while taking stock of a folder.
+- Install tools, publish anything or change repository settings on its own.
+
+## Ask it, for example
+
+- "Set up my R analysis project from my latest RMD and protocol."
+- "I have no GitHub account and no R. Help me get this project started."
+- "We started setting this up last week; carry on from where it stopped."
+
+## Where the detail lives
+
+- [The questionnaire](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/initialization.md)
+- [Writing the analysis plan](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/analysis-plan.md)
+- [The repository blueprint](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md)
+- [The AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md) and [personal instructions template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md)
+- [GitHub workflow](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md), including setting up from R
+- [Data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md)
+- [The starter files](https://github.com/VagishHemmige/r-analysis-workflow/tree/main/plugin/assets/starter)

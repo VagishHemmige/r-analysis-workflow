@@ -1,0 +1,49 @@
+---
+title: "Explain the code"
+subtitle: "Skill: document-analysis"
+---
+
+*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md).*
+
+## What it is for
+
+Keeping the project's website, README and `ARCHITECTURE.md` in step with the code. The website is how a clinician, a reviewer or the next student understands what the analysis does without reading R.
+
+## When to use it
+
+- A script has just joined the analysis (the main script now runs it) and needs its page.
+- Code changed and its page should say what it does now.
+- A page holds a pasted copy of code that may no longer match the script.
+- The site, README or architecture description needs repair.
+- A decision was made, the plan was locked, or a new data source was added, and the plan needs updating to match.
+
+## What happens
+
+Each definitive script is divided into labelled sections. Its page on the website shows those sections, imported from the script itself, so the code on the page is always the code that runs. Under each section the page explains, in plain language for a clinician:
+
+- what the step does and why;
+- what it takes in and where that comes from;
+- which part of the analysis plan it carries out;
+- what it hands on to the next step.
+
+Abbreviations are defined, associations are not described as causes, and sources are cited from the project's reference list. Where code and plan disagree, the page says so rather than smoothing it over.
+
+The page, the sidebar and the rendered site are updated in the same pull request as the code change.
+
+## What it will not do
+
+- Run the analysis to build the website. Pages show code; results appear only from outputs already cleared for release.
+- Invent a citation. A statement that needs one it can't find is flagged for the librarian reviewer.
+- Restyle an existing site without asking. It lists the differences from the plugin's conventions first.
+
+## Ask it, for example
+
+- "Write the Quarto page for the script I just added to main.R."
+- "This page has pasted code; switch it to import from the script."
+- "Update ARCHITECTURE.md after this restructure."
+
+## Where the detail lives
+
+- [Quarto website guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md)
+- [Example script page](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/quarto/example.qmd)
+- [Shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md)
