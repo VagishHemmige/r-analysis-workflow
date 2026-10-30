@@ -1,6 +1,6 @@
 # R Analysis Workflow
 
-Version 0.1.12. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
+Version 0.1.13. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
 
 **Who it's for.** Anyone working on such a project: clinicians who will never write R, students who know R but not GitHub, statisticians and maintainers.
 
@@ -15,7 +15,10 @@ Version 0.1.12. A skills-only plugin for R biomedical analysis projects whose co
 
 - **Claude** (chat, Desktop and Cowork; paid plans): open **Customize** → **Plugins** → **Add** → **Add marketplace** → **Add from a repository**, enter `VagishHemmige/r-analysis-workflow`, then install **R Analysis Workflow**. It also syncs to Claude Code on the same account.
 - **Claude Code:** `claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow`
-- **ChatGPT:** Install Plugin Creator, then ask it to create a plugin from this repository: `https://github.com/VagishHemmige/r-analysis-workflow`. For subsequent updates, ask Plugin Creator to update the existing R Analysis Workflow plugin from the repository, preserving its identity. This is an explicitly requested update, not automatic GitHub synchronization. Workspace administrators also have a separate GitHub marketplace import and daily-sync option; see [OpenAI's plugin documentation](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
+- **ChatGPT:** the plugin is the `plugin/` folder of this repository; its manifest is `plugin/plugin.json`. Creating it with Plugin Creator has worked with this layout; the other routes have not been tried with it (see VALIDATION.md):
+  - *Plugin Creator:* install it, then ask it to create a plugin from the `plugin/` folder of `https://github.com/VagishHemmige/r-analysis-workflow`. For updates, ask it to update the existing R Analysis Workflow plugin from that folder, preserving its identity. This is an explicitly requested update, not automatic GitHub synchronization.
+  - *Upload a ZIP* of the `plugin/` folder, so that `plugin.json` is at the top of the folder inside the ZIP. This is the shape that installed in ChatGPT for 0.1.4, when the plugin was the whole repository. GitHub's **Code → Download ZIP** does not give this shape: it holds the whole repository, with the plugin one folder further down.
+  - *Workspace administrators* have a GitHub marketplace import with daily sync; see [OpenAI's plugin documentation](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
 
 Installing grants no data access or GitHub permissions; see Dependencies.
 
@@ -23,7 +26,7 @@ Installing grants no data access or GitHub permissions; see Dependencies.
 
 - **Claude Code:** auto-update is off for this marketplace by default. Turn it on in `/plugin` → **Marketplaces** → `r-analysis-workflow` → **Enable auto-update**, or update by hand:
   `claude plugin update r-analysis-workflow@r-analysis-workflow`
-- **ChatGPT** (not yet tested): mention `@plugin-creator` and your existing R Analysis Workflow plugin, and ask it to update from the repository.
+- **ChatGPT** (not yet tested): mention `@plugin-creator` and your existing R Analysis Workflow plugin, and ask it to update from the `plugin/` folder of the repository.
 
 ## Using it
 
@@ -60,9 +63,11 @@ Uses installed Posit skills where relevant (`quarto-authoring`, `describe-design
 
 ## Layout
 
-Shared material has one source at the plugin root: `references/` for guidance and `assets/` for templates (the Quarto starter, AGENTS.md, personal instructions). Edit it there only. ChatGPT's cloud skills package only each skill's own folder, so each skill also carries generated copies of the shared files it uses, at the same paths (`skills/<skill>/references/`, `skills/<skill>/assets/`), and its `SKILL.md` links to those copies. After changing a `SKILL.md` or anything in `references/` or `assets/`, run `python3 build_skills.py` and commit the regenerated copies with the change. The ChatGPT manifest follows the Agent Plugins standard (a root `plugin.json`), which ChatGPT accepts; OpenAI's own plugins use `.codex-plugin/plugin.json`. The manifest is `plugin.json` for ChatGPT, with a matching `.claude-plugin/plugin.json` for Claude (claude.ai, Cowork and Claude Code); keep the two in step. Run `python3 check_links.py` before releasing; it checks the links, that the manifests agree, and that every skill's copies match the shared files.
+The plugin is the `plugin/` folder; Claude installs only that folder (`.claude-plugin/marketplace.json` points to it). The repository root holds what is not installed: this README, `VALIDATION.md`, `SOURCES.md`, the two scripts and `testing/` (the test procedure and dated run records).
 
-See VALIDATION.md for what has been checked and SOURCES.md for provenance. Original text and code are MIT licensed; linked external content keeps its own license.
+Shared material has one source at the plugin root (`plugin/`): `references/` for guidance and `assets/` for templates (the Quarto starter, AGENTS.md, personal instructions). Edit it there only. ChatGPT's cloud skills package only each skill's own folder, so each skill also carries generated copies of the shared files it uses, at the same paths (`skills/<skill>/references/`, `skills/<skill>/assets/`), and its `SKILL.md` links to those copies. After changing a `SKILL.md` or anything in `references/` or `assets/`, run `python3 build_skills.py` (from the repository root; it works inside `plugin/`) and commit the regenerated copies with the change. The ChatGPT manifest follows the Agent Plugins standard (a root `plugin.json`), which ChatGPT accepts; OpenAI's own plugins use `.codex-plugin/plugin.json`. The manifest is `plugin/plugin.json` for ChatGPT, with a matching `plugin/.claude-plugin/plugin.json` for Claude (claude.ai, Cowork and Claude Code); keep the two in step. Run `python3 check_links.py` before releasing; it checks the links in the plugin and in the root documents, that the manifests agree, and that every skill's copies match the shared files.
+
+See VALIDATION.md for what has been checked and SOURCES.md for provenance. Original text and code are MIT licensed (`LICENSE`, with the same file in `plugin/` so it installs with the plugin); linked external content keeps its own license.
 
 ## Before you rely on it
 

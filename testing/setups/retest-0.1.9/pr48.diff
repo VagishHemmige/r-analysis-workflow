@@ -1,0 +1,74 @@
+diff --git a/R/functions.R b/R/functions.R
+index c7b4238..0112cf8 100644
+--- a/R/functions.R
++++ b/R/functions.R
+@@ -171,15 +171,15 @@ format_hr <- function(hr, lower, upper, digits = 2) {
+   paste0(f(hr), " (", f(lower), " to ", f(upper), ")")
+ }
+
+-## ---- fn-age-group
++## ---- fn-age-groups
+ # Age groups from cut points (Dr. Lin, #20): each group includes its lower cut and
+-# excludes its upper one, e.g. c(50, 60, 70, 80, Inf) gives "50-59", "60-69", "70-79",
++# excludes its upper one, e.g. c(50, 60, 70, 80, Inf) gives "50 to 59", "60 to 69", "70 to 79",
+ # "80 or above". Whole-year labels, as ages in flchain are whole years.
+ age_group <- function(age, cuts) {
+   lower <- cuts[-length(cuts)]
+   upper <- cuts[-1]
+   labels <- ifelse(is.infinite(upper), paste0(lower, " or above"),
+-                   paste0(lower, "–", upper - 1))
++                   paste0(lower, " to ", upper - 1))
+   cut(age, breaks = cuts, right = FALSE, labels = labels)
+ }
+
+diff --git a/analysis-plan.md b/analysis-plan.md
+index b0c0967..1ce11f9 100644
+--- a/analysis-plan.md
++++ b/analysis-plan.md
+@@ -156,7 +156,7 @@ D1, D2 and D4.
+   summaries use observed values, not imputed ones; missing values are shown as their own
+   row, not dropped.
+ - **Missingness of creatinine, before any modelling:** percentage missing by death status,
+-  FLC group, age group, sex and sample year, and the eGFR distribution among those with
++  FLC group, age group (ten-year bands labelled "50 to 59" and so on), sex and sample year, and the eGFR distribution among those with
+   creatinine. This shows how plausible the missing-at-random assumption is.
+
+ ### Primary model (D5)
+diff --git a/quarto/functions.qmd b/quarto/functions.qmd
+index 43e0817..07ad8a0 100644
+--- a/quarto/functions.qmd
++++ b/quarto/functions.qmd
+@@ -116,7 +116,7 @@ This function writes a hazard ratio and its 95% confidence interval as the text
+
+ ### Age groups and missing values
+
+-The table of who is missing creatinine groups people by age in ten-year bands from 50 (everyone in the dataset is 50 or older). This function makes the groups from the cut points in [setup](setup.qmd); each group includes its lower age and stops before the next.
++The table of who is missing creatinine groups people by age in ten-year bands from 50 (everyone in the dataset is 50 or older). This function makes the groups from the cut points in [setup](setup.qmd); each group includes its lower age and stops before the next, and is labelled "50 to 59" and so on, as Reviewer 2 asked.
+
+ ```{r fn-age-group}
+ #| eval: false
+diff --git a/renv.lock b/renv.lock
+index 2cef8dc..afefe3b 100644
+--- a/renv.lock
++++ b/renv.lock
+@@ -23,7 +23,7 @@
+     },
+     "labelled": {
+       "Package": "labelled",
+-      "Version": "2.14.1",
++      "Version": "2.15.0",
+       "Source": "Repository",
+       "Repository": "CRAN"
+     },
+diff --git a/tests/test-functions.R b/tests/test-functions.R
+index 2e309af..f07fbf1 100644
+--- a/tests/test-functions.R
++++ b/tests/test-functions.R
+@@ -189,6 +189,7 @@ check("format_hr: vectorised", length(format_hr(c(1, 2), c(0.5, 1), c(2, 4))) ==
+ ag <- age_group(c(50, 59, 60, 79, 80, 101), c(50, 60, 70, 80, Inf))
+ check("age_group: four groups in order, last open-ended",
+       nlevels(ag) == 4 && levels(ag)[4] == "80 or above")
++check("age_group: labels use 'to'", levels(ag)[1] == "50 to 59")
+ check("age_group: lower cut included, upper excluded",
+       identical(as.integer(ag), c(1L, 1L, 2L, 3L, 4L, 4L)))
+
