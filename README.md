@@ -1,6 +1,6 @@
 # R Analysis Workflow
 
-Version 0.1.12. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
+Version 0.1.13. A skills-only plugin for R biomedical analysis projects whose code and methods are published on GitHub with a Quarto website. It is not for R packages.
 
 **Who it's for.** Anyone working on such a project: clinicians who will never write R, students who know R but not GitHub, statisticians and maintainers.
 
@@ -67,7 +67,7 @@ The plugin is the `plugin/` folder; Claude installs only that folder (`.claude-p
 
 Shared material has one source at the plugin root (`plugin/`): `references/` for guidance and `assets/` for templates (the Quarto starter, AGENTS.md, personal instructions). Edit it there only. ChatGPT's cloud skills package only each skill's own folder, so each skill also carries generated copies of the shared files it uses, at the same paths (`skills/<skill>/references/`, `skills/<skill>/assets/`), and its `SKILL.md` links to those copies. After changing a `SKILL.md` or anything in `references/` or `assets/`, run `python3 build_skills.py` (from the repository root; it works inside `plugin/`) and commit the regenerated copies with the change. The ChatGPT manifest follows the Agent Plugins standard (a root `plugin.json`), which ChatGPT accepts; OpenAI's own plugins use `.codex-plugin/plugin.json`. The manifest is `plugin/plugin.json` for ChatGPT, with a matching `plugin/.claude-plugin/plugin.json` for Claude (claude.ai, Cowork and Claude Code); keep the two in step. Run `python3 check_links.py` before releasing; it checks the links in the plugin and in the root documents, that the manifests agree, and that every skill's copies match the shared files.
 
-See VALIDATION.md for what has been checked and SOURCES.md for provenance. Original text and code are MIT licensed (`plugin/LICENSE`); linked external content keeps its own license.
+See VALIDATION.md for what has been checked and SOURCES.md for provenance. Original text and code are MIT licensed (`LICENSE`, with the same file in `plugin/` so it installs with the plugin); linked external content keeps its own license.
 
 ## Before you rely on it
 

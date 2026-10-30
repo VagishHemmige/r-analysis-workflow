@@ -9,6 +9,7 @@
 - Every skill's copies of the shared files match references/ and assets/ at
   the plugin root (see build_skills.py).
 
+- LICENSE at the root (for GitHub) and plugin/LICENSE (installed) are the same.
 - Every relative link in the repository's own Markdown files (README.md,
   VALIDATION.md, SOURCES.md) resolves.
 
@@ -81,6 +82,8 @@ if os.path.exists(".claude-plugin/plugin.json"):
     for k in ("name", "version", "description", "author", "license", "keywords"):
         if a.get(k) != b.get(k):
             bad.append(f"manifests differ on {k}: plugin.json and .claude-plugin/plugin.json")
+if open(os.path.join(ROOT, "LICENSE"), "rb").read() != open(os.path.join(PLUGIN, "LICENSE"), "rb").read():
+    bad.append("LICENSE and plugin/LICENSE differ; keep them the same")
 bad += stale()
 if bad:
     sys.exit("Problems:\n  " + "\n  ".join(bad))
