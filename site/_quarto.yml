@@ -1,11 +1,12 @@
-# Site about the plugin. The source is this folder; it renders into docs/ at the
-# repository root, which GitHub Pages serves. Nothing here is installed with the
+# Site about the plugin. The source is this folder. A GitHub Action
+# (.github/workflows/publish.yml) renders it and publishes it to the gh-pages
+# branch, which GitHub Pages serves. Nothing here is installed with the
 # plugin (the plugin is the plugin/ folder).
 # Pages are written by hand at the level that changes slowly, and link to the
 # source on GitHub for detail. Each page says which version it was written for.
 project:
   type: website
-  output-dir: ../docs
+  output-dir: _site
 
 author:
   - name: "Vagish Hemmige"
