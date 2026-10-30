@@ -16,7 +16,7 @@ Version 0.1.13. A skills-only plugin for R biomedical analysis projects whose co
 - **Claude** (chat, Desktop and Cowork; paid plans): open **Customize** → **Plugins** → **Add** → **Add marketplace** → **Add from a repository**, enter `VagishHemmige/r-analysis-workflow`, then install **R Analysis Workflow**. It also syncs to Claude Code on the same account.
 - **Claude Code:** `claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow`
 - **ChatGPT:** the plugin is the `plugin/` folder of this repository; its manifest is `plugin/plugin.json`. Creating it with Plugin Creator has worked with this layout; the other routes have not been tried with it (see VALIDATION.md):
-  - *Plugin Creator:* install it, then ask it to create a plugin from the `plugin/` folder of `https://github.com/VagishHemmige/r-analysis-workflow`. For updates, ask it to update the existing R Analysis Workflow plugin from that folder, preserving its identity. This is an explicitly requested update, not automatic GitHub synchronization.
+  - *Plugin Creator:* start a new conversation, type `@`, search for **Plugin Creator**, and select it. Ask it to create a plugin from the `plugin/` folder of `https://github.com/VagishHemmige/r-analysis-workflow`, then follow its prompts. Availability depends on your plan and workspace. See the [ChatGPT installation walkthrough](https://vagishhemmige.github.io/r-analysis-workflow/install.html#chatgpt) for the detailed steps, sources, and what has and has not been checked.
   - *Upload a ZIP* of the `plugin/` folder, so that `plugin.json` is at the top of the folder inside the ZIP. This is the shape that installed in ChatGPT for 0.1.4, when the plugin was the whole repository. GitHub's **Code → Download ZIP** does not give this shape: it holds the whole repository, with the plugin one folder further down.
   - *Workspace administrators* have a GitHub marketplace import with daily sync; see [OpenAI's plugin documentation](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt).
 
@@ -26,7 +26,7 @@ Installing grants no data access or GitHub permissions; see Dependencies.
 
 - **Claude Code:** auto-update is off for this marketplace by default. Turn it on in `/plugin` → **Marketplaces** → `r-analysis-workflow` → **Enable auto-update**, or update by hand:
   `claude plugin update r-analysis-workflow@r-analysis-workflow`
-- **ChatGPT** (not yet tested): mention `@plugin-creator` and your existing R Analysis Workflow plugin, and ask it to update from the `plugin/` folder of the repository.
+- **ChatGPT** (not yet tested with this plugin): open **Plugins**, select **R Analysis Workflow**, and choose **Edit Plugin**. Ask it to update the existing plugin from the `plugin/` folder of this repository, preserving its identity. This is an explicitly requested update, not automatic GitHub synchronization. See the [ChatGPT installation walkthrough](https://vagishhemmige.github.io/r-analysis-workflow/install.html#chatgpt) for sources and verification limits.
 
 ## Using it
 
