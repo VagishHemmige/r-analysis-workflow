@@ -11,4 +11,4 @@ Ask in plain words; you don't need to name a skill. Installing grants no data ac
 
 The plugin guides an assistant; it does not check your science. Review what it produces, as you would a new collaborator's work.
 
-Install and update steps, dependencies, what has been tested and the source: https://github.com/VagishHemmige/r-analysis-workflow. Original text and code are MIT licensed (`LICENSE`).
+Install in Claude Code: `claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow`. Other install and update steps, dependencies, what has been tested and the source: https://github.com/VagishHemmige/r-analysis-workflow. Original text and code are MIT licensed (`LICENSE`).
