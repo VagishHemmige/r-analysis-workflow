@@ -41,6 +41,11 @@ website:
           - href: using/join-leave.qmd
             text: Join or leave a project
 
+      - section: Manual
+        contents:
+          - href: manual/plan-and-decisions.qmd
+            text: The plan and its decisions
+
       - section: Testing
         contents:
           - href: testing/index.qmd

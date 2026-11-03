@@ -1,0 +1,62 @@
+---
+title: "The plan and its decisions"
+---
+
+*Written for version 0.1.14. Source: [writing the analysis plan](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/analysis-plan.md).*
+
+Two things decide the science of a project: one file, `analysis-plan.md`, and the **decision issues** on GitHub that hold the questions it hasn't settled yet. This page explains both, and how a question moves from one to the other.
+
+## `analysis-plan.md`
+
+**What it is.** The plan says what the analysis must do: the question, the population, the definitions, the outcomes, the statistical methods and the sensitivity analyses. It is the project's source of truth. The code carries out the plan and never redefines it; if the two disagree, the plan wins until a decider changes it.
+
+**Where it lives.** At the top of the repository, as an ordinary Markdown file. The project website shows it on its Analysis plan page, read from this one file, so there is never a second copy to keep up to date.
+
+**What's in it.** The assistant drafts it from a template that fits the study:
+
+| Study | Reporting guideline it follows |
+|---|---|
+| Observational, using routinely collected data (registries, claims, health records) | STROBE and RECORD |
+| An observational study with a causal question | the same, and TARGET if the design emulates a target trial |
+| Economic evaluation or decision model | CHEERS 2022 |
+| Descriptive, geographic or access analysis | STROBE and RECORD, framed as descriptive |
+
+Every plan ends with the same sections: disclosure control (the data agreement and its small-cell rule), limitations, a reporting map that links each checklist item to the section that answers it, and the references.
+
+**What it never holds.** Results, notes on how far the code has got, how the scripts are organised, or working rules. Those belong in the outputs, in GitHub issues, in `ARCHITECTURE.md` and in `AGENTS.md`.
+
+**Who edits it.** Anyone can propose a change, through a pull request. A change to a scientific choice counts only once a named decider has made that choice.
+
+**What the assistant does with it.** It drafts the plan from the investigators' protocol, IRB approval, earlier scripts and papers, and lists the choices those materials already make, for the deciders to confirm. It checks codes and variable definitions against the data source's own documentation rather than guessing from their names. Every definition or threshold taken from a paper or a data guide is cited from the project's `references.bib`; it never cites from memory.
+
+**What you see on GitHub.** A readable document. Points still open are marked like this:
+
+> The exposure cut-off. **Open:** [#14](https://github.com/OWNER/REPOSITORY/issues/14)
+
+On the project website, a paragraph like that is highlighted in yellow.
+
+## Decision issues
+
+**What they are.** A decision issue is a GitHub issue for one open scientific question. It states the question, the options and the evidence for each. Projects mark them however they like (a label, a word in the title); the plugin doesn't prescribe one.
+
+**Who takes part.** Anyone can open one or add to it: options, evidence, clinical reasoning, a paper. Only a **decider** settles it. The project's `AGENTS.md` names the deciders and their areas, for example "statistical methods: the study statistician".
+
+**Deciding without GitHub.** A decider can answer by email or in a meeting. Whoever received the answer posts the decider's exact words in the issue, with their name, the date and how it was given. A summary or a memory of what was said doesn't settle it.
+
+**What the assistant does.** It drafts the options and the evidence, and asks the deciders. It never chooses, in the issue, the plan or the code, and it never says someone decided something unless there is a written record of it.
+
+## From open question to decision
+
+1. Someone notices a choice the plan hasn't made, and opens a decision issue.
+2. People add options and evidence.
+3. The named decider states the choice in the issue, or someone posts their emailed words there.
+4. A pull request rewrites that passage of the plan to state the decision and its reason, cites the evidence, removes the **Open:** marker, and closes the issue.
+5. The decision takes effect when that pull request is merged into the main branch. The code can then follow the plan.
+
+## Locking the plan
+
+**What it means.** Once the plan is final, and before anyone looks at outcome data, it is locked: an empty "Amendments after locking" section is added, and that version is tagged (for example `sap-v1.0`). If the study is registered, the plan's header cites the registration.
+
+**After locking.** Every change gets a dated entry in that section: what changed, why, and whether it was made before or after outcome data were seen. Each change gets a new tag (`sap-v1.1`, and so on). A reviewer who asks for a new analysis therefore produces an amendment, decided like any other question, not a quiet edit.
+
+**Before locking,** git's history is the record: each design change is committed on its own, with the reason and whether any dependent results had already been seen.
