@@ -26,6 +26,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: start-here.qmd
+        text: Start here
       - href: install.qmd
         text: Install
 

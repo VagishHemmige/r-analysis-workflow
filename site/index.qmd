@@ -35,6 +35,7 @@ The plugin does not assume which of these you are. It asks what you want to do a
 
 ## Where to start
 
+- New here? Read [Start here](start-here.qmd).
 - [Install](install.qmd) the plugin.
 - Then, depending on what you are doing: [start a project](using/start.qmd), [join or leave one](using/join-leave.qmd), [explain the code](using/explain.qmd), [report results](using/report.qmd) or [review the work](using/review.qmd).
 - To see how the plugin is checked, read [How it's tested](testing/index.qmd) and [Problems it solves](problems.qmd).
