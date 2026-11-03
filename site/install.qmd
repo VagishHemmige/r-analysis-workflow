@@ -14,9 +14,12 @@ You need a paid Claude plan (Pro, Max, Team or Enterprise).
 
 **Add the plugin's marketplace** (a marketplace is a list of plugins kept in a GitHub repository):
 
-1. In Claude, open the **Customize** menu in the left sidebar.
+1. In Claude, open **Settings**, then **Customize**.
 2. Open the **Plugins** tab.
 3. Click **Add**, then **Add marketplace**.
+
+   ![Settings → Customize → Plugins, with the Add menu open.](images/claude-add-marketplace.png){fig-alt="Claude's Settings window with Customize selected in the left menu, the Plugins tab open, and the Add menu showing Add marketplace, Manage marketplaces, Upload plugin, Create a plugin and Create with Claude."}
+
 4. Choose **Add from a repository**.
 5. Type `VagishHemmige/r-analysis-workflow` and confirm.
 
@@ -31,7 +34,7 @@ In Cowork, open the **Cowork** tab first, then **Customize**.
 
 Once installed, it works in chat on the web, the Chat tab of the desktop app, Cowork, and Claude Code when you sign in with the same account.
 
-Source: Anthropic, [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude). Not yet tried by a person with this plugin since it moved into the `plugin/` folder (see [VALIDATION.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md)).
+Source: Anthropic, [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude). Tried by the maintainer in Cowork with version 0.1.14 on 3 November 2026 (see [VALIDATION.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md)).
 
 ## Claude Code
 
@@ -42,6 +45,8 @@ You need Claude Code version 2.1.292 or later for the one-line install.
 ```bash
 claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow
 ```
+
+This installs the plugin in Claude Code only. To use it in Claude chat or Cowork, add it there too, as in the Claude section above; a plugin added there also reaches Claude Code.
 
 It should print that it added the marketplace and then installed the plugin. To check, run `claude plugin list`: you should see `r-analysis-workflow@r-analysis-workflow`. The plugin loads the next time you start Claude Code.
 
