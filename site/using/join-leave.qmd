@@ -13,7 +13,7 @@ Helping someone start contributing to a project at the level of help they want, 
 
 The assistant starts from what you want to contribute and what you already know, and gives one next step at a time. It explains the project through its own documents:
 
-- **the website**, the way in for anyone who doesn't code;
+- **the website**, the way in for anyone who doesn't code: a clinician starts at Clinical background and Study design and methods;
 - **the analysis plan**, which says what the analysis must do, with markers for questions still open;
 - **GitHub issues**, which hold those open questions and known gaps;
 - **AGENTS.md**, which says how work is done here and who decides what;
