@@ -51,3 +51,9 @@
   border-radius: 3px;
   padding: .35rem .6rem;
 }
+
+/* Pages with no title (the project-document pages show the root file's own
+   first heading) would otherwise show an empty heading in the code-tools bar */
+.quarto-title-tools-only h1:empty {
+  display: none;
+}

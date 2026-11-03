@@ -1,8 +1,9 @@
 -- Marks provisional content in yellow and explains the mark on pages that
 -- have it (AGENTS.md, "Provisional content").
 --
--- - A paragraph that starts with **Decision pending:** is wrapped in a
---   `pending-note` block, with no change to the page's source.
+-- - A paragraph that starts with **Decision pending:** (study pages) or
+--   **Open:** (the analysis plan) is wrapped in a `pending-note` block, with
+--   no change to the page's source.
 -- - Any span written as [text]{.pending} is marked where it stands.
 -- - A page with at least one mark gets a Pending callout at the top that
 --   explains the mark (styled by custom-callout, which runs after this).
@@ -10,7 +11,9 @@
 -- Registered under `filters:` in _quarto.yml. The leading underscore keeps
 -- Quarto from treating this file as a page.
 
-local LABEL = "Decision pending:"
+-- Paragraphs that start with one of these bold labels are marked: the study
+-- pages' notes, and the analysis plan's own markers for open points.
+local LABELS = { "Decision pending:", "Open:" }
 
 local SAMPLE = "Text highlighted like this"
 local LEGEND = " is provisional: it depends on a decision the analysis plan " ..
@@ -34,10 +37,19 @@ local function comment_sentence(meta)
     "use the " .. label .. " button."
 end
 
+-- Accepts the colon inside or just after the bold (**Open:** or **Open**:).
 local function starts_with_label(para)
   local first = para.content[1]
-  return first ~= nil and first.t == "Strong"
-    and pandoc.utils.stringify(first) == LABEL
+  if first == nil or first.t ~= "Strong" then return false end
+  local text = pandoc.utils.stringify(first)
+  local after = para.content[2]
+  local colon_after = after ~= nil and after.t == "Str"
+    and after.text:sub(1, 1) == ":"
+  for _, label in ipairs(LABELS) do
+    if text == label then return true end
+    if colon_after and text == label:sub(1, -2) then return true end
+  end
+  return false
 end
 
 function Pandoc(doc)

@@ -13,13 +13,13 @@ format: html
 
 ## This repository
 
-<How the analysis is organized (scripts run in order by `R/main.R`, the packages that access the data), where the data live and why they are not in the repository.>
+<How the analysis is organized (scripts run in order by `R/main.R`, the packages that access the data) and where the data live. If the data are restricted, say why they are not in the repository; if they are public or synthetic, say where to get them.>
 
 Contributions follow the rules in [`AGENTS.md`](agents.qmd); known issues and open decisions are tracked in [Issues](https://github.com/OWNER/REPOSITORY/issues).
 
 ## How this website was created
 
-The site is built with [Quarto](https://quarto.org) from the analysis scripts themselves. Each code page imports the labelled sections of its script from `R/` and shows them with an explanation; the site never runs the analysis, so it is built without the restricted data.
+The site is built with [Quarto](https://quarto.org) from the analysis scripts themselves. Each code page imports the labelled sections of its script from `R/` and shows them with an explanation; the site never runs the analysis, so it is built without the analysis data.
 
 <How the repository is maintained, including the R Analysis Workflow plugin and any AI assistants, and the limits they work under.>
 

@@ -26,6 +26,8 @@ Follow the sections of the [reporting guidance](references/reporting.md) in orde
 7. **Figures:** principles first, KMunicate-style survival curves with risk tables, and small-count rules for every count shown.
 8. **Fitted models:** tables that report the model actually fitted.
 
+When cleared outputs go on the website, their page takes the Results kind: the `clipboard-data` icon and the green `Results` callout (see the [visual cues](references/quarto.md#visual-cues)).
+
 ## Checks before finishing
 
 - Every n in tables, figures and prose reconciles with the flow diagram.

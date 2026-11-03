@@ -6,7 +6,9 @@
 .httr-oauth
 .DS_Store
 
-# Quarto (docs/ is NOT ignored: it is the published site)
+# Quarto. docs/ is the rendered site: keep it tracked when the site is
+# published from docs/; add docs/ here when a GitHub Actions workflow
+# renders and publishes the site instead.
 /.quarto/
 **/*.quarto_ipynb
 

@@ -12,7 +12,7 @@ Every analysis repository publishes its code and methods as a Quarto website tha
 
 ## The custom-callout extension
 
-The site's callouts, pink `Rcode` (💻), green `Results` (📊) and yellow `Pending` (⏳), come from the MIT-licensed [coatless-quarto/custom-callout](https://github.com/coatless-quarto/custom-callout) extension, committed in `_extensions/`. Install it in the target project with `quarto add coatless-quarto/custom-callout` (when authorized), or copy `_extensions/coatless-quarto/` from an existing repository. Its source is not bundled in this plugin. The three callout definitions are in the starter's `_quarto.yml` under `custom-callout:`; copy all three into a project's `_quarto.yml`.
+The site's callouts, pink `Rcode` (💻, `#d63384`, the laptop icon's colour), green `Results` (📊) and yellow `Pending` (⏳), come from the MIT-licensed [coatless-quarto/custom-callout](https://github.com/coatless-quarto/custom-callout) extension, committed in `_extensions/`. Install it in the target project with `quarto add coatless-quarto/custom-callout` (when authorized), or copy `_extensions/coatless-quarto/` from an existing repository. Its source is not bundled in this plugin. The three callout definitions are in the starter's `_quarto.yml` under `custom-callout:`; copy all three into a project's `_quarto.yml`.
 
 ## Visual cues
 
@@ -26,11 +26,11 @@ Each kind of page has one icon and one colour. The icon is the sidebar entry's `
 | Results | `clipboard-data` | green | `Results` (📊) |
 | Project documents | `file-earmark-ruled` | grey | — |
 
-A page that fits none of these takes the kind of its main content: a page of historical or original code is R code, and a log of corrections and decisions is Study design and methods. Pages that reproduce results already published elsewhere are Results, keeping any notice about where they come from. Home has `house` and About `info-circle`. Section headings are bold, with a thin rule between sections, and sections inside another section (those under Code) are lighter. Give every new page the icon of its kind.
+A page that fits none of these takes the kind of its main content. For example, a page of original or historical code is R code; a log of corrections to the methods is Study design and methods; a log of maintenance changes is Project documents. Pages that reproduce results already published elsewhere take the Results kind and keep any notice about where they come from. The kind is only a label for the page: it does not make anything publishable, and it does not change the release review AGENTS.md names. Home has `house` and About `info-circle`. Section headings are bold, with a thin rule between sections, and sections inside another section (those under Code) are lighter. Give every new page the icon of its kind.
 
 ## Provisional content
 
-Text that depends on an open decision is highlighted in yellow. The filter [`quarto/_pending.lua`](../assets/starter/quarto/_pending.lua), registered before `custom-callout` in `filters:`, marks every paragraph that starts with **Decision pending:** and any phrase written as `[text]{.pending}`, and adds a ⏳ `Pending` callout at the top of each page that has a mark. When the reader-comments extension is set up, the callout also says how to comment, using the extension's button label. Mark only what an open decision could change, and remove the mark when the decision is settled. Yellow is used for nothing else. The filter marks paragraphs only: a **Decision pending:** note in a bullet or a table cell is not marked, so write such notes as their own paragraph, or wrap the text as `[text]{.pending}`, which works anywhere, table cells included. Decision pending notes link the decision issue (see [analysis plan](analysis-plan.md)). A project that already labels open choices another way (for example "Open decision" rows in a table) keeps its own convention unless the maintainer asks for it to be converted.
+Text that depends on an open decision is highlighted in yellow. The filter [`quarto/_pending.lua`](../assets/starter/quarto/_pending.lua), registered before `custom-callout` in `filters:`, marks every paragraph that starts with **Decision pending:**, and on the plan's page every paragraph that starts with the plan's own **Open:** marker (the colon inside or just after the bold), and any phrase written as `[text]{.pending}`, and adds a ⏳ `Pending` callout at the top of each page that has a mark. When the reader-comments extension is set up, the callout also says how to comment, using the extension's button label. Mark only what an open decision could change, and remove the mark when the decision is settled. Yellow is used for nothing else. The filter marks paragraphs only: a **Decision pending:** note in a bullet or a table cell is not marked, so write such notes as their own paragraph, or wrap the text as `[text]{.pending}`, which works anywhere, table cells included. Decision pending notes link the decision issue (see [analysis plan](analysis-plan.md)). Open choices labelled another way (for example "Open decision" rows in a table) get no yellow mark until they are rewritten as **Decision pending** notes or wrapped as `[text]{.pending}`; bringing an existing site up to date does that (below).
 
 ## Pages
 
@@ -54,10 +54,10 @@ Exploratory scripts do not get pages. A script gets its page when it is sourced 
 
 `analysis-plan.md`, `ARCHITECTURE.md`, `AGENTS.md` and `REPOSITORY-BLUEPRINT.md` stay at the repository root and are the only copies anyone edits. Each has a thin page in `quarto/` that shows it at render time:
 
-- [`quarto/analysis-plan.qmd`](../assets/starter/quarto/analysis-plan.qmd), [`agents.qmd`](../assets/starter/quarto/agents.qmd) and [`repository-blueprint.qmd`](../assets/starter/quarto/repository-blueprint.qmd) include the root file with `{{< include ../<file>.md >}}`. The plan's page sets `from: markdown+gfm_auto_identifiers`, so its GitHub-style links (`#13-open-decisions`) work on both GitHub and the site.
+- [`quarto/analysis-plan.qmd`](../assets/starter/quarto/analysis-plan.qmd), [`agents.qmd`](../assets/starter/quarto/agents.qmd) and [`repository-blueprint.qmd`](../assets/starter/quarto/repository-blueprint.qmd) include the root file with `{{< include ../<file>.md >}}`. The plan's page sets `from: markdown+gfm_auto_identifiers`, so its GitHub-style links (`#2-design`) work on both GitHub and the site.
 - [`quarto/architecture.qmd`](../assets/starter/quarto/architecture.qmd) reads `ARCHITECTURE.md` as text in one `eval: true` chunk and turns its ```` ```mermaid ```` fences into Quarto diagrams, which Quarto would otherwise show as code. It reads only that file.
 
-The starter has all four pages. The includes stop the render if a root file is missing, so a new project creates all four root files before the first render (a one-line `ARCHITECTURE.md` is enough until it is written); the Architecture page shows a note while that file is missing. When adding these pages to an existing site, the `from:` setting matters only if the plan links its own sections, and the Architecture reader only if `ARCHITECTURE.md` has mermaid diagrams.
+The starter has all four pages. The includes stop the render if a root file is missing, so a new project creates `analysis-plan.md`, `AGENTS.md` and `REPOSITORY-BLUEPRINT.md` (the bundled blueprint, unchanged) before the first render; the Architecture page shows a note until `ARCHITECTURE.md` exists. When adding these pages to an existing site, the `from:` setting matters only if the plan links its own sections, and the Architecture reader only if `ARCHITECTURE.md` has mermaid diagrams.
 
 ## Reader comments (optional)
 
@@ -65,7 +65,17 @@ The [issue-comments](https://github.com/VagishHemmige/quarto-commenting-extensio
 
 ## Bringing an existing site up to date
 
-A site built before these conventions is updated only after the maintainer agrees to the list of differences (see the document-analysis skill). Then, in one pull request: add `404.qmd` and the `render:` list; add `_pending.lua` to `filters:` before `custom-callout` and the three callout definitions; add the starter's rules to `styles.css`; add icons and the Code group to the sidebar; add any missing project-document pages; and update the project AGENTS.md "Quarto website" section to match. Pages the site lacks, such as Methodological background or Study design and methods, are proposed to the maintainer with an outline, never added as placeholder pages, because their content is the study team's. Existing callouts, labels and wording stay as they are unless the maintainer asks.
+A site built before these conventions is updated only after the maintainer agrees to the list of differences (see the document-analysis skill). Then, in one pull request:
+
+1. Add `404.qmd`, and add it to the `render:` list, keeping every target the list already has (pages outside `quarto/` included). If there is no `render:` list, add one that names every page the site renders now.
+2. Copy `quarto/_pending.lua`, register it in `filters:` before `custom-callout`, and add the `Results` and `Pending` callout definitions next to the existing ones.
+3. Create `styles.css` from the starter's, or, if the project has one, add the starter's rules to it and keep its own. Register it under `format: html: css:`, adding it to any stylesheets already listed rather than replacing them.
+4. Add icons, `collapse-level: 3` and the Code group to the sidebar.
+5. Add any missing project-document pages, and check that each root document they include exists.
+6. Rewrite the site's existing open-decision labels ("Open decision" rows, "to be decided" notes and the like) as **Decision pending** notes linked to their decision issues, or wrap them as `[text]{.pending}` in tables, without changing what they say is open. This is the one content change the procedure makes; list each one in the pull request.
+7. Update the project AGENTS.md "Quarto website" section to match, including the publishing route.
+
+Render, then check that every page that was on the site before is still in the sidebar and still renders, and that the icons are coloured (if not, the stylesheet is not registered). Pages the site lacks, such as Methodological background or Study design and methods, are proposed to the maintainer with an outline, never added as placeholder pages, because their content is the study team's. Apart from step 6, existing callouts, labels and wording stay as they are unless the maintainer asks.
 
 ## A script page
 
@@ -80,10 +90,11 @@ The prose explains purpose, inputs and where they come from, the transformation,
 
 A short script may instead be shown whole with `#| file: "../R/<script>.R"` and `eval: false`; label the sections once the page needs to explain them separately.
 
-## Checks before committing `docs/`
+## Checks before committing
 
 - Every `label` used by a page exists exactly once across `R/`, and every definitive script has a page and a sidebar entry with its kind's icon.
 - Each root project document has its page, and every **Decision pending** note is still an open decision.
+- No `<placeholder>` text from the starter remains, and no example **Decision pending** line is left in a page that has no open decision (search the `.qmd` files for `<` at the start of a placeholder).
 - No chunk evaluates analysis code; the site renders without restricted data.
 - Links to scripts use the correct repository and branch.
 - Render, then open the changed pages and check callouts, code folding, navigation, citations and figures.

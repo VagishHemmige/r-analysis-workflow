@@ -17,7 +17,7 @@ Find out where things stand first: the person runs `usethis::git_sitrep()` in th
 | Not a Git repository; `.gitignore` in place and reviewed | `usethis::use_git()` and answer **no** when it offers to commit; run `gert::git_status()` and read the whole list; when it is right, run `usethis::use_git()` again and answer yes | Starts Git, then makes the first commit. The prompt shows only the first ten files, so the full list is read with `git_status()`. If it shows any data file, an output that should be ignored, or a file nobody recognises, stop, fix `.gitignore` and check again. |
 | Git repository with no GitHub remote | `usethis::use_github()` (public unless told otherwise) | Creates the repository on GitHub and pushes the first commit. From here the files are public. |
 | The check below shows the default branch unprotected | The ruleset call below | Protects the default branch, as in "Protect the default branch" below. |
-| The check below shows `docs/` on the default branch and Pages off | `usethis::use_github_pages(branch = "<default branch>", path = "/docs")` | Publishes the site, as in "Publishing the website" below. |
+| The site is published from `docs/`, and the check below shows `docs/` on the default branch and Pages off | `usethis::use_github_pages(branch = "<default branch>", path = "/docs")` | Publishes the site, as in "Publishing the website" below. |
 
 The check reads the settings rather than assuming them, so it can be rerun at any time, for example after the repository is transferred:
 
@@ -94,17 +94,21 @@ Good practice for everyone, and required of agents:
 
 - One branch per piece of work, not per commit.
 - Base each pull request on the default branch. If a change needs one that has not been merged, wait for it to merge, or fold both into one pull request. Never leave someone to work out a merge order.
-- Re-render `docs/` on the same branch as the change it reflects.
+- When `docs/` is committed, re-render it on the same branch as the change it reflects.
 - A pull request says which plan section or issue it addresses and what was checked (see `AGENTS.md`).
 - A pull request that settles a decision issue includes `Closes #<n>` and the plan change.
 
 ## Publishing the website
 
-The site goes live only after someone with admin or maintainer permission on the repository turns on GitHub Pages, once a pull request containing `docs/` has been merged:
+The site goes live only after someone with admin or maintainer permission on the repository turns on GitHub Pages. How depends on the publishing route AGENTS.md records.
+
+**`docs/` committed.** Once a pull request containing `docs/` has been merged:
 
 1. On the repository page, click **Settings**, then **Pages** in the sidebar.
 2. Under "Build and deployment", set **Source** to **Deploy from a branch**.
 3. Choose the default branch and the **/docs** folder, then click **Save**.
+
+**Published by a workflow.** Once the workflow has run on the default branch and created the `gh-pages` branch, follow the same steps but choose the `gh-pages` branch and the **/ (root)** folder. The workflow then republishes the site on every push to the default branch.
 
 Agents cannot change settings; they tell the person who can.
 

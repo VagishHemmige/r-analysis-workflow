@@ -1,9 +1,9 @@
 # Replace Author Name, author@example.org, Site title, OWNER, REPOSITORY and
 # BRANCH (here and in the page links) before the first render.
 # Requires the custom-callout extension: see the plugin's references/quarto.md.
-# The four Project documents pages include analysis-plan.md, ARCHITECTURE.md,
-# AGENTS.md and REPOSITORY-BLUEPRINT.md from the repository root, so those
-# files must exist before the site renders.
+# The Project documents pages include analysis-plan.md, AGENTS.md and
+# REPOSITORY-BLUEPRINT.md from the repository root, so those files must exist
+# before the site renders. Until ARCHITECTURE.md is written, its page says so.
 project:
   type: website
   output-dir: docs
@@ -119,7 +119,7 @@ custom-callout:
   Rcode:
     icon: true
     icon-symbol: "💻"
-    color: pink
+    color: "#d63384"
   Results:
     icon: true
     icon-symbol: "📊"
@@ -154,7 +154,9 @@ format:
     page-layout: full
     code-summary: "Click to show/hide R Code"
 
-# The site shows code; it never runs the analysis. Chunks that must run
-# (read_chunk imports, results pages reading public outputs) set eval: true.
+# The site shows code; it never runs the analysis. Only these chunks set
+# eval: true: the read_chunk() imports, the Architecture page's chunk that
+# reads ARCHITECTURE.md, site helpers that read code or text, and results
+# pages that read outputs cleared for release.
 execute:
   eval: false
