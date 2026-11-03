@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#claude-code" id="toc-claude-code" class="nav-link" data-scroll-target="#claude-code">Claude Code</a></li>
   <li><a href="#chatgpt" id="toc-chatgpt" class="nav-link" data-scroll-target="#chatgpt">ChatGPT</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/install.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/install.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -321,7 +321,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You need Claude Code version 2.1.292 or later for the one-line install.</p>
 <p><strong>Install,</strong> in your terminal (not inside a Claude Code session):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> plugin install r-analysis-workflow <span class="at">--marketplace</span> VagishHemmige/r-analysis-workflow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This installs the plugin in Claude Code only. To use it in Claude chat or Cowork, add it there too, as in the Claude section above; a plugin added there also reaches Claude Code.</p>
 <p>It should print that it added the marketplace and then installed the plugin. To check, run <code>claude plugin list</code>: you should see <code>r-analysis-workflow@r-analysis-workflow</code>. The plugin loads the next time you start Claude Code.</p>
 <p>On an older version, use two commands instead:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> plugin marketplace add VagishHemmige/r-analysis-workflow</span>
@@ -332,6 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>update by hand when you want to, in your terminal:</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> plugin update r-analysis-workflow@r-analysis-workflow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Installing in Claude Code puts the plugin in Claude Code only. To use it in Claude chat or Cowork, add it there too, as in the Claude section above; a plugin added there also reaches Claude Code.</p>
 <p>Sources: Claude Code docs, <a href="https://code.claude.com/docs/en/plugins/install">Install and manage plugins</a> and <a href="https://code.claude.com/docs/en/plugins/cli-reference">Plugin commands reference</a>. The install from GitHub was tested in a sandbox with Claude Code 2.1.314 (<a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md">VALIDATION.md</a>).</p>
 </section>
 <section id="chatgpt" class="level2">
@@ -781,4 +781,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/install.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/install.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
