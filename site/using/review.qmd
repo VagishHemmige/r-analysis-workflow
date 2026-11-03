@@ -3,7 +3,7 @@ title: "Review"
 subtitle: "Skill: review-analysis"
 ---
 
-*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md).*
+*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md).*
 
 ## What it is for
 

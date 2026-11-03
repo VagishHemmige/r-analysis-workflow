@@ -3,7 +3,9 @@ title: "R Analysis Workflow"
 subtitle: "A plugin that helps an AI assistant set up, explain, report and review R analysis projects published on GitHub"
 ---
 
-*Written for version 0.1.13.*
+*Written for version 0.1.14.*
+
+*An early version. It has been tested in simulated projects and used by the maintainer on his own analyses; it has not yet been used by other teams.*
 
 ## What it is
 

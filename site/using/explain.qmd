@@ -3,7 +3,7 @@ title: "Explain the code"
 subtitle: "Skill: document-analysis"
 ---
 
-*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md).*
+*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md).*
 
 ## What it is for
 
@@ -15,6 +15,7 @@ Keeping the project's website, README and `ARCHITECTURE.md` in step with the cod
 - Code changed and its page should say what it does now.
 - A page holds a pasted copy of code that may no longer match the script.
 - The site, README or architecture description needs repair.
+- An existing project site needs bringing up to the plugin's current layout.
 - A decision was made, the plan was locked, or a new data source was added, and the plan needs updating to match.
 
 ## What happens
@@ -28,7 +29,17 @@ Each definitive script is divided into labelled sections. Its page on the websit
 
 Abbreviations are defined, associations are not described as causes, and sources are cited from the project's reference list. Where code and plan disagree, the page says so rather than smoothing it over.
 
-The page, the sidebar and the rendered site are updated in the same pull request as the code change.
+The page and the sidebar are updated in the same pull request as the code change. The rendered site is either updated in the same pull request or published by a workflow, as the project chose.
+
+## What the website has
+
+- **Home**, then **Clinical background** and **Methodological background**: the general knowledge the methods rest on.
+- **Study design and methods**: what this study chose and why, in plain language. Notes say which part of the plan specifies each step, where the code doesn't yet match the plan, and which choices are still open.
+- **Code**: one page per script, in the order the analysis runs them.
+- **Project documents**: the analysis plan, the architecture, AGENTS.md and the repository blueprint, shown from the files themselves so the site never holds an outdated copy.
+- **About**, and a page for addresses that don't exist.
+
+Each kind of page has its own icon and colour in the sidebar. Text that depends on a decision not yet made is highlighted in yellow, and the page says so at the top.
 
 ## What it will not do
 
@@ -41,6 +52,7 @@ The page, the sidebar and the rendered site are updated in the same pull request
 - "Write the Quarto page for the script I just added to main.R."
 - "This page has pasted code; switch it to import from the script."
 - "Update ARCHITECTURE.md after this restructure."
+- "Bring this site up to date with the plugin's layout."
 
 ## Where the detail lives
 

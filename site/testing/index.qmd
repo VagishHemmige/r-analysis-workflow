@@ -2,7 +2,7 @@
 title: "How it's tested"
 ---
 
-*Written for version 0.1.13. Full procedure: [testing/README.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md).*
+*Written for version 0.1.14. Full procedure: [testing/README.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md).*
 
 A plugin is a set of instructions, so testing it means watching assistants follow those instructions and checking what they actually did. Two tests do this, both run by an orchestrating agent that starts independent assistants, passes messages between them and keeps the record. Neither needs ChatGPT itself. They stand in for real use, which remains the final check.
 
