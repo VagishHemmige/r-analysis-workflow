@@ -4,6 +4,8 @@ title: "Start here"
 
 *Written for version 0.1.14.*
 
+![Code moves between your computer, GitHub and the assistant; a person approves every change. By default, data stay on your computer.](images/workflow.svg){fig-alt="Three boxes. Your computer: a person runs the R code on the data, and the data stay there; results leave only once cleared for release. GitHub, in the middle: the analysis plan, decision issues, the shared R code, pull requests and history; people decide, review and merge. The AI assistant with the plugin: reads the plan, open questions and code, writes code on a branch and proposes it as a pull request, which a person approves; it never decides and, by default, never sees the data. Arrows show code moving both ways between the computer and GitHub, and between GitHub and the assistant; no data leave the computer. The project website is built from the code on GitHub."}
+
 Find the line that fits you. Each says what to have ready and the first thing to type to the assistant once the plugin is [installed](install.qmd). You don't need to name a skill or know the Git words: the assistant explains them as they come up.
 
 ## I'm a student starting a new project
