@@ -108,7 +108,7 @@ The site goes live only after someone with admin or maintainer permission on the
 2. Under "Build and deployment", set **Source** to **Deploy from a branch**.
 3. Choose the default branch and the **/docs** folder, then click **Save**.
 
-**Published by a workflow.** Once the workflow has run on the default branch and created the `gh-pages` branch, follow the same steps but choose the `gh-pages` branch and the **/ (root)** folder. The workflow then republishes the site on every push to the default branch.
+**Published by a workflow.** This route needs a publish workflow in `.github/workflows/`, which the plugin does not yet provide (#46; Cryptococcus-cost-analysis and Dialysis-facility-density-USRDS each have one). Once the workflow has run on the default branch and created the `gh-pages` branch, follow the same steps but choose the `gh-pages` branch and the **/ (root)** folder ([GitHub: configuring a publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)). The workflow then republishes the site on every push to the default branch.
 
 Agents cannot change settings; they tell the person who can.
 

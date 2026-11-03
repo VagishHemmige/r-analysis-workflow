@@ -17,7 +17,7 @@ A script joins when `R/main.R` sources it. In the same pull request:
 2. **Write its page** in `quarto/`, named after the script, following [the example page](assets/starter/quarto/example.qmd): one-sentence purpose, the Source code callout linking the script and its helpers on GitHub, the hidden `knitr::read_chunk("../R/<script>.R")` import, then one section per label with prose followed by an empty `eval: false` chunk.
 3. **Add it to the sidebar** in `_quarto.yml`, under Code, numbered in the order `main.R` sources it and with the `laptop` icon (see the [visual cues](references/quarto.md#visual-cues)), and to the list on the About page.
 4. **Link neighbours.** Link the scripts it depends on and the ones that use its output.
-5. **Render and check** (see "Before committing"), and commit `docs/` if the site is published from it; when a workflow publishes the site, `docs/` stays uncommitted and the pull request's render check does the rest.
+5. **Render and check** (see "Before committing"), and commit `docs/` if the site is published from it; when a workflow publishes the site, `docs/` stays uncommitted; render the site locally before opening the pull request, since a render check on pull requests comes with the publish workflow (#46).
 
 Other pages follow the same rule: give each new page the icon of its kind, and when a document is added at the repository root to be shown on the site, add its page in `quarto/` and its sidebar entry under Project documents (see [project-document pages](references/quarto.md#project-document-pages)).
 
