@@ -34,6 +34,7 @@ It also offers, without requiring them: your own ChatGPT or Claude project for t
 - Choose a scientific option. It drafts the options; a decider settles them.
 - Open data that may be restricted while taking stock of a folder.
 - Install tools, publish anything or change repository settings on its own.
+- Overwrite files an existing project already has. It lists what differs from the starter instead.
 
 ## Ask it, for example
 
