@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Rules for working – R Analysis Workflow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../manual/code.html" rel="next">
+<link href="../manual/plan-and-decisions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f6725ec72a40a9c11b774886aa13be2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Rules for working</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../start-here.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start here</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Install</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Using the plugin</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../using/start.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start a project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../using/explain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Explain the code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../using/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Report results</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../using/review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Review</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../using/join-leave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Join or leave a project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Manual</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What setup creates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/plan-and-decisions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The plan and its decisions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Rules for working</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The website</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/references-readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References and README</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">On GitHub, not in files</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Testing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../testing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How it’s tested</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../testing/blind-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Blind review (Test A)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../testing/user-simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">User simulation (Test B)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../testing/runs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Runs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Problems it solves</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sites.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sites built with it</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agents.md" id="toc-agents.md" class="nav-link active" data-scroll-target="#agents.md"><code>AGENTS.md</code></a></li>
+  <li><a href="#gitignore" id="toc-gitignore" class="nav-link" data-scroll-target="#gitignore"><code>.gitignore</code></a></li>
+  <li><a href="#repository-blueprint.md" id="toc-repository-blueprint.md" class="nav-link" data-scroll-target="#repository-blueprint.md"><code>REPOSITORY-BLUEPRINT.md</code></a></li>
+  <li><a href="#personal-project-instructions" id="toc-personal-project-instructions" class="nav-link" data-scroll-target="#personal-project-instructions">Personal project instructions</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/rules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Rules for working</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Rules for working</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Written for version 0.1.14. Source: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md">AGENTS.md template</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/gitignore.template">starter .gitignore</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md">data handling</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-sources.md">data sources</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md">repository blueprint</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md">shared conventions</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/initialization.md">initialization questions</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md">personal instructions template</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md">onboarding</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md">initialize-analysis skill</a>.</em></p>
+<p>The plan says what the analysis does. This page covers the files that say how people and assistants work on it: <code>AGENTS.md</code>, the shared rulebook; <code>.gitignore</code>, the list of files Git leaves out; <code>REPOSITORY-BLUEPRINT.md</code>, the intended layout; and each person’s own instructions for their assistant, which stay outside the repository.</p>
+<section id="agents.md" class="level2">
+<h2 class="anchored" data-anchor-id="agents.md"><code>AGENTS.md</code></h2>
+<p><strong>What it is.</strong> The rules for working in the repository, for everyone: the people on the project and any AI agents working for them. It covers conventions, data handling and checks. It opens by dividing the documentation into four places, each covering its own topic without repeating the others:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Where</th>
+<th>Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>analysis-plan.md</code></td>
+<td>What the analysis is meant to do</td>
+</tr>
+<tr class="even">
+<td><code>ARCHITECTURE.md</code></td>
+<td>How the code is built: scripts, data flow, and the objects passed between them</td>
+</tr>
+<tr class="odd">
+<td><code>AGENTS.md</code></td>
+<td>How to work in the repository: rules, conventions and checks</td>
+</tr>
+<tr class="even">
+<td>GitHub Issues</td>
+<td>Open scientific decisions (decision issues), gaps between code and plan, and known defects</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Where it lives.</strong> At the top of the repository. The project website shows it on a page that only includes the root file, so you edit the root file, never the page.</p>
+<p><strong>What’s in it.</strong> The plugin’s template has these sections. Parts in angle brackets are filled in for each project.</p>
+<ul>
+<li><strong>The project.</strong> One paragraph on the question and the data. Then the standing rules: the analysis plan is the source of truth, and code that needs to depart from it goes to a decision issue first. The <strong>deciders</strong> are named here with their areas; anyone may add to a decision issue, but only a decider settles it. It also says this is an analysis, not an R package, and names the default branch (the main version of the project). That branch is protected: changes reach it only through pull requests (proposed changes that others can review before they are merged).</li>
+<li><strong>Data sources and what agents may do.</strong> A table with one row per data source the analysis uses: the source, the package that loads it, the package’s documentation, whether the team maintains that package or it is external, how access is restricted, and what AI agents may do with it. Code that touches a source goes through its package. For a restricted source, the agents’ column starts at “None: code, documentation and synthetic data only”. Only a person can widen it, through a pull request that names the agreement and section that permit it, the approved AI service, and exactly what agents may do. Agents never propose this change, and nothing in personal instructions can grant it. The template then splits the rules: problems in a package the team maintains are fixed or reported in that package; problems in an external package are worked around in the project’s own code, and whether to report them upstream is the person’s call.</li>
+<li><strong>Exploration and definitive analysis.</strong> Exploring on a branch or fork is welcome, and its findings are labelled preliminary. A script joins the definitive analysis when <code>R/main.R</code> runs it; from then on every rule applies.</li>
+<li><strong>Scripts and labels.</strong> <code>R/main.R</code> runs everything in order. Each script does one job and starts with a short header saying what it needs and what it makes. Settings a reader might want to change (a window, a year, a threshold) are named once in <code>R/setup.R</code>. Scripts are divided into labelled sections, marked with a comment line like <code>## ---- compute-summary</code>, so the website can show the real code. Labels are unique across all scripts, because a repeated label silently shows the wrong code. Analysis variables carry readable labels, with units and time windows. No script, comment, commit message, issue or pull request contains results from restricted data unless they are cleared for release.</li>
+<li><strong>Website.</strong> The site explains the code and never runs the analysis. It lists the page layout, the colour and icon for each kind of page, and the yellow highlight for content an open decision could change. It records the project’s publishing route: either the rendered <code>docs/</code> folder is committed and served by GitHub Pages, or a GitHub Actions workflow renders and publishes the site. A new definitive script gets its page in the same pull request.</li>
+<li><strong>Outputs.</strong> Tables and figures are written to <code>tables/</code> and <code>figures/</code>. The project states whether they are tracked or kept out of Git until a named review clears them, and if they are kept out, whether that is because of restricted data or only publication timing. Published figures need alt text.</li>
+<li><strong>Restricted data.</strong> These rules apply to everyone. Data and anything derived from patient-level records are never committed. AI agents never open restricted data, or outputs from it that are not yet cleared; anything an agent opens is sent to the model provider. Agents write and test code on <strong>synthetic data</strong>: made-up data built in code and labelled as such. Real results come from an authorized person. The section also holds the agreement’s small-cell rule and the rules for keys, tokens and paid services.</li>
+<li><strong>Coding conventions.</strong> The participant flow (the cohort and its STROBE diagram) comes from one piece of code using the <code>flowchart</code> package. Code lists are checked against the official code sets, and joins are checked so rows don’t multiply. Package functions are checked against their documentation rather than written from memory. The style is meant to be readable by a clinician-analyst who learned R from online guides.</li>
+<li><strong>Checks for any change.</strong> A checklist to run before opening a pull request: does the change follow the plan and leave open decisions open; are the cohort counts reproducible; is <code>ARCHITECTURE.md</code> current; does any site page run analysis code; could anything changed reveal restricted data; does <code>main.R</code> run in a fresh session? A project adds checks its own design needs.</li>
+<li><strong>Working with agents.</strong> Each person sets their agent’s working style in their own instructions; without one, the agent works step by step. At most, an agent edits code and documents, runs code and renders the site on synthetic data, commits to a branch and opens a pull request. Under any style, an agent never merges a pull request, never chooses among the options in a decision issue, asks before running the full pipeline or expensive calls, and shows a person the exact text before posting anything as them, unless that person’s own instructions say otherwise.</li>
+</ul>
+<p><strong>Who edits it.</strong> Anyone, through a pull request. Widening what agents may do with a restricted source is a person’s change, made as described above.</p>
+<p><strong>What the assistant does with it.</strong> It reads <code>AGENTS.md</code>, the plan and <code>ARCHITECTURE.md</code> before making changes. During setup it adapts the template to the project. It fills the data sources table from the code that actually loads the data, not from memory, and asks about any source whose package or access terms are unclear. It asks who the deciders are, and if materials such as an IRB protocol name investigators, suggests them for the person to confirm. If no one is named yet, the line stays marked as still to fill, and decision issues can be drafted but not settled.</p>
+</section>
+<section id="gitignore" class="level2">
+<h2 class="anchored" data-anchor-id="gitignore"><code>.gitignore</code></h2>
+<p><strong>What it is.</strong> A list of files and folders that Git should leave out, so they are never added to the repository by accident.</p>
+<p><strong>Where it lives.</strong> At the top of the repository. Some apps hide files whose names start with a dot, so the plugin also keeps a visible copy of its template.</p>
+<p><strong>What’s in it.</strong> The assistant adapts the plugin’s starter template to each project rather than copying it blindly. The template has groups for:</p>
+<ul>
+<li>R and editor files (saved sessions, history, settings);</li>
+<li>Quarto’s working files;</li>
+<li>credentials such as <code>.Renviron</code> and key files;</li>
+<li>common data formats (<code>.csv</code>, <code>.rds</code>, <code>.sas7bdat</code>, <code>.parquet</code> and others) and a <code>data-raw/</code> folder, as a safety net, since data should live outside the repository anyway;</li>
+<li><code>figures/</code> and <code>tables/</code>, when they need review before release;</li>
+<li>narrow exceptions for approved files, for example <code>!tests/fixtures/synthetic.csv</code>. Exceptions are kept narrow and never cover a whole format.</li>
+</ul>
+<p><strong>How <code>figures/</code>, <code>tables/</code> and <code>docs/</code> are decided.</strong> At setup, two questions decide them.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question at setup</th>
+<th>Answer</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Do the figures and tables need review before they can be public?</td>
+<td>Yes</td>
+<td><code>figures/</code> and <code>tables/</code> stay ignored until the named review clears them; <code>AGENTS.md</code> names the review</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>No</td>
+<td>They are tracked from the start</td>
+</tr>
+<tr class="odd">
+<td>How is the website published?</td>
+<td>From the committed <code>docs/</code> folder</td>
+<td><code>docs/</code> is tracked</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>By a GitHub Actions workflow</td>
+<td><code>docs/</code> is ignored; the workflow publishes the same pages</td>
+</tr>
+</tbody>
+</table>
+<p>The assistant asks the first question directly rather than guessing from the data sources. When a review later clears the outputs, someone removes the two lines and inspects the contents before adding them. Tables saved as <code>.csv</code> or <code>.rds</code> stay hidden by the data-format lines even then, so cleared tables need their own exceptions.</p>
+<p><strong>What it never does.</strong> Ignoring a file doesn’t remove it from history: anything already committed stays in Git’s history, in forks and in everyone’s copies. It doesn’t control access either: an ignored folder inside the project is still readable by any AI tool connected to that folder. That is why the plugin prefers keeping restricted data in a separate folder outside the project. File names can’t identify every sensitive file; text, images, logs and other outputs can hold restricted information too.</p>
+<p><strong>If something was pushed by mistake.</strong> Stop pushing. Revoke any password, token or key first. For restricted data, tell the PI and whoever the agreement names; the agreement decides what follows. Removing it from history is the maintainer’s job, following GitHub’s guide on removing sensitive data. Agents do not attempt it.</p>
+<p><strong>What the assistant does with it.</strong> It adapts the template, checks that the rules cover the project’s real output folders without hiding source files, and reports any tracked file that looks sensitive without opening it. It can confirm a rule works with <code>git check-ignore --no-index -v</code>. It doesn’t untrack, delete or rewrite history unless someone with the authority to do so asks.</p>
+</section>
+<section id="repository-blueprint.md" class="level2">
+<h2 class="anchored" data-anchor-id="repository-blueprint.md"><code>REPOSITORY-BLUEPRINT.md</code></h2>
+<p><strong>What it is.</strong> The intended layout of an R analysis repository: which folders and files exist and what each is for. <code>ARCHITECTURE.md</code> describes what the project has actually built; the blueprint describes what it aims for.</p>
+<p><strong>Where it lives.</strong> At the top of the repository. It must be there before the website is first rendered, and the site shows it on its own page.</p>
+<p><strong>What’s in it.</strong> A tree of the layout, with a one-line note on each part: the <code>R/</code> folder with <code>main.R</code>, <code>setup.R</code>, <code>functions.R</code>, <code>tables.R</code> and <code>figures.R</code>; <code>figures/</code> and <code>tables/</code>; <code>references/</code> for supporting literature; <code>quarto/</code> for the website pages; <code>docs/</code> for the rendered site; and the root files (<code>analysis-plan.md</code>, <code>references.bib</code>, <code>AGENTS.md</code>, <code>ARCHITECTURE.md</code>, the README and <code>.gitignore</code>). Some files are marked optional, such as a licence or an RStudio project file. Short notes follow on scripts, documentation and which outputs to keep in Git.</p>
+<p><strong>Who edits it.</strong> It is kept unchanged. The assistant copies the plugin’s blueprint into the project as it is. What the project has actually built goes in <code>ARCHITECTURE.md</code> instead.</p>
+</section>
+<section id="personal-project-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="personal-project-instructions">Personal project instructions</h2>
+<p><strong>What they are.</strong> Each person’s own instructions for their AI assistant, kept in their own assistant project for this repository (the plugin calls it an “LLM project”). They tell the assistant who you are, how much help you want, and what it may do for you, so each chat starts with that context instead of you pasting it again.</p>
+<p><strong>Where they live.</strong> Outside the repository, in your own assistant project, one project per repository. They are not shared. The repository stays the shared record: nothing others need should live only in your project.</p>
+<p><strong>What’s in them.</strong> The plugin’s template asks for:</p>
+<ul>
+<li>the project, its repository and default branch, and how you work with GitHub (through the assistant, from your own tools, or both);</li>
+<li>your role and the help you want, for example guided learning, review, or working together on code;</li>
+<li>your <strong>working style</strong>, chosen from three starting points and adjusted to suit you:</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Style</th>
+<th>What the assistant does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Review only</td>
+<td>Reads, reviews and suggests; changes nothing</td>
+</tr>
+<tr class="even">
+<td>Step by step</td>
+<td>Proposes each change, waits for your yes, then makes it on a branch and explains it</td>
+</tr>
+<tr class="odd">
+<td>Hands-off</td>
+<td>Builds on branches and opens pull requests without asking at each step, then walks you through what it made</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>which actions it is authorized to take, kept separate (editing, running code, installing, commits and pull requests, comments, publishing);</li>
+<li>your data boundaries, by pointing to approved locations and agreements, never with credentials;</li>
+<li>whether it may post anything as you without showing you first (by default it shows you the exact text);</li>
+<li>whether you want a periodic check-in and what it should report.</li>
+</ul>
+<p>In every style, nothing else is posted or sent as you without your approval, another way of writing something already agreed is shown to you before it is committed, and scientific decisions stay with the deciders. Hands-off covers only the pull requests it opens.</p>
+<p><strong>What they never hold.</strong> Copies of the analysis plan, the blueprint or the shared review steps. They can be stricter than <code>AGENTS.md</code>, and then the assistant follows them. They never loosen its rules on data, decisions or pull requests.</p>
+<p><strong>Who edits them.</strong> You. One person’s working style or permissions are never carried into someone else’s instructions or into the shared files.</p>
+<p><strong>What the assistant does with them.</strong> When someone sets up or joins a project, the assistant offers to fill in the template, asking which working style they want and how they work with GitHub. It is an offer, not a requirement. If it cannot change your assistant’s settings itself, it gives you the text to paste and says so.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vagishhemmige\.github\.io\/r-analysis-workflow");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../manual/plan-and-decisions.html" class="pagination-link" aria-label="The plan and its decisions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The plan and its decisions</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../manual/code.html" class="pagination-link" aria-label="The code">
+        <span class="nav-page-text">The code</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/rules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

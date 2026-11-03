@@ -1,59 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/start-here.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/start.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/join-leave.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/explain.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/index.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/runs.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/user-simulation.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
     <loc>https://vagishhemmige.github.io/r-analysis-workflow/install.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/index.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/blind-review.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
+    <lastmod>2026-11-03T23:42:31.990Z</lastmod>
   </url>
   <url>
     <loc>https://vagishhemmige.github.io/r-analysis-workflow/problems.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
   </url>
   <url>
-    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/report.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/index.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/runs.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/manual/index.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/manual/rules.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/manual/references-readme.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/manual/github.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/explain.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
   </url>
   <url>
     <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/review.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/report.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
   </url>
   <url>
     <loc>https://vagishhemmige.github.io/r-analysis-workflow/sites.html</loc>
-    <lastmod>2026-11-03T22:52:05.800Z</lastmod>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/start.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/using/join-leave.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/start-here.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/manual/code.html</loc>
+    <lastmod>2026-11-03T23:42:31.990Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/manual/website.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/manual/plan-and-decisions.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/user-simulation.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/testing/blind-review.html</loc>
+    <lastmod>2026-11-03T23:42:31.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/r-analysis-workflow/index.html</loc>
+    <lastmod>2026-11-03T23:42:31.990Z</lastmod>
   </url>
 </urlset>
