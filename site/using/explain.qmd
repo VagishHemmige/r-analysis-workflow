@@ -28,7 +28,7 @@ Each definitive script is divided into labelled sections. Its page on the websit
 
 Abbreviations are defined, associations are not described as causes, and sources are cited from the project's reference list. Where code and plan disagree, the page says so rather than smoothing it over.
 
-The page, the sidebar and the rendered site are updated in the same pull request as the code change.
+The page and the sidebar are updated in the same pull request as the code change. The rendered site is either updated in the same pull request or published by a workflow, as the project chose.
 
 ## What the website has
 
