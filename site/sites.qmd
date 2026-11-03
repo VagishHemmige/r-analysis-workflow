@@ -2,7 +2,7 @@
 title: "Sites built with it"
 ---
 
-*Written for version 0.1.13.*
+*Written for version 0.1.14.*
 
 ## The reference site
 

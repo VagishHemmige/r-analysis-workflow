@@ -2,7 +2,7 @@
 title: "Blind review (Test A)"
 ---
 
-*Written for version 0.1.13. Full procedure: [testing/README.md, Test A](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md#test-a-blind-review). Reviewer prompts: [reviewers.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md).*
+*Written for version 0.1.14. Full procedure: [testing/README.md, Test A](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md#test-a-blind-review). Reviewer prompts: [reviewers.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md).*
 
 ## What it tests
 

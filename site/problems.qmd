@@ -2,7 +2,7 @@
 title: "Problems it solves"
 ---
 
-*Written for version 0.1.13.*
+*Written for version 0.1.14.*
 
 Each entry names a problem an analysis project can run into, the plugin rule that addresses it, the version that added the rule, and how it fared in testing. Entries are ordered by the stage of a project where the problem arises.
 

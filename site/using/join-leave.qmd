@@ -3,7 +3,7 @@ title: "Join or leave a project"
 subtitle: "Skill: onboard-collaborator"
 ---
 
-*Written for version 0.1.13. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md).*
+*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md).*
 
 ## What it is for
 

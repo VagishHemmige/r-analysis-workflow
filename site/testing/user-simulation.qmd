@@ -2,7 +2,7 @@
 title: "User simulation (Test B)"
 ---
 
-*Written for version 0.1.13. Full procedure: [testing/README.md, Test B](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md#test-b-user-simulation). Scenario: [scenario.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/scenario.md).*
+*Written for version 0.1.14. Full procedure: [testing/README.md, Test B](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/README.md#test-b-user-simulation). Scenario: [scenario.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/scenario.md).*
 
 Every person in this test, and in its records, is a simulated persona played by an AI agent. None of them is a real person, and the project uses only public data.
 
