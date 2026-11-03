@@ -30,6 +30,16 @@ Abbreviations are defined, associations are not described as causes, and sources
 
 The page, the sidebar and the rendered site are updated in the same pull request as the code change.
 
+## What the website has
+
+- **Home**, then **Clinical background** and **Methodological background**: the general knowledge the methods rest on.
+- **Study design and methods**: what this study chose and why, in plain language. Notes say which part of the plan specifies each step, where the code doesn't yet match the plan, and which choices are still open.
+- **Code**: one page per script, in the order the analysis runs them.
+- **Project documents**: the analysis plan, the architecture, AGENTS.md and the repository blueprint, shown from the files themselves so the site never holds an outdated copy.
+- **About**, and a page for addresses that don't exist.
+
+Each kind of page has its own icon and colour in the sidebar. Text that depends on a decision not yet made is highlighted in yellow, and the page says so at the top.
+
 ## What it will not do
 
 - Run the analysis to build the website. Pages show code; results appear only from outputs already cleared for release.
