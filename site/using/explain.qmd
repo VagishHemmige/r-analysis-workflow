@@ -15,6 +15,7 @@ Keeping the project's website, README and `ARCHITECTURE.md` in step with the cod
 - Code changed and its page should say what it does now.
 - A page holds a pasted copy of code that may no longer match the script.
 - The site, README or architecture description needs repair.
+- An existing project site needs bringing up to the plugin's current layout.
 - A decision was made, the plan was locked, or a new data source was added, and the plan needs updating to match.
 
 ## What happens
@@ -51,6 +52,7 @@ Each kind of page has its own icon and colour in the sidebar. Text that depends 
 - "Write the Quarto page for the script I just added to main.R."
 - "This page has pasted code; switch it to import from the script."
 - "Update ARCHITECTURE.md after this restructure."
+- "Bring this site up to date with the plugin's layout."
 
 ## Where the detail lives
 
