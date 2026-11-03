@@ -34,7 +34,7 @@ What was checked, and what was not.
 
 - 0.1.14: mermaid diagrams on the Architecture page (plain mermaid cells also rendered empty in the test environment); visual inspection of the rendered pages; the GitHub Actions publishing route, which needs #46; bringing a real older site up to date (for example Dialysis-facility-density-USRDS).
 - Whether a ChatGPT scheduled task inside a person's project can see that project's earlier chats (needed for the check-in's draft search). OpenAI's documentation does not say; test in ChatGPT.
-- The librarian reviewer has not been run.
+- The librarian reviewer has been run once, in Test A of the 2026-10-26 simulation (16 findings: 8 verified, 1 partly, 6 not verifiable, 1 withdrawn; [0.1.8 scorecard](testing/runs/2026-10-26-user-simulation-0.1.8/scorecard.md)); it has not been rerun.
 - Reviewers have not been rerun since their access rules and prompts were revised, including the 0.1.7 combining step (known findings, team-package headings), the coding expert's tracked-file check and the real-data check suggestions.
 - The 0.1.7 and 0.1.8 changes were tested in the 2026-10-26 user simulation; the 0.1.9 changes have not been tested by a rerun, and the readable-R rule not on a large new analysis.
 - The model-reporting recipes (GEE, mixed models, `add_global_p()`, multiple imputation) have not been executed on synthetic data.

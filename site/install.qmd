@@ -44,8 +44,6 @@ You need Claude Code version 2.1.292 or later for the one-line install.
 claude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow
 ```
 
-This installs the plugin in Claude Code only. To use it in Claude chat or Cowork, add it there too, as in the Claude section above; a plugin added there also reaches Claude Code.
-
 It should print that it added the marketplace and then installed the plugin. To check, run `claude plugin list`: you should see `r-analysis-workflow@r-analysis-workflow`. The plugin loads the next time you start Claude Code.
 
 On an older version, use two commands instead:
@@ -63,6 +61,8 @@ claude plugin install r-analysis-workflow@r-analysis-workflow
 ```bash
 claude plugin update r-analysis-workflow@r-analysis-workflow
 ```
+
+Installing in Claude Code puts the plugin in Claude Code only. To use it in Claude chat or Cowork, add it there too, as in the Claude section above; a plugin added there also reaches Claude Code.
 
 Sources: Claude Code docs, [Install and manage plugins](https://code.claude.com/docs/en/plugins/install) and [Plugin commands reference](https://code.claude.com/docs/en/plugins/cli-reference). The install from GitHub was tested in a sandbox with Claude Code 2.1.314 ([VALIDATION.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md)).
 
