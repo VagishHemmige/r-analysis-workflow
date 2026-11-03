@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vagish Hemmige">
 
 <title>Review – R Analysis Workflow</title>
 <style>
@@ -43,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f6725ec72a40a9c11b774886aa13be2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-65fcc79541fdc6a57aa13981eb9b263c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,6 +111,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../start-here.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start here</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,19 +238,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../using/start.html">Using the plugin</a></li><li class="breadcrumb-item"><a href="../using/review.html">Review</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Review</h1>
-<p class="subtitle lead">Skill: review-analysis</p>
 </div>
 
 
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vagish Hemmige </p>
-          </div>
-  </div>
     
   
     
@@ -256,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Written for version 0.1.14. Full instructions: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md">SKILL.md</a>.</em></p>
+<p><em>Written for version 0.1.14.</em></p>
 <section id="what-it-is-for" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-is-for">What it is for</h2>
 <p>Checking work before it is merged or made public: a single change, the plan, the website against the code, or the whole project.</p>
@@ -307,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>Repository</td>
-<td>The required files, the data-sources table, <code>.gitignore</code> and protection of the main copy</td>
+<td>The required files, the data-sources table, <code>.gitignore</code> and protection of the main branch</td>
 </tr>
 <tr class="odd">
 <td>Reporting</td>
@@ -319,7 +317,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Most reviews use some of five <strong>blind reviewers</strong>: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. Each works as a separate assistant with only the files its role needs and public material such as cited papers, without seeing the other reviewers’ findings or the conversation that produced the work. A final step checks every claimed error against the source before reporting it, and marks findings already known from issues.</p>
+<p>Most reviews use some of five <strong>blind AI reviewers</strong>: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. Each works as a separate assistant with only the files its role needs and public material such as cited papers, without seeing the other reviewers’ findings or the conversation that produced the work. A final step checks every claimed error against the source before reporting it, and marks findings already known from issues. The AI reviewers don’t replace review by the team’s own clinicians and statistician.</p>
+<p>With restricted data, reviewers see only the code and documentation, so a check that needs the data (model fit, for example) comes back as a focused check for a person with access to run.</p>
 </section>
 <section id="what-it-will-not-do" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-will-not-do">What it will not do</h2>
@@ -339,6 +338,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="where-the-detail-lives" class="level2">
 <h2 class="anchored" data-anchor-id="where-the-detail-lives">Where the detail lives</h2>
 <ul>
+<li>The skill’s full instructions: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md"><code>review-analysis</code></a></li>
 <li><a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md">The blind reviewers</a>: what each reads, its prompt, and how reports are combined</li>
 <li><a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md">Data handling</a>, for the Release review</li>
 </ul>

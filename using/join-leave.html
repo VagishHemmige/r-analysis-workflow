@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vagish Hemmige">
 
 <title>Join or leave a project – R Analysis Workflow</title>
 <style>
@@ -43,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f6725ec72a40a9c11b774886aa13be2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-65fcc79541fdc6a57aa13981eb9b263c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,6 +111,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../start-here.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start here</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -220,6 +225,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-it-is-for" id="toc-what-it-is-for" class="nav-link active" data-scroll-target="#what-it-is-for">What it is for</a></li>
   <li><a href="#joining" id="toc-joining" class="nav-link" data-scroll-target="#joining">Joining</a></li>
+  <li><a href="#taking-over-from-someone" id="toc-taking-over-from-someone" class="nav-link" data-scroll-target="#taking-over-from-someone">Taking over from someone</a></li>
   <li><a href="#leaving" id="toc-leaving" class="nav-link" data-scroll-target="#leaving">Leaving</a></li>
   <li><a href="#what-it-will-not-do" id="toc-what-it-will-not-do" class="nav-link" data-scroll-target="#what-it-will-not-do">What it will not do</a></li>
   <li><a href="#ask-it-for-example" id="toc-ask-it-for-example" class="nav-link" data-scroll-target="#ask-it-for-example">Ask it, for example</a></li>
@@ -233,19 +239,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../using/start.html">Using the plugin</a></li><li class="breadcrumb-item"><a href="../using/join-leave.html">Join or leave a project</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Join or leave a project</h1>
-<p class="subtitle lead">Skill: onboard-collaborator</p>
 </div>
 
 
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vagish Hemmige </p>
-          </div>
-  </div>
     
   
     
@@ -256,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Written for version 0.1.14. Full instructions: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md">SKILL.md</a>.</em></p>
+<p><em>Written for version 0.1.14.</em></p>
 <section id="what-it-is-for" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-is-for">What it is for</h2>
 <p>Helping someone start contributing to a project at the level of help they want, and helping someone who is leaving hand over so the next person can carry on from the repository alone.</p>
@@ -278,7 +277,14 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Review</strong>: anyone can ask for one (see <a href="../using/review.html">Review</a>).</li>
 </ul>
 <p>It also offers your own ChatGPT or Claude project for the repository, with instructions for how you like to work (review only, step by step, or hands-off), and an optional check-in that reports what is waiting on you.</p>
-<p>When you take over from someone, it starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person’s files or chats.</p>
+</section>
+<section id="taking-over-from-someone" class="level2">
+<h2 class="anchored" data-anchor-id="taking-over-from-someone">Taking over from someone</h2>
+<p>The assistant starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person’s files or chats. Ask it, for example:</p>
+<ul>
+<li>“I’m taking over this project from the last student. What’s done, what’s open, and what’s waiting on me?”</li>
+<li>“Who decides what on this project?”</li>
+</ul>
 </section>
 <section id="leaving" class="level2">
 <h2 class="anchored" data-anchor-id="leaving">Leaving</h2>
@@ -310,6 +316,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="where-the-detail-lives" class="level2">
 <h2 class="anchored" data-anchor-id="where-the-detail-lives">Where the detail lives</h2>
 <ul>
+<li>The skill’s full instructions: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md"><code>onboard-collaborator</code></a></li>
 <li><a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md">Onboarding and leaving a project</a></li>
 <li><a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md">Personal instructions template</a></li>
 <li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>, for learning Git with R</li>

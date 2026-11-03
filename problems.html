@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vagish Hemmige">
 
 <title>Problems it solves – R Analysis Workflow</title>
 <style>
@@ -43,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f6725ec72a40a9c11b774886aa13be2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-65fcc79541fdc6a57aa13981eb9b263c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,6 +111,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./start-here.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start here</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -225,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#starting-a-project" id="toc-starting-a-project" class="nav-link" data-scroll-target="#starting-a-project">Starting a project</a>
   <ul class="collapse">
   <li><a href="#a-novice-cant-get-from-an-idea-to-a-working-repository" id="toc-a-novice-cant-get-from-an-idea-to-a-working-repository" class="nav-link" data-scroll-target="#a-novice-cant-get-from-an-idea-to-a-working-repository">A novice can’t get from an idea to a working repository</a></li>
-  <li><a href="#the-main-copy-is-unprotected-or-the-website-never-goes-live" id="toc-the-main-copy-is-unprotected-or-the-website-never-goes-live" class="nav-link" data-scroll-target="#the-main-copy-is-unprotected-or-the-website-never-goes-live">The main copy is unprotected, or the website never goes live</a></li>
+  <li><a href="#the-main-branch-is-unprotected-or-the-website-never-goes-live" id="toc-the-main-branch-is-unprotected-or-the-website-never-goes-live" class="nav-link" data-scroll-target="#the-main-branch-is-unprotected-or-the-website-never-goes-live">The main branch is unprotected, or the website never goes live</a></li>
   <li><a href="#data-or-secrets-end-up-in-a-public-repository" id="toc-data-or-secrets-end-up-in-a-public-repository" class="nav-link" data-scroll-target="#data-or-secrets-end-up-in-a-public-repository">Data or secrets end up in a public repository</a></li>
   </ul></li>
   <li><a href="#deciding-the-science" id="toc-deciding-the-science" class="nav-link" data-scroll-target="#deciding-the-science">Deciding the science</a>
@@ -279,12 +284,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vagish Hemmige </p>
-          </div>
-  </div>
     
   
     
@@ -319,11 +318,11 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>The risk:</strong> a student with no GitHub account and no R is asked to install tools, learn Git and set up a repository before anything useful happens.</li>
 <li><strong>What the plugin does:</strong> a short questionnaire, one question at a time, reusing what is already known, with no installs until the work needs them (<a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md">initialize-analysis</a>).</li>
 <li><strong>Since:</strong> before 0.1.7; setting up from R added in 0.1.12.</li>
-<li><strong>Tested:</strong> <strong>✔</strong> a novice went from nothing to a public repository, protected main copy, setup notes, a draft pull request and her own assistant project in one session (<a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/scorecard.md">0.1.8 scorecard</a>).</li>
+<li><strong>Tested:</strong> <strong>✔</strong> a novice went from nothing to a public repository, protected main branch, setup notes, a draft pull request and her own assistant project in one session (<a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/testing/runs/2026-10-26-user-simulation-0.1.8/scorecard.md">0.1.8 scorecard</a>).</li>
 </ul>
 </section>
-<section id="the-main-copy-is-unprotected-or-the-website-never-goes-live" class="level3">
-<h3 class="anchored" data-anchor-id="the-main-copy-is-unprotected-or-the-website-never-goes-live">The main copy is unprotected, or the website never goes live</h3>
+<section id="the-main-branch-is-unprotected-or-the-website-never-goes-live" class="level3">
+<h3 class="anchored" data-anchor-id="the-main-branch-is-unprotected-or-the-website-never-goes-live">The main branch is unprotected, or the website never goes live</h3>
 <ul>
 <li><strong>The risk:</strong> a repository’s rules say changes go through pull requests when nothing enforces it, or a site is built but never switched on.</li>
 <li><strong>What the plugin does:</strong> gives the maintainer the steps to protect the default branch and switch on GitHub Pages, reminds them when the first site is merged, and offers a check that reads the actual settings rather than assuming them (<a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md">GitHub workflow</a>).</li>
