@@ -221,11 +221,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-it-is-for" id="toc-what-it-is-for" class="nav-link active" data-scroll-target="#what-it-is-for">What it is for</a></li>
   <li><a href="#when-to-use-it" id="toc-when-to-use-it" class="nav-link" data-scroll-target="#when-to-use-it">When to use it</a></li>
   <li><a href="#what-happens" id="toc-what-happens" class="nav-link" data-scroll-target="#what-happens">What happens</a></li>
+  <li><a href="#what-the-website-has" id="toc-what-the-website-has" class="nav-link" data-scroll-target="#what-the-website-has">What the website has</a></li>
   <li><a href="#what-it-will-not-do" id="toc-what-it-will-not-do" class="nav-link" data-scroll-target="#what-it-will-not-do">What it will not do</a></li>
   <li><a href="#ask-it-for-example" id="toc-ask-it-for-example" class="nav-link" data-scroll-target="#ask-it-for-example">Ask it, for example</a></li>
   <li><a href="#where-the-detail-lives" id="toc-where-the-detail-lives" class="nav-link" data-scroll-target="#where-the-detail-lives">Where the detail lives</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/using/explain.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -256,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Written for version 0.1.13. Full instructions: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md">SKILL.md</a>.</em></p>
+<p><em>Written for version 0.1.14. Full instructions: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md">SKILL.md</a>.</em></p>
 <section id="what-it-is-for" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-is-for">What it is for</h2>
 <p>Keeping the project’s website, README and <code>ARCHITECTURE.md</code> in step with the code. The website is how a clinician, a reviewer or the next student understands what the analysis does without reading R.</p>
@@ -268,6 +269,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Code changed and its page should say what it does now.</li>
 <li>A page holds a pasted copy of code that may no longer match the script.</li>
 <li>The site, README or architecture description needs repair.</li>
+<li>An existing project site needs bringing up to the plugin’s current layout.</li>
 <li>A decision was made, the plan was locked, or a new data source was added, and the plan needs updating to match.</li>
 </ul>
 </section>
@@ -281,7 +283,18 @@ ul.task-list li input[type="checkbox"] {
 <li>what it hands on to the next step.</li>
 </ul>
 <p>Abbreviations are defined, associations are not described as causes, and sources are cited from the project’s reference list. Where code and plan disagree, the page says so rather than smoothing it over.</p>
-<p>The page, the sidebar and the rendered site are updated in the same pull request as the code change.</p>
+<p>The page and the sidebar are updated in the same pull request as the code change. The rendered site is either updated in the same pull request or published by a workflow, as the project chose.</p>
+</section>
+<section id="what-the-website-has" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-website-has">What the website has</h2>
+<ul>
+<li><strong>Home</strong>, then <strong>Clinical background</strong> and <strong>Methodological background</strong>: the general knowledge the methods rest on.</li>
+<li><strong>Study design and methods</strong>: what this study chose and why, in plain language. Notes say which part of the plan specifies each step, where the code doesn’t yet match the plan, and which choices are still open.</li>
+<li><strong>Code</strong>: one page per script, in the order the analysis runs them.</li>
+<li><strong>Project documents</strong>: the analysis plan, the architecture, AGENTS.md and the repository blueprint, shown from the files themselves so the site never holds an outdated copy.</li>
+<li><strong>About</strong>, and a page for addresses that don’t exist.</li>
+</ul>
+<p>Each kind of page has its own icon and colour in the sidebar. Text that depends on a decision not yet made is highlighted in yellow, and the page says so at the top.</p>
 </section>
 <section id="what-it-will-not-do" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-will-not-do">What it will not do</h2>
@@ -297,6 +310,7 @@ ul.task-list li input[type="checkbox"] {
 <li>“Write the Quarto page for the script I just added to main.R.”</li>
 <li>“This page has pasted code; switch it to import from the script.”</li>
 <li>“Update ARCHITECTURE.md after this restructure.”</li>
+<li>“Bring this site up to date with the plugin’s layout.”</li>
 </ul>
 </section>
 <section id="where-the-detail-lives" class="level2">
@@ -728,4 +742,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/using/explain.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

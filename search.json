@@ -4,7 +4,7 @@
     "href": "install.html",
     "title": "Install",
     "section": "",
-    "text": "Written for version 0.1.13. Steps checked against the help pages linked under each one on 30 October 2026. Menus change; if what you see differs, tell the maintainer through a GitHub issue.\nInstalling the plugin gives the assistant instructions only. It grants no access to data, to your GitHub account or to anything on your computer.\nPick the assistant you use.",
+    "text": "Written for version 0.1.14. Steps checked against the help pages linked under each one on 30 October 2026. Menus change; if what you see differs, tell the maintainer through a GitHub issue.\nInstalling the plugin gives the assistant instructions only. It grants no access to data, to your GitHub account or to anything on your computer.\nPick the assistant you use.",
     "crumbs": [
       "Install"
     ]
@@ -14,7 +14,7 @@
     "href": "install.html#claude-on-the-web-the-desktop-app-or-cowork",
     "title": "Install",
     "section": "Claude (on the web, the desktop app or Cowork)",
-    "text": "Claude (on the web, the desktop app or Cowork)\nYou need a paid Claude plan (Pro, Max, Team or Enterprise).\nAdd the plugin’s marketplace (a marketplace is a list of plugins kept in a GitHub repository):\n\nIn Claude, open the Customize menu in the left sidebar.\nOpen the Plugins tab.\nClick Add, then Add marketplace.\nChoose Add from a repository.\nType VagishHemmige/r-analysis-workflow and confirm.\n\nIf your organization limits which marketplaces you can add, Claude will refuse it; ask your administrator.\nInstall the plugin:\n\nStill in Customize → Plugins, open the Discover tab.\nSelect R Analysis Workflow and click Add.\n\nIn Cowork, open the Cowork tab first, then Customize.\nOnce installed, it works in chat on the web, the Chat tab of the desktop app, Cowork, and Claude Code when you sign in with the same account.\nSource: Anthropic, Use plugins in Claude. Not yet tried by a person with this plugin since it moved into the plugin/ folder (see VALIDATION.md).",
+    "text": "Claude (on the web, the desktop app or Cowork)\nYou need a paid Claude plan (Pro, Max, Team or Enterprise).\nAdd the plugin’s marketplace (a marketplace is a list of plugins kept in a GitHub repository):\n\nIn Claude, open Settings, then Customize.\nOpen the Plugins tab.\nClick Add, then Add marketplace.\n\n\n\nSettings → Customize → Plugins, with the Add menu open.\n\n\nChoose Add from a repository.\nType VagishHemmige/r-analysis-workflow and confirm.\n\nIf your organization limits which marketplaces you can add, Claude will refuse it; ask your administrator.\nInstall the plugin:\n\nStill in Customize → Plugins, open the Discover tab.\nSelect R Analysis Workflow and click Add.\n\nOnce installed, it works in chat on the web, the Chat tab of the desktop app, Cowork, and Claude Code when you sign in with the same account.\nSource: Anthropic, Use plugins in Claude. Tried by the maintainer in Cowork with version 0.1.14 on 3 November 2026 (see VALIDATION.md).",
     "crumbs": [
       "Install"
     ]
@@ -24,7 +24,7 @@
     "href": "install.html#claude-code",
     "title": "Install",
     "section": "Claude Code",
-    "text": "Claude Code\nYou need Claude Code version 2.1.292 or later for the one-line install.\nInstall, in your terminal (not inside a Claude Code session):\nclaude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow\nIt should print that it added the marketplace and then installed the plugin. To check, run claude plugin list: you should see r-analysis-workflow@r-analysis-workflow. The plugin loads the next time you start Claude Code.\nOn an older version, use two commands instead:\nclaude plugin marketplace add VagishHemmige/r-analysis-workflow\nclaude plugin install r-analysis-workflow@r-analysis-workflow\nUpdates. Claude Code does not update plugins from this marketplace automatically unless you turn it on. Either:\n\nturn it on once: inside a Claude Code session type /plugin, go to the Marketplaces tab, select r-analysis-workflow, then select Enable auto-update; or\nupdate by hand when you want to, in your terminal:\n\nclaude plugin update r-analysis-workflow@r-analysis-workflow\nSources: Claude Code docs, Install and manage plugins and Plugin commands reference. The install from GitHub was tested in a sandbox with Claude Code 2.1.314 (VALIDATION.md).",
+    "text": "Claude Code\nYou need Claude Code version 2.1.292 or later for the one-line install.\nInstall, in your terminal (not inside a Claude Code session):\nclaude plugin install r-analysis-workflow --marketplace VagishHemmige/r-analysis-workflow\nThis installs the plugin in Claude Code only. To use it in Claude chat or Cowork, add it there too, as in the Claude section above; a plugin added there also reaches Claude Code.\nIt should print that it added the marketplace and then installed the plugin. To check, run claude plugin list: you should see r-analysis-workflow@r-analysis-workflow. The plugin loads the next time you start Claude Code.\nOn an older version, use two commands instead:\nclaude plugin marketplace add VagishHemmige/r-analysis-workflow\nclaude plugin install r-analysis-workflow@r-analysis-workflow\nUpdates. Claude Code does not update plugins from this marketplace automatically unless you turn it on. Either:\n\nturn it on once: inside a Claude Code session type /plugin, go to the Marketplaces tab, select r-analysis-workflow, then select Enable auto-update; or\nupdate by hand when you want to, in your terminal:\n\nclaude plugin update r-analysis-workflow@r-analysis-workflow\nSources: Claude Code docs, Install and manage plugins and Plugin commands reference. The install from GitHub was tested in a sandbox with Claude Code 2.1.314 (VALIDATION.md).",
     "crumbs": [
       "Install"
     ]
@@ -44,7 +44,7 @@
     "href": "problems.html",
     "title": "Problems it solves",
     "section": "",
-    "text": "Written for version 0.1.13.\nEach entry names a problem an analysis project can run into, the plugin rule that addresses it, the version that added the rule, and how it fared in testing. Entries are ordered by the stage of a project where the problem arises.\nWhat this page does and doesn’t claim. It describes risks the plugin is built to handle. It does not claim what would happen without the plugin: no run has yet compared the same scenario with and without it. The test results come from simulated users (see How it’s tested). Versions before 0.1.7 are not recorded in this repository, so rules from then are marked “before 0.1.7”.\nTest results use the scorecards’ scale: ✔ worked as intended, ~ worked partly or only because a person caught it, ✘ failed, not yet tested.",
+    "text": "Written for version 0.1.14.\nEach entry names a problem an analysis project can run into, the plugin rule that addresses it, the version that added the rule, and how it fared in testing. Entries are ordered by the stage of a project where the problem arises.\nWhat this page does and doesn’t claim. It describes risks the plugin is built to handle. It does not claim what would happen without the plugin: no run has yet compared the same scenario with and without it. The test results come from simulated users (see How it’s tested). Versions before 0.1.7 are not recorded in this repository, so rules from then are marked “before 0.1.7”.\nTest results use the scorecards’ scale: ✔ worked as intended, ~ worked partly or only because a person caught it, ✘ failed, not yet tested.",
     "crumbs": [
       "Problems it solves"
     ]
@@ -94,7 +94,7 @@
     "href": "problems.html#code-and-the-website",
     "title": "Problems it solves",
     "section": "Code and the website",
-    "text": "Code and the website\n\nThe website stops describing the actual code\n\nThe risk: a page holds a pasted copy of code that has since changed, so readers are told the analysis does something it doesn’t.\nWhat the plugin does: pages import labelled sections from the scripts themselves, and are updated in the same pull request as the code (document-analysis).\nSince: before 0.1.7.\nTested: ✔ pages imported the real code; ~ pages went stale between pull requests (0.1.8 scorecard).\n\n\n\nPull requests pile up and nobody knows the merge order\n\nThe risk: a change built on another unmerged change leaves the reviewer to work out an order, and conflicts follow.\nWhat the plugin does: every pull request is based on the default branch; a change that needs an unmerged one waits for it or is folded into it (GitHub workflow).\nSince: 0.1.7.\nTested: ✔ test merges before advising; a stacked branch kept off a pull request until its base merged (0.1.8 scorecard).",
+    "text": "Code and the website\n\nThe website stops describing the actual code\n\nThe risk: a page holds a pasted copy of code that has since changed, so readers are told the analysis does something it doesn’t.\nWhat the plugin does: pages import labelled sections from the scripts themselves, and are updated in the same pull request as the code (document-analysis).\nSince: before 0.1.7.\nTested: ✔ pages imported the real code; ~ pages went stale between pull requests (0.1.8 scorecard).\n\n\n\nReaders can’t tell what is still undecided\n\nThe risk: a page describes a method as if it were settled when the decision is still open, and a reader quotes it.\nWhat the plugin does: any text that depends on an open decision is highlighted in yellow, linked to its decision issue, with a note at the top of the page (Quarto guidance).\nSince: 0.1.14.\nTested: not yet tested in a user simulation; the marks were checked in a rendered starter (VALIDATION.md).\n\n\n\nPull requests pile up and nobody knows the merge order\n\nThe risk: a change built on another unmerged change leaves the reviewer to work out an order, and conflicts follow.\nWhat the plugin does: every pull request is based on the default branch; a change that needs an unmerged one waits for it or is folded into it (GitHub workflow).\nSince: 0.1.7.\nTested: ✔ test merges before advising; a stacked branch kept off a pull request until its base merged (0.1.8 scorecard).",
     "crumbs": [
       "Problems it solves"
     ]
@@ -130,47 +130,484 @@
     ]
   },
   {
-    "objectID": "testing/blind-review.html",
-    "href": "testing/blind-review.html",
-    "title": "Blind review (Test A)",
+    "objectID": "testing/index.html",
+    "href": "testing/index.html",
+    "title": "How it’s tested",
     "section": "",
-    "text": "Written for version 0.1.13. Full procedure: testing/README.md, Test A. Reviewer prompts: reviewers.md.",
+    "text": "Written for version 0.1.14. Full procedure: testing/README.md.\nA plugin is a set of instructions, so testing it means watching assistants follow those instructions and checking what they actually did. Two tests do this, both run by an orchestrating agent that starts independent assistants, passes messages between them and keeps the record. Neither needs ChatGPT itself. They stand in for real use, which remains the final check.",
     "crumbs": [
       "Testing",
-      "Blind review (Test A)"
+      "How it's tested"
     ]
   },
   {
-    "objectID": "testing/blind-review.html#what-it-tests",
-    "href": "testing/blind-review.html#what-it-tests",
-    "title": "Blind review (Test A)",
-    "section": "What it tests",
-    "text": "What it tests\nThe plugin’s review uses five reviewers, each a separate assistant:\n\nClinician reader: is it clear, relevant and understandable to a clinician?\nClinician-researcher: are the definitions, cohort and outcomes clinically valid?\nStatistician: do the methods fit the question, and does the code do what the plan says?\nCoding expert: is the code correct, readable, and safe to keep in a public repository?\nLibrarian: do the citations exist, and do they say what the plan claims they say?\n\nTest A checks whether these reviewers find real problems, keep to their roles, and never step outside the data rules.",
+    "objectID": "testing/index.html#how-a-run-is-recorded",
+    "href": "testing/index.html#how-a-run-is-recorded",
+    "title": "How it’s tested",
+    "section": "How a run is recorded",
+    "text": "How a run is recorded\n\nBefore a run, its starting point is written down: the plugin commit, and for a run that doesn’t start from nothing, the simulated world it starts from and every defect planted in it, with what passing looks like. These are the setups.\nDuring a run, every gap is logged as it appears: something the plugin didn’t cover, something it made go right, or a tension between two of its rules.\nAfter a run, the repository keeps its scorecard and run notes (environment, setup used, and anything the orchestrator got wrong). Transcripts and the gap log are working material and are kept outside the repository. Each gap still open becomes an issue on the plugin’s repository.\nThen the plugin is fixed from those issues, one decision at a time by the maintainer, and the affected part is run again.\n\nThe list of runs is on Runs. What the fixes add up to is on Problems it solves.",
     "crumbs": [
       "Testing",
-      "Blind review (Test A)"
+      "How it's tested"
     ]
   },
   {
-    "objectID": "testing/blind-review.html#how-it-runs",
-    "href": "testing/blind-review.html#how-it-runs",
-    "title": "Blind review (Test A)",
-    "section": "How it runs",
-    "text": "How it runs\n\nPick a public repository and fix one commit. Every reviewer reads the same version.\nBuild one packet per reviewer: only the files that reviewer’s role reviews, copied from that commit.\nStart each reviewer as a separate assistant with a fresh context. It sees its packet and public material its role needs (package documentation, cited papers, code sets, guidelines), and never the other reviewers’ reports or the conversation that produced the work.\nCombine the reports. Every claimed error is checked against the source before it is listed; anything that doesn’t hold is withdrawn or downgraded and listed under corrections. Findings already known from the repository’s issues are marked with their status.\nScore each reviewer: did it stay in its role; how many findings were verified, withdrawn or unverifiable; which findings no other reviewer made; where reviewers independently found the same thing; what it said it couldn’t assess and why; and any breach of the data rules (there should be none).",
+    "objectID": "testing/index.html#what-the-tests-cant-show",
+    "href": "testing/index.html#what-the-tests-cant-show",
+    "title": "How it’s tested",
+    "section": "What the tests can’t show",
+    "text": "What the tests can’t show\n\nHow ChatGPT or Claude themselves behave with the plugin installed. The assistants in the tests follow the plugin as written, in a sandbox.\nWhat happens with real restricted data. Tests use public or made-up data only.\nWhat happens without the plugin. No run has yet compared the same scenario without it.",
     "crumbs": [
       "Testing",
-      "Blind review (Test A)"
+      "How it's tested"
     ]
   },
   {
-    "objectID": "testing/blind-review.html#what-a-good-result-looks-like",
-    "href": "testing/blind-review.html#what-a-good-result-looks-like",
-    "title": "Blind review (Test A)",
-    "section": "What a good result looks like",
-    "text": "What a good result looks like\nReviewers that each find something the others missed, independent rediscovery of the same problem by more than one, few withdrawn claims, and no data-rule breaches. A reviewer that says it couldn’t check something points either to a fault in how its packet was built, which is then fixed, or to a real limit.\nResults are on Runs.",
+    "objectID": "testing/runs.html",
+    "href": "testing/runs.html",
+    "title": "Runs",
+    "section": "",
+    "text": "Written for version 0.1.14. Records: testing/runs. Every person named in them is a simulated persona.\nOne line per run, newest first. Each record has a scorecard (what worked, what partly worked, what failed, with the evidence) and run notes (setup, environment, and anything the orchestrator got wrong).",
     "crumbs": [
       "Testing",
-      "Blind review (Test A)"
+      "Runs"
+    ]
+  },
+  {
+    "objectID": "testing/runs.html#earlier-checks-without-a-record-here",
+    "href": "testing/runs.html#earlier-checks-without-a-record-here",
+    "title": "Runs",
+    "section": "Earlier checks without a record here",
+    "text": "Earlier checks without a record here\nThese are described in VALIDATION.md, but their records are not in this repository:\n\nBlind review (Test A) of four reviewers (clinician reader, clinician-researcher, statistician, coding expert) on Cryptococcus-cost-analysis at commit 015aa6b.\nBlind review of the plugin itself (0.1.7, 2026-10-26): five reviewers read only the shipped plugin and its stated principles; 46 findings, which 0.1.8 acted on.",
+    "crumbs": [
+      "Testing",
+      "Runs"
+    ]
+  },
+  {
+    "objectID": "using/explain.html",
+    "href": "using/explain.html",
+    "title": "Explain the code",
+    "section": "",
+    "text": "Written for version 0.1.14. Full instructions: SKILL.md.",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/explain.html#what-it-is-for",
+    "href": "using/explain.html#what-it-is-for",
+    "title": "Explain the code",
+    "section": "What it is for",
+    "text": "What it is for\nKeeping the project’s website, README and ARCHITECTURE.md in step with the code. The website is how a clinician, a reviewer or the next student understands what the analysis does without reading R.",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/explain.html#when-to-use-it",
+    "href": "using/explain.html#when-to-use-it",
+    "title": "Explain the code",
+    "section": "When to use it",
+    "text": "When to use it\n\nA script has just joined the analysis (the main script now runs it) and needs its page.\nCode changed and its page should say what it does now.\nA page holds a pasted copy of code that may no longer match the script.\nThe site, README or architecture description needs repair.\nAn existing project site needs bringing up to the plugin’s current layout.\nA decision was made, the plan was locked, or a new data source was added, and the plan needs updating to match.",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/explain.html#what-happens",
+    "href": "using/explain.html#what-happens",
+    "title": "Explain the code",
+    "section": "What happens",
+    "text": "What happens\nEach definitive script is divided into labelled sections. Its page on the website shows those sections, imported from the script itself, so the code on the page is always the code that runs. Under each section the page explains, in plain language for a clinician:\n\nwhat the step does and why;\nwhat it takes in and where that comes from;\nwhich part of the analysis plan it carries out;\nwhat it hands on to the next step.\n\nAbbreviations are defined, associations are not described as causes, and sources are cited from the project’s reference list. Where code and plan disagree, the page says so rather than smoothing it over.\nThe page and the sidebar are updated in the same pull request as the code change. The rendered site is either updated in the same pull request or published by a workflow, as the project chose.",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/explain.html#what-the-website-has",
+    "href": "using/explain.html#what-the-website-has",
+    "title": "Explain the code",
+    "section": "What the website has",
+    "text": "What the website has\n\nHome, then Clinical background and Methodological background: the general knowledge the methods rest on.\nStudy design and methods: what this study chose and why, in plain language. Notes say which part of the plan specifies each step, where the code doesn’t yet match the plan, and which choices are still open.\nCode: one page per script, in the order the analysis runs them.\nProject documents: the analysis plan, the architecture, AGENTS.md and the repository blueprint, shown from the files themselves so the site never holds an outdated copy.\nAbout, and a page for addresses that don’t exist.\n\nEach kind of page has its own icon and colour in the sidebar. Text that depends on a decision not yet made is highlighted in yellow, and the page says so at the top.",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/explain.html#what-it-will-not-do",
+    "href": "using/explain.html#what-it-will-not-do",
+    "title": "Explain the code",
+    "section": "What it will not do",
+    "text": "What it will not do\n\nRun the analysis to build the website. Pages show code; results appear only from outputs already cleared for release.\nInvent a citation. A statement that needs one it can’t find is flagged for the librarian reviewer.\nRestyle an existing site without asking. It lists the differences from the plugin’s conventions first.",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/explain.html#ask-it-for-example",
+    "href": "using/explain.html#ask-it-for-example",
+    "title": "Explain the code",
+    "section": "Ask it, for example",
+    "text": "Ask it, for example\n\n“Write the Quarto page for the script I just added to main.R.”\n“This page has pasted code; switch it to import from the script.”\n“Update ARCHITECTURE.md after this restructure.”\n“Bring this site up to date with the plugin’s layout.”",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/explain.html#where-the-detail-lives",
+    "href": "using/explain.html#where-the-detail-lives",
+    "title": "Explain the code",
+    "section": "Where the detail lives",
+    "text": "Where the detail lives\n\nQuarto website guidance\nExample script page\nShared conventions",
+    "crumbs": [
+      "Using the plugin",
+      "Explain the code"
+    ]
+  },
+  {
+    "objectID": "using/review.html",
+    "href": "using/review.html",
+    "title": "Review",
+    "section": "",
+    "text": "Written for version 0.1.14. Full instructions: SKILL.md.",
+    "crumbs": [
+      "Using the plugin",
+      "Review"
+    ]
+  },
+  {
+    "objectID": "using/review.html#what-it-is-for",
+    "href": "using/review.html#what-it-is-for",
+    "title": "Review",
+    "section": "What it is for",
+    "text": "What it is for\nChecking work before it is merged or made public: a single change, the plan, the website against the code, or the whole project.",
+    "crumbs": [
+      "Using the plugin",
+      "Review"
+    ]
+  },
+  {
+    "objectID": "using/review.html#when-to-use-it",
+    "href": "using/review.html#when-to-use-it",
+    "title": "Review",
+    "section": "When to use it",
+    "text": "When to use it\n\nBefore asking a colleague to look at a pull request.\nWhen the plan is drafted, or before it is locked.\nBefore the website, tables or figures go public.\nWhenever you want a second opinion on the project as it stands.",
+    "crumbs": [
+      "Using the plugin",
+      "Review"
+    ]
+  },
+  {
+    "objectID": "using/review.html#what-happens",
+    "href": "using/review.html#what-happens",
+    "title": "Review",
+    "section": "What happens",
+    "text": "What happens\nYou choose the kind of review, or describe what you want checked and the assistant picks:\n\n\n\n\n\n\n\nReview\nWhat it checks\n\n\n\n\nChange\nA pull request or branch, every file it touches, against the plan and the project’s rules\n\n\nPlan ↔︎ code\nEvery part of the plan has code, and the code settles nothing the plan leaves open\n\n\nPlan\nThe plan is complete, its methods fit the question, and its citations say what it claims\n\n\nSite ↔︎ code\nThe website explains the code as it is\n\n\nArchitecture\nARCHITECTURE.md matches the scripts\n\n\nRepository\nThe required files, the data-sources table, .gitignore and protection of the main copy\n\n\nReporting\nThe flow diagram, tables, models and numbers in prose agree\n\n\nRelease\nNothing restricted or uncleared, no credentials, and alt text, before anything goes public; then a person signs off\n\n\n\nMost reviews use some of five blind reviewers: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. Each works as a separate assistant with only the files its role needs and public material such as cited papers, without seeing the other reviewers’ findings or the conversation that produced the work. A final step checks every claimed error against the source before reporting it, and marks findings already known from issues.",
+    "crumbs": [
+      "Using the plugin",
+      "Review"
+    ]
+  },
+  {
+    "objectID": "using/review.html#what-it-will-not-do",
+    "href": "using/review.html#what-it-will-not-do",
+    "title": "Review",
+    "section": "What it will not do",
+    "text": "What it will not do\n\nChange anything while reviewing. Acting on the findings comes afterwards, one at a time, as you choose.\nGive reviewers restricted data. Reviewers read only code, documentation and material cleared for release, so a review stays within the project’s data agreements.",
+    "crumbs": [
+      "Using the plugin",
+      "Review"
+    ]
+  },
+  {
+    "objectID": "using/review.html#ask-it-for-example",
+    "href": "using/review.html#ask-it-for-example",
+    "title": "Review",
+    "section": "Ask it, for example",
+    "text": "Ask it, for example\n\n“Review pull request #12 before my supervisor sees it.”\n“Run a full blind review of this repository.”\n“Check the site is ready to go public.”",
+    "crumbs": [
+      "Using the plugin",
+      "Review"
+    ]
+  },
+  {
+    "objectID": "using/review.html#where-the-detail-lives",
+    "href": "using/review.html#where-the-detail-lives",
+    "title": "Review",
+    "section": "Where the detail lives",
+    "text": "Where the detail lives\n\nThe blind reviewers: what each reads, its prompt, and how reports are combined\nData handling, for the Release review\n\nHow the reviewers themselves are tested is on Blind review (Test A).",
+    "crumbs": [
+      "Using the plugin",
+      "Review"
+    ]
+  },
+  {
+    "objectID": "using/report.html",
+    "href": "using/report.html",
+    "title": "Report results",
+    "section": "",
+    "text": "Written for version 0.1.14. Full instructions: SKILL.md.",
+    "crumbs": [
+      "Using the plugin",
+      "Report results"
+    ]
+  },
+  {
+    "objectID": "using/report.html#what-it-is-for",
+    "href": "using/report.html#what-it-is-for",
+    "title": "Report results",
+    "section": "What it is for",
+    "text": "What it is for\nBuilding the tables, figures and numbers a paper reports, so that every count and estimate comes from the code that produced it and matches the analysis plan.",
+    "crumbs": [
+      "Using the plugin",
+      "Report results"
+    ]
+  },
+  {
+    "objectID": "using/report.html#when-to-use-it",
+    "href": "using/report.html#when-to-use-it",
+    "title": "Report results",
+    "section": "When to use it",
+    "text": "When to use it\n\nYou are ready to build the participant flow diagram, Table 1, survival curves or model tables.\nYou want to check that the numbers in a draft agree with each other and with what was fitted.",
+    "crumbs": [
+      "Using the plugin",
+      "Report results"
+    ]
+  },
+  {
+    "objectID": "using/report.html#what-happens",
+    "href": "using/report.html#what-happens",
+    "title": "Report results",
+    "section": "What happens",
+    "text": "What happens\nThe work follows a fixed order, using the parts that fit the design:\n\nParticipant flow: the diagram of who was included and excluded, built by the same code that builds the analysis dataset (with the flowchart package), so the two can’t disagree.\nDescriptions and missingness: every analysis variable, with missing values shown.\nTable 1, grouped the way the plan says (with gtsummary).\nTwo-variable and stratified summaries, where the plan calls for them.\nRepeated measurements over time, where they exist.\nTime to event: follow-up, events and censoring, before any model.\nFigures, following published principles for clear statistical graphics, with survival curves in the KMunicate style and rules for small counts.\nModel tables that report the model actually fitted.\n\nBefore finishing it checks that every number reconciles with the flow diagram, that estimates and their labels match the fitted model, and that every number written in prose comes from a computed value, never retyped.",
+    "crumbs": [
+      "Using the plugin",
+      "Report results"
+    ]
+  },
+  {
+    "objectID": "using/report.html#what-it-will-not-do",
+    "href": "using/report.html#what-it-will-not-do",
+    "title": "Report results",
+    "section": "What it will not do",
+    "text": "What it will not do\n\nChoose the model, covariates or how missing data are handled. Those come from the plan; an open one becomes a decision issue.\nRead restricted data. It writes and tests the code on made-up data; a person with access runs it on the real data, and every output passes the project’s disclosure rules before it leaves.",
+    "crumbs": [
+      "Using the plugin",
+      "Report results"
+    ]
+  },
+  {
+    "objectID": "using/report.html#ask-it-for-example",
+    "href": "using/report.html#ask-it-for-example",
+    "title": "Report results",
+    "section": "Ask it, for example",
+    "text": "Ask it, for example\n\n“Build Table 1 from the analysis dataset, grouped by exposure as in the plan.”\n“Make the Kaplan–Meier figure with a risk table.”\n“Check that the numbers in the results section match the tables.”",
+    "crumbs": [
+      "Using the plugin",
+      "Report results"
+    ]
+  },
+  {
+    "objectID": "using/report.html#where-the-detail-lives",
+    "href": "using/report.html#where-the-detail-lives",
+    "title": "Report results",
+    "section": "Where the detail lives",
+    "text": "Where the detail lives\n\nReporting guidance\nData handling\n\nFor an independent check afterwards, ask for the Reporting review (see Review).",
+    "crumbs": [
+      "Using the plugin",
+      "Report results"
+    ]
+  },
+  {
+    "objectID": "sites.html",
+    "href": "sites.html",
+    "title": "Sites built with it",
+    "section": "",
+    "text": "Written for version 0.1.14.",
+    "crumbs": [
+      "Sites built with it"
+    ]
+  },
+  {
+    "objectID": "sites.html#the-reference-site",
+    "href": "sites.html#the-reference-site",
+    "title": "Sites built with it",
+    "section": "The reference site",
+    "text": "The reference site\n\nCryptococcus-cost-analysis: the site the plugin’s starter follows. It was built before the plugin and has since been brought in line with it, so it shows the layout a project site gets: background pages, Study design and methods, one page per script, and the project documents. Repository.",
+    "crumbs": [
+      "Sites built with it"
+    ]
+  },
+  {
+    "objectID": "sites.html#sites-built-with-the-plugin-from-the-start",
+    "href": "sites.html#sites-built-with-the-plugin-from-the-start",
+    "title": "Sites built with it",
+    "section": "Sites built with the plugin from the start",
+    "text": "Sites built with the plugin from the start\nNone are listed yet. If you have built one, open an issue on the plugin’s repository with its address.\nTo see what a project site looks like before then, the plugin’s starter files hold a small example site with made-up code.",
+    "crumbs": [
+      "Sites built with it"
+    ]
+  },
+  {
+    "objectID": "using/start.html",
+    "href": "using/start.html",
+    "title": "Start a project",
+    "section": "",
+    "text": "Written for version 0.1.14. Full instructions: SKILL.md.",
+    "crumbs": [
+      "Using the plugin",
+      "Start a project"
+    ]
+  },
+  {
+    "objectID": "using/start.html#what-it-is-for",
+    "href": "using/start.html#what-it-is-for",
+    "title": "Start a project",
+    "section": "What it is for",
+    "text": "What it is for\nSetting up a new analysis project, or tidying an existing one (a folder of scripts, or one long R Markdown file), so it becomes a GitHub repository in a consistent layout that the next person can pick up.",
+    "crumbs": [
+      "Using the plugin",
+      "Start a project"
+    ]
+  },
+  {
+    "objectID": "using/start.html#when-to-use-it",
+    "href": "using/start.html#when-to-use-it",
+    "title": "Start a project",
+    "section": "When to use it",
+    "text": "When to use it\n\nYou have an idea, a protocol or an old script, and no repository yet.\nYou have a repository that grew without a plan and want it organized.\nA setup was started in an earlier chat and not finished.",
+    "crumbs": [
+      "Using the plugin",
+      "Start a project"
+    ]
+  },
+  {
+    "objectID": "using/start.html#what-happens",
+    "href": "using/start.html#what-happens",
+    "title": "Start a project",
+    "section": "What happens",
+    "text": "What happens\nThe assistant asks a short set of questions, one at a time, and reuses anything you have already told it or that is already in the files. It does not ask you to install R or Git unless the work needs them; a clinician can help with the protocol from the browser.\nThen it proposes a setup plan and, once you agree, drafts:\n\nthe analysis plan (analysis-plan.md), from a template that fits the design (observational, economic or descriptive), with a decision issue for every scientific choice still open rather than a guess;\nAGENTS.md, the project’s rules for any assistant: who the deciders are and for what, every data source and the package that reads it, and what an assistant may never read;\nthe website starter, once you’ve said whether the site will be published from a folder in the repository or by a GitHub workflow;\na README, a reference list, and a .gitignore that keeps data and secrets out of the repository;\nsteps for the maintainer to protect the main copy, so every change arrives through a pull request, and to switch on the website.\n\nIt also offers, without requiring them: your own ChatGPT or Claude project for this repository with instructions filled in for how you like to work, milestones with dates, and a periodic check-in that tells you what is waiting on you.",
+    "crumbs": [
+      "Using the plugin",
+      "Start a project"
+    ]
+  },
+  {
+    "objectID": "using/start.html#what-it-will-not-do",
+    "href": "using/start.html#what-it-will-not-do",
+    "title": "Start a project",
+    "section": "What it will not do",
+    "text": "What it will not do\n\nChoose a scientific option. It drafts the options; a decider settles them.\nOpen data that may be restricted while taking stock of a folder.\nInstall tools, publish anything or change repository settings on its own.\nOverwrite files an existing project already has. It lists what differs from the starter instead.",
+    "crumbs": [
+      "Using the plugin",
+      "Start a project"
+    ]
+  },
+  {
+    "objectID": "using/start.html#ask-it-for-example",
+    "href": "using/start.html#ask-it-for-example",
+    "title": "Start a project",
+    "section": "Ask it, for example",
+    "text": "Ask it, for example\n\n“Set up my R analysis project from my latest RMD and protocol.”\n“I have no GitHub account and no R. Help me get this project started.”\n“We started setting this up last week; carry on from where it stopped.”",
+    "crumbs": [
+      "Using the plugin",
+      "Start a project"
+    ]
+  },
+  {
+    "objectID": "using/start.html#where-the-detail-lives",
+    "href": "using/start.html#where-the-detail-lives",
+    "title": "Start a project",
+    "section": "Where the detail lives",
+    "text": "Where the detail lives\n\nThe questionnaire\nWriting the analysis plan\nThe repository blueprint\nThe AGENTS.md template and personal instructions template\nGitHub workflow, including setting up from R\nData handling\nThe starter files",
+    "crumbs": [
+      "Using the plugin",
+      "Start a project"
+    ]
+  },
+  {
+    "objectID": "using/join-leave.html",
+    "href": "using/join-leave.html",
+    "title": "Join or leave a project",
+    "section": "",
+    "text": "Written for version 0.1.14. Full instructions: SKILL.md.",
+    "crumbs": [
+      "Using the plugin",
+      "Join or leave a project"
+    ]
+  },
+  {
+    "objectID": "using/join-leave.html#what-it-is-for",
+    "href": "using/join-leave.html#what-it-is-for",
+    "title": "Join or leave a project",
+    "section": "What it is for",
+    "text": "What it is for\nHelping someone start contributing to a project at the level of help they want, and helping someone who is leaving hand over so the next person can carry on from the repository alone.",
+    "crumbs": [
+      "Using the plugin",
+      "Join or leave a project"
+    ]
+  },
+  {
+    "objectID": "using/join-leave.html#joining",
+    "href": "using/join-leave.html#joining",
+    "title": "Join or leave a project",
+    "section": "Joining",
+    "text": "Joining\nThe assistant starts from what you want to contribute and what you already know, and gives one next step at a time. It explains the project through its own documents:\n\nthe website, the way in for anyone who doesn’t code: a clinician starts at Clinical background and Study design and methods;\nthe analysis plan, which says what the analysis must do, with markers for questions still open;\nGitHub issues, which hold those open questions and known gaps;\nAGENTS.md, which says how work is done here and who decides what;\nARCHITECTURE.md, for people who will work on the code.\n\nWays to contribute:\n\nClinical input without code: comment on a decision issue with evidence and reasoning, or review the plan or the site. Only the named deciders settle a question, but anyone can inform one. A decider who doesn’t use GitHub can decide by email; their exact words are then posted in the issue.\nCode: a change on a branch, offered as a pull request. The assistant explains only the Git steps your own tool needs.\nReview: anyone can ask for one (see Review).\n\nIt also offers your own ChatGPT or Claude project for the repository, with instructions for how you like to work (review only, step by step, or hands-off), and an optional check-in that reports what is waiting on you.\nWhen you take over from someone, it starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person’s files or chats.",
+    "crumbs": [
+      "Using the plugin",
+      "Join or leave a project"
+    ]
+  },
+  {
+    "objectID": "using/join-leave.html#leaving",
+    "href": "using/join-leave.html#leaving",
+    "title": "Join or leave a project",
+    "section": "Leaving",
+    "text": "Leaving\nWhen you say you are leaving, or a check-in sees your end date coming, the assistant works through four things with you:\n\nDocuments that exist only in a chat, on your laptop or in email, moved into the repository.\nOpen issues and pull requests: finished, handed on, closed with a reason, or left open with a note saying what each waits on.\nRequests you made that have no answer yet, recorded so they aren’t lost.\nOwnership: if you own the repository, transferring it to the PI, and then fixing the website links and switching the site back on, since GitHub does not redirect the website.\n\nNot everything has to be finished. Something left open with a clear note is fine.",
+    "crumbs": [
+      "Using the plugin",
+      "Join or leave a project"
+    ]
+  },
+  {
+    "objectID": "using/join-leave.html#what-it-will-not-do",
+    "href": "using/join-leave.html#what-it-will-not-do",
+    "title": "Join or leave a project",
+    "section": "What it will not do",
+    "text": "What it will not do\n\nRequire R, Git or Quarto for work that doesn’t need them.\nAsk you to paste a token or password.\nChange account settings, install software or publish without your say-so.",
+    "crumbs": [
+      "Using the plugin",
+      "Join or leave a project"
+    ]
+  },
+  {
+    "objectID": "using/join-leave.html#ask-it-for-example",
+    "href": "using/join-leave.html#ask-it-for-example",
+    "title": "Join or leave a project",
+    "section": "Ask it, for example",
+    "text": "Ask it, for example\n\n“Explain this project’s question and show where I can help with the protocol. Assume I can’t read R.”\n“I know R but not GitHub. Help me make one contribution.”\n“My rotation ends Friday. Help me hand over.”",
+    "crumbs": [
+      "Using the plugin",
+      "Join or leave a project"
+    ]
+  },
+  {
+    "objectID": "using/join-leave.html#where-the-detail-lives",
+    "href": "using/join-leave.html#where-the-detail-lives",
+    "title": "Join or leave a project",
+    "section": "Where the detail lives",
+    "text": "Where the detail lives\n\nOnboarding and leaving a project\nPersonal instructions template\nHappy Git and GitHub for the useR, for learning Git with R",
+    "crumbs": [
+      "Using the plugin",
+      "Join or leave a project"
     ]
   },
   {
@@ -178,7 +615,7 @@
     "href": "testing/user-simulation.html",
     "title": "User simulation (Test B)",
     "section": "",
-    "text": "Written for version 0.1.13. Full procedure: testing/README.md, Test B. Scenario: scenario.md.\nEvery person in this test, and in its records, is a simulated persona played by an AI agent. None of them is a real person, and the project uses only public data.",
+    "text": "Written for version 0.1.14. Full procedure: testing/README.md, Test B. Scenario: scenario.md.\nEvery person in this test, and in its records, is a simulated persona played by an AI agent. None of them is a real person, and the project uses only public data.",
     "crumbs": [
       "Testing",
       "User simulation (Test B)"
@@ -262,453 +699,47 @@
     ]
   },
   {
-    "objectID": "using/join-leave.html",
-    "href": "using/join-leave.html",
-    "title": "Join or leave a project",
+    "objectID": "testing/blind-review.html",
+    "href": "testing/blind-review.html",
+    "title": "Blind review (Test A)",
     "section": "",
-    "text": "Written for version 0.1.13. Full instructions: SKILL.md.",
-    "crumbs": [
-      "Using the plugin",
-      "Join or leave a project"
-    ]
-  },
-  {
-    "objectID": "using/join-leave.html#what-it-is-for",
-    "href": "using/join-leave.html#what-it-is-for",
-    "title": "Join or leave a project",
-    "section": "What it is for",
-    "text": "What it is for\nHelping someone start contributing to a project at the level of help they want, and helping someone who is leaving hand over so the next person can carry on from the repository alone.",
-    "crumbs": [
-      "Using the plugin",
-      "Join or leave a project"
-    ]
-  },
-  {
-    "objectID": "using/join-leave.html#joining",
-    "href": "using/join-leave.html#joining",
-    "title": "Join or leave a project",
-    "section": "Joining",
-    "text": "Joining\nThe assistant starts from what you want to contribute and what you already know, and gives one next step at a time. It explains the project through its own documents:\n\nthe website, the way in for anyone who doesn’t code;\nthe analysis plan, which says what the analysis must do, with markers for questions still open;\nGitHub issues, which hold those open questions and known gaps;\nAGENTS.md, which says how work is done here and who decides what;\nARCHITECTURE.md, for people who will work on the code.\n\nWays to contribute:\n\nClinical input without code: comment on a decision issue with evidence and reasoning, or review the plan or the site. Only the named deciders settle a question, but anyone can inform one. A decider who doesn’t use GitHub can decide by email; their exact words are then posted in the issue.\nCode: a change on a branch, offered as a pull request. The assistant explains only the Git steps your own tool needs.\nReview: anyone can ask for one (see Review).\n\nIt also offers your own ChatGPT or Claude project for the repository, with instructions for how you like to work (review only, step by step, or hands-off), and an optional check-in that reports what is waiting on you.\nWhen you take over from someone, it starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person’s files or chats.",
-    "crumbs": [
-      "Using the plugin",
-      "Join or leave a project"
-    ]
-  },
-  {
-    "objectID": "using/join-leave.html#leaving",
-    "href": "using/join-leave.html#leaving",
-    "title": "Join or leave a project",
-    "section": "Leaving",
-    "text": "Leaving\nWhen you say you are leaving, or a check-in sees your end date coming, the assistant works through four things with you:\n\nDocuments that exist only in a chat, on your laptop or in email, moved into the repository.\nOpen issues and pull requests: finished, handed on, closed with a reason, or left open with a note saying what each waits on.\nRequests you made that have no answer yet, recorded so they aren’t lost.\nOwnership: if you own the repository, transferring it to the PI, and then fixing the website links and switching the site back on, since GitHub does not redirect the website.\n\nNot everything has to be finished. Something left open with a clear note is fine.",
-    "crumbs": [
-      "Using the plugin",
-      "Join or leave a project"
-    ]
-  },
-  {
-    "objectID": "using/join-leave.html#what-it-will-not-do",
-    "href": "using/join-leave.html#what-it-will-not-do",
-    "title": "Join or leave a project",
-    "section": "What it will not do",
-    "text": "What it will not do\n\nRequire R, Git or Quarto for work that doesn’t need them.\nAsk you to paste a token or password.\nChange account settings, install software or publish without your say-so.",
-    "crumbs": [
-      "Using the plugin",
-      "Join or leave a project"
-    ]
-  },
-  {
-    "objectID": "using/join-leave.html#ask-it-for-example",
-    "href": "using/join-leave.html#ask-it-for-example",
-    "title": "Join or leave a project",
-    "section": "Ask it, for example",
-    "text": "Ask it, for example\n\n“Explain this project’s question and show where I can help with the protocol. Assume I can’t read R.”\n“I know R but not GitHub. Help me make one contribution.”\n“My rotation ends Friday. Help me hand over.”",
-    "crumbs": [
-      "Using the plugin",
-      "Join or leave a project"
-    ]
-  },
-  {
-    "objectID": "using/join-leave.html#where-the-detail-lives",
-    "href": "using/join-leave.html#where-the-detail-lives",
-    "title": "Join or leave a project",
-    "section": "Where the detail lives",
-    "text": "Where the detail lives\n\nOnboarding and leaving a project\nPersonal instructions template\nHappy Git and GitHub for the useR, for learning Git with R",
-    "crumbs": [
-      "Using the plugin",
-      "Join or leave a project"
-    ]
-  },
-  {
-    "objectID": "using/start.html",
-    "href": "using/start.html",
-    "title": "Start a project",
-    "section": "",
-    "text": "Written for version 0.1.13. Full instructions: SKILL.md.",
-    "crumbs": [
-      "Using the plugin",
-      "Start a project"
-    ]
-  },
-  {
-    "objectID": "using/start.html#what-it-is-for",
-    "href": "using/start.html#what-it-is-for",
-    "title": "Start a project",
-    "section": "What it is for",
-    "text": "What it is for\nSetting up a new analysis project, or tidying an existing one (a folder of scripts, or one long R Markdown file), so it becomes a GitHub repository in a consistent layout that the next person can pick up.",
-    "crumbs": [
-      "Using the plugin",
-      "Start a project"
-    ]
-  },
-  {
-    "objectID": "using/start.html#when-to-use-it",
-    "href": "using/start.html#when-to-use-it",
-    "title": "Start a project",
-    "section": "When to use it",
-    "text": "When to use it\n\nYou have an idea, a protocol or an old script, and no repository yet.\nYou have a repository that grew without a plan and want it organized.\nA setup was started in an earlier chat and not finished.",
-    "crumbs": [
-      "Using the plugin",
-      "Start a project"
-    ]
-  },
-  {
-    "objectID": "using/start.html#what-happens",
-    "href": "using/start.html#what-happens",
-    "title": "Start a project",
-    "section": "What happens",
-    "text": "What happens\nThe assistant asks a short set of questions, one at a time, and reuses anything you have already told it or that is already in the files. It does not ask you to install R or Git unless the work needs them; a clinician can help with the protocol from the browser.\nThen it proposes a setup plan and, once you agree, drafts:\n\nthe analysis plan (analysis-plan.md), from a template that fits the design (observational, economic or descriptive), with a decision issue for every scientific choice still open rather than a guess;\nAGENTS.md, the project’s rules for any assistant: who the deciders are and for what, every data source and the package that reads it, and what an assistant may never read;\nthe website starter, a README, a reference list, and a .gitignore that keeps data and secrets out of the repository;\nsteps for the maintainer to protect the main copy, so every change arrives through a pull request, and to switch on the website.\n\nIt also offers, without requiring them: your own ChatGPT or Claude project for this repository with instructions filled in for how you like to work, milestones with dates, and a periodic check-in that tells you what is waiting on you.",
-    "crumbs": [
-      "Using the plugin",
-      "Start a project"
-    ]
-  },
-  {
-    "objectID": "using/start.html#what-it-will-not-do",
-    "href": "using/start.html#what-it-will-not-do",
-    "title": "Start a project",
-    "section": "What it will not do",
-    "text": "What it will not do\n\nChoose a scientific option. It drafts the options; a decider settles them.\nOpen data that may be restricted while taking stock of a folder.\nInstall tools, publish anything or change repository settings on its own.",
-    "crumbs": [
-      "Using the plugin",
-      "Start a project"
-    ]
-  },
-  {
-    "objectID": "using/start.html#ask-it-for-example",
-    "href": "using/start.html#ask-it-for-example",
-    "title": "Start a project",
-    "section": "Ask it, for example",
-    "text": "Ask it, for example\n\n“Set up my R analysis project from my latest RMD and protocol.”\n“I have no GitHub account and no R. Help me get this project started.”\n“We started setting this up last week; carry on from where it stopped.”",
-    "crumbs": [
-      "Using the plugin",
-      "Start a project"
-    ]
-  },
-  {
-    "objectID": "using/start.html#where-the-detail-lives",
-    "href": "using/start.html#where-the-detail-lives",
-    "title": "Start a project",
-    "section": "Where the detail lives",
-    "text": "Where the detail lives\n\nThe questionnaire\nWriting the analysis plan\nThe repository blueprint\nThe AGENTS.md template and personal instructions template\nGitHub workflow, including setting up from R\nData handling\nThe starter files",
-    "crumbs": [
-      "Using the plugin",
-      "Start a project"
-    ]
-  },
-  {
-    "objectID": "sites.html",
-    "href": "sites.html",
-    "title": "Sites built with it",
-    "section": "",
-    "text": "Written for version 0.1.13.\nNone are listed yet.\nThis page will list public project websites built with the plugin from the start. If you have built one, open an issue on the plugin’s repository with its address.\nTo see what a project site looks like before then, the plugin’s starter files hold a small example site with made-up code.",
-    "crumbs": [
-      "Sites built with it"
-    ]
-  },
-  {
-    "objectID": "using/report.html",
-    "href": "using/report.html",
-    "title": "Report results",
-    "section": "",
-    "text": "Written for version 0.1.13. Full instructions: SKILL.md.",
-    "crumbs": [
-      "Using the plugin",
-      "Report results"
-    ]
-  },
-  {
-    "objectID": "using/report.html#what-it-is-for",
-    "href": "using/report.html#what-it-is-for",
-    "title": "Report results",
-    "section": "What it is for",
-    "text": "What it is for\nBuilding the tables, figures and numbers a paper reports, so that every count and estimate comes from the code that produced it and matches the analysis plan.",
-    "crumbs": [
-      "Using the plugin",
-      "Report results"
-    ]
-  },
-  {
-    "objectID": "using/report.html#when-to-use-it",
-    "href": "using/report.html#when-to-use-it",
-    "title": "Report results",
-    "section": "When to use it",
-    "text": "When to use it\n\nYou are ready to build the participant flow diagram, Table 1, survival curves or model tables.\nYou want to check that the numbers in a draft agree with each other and with what was fitted.",
-    "crumbs": [
-      "Using the plugin",
-      "Report results"
-    ]
-  },
-  {
-    "objectID": "using/report.html#what-happens",
-    "href": "using/report.html#what-happens",
-    "title": "Report results",
-    "section": "What happens",
-    "text": "What happens\nThe work follows a fixed order, using the parts that fit the design:\n\nParticipant flow: the diagram of who was included and excluded, built by the same code that builds the analysis dataset (with the flowchart package), so the two can’t disagree.\nDescriptions and missingness: every analysis variable, with missing values shown.\nTable 1, grouped the way the plan says (with gtsummary).\nTwo-variable and stratified summaries, where the plan calls for them.\nRepeated measurements over time, where they exist.\nTime to event: follow-up, events and censoring, before any model.\nFigures, following published principles for clear statistical graphics, with survival curves in the KMunicate style and rules for small counts.\nModel tables that report the model actually fitted.\n\nBefore finishing it checks that every number reconciles with the flow diagram, that estimates and their labels match the fitted model, and that every number written in prose comes from a computed value, never retyped.",
-    "crumbs": [
-      "Using the plugin",
-      "Report results"
-    ]
-  },
-  {
-    "objectID": "using/report.html#what-it-will-not-do",
-    "href": "using/report.html#what-it-will-not-do",
-    "title": "Report results",
-    "section": "What it will not do",
-    "text": "What it will not do\n\nChoose the model, covariates or how missing data are handled. Those come from the plan; an open one becomes a decision issue.\nRead restricted data. It writes and tests the code on made-up data; a person with access runs it on the real data, and every output passes the project’s disclosure rules before it leaves.",
-    "crumbs": [
-      "Using the plugin",
-      "Report results"
-    ]
-  },
-  {
-    "objectID": "using/report.html#ask-it-for-example",
-    "href": "using/report.html#ask-it-for-example",
-    "title": "Report results",
-    "section": "Ask it, for example",
-    "text": "Ask it, for example\n\n“Build Table 1 from the analysis dataset, grouped by exposure as in the plan.”\n“Make the Kaplan–Meier figure with a risk table.”\n“Check that the numbers in the results section match the tables.”",
-    "crumbs": [
-      "Using the plugin",
-      "Report results"
-    ]
-  },
-  {
-    "objectID": "using/report.html#where-the-detail-lives",
-    "href": "using/report.html#where-the-detail-lives",
-    "title": "Report results",
-    "section": "Where the detail lives",
-    "text": "Where the detail lives\n\nReporting guidance\nData handling\n\nFor an independent check afterwards, ask for the Reporting review (see Review).",
-    "crumbs": [
-      "Using the plugin",
-      "Report results"
-    ]
-  },
-  {
-    "objectID": "using/review.html",
-    "href": "using/review.html",
-    "title": "Review",
-    "section": "",
-    "text": "Written for version 0.1.13. Full instructions: SKILL.md.",
-    "crumbs": [
-      "Using the plugin",
-      "Review"
-    ]
-  },
-  {
-    "objectID": "using/review.html#what-it-is-for",
-    "href": "using/review.html#what-it-is-for",
-    "title": "Review",
-    "section": "What it is for",
-    "text": "What it is for\nChecking work before it is merged or made public: a single change, the plan, the website against the code, or the whole project.",
-    "crumbs": [
-      "Using the plugin",
-      "Review"
-    ]
-  },
-  {
-    "objectID": "using/review.html#when-to-use-it",
-    "href": "using/review.html#when-to-use-it",
-    "title": "Review",
-    "section": "When to use it",
-    "text": "When to use it\n\nBefore asking a colleague to look at a pull request.\nWhen the plan is drafted, or before it is locked.\nBefore the website, tables or figures go public.\nWhenever you want a second opinion on the project as it stands.",
-    "crumbs": [
-      "Using the plugin",
-      "Review"
-    ]
-  },
-  {
-    "objectID": "using/review.html#what-happens",
-    "href": "using/review.html#what-happens",
-    "title": "Review",
-    "section": "What happens",
-    "text": "What happens\nYou choose the kind of review, or describe what you want checked and the assistant picks:\n\n\n\n\n\n\n\nReview\nWhat it checks\n\n\n\n\nChange\nA pull request or branch, every file it touches, against the plan and the project’s rules\n\n\nPlan ↔︎ code\nEvery part of the plan has code, and the code settles nothing the plan leaves open\n\n\nPlan\nThe plan is complete, its methods fit the question, and its citations say what it claims\n\n\nSite ↔︎ code\nThe website explains the code as it is\n\n\nArchitecture\nARCHITECTURE.md matches the scripts\n\n\nRepository\nThe required files, the data-sources table, .gitignore and protection of the main copy\n\n\nReporting\nThe flow diagram, tables, models and numbers in prose agree\n\n\nRelease\nNothing restricted or uncleared, no credentials, and alt text, before anything goes public; then a person signs off\n\n\n\nMost reviews use some of five blind reviewers: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. Each works as a separate assistant with only the files its role needs and public material such as cited papers, without seeing the other reviewers’ findings or the conversation that produced the work. A final step checks every claimed error against the source before reporting it, and marks findings already known from issues.",
-    "crumbs": [
-      "Using the plugin",
-      "Review"
-    ]
-  },
-  {
-    "objectID": "using/review.html#what-it-will-not-do",
-    "href": "using/review.html#what-it-will-not-do",
-    "title": "Review",
-    "section": "What it will not do",
-    "text": "What it will not do\n\nChange anything while reviewing. Acting on the findings comes afterwards, one at a time, as you choose.\nGive reviewers restricted data. Reviewers read only code, documentation and material cleared for release, so a review stays within the project’s data agreements.",
-    "crumbs": [
-      "Using the plugin",
-      "Review"
-    ]
-  },
-  {
-    "objectID": "using/review.html#ask-it-for-example",
-    "href": "using/review.html#ask-it-for-example",
-    "title": "Review",
-    "section": "Ask it, for example",
-    "text": "Ask it, for example\n\n“Review pull request #12 before my supervisor sees it.”\n“Run a full blind review of this repository.”\n“Check the site is ready to go public.”",
-    "crumbs": [
-      "Using the plugin",
-      "Review"
-    ]
-  },
-  {
-    "objectID": "using/review.html#where-the-detail-lives",
-    "href": "using/review.html#where-the-detail-lives",
-    "title": "Review",
-    "section": "Where the detail lives",
-    "text": "Where the detail lives\n\nThe blind reviewers: what each reads, its prompt, and how reports are combined\nData handling, for the Release review\n\nHow the reviewers themselves are tested is on Blind review (Test A).",
-    "crumbs": [
-      "Using the plugin",
-      "Review"
-    ]
-  },
-  {
-    "objectID": "using/explain.html",
-    "href": "using/explain.html",
-    "title": "Explain the code",
-    "section": "",
-    "text": "Written for version 0.1.13. Full instructions: SKILL.md.",
-    "crumbs": [
-      "Using the plugin",
-      "Explain the code"
-    ]
-  },
-  {
-    "objectID": "using/explain.html#what-it-is-for",
-    "href": "using/explain.html#what-it-is-for",
-    "title": "Explain the code",
-    "section": "What it is for",
-    "text": "What it is for\nKeeping the project’s website, README and ARCHITECTURE.md in step with the code. The website is how a clinician, a reviewer or the next student understands what the analysis does without reading R.",
-    "crumbs": [
-      "Using the plugin",
-      "Explain the code"
-    ]
-  },
-  {
-    "objectID": "using/explain.html#when-to-use-it",
-    "href": "using/explain.html#when-to-use-it",
-    "title": "Explain the code",
-    "section": "When to use it",
-    "text": "When to use it\n\nA script has just joined the analysis (the main script now runs it) and needs its page.\nCode changed and its page should say what it does now.\nA page holds a pasted copy of code that may no longer match the script.\nThe site, README or architecture description needs repair.\nA decision was made, the plan was locked, or a new data source was added, and the plan needs updating to match.",
-    "crumbs": [
-      "Using the plugin",
-      "Explain the code"
-    ]
-  },
-  {
-    "objectID": "using/explain.html#what-happens",
-    "href": "using/explain.html#what-happens",
-    "title": "Explain the code",
-    "section": "What happens",
-    "text": "What happens\nEach definitive script is divided into labelled sections. Its page on the website shows those sections, imported from the script itself, so the code on the page is always the code that runs. Under each section the page explains, in plain language for a clinician:\n\nwhat the step does and why;\nwhat it takes in and where that comes from;\nwhich part of the analysis plan it carries out;\nwhat it hands on to the next step.\n\nAbbreviations are defined, associations are not described as causes, and sources are cited from the project’s reference list. Where code and plan disagree, the page says so rather than smoothing it over.\nThe page, the sidebar and the rendered site are updated in the same pull request as the code change.",
-    "crumbs": [
-      "Using the plugin",
-      "Explain the code"
-    ]
-  },
-  {
-    "objectID": "using/explain.html#what-it-will-not-do",
-    "href": "using/explain.html#what-it-will-not-do",
-    "title": "Explain the code",
-    "section": "What it will not do",
-    "text": "What it will not do\n\nRun the analysis to build the website. Pages show code; results appear only from outputs already cleared for release.\nInvent a citation. A statement that needs one it can’t find is flagged for the librarian reviewer.\nRestyle an existing site without asking. It lists the differences from the plugin’s conventions first.",
-    "crumbs": [
-      "Using the plugin",
-      "Explain the code"
-    ]
-  },
-  {
-    "objectID": "using/explain.html#ask-it-for-example",
-    "href": "using/explain.html#ask-it-for-example",
-    "title": "Explain the code",
-    "section": "Ask it, for example",
-    "text": "Ask it, for example\n\n“Write the Quarto page for the script I just added to main.R.”\n“This page has pasted code; switch it to import from the script.”\n“Update ARCHITECTURE.md after this restructure.”",
-    "crumbs": [
-      "Using the plugin",
-      "Explain the code"
-    ]
-  },
-  {
-    "objectID": "using/explain.html#where-the-detail-lives",
-    "href": "using/explain.html#where-the-detail-lives",
-    "title": "Explain the code",
-    "section": "Where the detail lives",
-    "text": "Where the detail lives\n\nQuarto website guidance\nExample script page\nShared conventions",
-    "crumbs": [
-      "Using the plugin",
-      "Explain the code"
-    ]
-  },
-  {
-    "objectID": "testing/runs.html",
-    "href": "testing/runs.html",
-    "title": "Runs",
-    "section": "",
-    "text": "Written for version 0.1.13. Records: testing/runs. Every person named in them is a simulated persona.\nOne line per run, newest first. Each record has a scorecard (what worked, what partly worked, what failed, with the evidence) and run notes (setup, environment, and anything the orchestrator got wrong).",
+    "text": "Written for version 0.1.14. Full procedure: testing/README.md, Test A. Reviewer prompts: reviewers.md.",
     "crumbs": [
       "Testing",
-      "Runs"
+      "Blind review (Test A)"
     ]
   },
   {
-    "objectID": "testing/runs.html#earlier-checks-without-a-record-here",
-    "href": "testing/runs.html#earlier-checks-without-a-record-here",
-    "title": "Runs",
-    "section": "Earlier checks without a record here",
-    "text": "Earlier checks without a record here\nThese are described in VALIDATION.md, but their records are not in this repository:\n\nBlind review (Test A) of four reviewers (clinician reader, clinician-researcher, statistician, coding expert) on Cryptococcus-cost-analysis at commit 015aa6b.\nBlind review of the plugin itself (0.1.7, 2026-10-26): five reviewers read only the shipped plugin and its stated principles; 46 findings, which 0.1.8 acted on.",
+    "objectID": "testing/blind-review.html#what-it-tests",
+    "href": "testing/blind-review.html#what-it-tests",
+    "title": "Blind review (Test A)",
+    "section": "What it tests",
+    "text": "What it tests\nThe plugin’s review uses five reviewers, each a separate assistant:\n\nClinician reader: is it clear, relevant and understandable to a clinician?\nClinician-researcher: are the definitions, cohort and outcomes clinically valid?\nStatistician: do the methods fit the question, and does the code do what the plan says?\nCoding expert: is the code correct, readable, and safe to keep in a public repository?\nLibrarian: do the citations exist, and do they say what the plan claims they say?\n\nTest A checks whether these reviewers find real problems, keep to their roles, and never step outside the data rules.",
     "crumbs": [
       "Testing",
-      "Runs"
+      "Blind review (Test A)"
     ]
   },
   {
-    "objectID": "testing/index.html",
-    "href": "testing/index.html",
-    "title": "How it’s tested",
-    "section": "",
-    "text": "Written for version 0.1.13. Full procedure: testing/README.md.\nA plugin is a set of instructions, so testing it means watching assistants follow those instructions and checking what they actually did. Two tests do this, both run by an orchestrating agent that starts independent assistants, passes messages between them and keeps the record. Neither needs ChatGPT itself. They stand in for real use, which remains the final check.",
+    "objectID": "testing/blind-review.html#how-it-runs",
+    "href": "testing/blind-review.html#how-it-runs",
+    "title": "Blind review (Test A)",
+    "section": "How it runs",
+    "text": "How it runs\n\nPick a public repository and fix one commit. Every reviewer reads the same version.\nBuild one packet per reviewer: only the files that reviewer’s role reviews, copied from that commit.\nStart each reviewer as a separate assistant with a fresh context. It sees its packet and public material its role needs (package documentation, cited papers, code sets, guidelines), and never the other reviewers’ reports or the conversation that produced the work.\nCombine the reports. Every claimed error is checked against the source before it is listed; anything that doesn’t hold is withdrawn or downgraded and listed under corrections. Findings already known from the repository’s issues are marked with their status.\nScore each reviewer: did it stay in its role; how many findings were verified, withdrawn or unverifiable; which findings no other reviewer made; where reviewers independently found the same thing; what it said it couldn’t assess and why; and any breach of the data rules (there should be none).",
     "crumbs": [
       "Testing",
-      "How it's tested"
+      "Blind review (Test A)"
     ]
   },
   {
-    "objectID": "testing/index.html#how-a-run-is-recorded",
-    "href": "testing/index.html#how-a-run-is-recorded",
-    "title": "How it’s tested",
-    "section": "How a run is recorded",
-    "text": "How a run is recorded\n\nBefore a run, its starting point is written down: the plugin commit, and for a run that doesn’t start from nothing, the simulated world it starts from and every defect planted in it, with what passing looks like. These are the setups.\nDuring a run, every gap is logged as it appears: something the plugin didn’t cover, something it made go right, or a tension between two of its rules.\nAfter a run, the repository keeps its scorecard and run notes (environment, setup used, and anything the orchestrator got wrong). Transcripts and the gap log are working material and are kept outside the repository. Each gap still open becomes an issue on the plugin’s repository.\nThen the plugin is fixed from those issues, one decision at a time by the maintainer, and the affected part is run again.\n\nThe list of runs is on Runs. What the fixes add up to is on Problems it solves.",
+    "objectID": "testing/blind-review.html#what-a-good-result-looks-like",
+    "href": "testing/blind-review.html#what-a-good-result-looks-like",
+    "title": "Blind review (Test A)",
+    "section": "What a good result looks like",
+    "text": "What a good result looks like\nReviewers that each find something the others missed, independent rediscovery of the same problem by more than one, few withdrawn claims, and no data-rule breaches. A reviewer that says it couldn’t check something points either to a fault in how its packet was built, which is then fixed, or to a real limit.\nResults are on Runs.",
     "crumbs": [
       "Testing",
-      "How it's tested"
-    ]
-  },
-  {
-    "objectID": "testing/index.html#what-the-tests-cant-show",
-    "href": "testing/index.html#what-the-tests-cant-show",
-    "title": "How it’s tested",
-    "section": "What the tests can’t show",
-    "text": "What the tests can’t show\n\nHow ChatGPT or Claude themselves behave with the plugin installed. The assistants in the tests follow the plugin as written, in a sandbox.\nWhat happens with real restricted data. Tests use public or made-up data only.\nWhat happens without the plugin. No run has yet compared the same scenario without it.",
-    "crumbs": [
-      "Testing",
-      "How it's tested"
+      "Blind review (Test A)"
     ]
   },
   {
@@ -716,7 +747,7 @@
     "href": "index.html",
     "title": "R Analysis Workflow",
     "section": "",
-    "text": "Written for version 0.1.13.",
+    "text": "Written for version 0.1.14.\nAn early version. It has been tested in simulated projects and used by the maintainer on his own analyses; it has not yet been used by other teams.",
     "crumbs": [
       "Home"
     ]
