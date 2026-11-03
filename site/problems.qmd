@@ -22,6 +22,7 @@ Test results use the scorecards' scale: **✔** worked as intended, **~** worked
 [agents]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md
 [init]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md
 [doc]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md
+[quarto]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md
 [rev]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md
 [revs]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md
 [build]: https://github.com/VagishHemmige/r-analysis-workflow/blob/main/build_skills.py
@@ -140,6 +141,13 @@ Test results use the scorecards' scale: **✔** worked as intended, **~** worked
 - **What the plugin does:** pages import labelled sections from the scripts themselves, and are updated in the same pull request as the code ([document-analysis][doc]).
 - **Since:** before 0.1.7.
 - **Tested:** **✔** pages imported the real code; **~** pages went stale between pull requests ([0.1.8 scorecard][s08]).
+
+### Readers can't tell what is still undecided
+
+- **The risk:** a page describes a method as if it were settled when the decision is still open, and a reader quotes it.
+- **What the plugin does:** any text that depends on an open decision is highlighted in yellow, linked to its decision issue, with a note at the top of the page ([Quarto guidance][quarto]).
+- **Since:** 0.1.14.
+- **Tested:** **not yet tested** in a user simulation; the marks were checked in a rendered starter ([VALIDATION.md][val]).
 
 ### Pull requests pile up and nobody knows the merge order
 
