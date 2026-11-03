@@ -1,0 +1,66 @@
+---
+title: "References and README"
+---
+
+*Written for version 0.1.14. Source: [starter references.bib](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/references.bib), [guideline entries](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/guidelines.bib), [writing the analysis plan](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/analysis-plan.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [starter README.Rmd](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/README.Rmd), [document-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md), [initialize-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md), [repository blueprint](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md).*
+
+Three things in a project hold its evidence and introduce it to visitors: the bibliography file `references.bib`, the `references/` folder of supporting documents, and the README that GitHub shows on the repository's front page. This page explains what each one holds and how the assistant treats it.
+
+## `references.bib`
+
+**What it is.** The project's bibliography: one entry for each paper, guideline or data guide the project cites. It is a BibTeX file, a plain-text format that lists each source's authors, title, journal, year and identifiers under a short **key** such as `vonelm2007strobe`.
+
+**Where it lives.** At the top of the repository. The website's settings (`_quarto.yml`) point to it, so the plan and the site pages draw their reference lists from this one file.
+
+**What's in it.** Only verified entries. Each one must resolve to a real source through a DOI, a PubMed ID (PMID), or an official web address together with the release or version used. A new project starts with an empty file that holds only a comment: the plugin adds no example citations.
+
+**How it is used.** Every definition, threshold, code list, parameter value or method taken from an outside source cites its entry with `[@key]`. For example, a sentence in the plan might end "… following the STROBE statement [@vonelm2007strobe]." The plan's References section is built from this file; nobody types a reference list by hand. For data documentation, such as a data provider's researcher guide or data dictionary, the citation names the specific release and the appendix, section or page.
+
+**Reporting-guideline entries.** The plugin carries a separate file of verified entries for the reporting guidelines its plan templates name (STROBE, RECORD, CHEERS 2022, TARGET and TRIPOD+AI), with metadata checked against PubMed. It is a supply to copy from, not part of the project. Copy into the project's `references.bib` only the entries its plan actually cites.
+
+**What it never holds.** An invented citation, or one written from memory without checking the entry.
+
+**What the assistant does with it.** It cites from this file in the plan and on the site pages, using `[@key]` rather than bare links. When a statement needs a source that isn't in the file, it flags the gap for the librarian reviewer rather than guessing. The librarian reviewer checks that every entry resolves and has the right metadata, that every key used is in the file, and that each citation supports the sentence it is attached to. It proposes new entries; the person reading the review decides which to add.
+
+## The `references/` folder
+
+**What it is.** A folder of supporting technical detail and evidence. It backs up the plan; it is not a second analysis plan.
+
+**Where it lives.** At the top of the repository, next to `references.bib`.
+
+**What's in it.** What each project needs, which differs from project to project. Typical documents:
+
+- data dictionaries and release notes from a data provider;
+- operational definitions and code lists;
+- evidence summaries and notes on an API (a service that code queries for data);
+- worked examples on synthetic data that have been checked.
+
+Facts about a data source that the project relies on, when the source's package is maintained by someone else, also go here, with a citation to the provider's documentation (or in the plan, when they shape a decision).
+
+**How documents are kept.** Markdown (`.md`) is preferred for text people consult often. Each document keeps its provenance: where it came from, the version or release, the source address, and the page or section. A converted copy is labelled as derived, and the original is kept as well when its formatting matters. The folder holds no empty placeholder files.
+
+**What it never holds.** Private IRB materials, restricted data, or copies of papers the project has no licence to publish. Being given a file for review is not permission to publish it, and a public repository publishes everything in it.
+
+**What the assistant does with it.** When setting up a project, it suggests documents that would be useful here, in Markdown, and helps add them. Having access to a file doesn't mean it may be published, so it keeps the limits above.
+
+## `README.Rmd` and `README.md`
+
+**What it is.** The README is the repository's overview: GitHub shows `README.md` on the repository's front page. It tells a visitor what the project is, where the website is, and how to run the code.
+
+**Where it lives.** At the top of the repository. `README.Rmd` is optional. When it exists, it is the source: people edit the `.Rmd` and re-knit it, which regenerates `README.md`. When there is no `.Rmd`, people edit `README.md` directly. Which of the two a project uses is the project's choice, recorded in its `AGENTS.md`.
+
+**What's in it.** The starter `README.Rmd` has five parts:
+
+| Part | What it says |
+|---|---|
+| Badges | Small labels at the top giving the project's status. The starter's say "preliminary analysis", "methods under development" and "not for citation"; a licence badge is included but switched off. |
+| Goal | One sentence on the question, and the data sources used. It also says the analysis is in progress. |
+| Website link | The address of the project website, which explains the code step by step. |
+| Documentation | Links to `analysis-plan.md` (what the analysis is meant to do), `ARCHITECTURE.md` (how the code is organised), `AGENTS.md` (how to work in the repository) and the GitHub issues (open decisions and known gaps). |
+| How to run | Run `R/main.R` from the project root, and name any restricted data and the package that locates it. |
+
+**What it never holds.** Results, until the figures and tables are cleared for public release. The starter leaves a note marking where they would go.
+
+**Who edits it.** Anyone, through a pull request, like any other file.
+
+**What the assistant does with it.** When setting up a project, it creates `README.Rmd` from the starter and knits `README.md`, unless the person prefers a plain `README.md`. After that, where there is a `README.Rmd`, it edits only that file. It keeps the status badges accurate, so a badge that says "preliminary" is changed when that stops being true. If the repository moves to a new owner, the website and repository links in the README are among those to update.

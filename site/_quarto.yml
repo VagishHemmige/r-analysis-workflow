@@ -43,8 +43,20 @@ website:
 
       - section: Manual
         contents:
+          - href: manual/index.qmd
+            text: What setup creates
           - href: manual/plan-and-decisions.qmd
             text: The plan and its decisions
+          - href: manual/rules.qmd
+            text: Rules for working
+          - href: manual/code.qmd
+            text: The code
+          - href: manual/website.qmd
+            text: The website
+          - href: manual/references-readme.qmd
+            text: References and README
+          - href: manual/github.qmd
+            text: On GitHub, not in files
 
       - section: Testing
         contents:

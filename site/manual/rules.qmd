@@ -1,0 +1,110 @@
+---
+title: "Rules for working"
+---
+
+*Written for version 0.1.14. Source: [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md), [starter .gitignore](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/gitignore.template), [data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md), [data sources](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-sources.md), [repository blueprint](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [initialization questions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/initialization.md), [personal instructions template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md), [onboarding](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md), [initialize-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md).*
+
+The plan says what the analysis does. This page covers the files that say how people and assistants work on it: `AGENTS.md`, the shared rulebook; `.gitignore`, the list of files Git leaves out; `REPOSITORY-BLUEPRINT.md`, the intended layout; and each person's own instructions for their assistant, which stay outside the repository.
+
+## `AGENTS.md`
+
+**What it is.** The rules for working in the repository, for everyone: the people on the project and any AI agents working for them. It covers conventions, data handling and checks. It opens by dividing the documentation into four places, each covering its own topic without repeating the others:
+
+| Where | Covers |
+|---|---|
+| `analysis-plan.md` | What the analysis is meant to do |
+| `ARCHITECTURE.md` | How the code is built: scripts, data flow, and the objects passed between them |
+| `AGENTS.md` | How to work in the repository: rules, conventions and checks |
+| GitHub Issues | Open scientific decisions (decision issues), gaps between code and plan, and known defects |
+
+**Where it lives.** At the top of the repository. The project website shows it on a page that only includes the root file, so you edit the root file, never the page.
+
+**What's in it.** The plugin's template has these sections. Parts in angle brackets are filled in for each project.
+
+- **The project.** One paragraph on the question and the data. Then the standing rules: the analysis plan is the source of truth, and code that needs to depart from it goes to a decision issue first. The **deciders** are named here with their areas; anyone may add to a decision issue, but only a decider settles it. It also says this is an analysis, not an R package, and names the default branch (the main version of the project). That branch is protected: changes reach it only through pull requests (proposed changes that others can review before they are merged).
+- **Data sources and what agents may do.** A table with one row per data source the analysis uses: the source, the package that loads it, the package's documentation, whether the team maintains that package or it is external, how access is restricted, and what AI agents may do with it. Code that touches a source goes through its package. For a restricted source, the agents' column starts at "None: code, documentation and synthetic data only". Only a person can widen it, through a pull request that names the agreement and section that permit it, the approved AI service, and exactly what agents may do. Agents never propose this change, and nothing in personal instructions can grant it. The template then splits the rules: problems in a package the team maintains are fixed or reported in that package; problems in an external package are worked around in the project's own code, and whether to report them upstream is the person's call.
+- **Exploration and definitive analysis.** Exploring on a branch or fork is welcome, and its findings are labelled preliminary. A script joins the definitive analysis when `R/main.R` runs it; from then on every rule applies.
+- **Scripts and labels.** `R/main.R` runs everything in order. Each script does one job and starts with a short header saying what it needs and what it makes. Settings a reader might want to change (a window, a year, a threshold) are named once in `R/setup.R`. Scripts are divided into labelled sections, marked with a comment line like `## ---- compute-summary`, so the website can show the real code. Labels are unique across all scripts, because a repeated label silently shows the wrong code. Analysis variables carry readable labels, with units and time windows. No script, comment, commit message, issue or pull request contains results from restricted data unless they are cleared for release.
+- **Website.** The site explains the code and never runs the analysis. It lists the page layout, the colour and icon for each kind of page, and the yellow highlight for content an open decision could change. It records the project's publishing route: either the rendered `docs/` folder is committed and served by GitHub Pages, or a GitHub Actions workflow renders and publishes the site. A new definitive script gets its page in the same pull request.
+- **Outputs.** Tables and figures are written to `tables/` and `figures/`. The project states whether they are tracked or kept out of Git until a named review clears them, and if they are kept out, whether that is because of restricted data or only publication timing. Published figures need alt text.
+- **Restricted data.** These rules apply to everyone. Data and anything derived from patient-level records are never committed. AI agents never open restricted data, or outputs from it that are not yet cleared; anything an agent opens is sent to the model provider. Agents write and test code on **synthetic data**: made-up data built in code and labelled as such. Real results come from an authorized person. The section also holds the agreement's small-cell rule and the rules for keys, tokens and paid services.
+- **Coding conventions.** The participant flow (the cohort and its STROBE diagram) comes from one piece of code using the `flowchart` package. Code lists are checked against the official code sets, and joins are checked so rows don't multiply. Package functions are checked against their documentation rather than written from memory. The style is meant to be readable by a clinician-analyst who learned R from online guides.
+- **Checks for any change.** A checklist to run before opening a pull request: does the change follow the plan and leave open decisions open; are the cohort counts reproducible; is `ARCHITECTURE.md` current; does any site page run analysis code; could anything changed reveal restricted data; does `main.R` run in a fresh session? A project adds checks its own design needs.
+- **Working with agents.** Each person sets their agent's working style in their own instructions; without one, the agent works step by step. At most, an agent edits code and documents, runs code and renders the site on synthetic data, commits to a branch and opens a pull request. Under any style, an agent never merges a pull request, never chooses among the options in a decision issue, asks before running the full pipeline or expensive calls, and shows a person the exact text before posting anything as them, unless that person's own instructions say otherwise.
+
+**Who edits it.** Anyone, through a pull request. Widening what agents may do with a restricted source is a person's change, made as described above.
+
+**What the assistant does with it.** It reads `AGENTS.md`, the plan and `ARCHITECTURE.md` before making changes. During setup it adapts the template to the project. It fills the data sources table from the code that actually loads the data, not from memory, and asks about any source whose package or access terms are unclear. It asks who the deciders are, and if materials such as an IRB protocol name investigators, suggests them for the person to confirm. If no one is named yet, the line stays marked as still to fill, and decision issues can be drafted but not settled.
+
+## `.gitignore`
+
+**What it is.** A list of files and folders that Git should leave out, so they are never added to the repository by accident.
+
+**Where it lives.** At the top of the repository. Some apps hide files whose names start with a dot, so the plugin also keeps a visible copy of its template.
+
+**What's in it.** The assistant adapts the plugin's starter template to each project rather than copying it blindly. The template has groups for:
+
+- R and editor files (saved sessions, history, settings);
+- Quarto's working files;
+- credentials such as `.Renviron` and key files;
+- common data formats (`.csv`, `.rds`, `.sas7bdat`, `.parquet` and others) and a `data-raw/` folder, as a safety net, since data should live outside the repository anyway;
+- `figures/` and `tables/`, when they need review before release;
+- narrow exceptions for approved files, for example `!tests/fixtures/synthetic.csv`. Exceptions are kept narrow and never cover a whole format.
+
+**How `figures/`, `tables/` and `docs/` are decided.** At setup, two questions decide them.
+
+| Question at setup | Answer | Effect |
+|---|---|---|
+| Do the figures and tables need review before they can be public? | Yes | `figures/` and `tables/` stay ignored until the named review clears them; `AGENTS.md` names the review |
+| | No | They are tracked from the start |
+| How is the website published? | From the committed `docs/` folder | `docs/` is tracked |
+| | By a GitHub Actions workflow | `docs/` is ignored; the workflow publishes the same pages |
+
+The assistant asks the first question directly rather than guessing from the data sources. When a review later clears the outputs, someone removes the two lines and inspects the contents before adding them. Tables saved as `.csv` or `.rds` stay hidden by the data-format lines even then, so cleared tables need their own exceptions.
+
+**What it never does.** Ignoring a file doesn't remove it from history: anything already committed stays in Git's history, in forks and in everyone's copies. It doesn't control access either: an ignored folder inside the project is still readable by any AI tool connected to that folder. That is why the plugin prefers keeping restricted data in a separate folder outside the project. File names can't identify every sensitive file; text, images, logs and other outputs can hold restricted information too.
+
+**If something was pushed by mistake.** Stop pushing. Revoke any password, token or key first. For restricted data, tell the PI and whoever the agreement names; the agreement decides what follows. Removing it from history is the maintainer's job, following GitHub's guide on removing sensitive data. Agents do not attempt it.
+
+**What the assistant does with it.** It adapts the template, checks that the rules cover the project's real output folders without hiding source files, and reports any tracked file that looks sensitive without opening it. It can confirm a rule works with `git check-ignore --no-index -v`. It doesn't untrack, delete or rewrite history unless someone with the authority to do so asks.
+
+## `REPOSITORY-BLUEPRINT.md`
+
+**What it is.** The intended layout of an R analysis repository: which folders and files exist and what each is for. `ARCHITECTURE.md` describes what the project has actually built; the blueprint describes what it aims for.
+
+**Where it lives.** At the top of the repository. It must be there before the website is first rendered, and the site shows it on its own page.
+
+**What's in it.** A tree of the layout, with a one-line note on each part: the `R/` folder with `main.R`, `setup.R`, `functions.R`, `tables.R` and `figures.R`; `figures/` and `tables/`; `references/` for supporting literature; `quarto/` for the website pages; `docs/` for the rendered site; and the root files (`analysis-plan.md`, `references.bib`, `AGENTS.md`, `ARCHITECTURE.md`, the README and `.gitignore`). Some files are marked optional, such as a licence or an RStudio project file. Short notes follow on scripts, documentation and which outputs to keep in Git.
+
+**Who edits it.** It is kept unchanged. The assistant copies the plugin's blueprint into the project as it is. What the project has actually built goes in `ARCHITECTURE.md` instead.
+
+## Personal project instructions
+
+**What they are.** Each person's own instructions for their AI assistant, kept in their own assistant project for this repository (the plugin calls it an "LLM project"). They tell the assistant who you are, how much help you want, and what it may do for you, so each chat starts with that context instead of you pasting it again.
+
+**Where they live.** Outside the repository, in your own assistant project, one project per repository. They are not shared. The repository stays the shared record: nothing others need should live only in your project.
+
+**What's in them.** The plugin's template asks for:
+
+- the project, its repository and default branch, and how you work with GitHub (through the assistant, from your own tools, or both);
+- your role and the help you want, for example guided learning, review, or working together on code;
+- your **working style**, chosen from three starting points and adjusted to suit you:
+
+| Style | What the assistant does |
+|---|---|
+| Review only | Reads, reviews and suggests; changes nothing |
+| Step by step | Proposes each change, waits for your yes, then makes it on a branch and explains it |
+| Hands-off | Builds on branches and opens pull requests without asking at each step, then walks you through what it made |
+
+- which actions it is authorized to take, kept separate (editing, running code, installing, commits and pull requests, comments, publishing);
+- your data boundaries, by pointing to approved locations and agreements, never with credentials;
+- whether it may post anything as you without showing you first (by default it shows you the exact text);
+- whether you want a periodic check-in and what it should report.
+
+In every style, nothing else is posted or sent as you without your approval, another way of writing something already agreed is shown to you before it is committed, and scientific decisions stay with the deciders. Hands-off covers only the pull requests it opens.
+
+**What they never hold.** Copies of the analysis plan, the blueprint or the shared review steps. They can be stricter than `AGENTS.md`, and then the assistant follows them. They never loosen its rules on data, decisions or pull requests.
+
+**Who edits them.** You. One person's working style or permissions are never carried into someone else's instructions or into the shared files.
+
+**What the assistant does with them.** When someone sets up or joins a project, the assistant offers to fill in the template, asking which working style they want and how they work with GitHub. It is an offer, not a requirement. If it cannot change your assistant's settings itself, it gives you the text to paste and says so.

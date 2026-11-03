@@ -1,0 +1,135 @@
+---
+title: "The website"
+---
+
+*Written for version 0.1.14. Source: [Quarto guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md), [the starter site](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/_quarto.yml), [the document-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md), [the AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md), [GitHub workflow](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md).*
+
+Every project publishes a website, built with Quarto (a tool that turns text and code files into web pages), that explains the analysis code to a clinician reader. The website shows the code and explains it; **it never runs the analysis**, so it is built without the analysis data. This page goes through the files that make up the site, in the order you meet them in a repository. The plugin gives a new project a starter copy of each one.
+
+## `_quarto.yml`
+
+**What it is.** The settings file for the whole site: its title, its look, its sidebar and which pages it builds.
+
+**Where it lives.** At the top of the repository, next to `index.qmd`, `404.qmd` and `styles.css`. The explanatory pages sit in the `quarto/` folder.
+
+**What's in it.**
+
+- **Site settings.** The site's address, the repository's address and its default branch (the repository's actual main branch, whatever it is called) are filled in before the site is first built. A `render:` list names the pages to build (`index.qmd`, `404.qmd` and everything in `quarto/`), so the Markdown documents at the top of the repository don't also turn into stray pages.
+- **The look.** The `cosmo` theme with `styles.css`, a table of contents on each page, and code folded away behind a "Click to show/hide R Code" button.
+- **The sidebar.** Docked on the left, with search, and every section starts open. Each entry points to a page's source file and only to pages that exist. Each entry also carries an icon for its kind of page (see the table below).
+- **Callouts.** A callout is a coloured box on a page. Three are defined here: a pink `Rcode` box (💻), a green `Results` box (📊) and a yellow `Pending` box (⏳).
+- **Filters.** Small programs that adjust each page as it is built. The starter runs `quarto/_pending.lua` first, then `custom-callout`. A third, for reader comments, is present but switched off.
+- **The rule that nothing runs.** One setting stops every chunk of code on the site from running:
+
+  ```yaml
+  execute:
+    eval: false
+  ```
+
+  Only a few chunks may switch this back on: the hidden import that reads a script's code, the Architecture page's chunk that reads `ARCHITECTURE.md` as text, site helpers that read code or text and never data, and Results pages that read outputs already cleared for release. The project's `AGENTS.md` lists any others it allows.
+
+**Who edits it.** Whoever adds or moves a page, through a pull request. A new script's sidebar entry goes in the same pull request as the script.
+
+**What the assistant does with it.** It fills in the starter's placeholders, adds a sidebar entry with the right icon for each new page, and numbers code pages in the order `R/main.R` runs them. On a site built before these conventions, it lists how the site differs and changes nothing until the maintainer agrees.
+
+## `index.qmd` and `quarto/about.qmd`
+
+**What they are.** The Home page and the About page, the two pages a new reader is most likely to open first.
+
+**What's in them.**
+
+- **Home** (`index.qmd`, sidebar icon `house`): a brief clinical background, what the analysis does, a short methods summary that points to Study design and methods and to the analysis plan, and the project's status (preliminary, under review or final), with links to the open decision issues.
+- **About** (`quarto/about.qmd`, sidebar icon `info-circle`): the study and who makes its scientific decisions; how the repository is organised and where the data live; how the site was made, including any AI assistants and the limits they work under; the four project documents, each in one line; and a one-line description of every page in the sidebar.
+
+About is the only page that ends with a list of the other pages. Elsewhere the sidebar already does that job.
+
+**Who edits them.** The study team, through pull requests. When a script gets a page, its line on About is added in the same pull request.
+
+## The pages in `quarto/`
+
+Each kind of page has one sidebar icon and one colour. A page that doesn't fit takes the kind of its main content; for example, a page of historical code is R code. The kind is only a label: it doesn't make anything publishable.
+
+| Kind | Pages | Icon | Colour |
+|---|---|---|---|
+| Background | Clinical background, Methodological background | `book` | blue |
+| Study design and methods | Study design and methods | `diagram-3` | orange |
+| R code | One page per script | `laptop` | pink |
+| Results | Only once outputs are cleared | `clipboard-data` | green |
+| Project documents | Analysis plan, Architecture, AGENTS.md, Repository blueprint | `file-earmark-ruled` | grey |
+
+**Clinical background** (`background.qmd`) gives the clinical or scientific reason for the question, with citations from `references.bib`.
+
+**Methodological background** (`methodological_background.qmd`) explains, in general terms and without code, the knowledge the methods rest on: what the data sources are, how records become an outcome, how comparison groups are chosen, why the models fit. It holds nothing specific to this study: no study numbers, and no links to the plan or to issues.
+
+**Study design and methods** (`study_methods.qmd`) explains in plain language what *this* study chose and why. Each section carries up to three kinds of note:
+
+- **Specified in:** the section of the analysis plan that defines the method, linked.
+- **Current code:** where the code doesn't yet do what the plan says, what it does now, with a link to the GitHub issue tracking the gap.
+- **Decision pending:** a choice the plan hasn't made yet, linked to its decision issue. These are highlighted in yellow.
+
+It starts as one page. When it grows, it is split into a section of pages chosen for the study, each opening with a line that points back to the key to the notes, and `study_methods.qmd` stays the first page so links to it keep working.
+
+**One page per script.** Each script that `R/main.R` runs gets its own page, named after it: `R/create_cohort.R` gets `quarto/create_cohort.qmd`. The pages sit under Code, in three groups: Setup and helper functions, Data processing and analysis, and Tables and figures (once those scripts exist). A page has:
+
+1. A one-sentence purpose.
+2. A pink `Rcode` box linking the script on GitHub and the helper scripts it depends on.
+3. A hidden chunk that reads the script's code: `knitr::read_chunk("../R/<script>.R")`.
+4. One section per labelled step of the script. Each has prose, then an empty chunk that shows that step's code without running it.
+
+The labels are comment lines in the script, such as `## ---- compute-summary`. Because the page pulls in the actual script, the code you read on the site is the code that runs; there is no second copy to drift. The prose explains purpose, inputs, the change made, the assumptions and plan sections behind it, and what the step hands on to later scripts. It changes in the same pull request as the code it describes. Exploratory scripts get no page; a script gets its page in the pull request that adds it to `R/main.R`.
+
+**Results** pages exist only once outputs are cleared for release, either by the review `AGENTS.md` names or because setup decided they need none. A Results page reads the cleared files in `tables/` and `figures/`. It never reruns the analysis or touches restricted data.
+
+**The four project-document pages** show `analysis-plan.md`, `ARCHITECTURE.md`, `AGENTS.md` and `REPOSITORY-BLUEPRINT.md`. Those files stay at the top of the repository and are the only copies anyone edits; each page in `quarto/` just displays its file when the site is built. The plan's page uses GitHub-style section links, so the plan's links to its own sections work both on GitHub and on the site. The Architecture page draws the diagrams in `ARCHITECTURE.md`, which would otherwise show as code, and shows a short note until that file exists. The other three files must exist before the site is first built, or the build stops.
+
+**What the assistant does with them.** It writes and updates script pages, and adds a project-document page and sidebar entry when a new document at the top of the repository is to be shown on the site. For an existing site that lacks a Background or Study design page, it proposes an outline to the maintainer rather than adding a placeholder page, because that content belongs to the study team.
+
+## `styles.css` and `quarto/_pending.lua`
+
+**What they are.** Two small files that add the site's visual cues: the coloured sidebar icons, and the yellow marks on provisional text.
+
+**What's in `styles.css`.** The colour for each sidebar icon, tied to the icon itself rather than to a position in the sidebar, so pages can be added or moved without editing it. It also makes section headings bold, adds a thin rule between sections, makes the sections under Code a little lighter, and sets the yellow used for provisional text. A project that already has a `styles.css` keeps its own rules and adds these.
+
+**What `_pending.lua` does.** It is the filter that adds the yellow marks while the site is built. It highlights:
+
+- any paragraph that starts with **Decision pending:**;
+- on the analysis plan's page only, any paragraph that contains the plan's **Open:** marker;
+- any phrase written as `[text]{.pending}`, wherever it is, table cells included.
+
+A page with at least one mark also gets a yellow ⏳ box at the top, headed "Provisional", that says highlighted text depends on a decision the plan has not yet made.
+
+The filter marks whole paragraphs only. A **Decision pending:** note inside a bullet or a table cell isn't marked, so it is written as its own paragraph or wrapped as `[text]{.pending}`.
+
+**What it never does.** Yellow means "an open decision could change this" and nothing else. A mark is removed when its decision is settled.
+
+## `404.qmd`
+
+**What it is.** The page GitHub Pages shows when someone follows a link to an address that doesn't exist. Quarto doesn't make one on its own.
+
+**What's in it.** A short note that the page isn't on the site, a link to the home page, and a pointer to the search box. It is built from the top of the repository, so its links work from any address once the site's address is set in `_quarto.yml`. It has no sidebar entry.
+
+## `_extensions/`
+
+**What it is.** The folder where Quarto keeps add-ons the site uses. It is committed with the repository.
+
+**What's in it.**
+
+- **custom-callout** (required). The MIT-licensed `coatless-quarto/custom-callout` extension turns the three callouts defined in `_quarto.yml` into the coloured boxes. Its code isn't bundled in the plugin. It is added with `quarto add coatless-quarto/custom-callout`, or copied from another repository that has it, and the assistant installs it only when authorised.
+- **Reader comments** (optional). The [issue-comments](https://github.com/VagishHemmige/quarto-commenting-extension) extension lets a reader highlight text and leave a comment, which is filed as a GitHub issue in the repository. It needs a relay and a GitHub App set up once, then three things switched on together for each site: the extension in `_extensions/`, the filter line in `_quarto.yml`, and the `issue-comments:` settings block. With all three on, the yellow Pending box also tells readers how to comment. Whether to use it is the project's choice.
+
+## `docs/` or the publish workflow
+
+**What it is.** The built site is written to `docs/`. There are two ways to put it online, and each project chooses one. Its `AGENTS.md` records which, in the "Quarto website" section.
+
+| Route | `docs/` in the repository? | Who builds the site |
+|---|---|---|
+| **`docs/` committed** | Yes, committed with each change | The person making the change, before opening the pull request |
+| **Published by a workflow** | No; listed in `.gitignore` | A GitHub Actions workflow (an automated job on GitHub), on every push to the default branch |
+
+**On the first route,** the site is rebuilt on the same branch as the change it reflects, and the rebuilt `docs/` goes in the same pull request.
+
+**On the second route,** the workflow file lives in `.github/workflows/`. The plugin doesn't provide one yet. Each person still builds the site on their own computer before opening a pull request, to check it.
+
+**Turning it on.** The site goes live only after someone with admin or maintainer permission turns on GitHub Pages in the repository's **Settings → Pages**. Under "Build and deployment", **Source** is set to **Deploy from a branch**; then the default branch and the **/docs** folder are chosen for the first route, or the `gh-pages` branch (which the workflow creates on its first run) and the **/ (root)** folder for the second. A maintainer who works in R can do the first route with `usethis::use_github_pages()`. On GitHub's free plan, a private repository can't use Pages.
+
+**What the assistant does.** It never changes repository settings. It tells the person who can, and gives them these steps.

@@ -1,0 +1,136 @@
+---
+title: "The code"
+---
+
+*Written for version 0.1.14. Source: [starter scripts](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/R), [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [repository blueprint](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md), [document-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md), [data sources](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-sources.md), [reporting](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reporting.md).*
+
+The analysis itself is a set of R scripts in the repository's `R/` folder. This page explains what each standard script is for, how a script is laid out so the website can show it, the difference between exploring and the definitive analysis, and `ARCHITECTURE.md`, the file that describes the code as it is actually built. Two rules apply to every script: the R must be readable, and code that touches a data source goes through that source's package.
+
+## `R/main.R`
+
+**What it is.** The one script that runs the whole definitive analysis. It does no analysis of its own; it runs ("sources") the other scripts one after another, in the order each needs the one before. A typical order is setup, then building the cohort, then processing, then modelling, then the outputs.
+
+**Where it lives.** `R/main.R`. It is run from the project's top folder, in a fresh R session, using only relative paths.
+
+**What's in it.** A short list of `source()` lines. The starter version looks like this:
+
+```r
+source("R/setup.R")
+source("R/functions.R")
+source("R/example.R")
+# source("R/tables.R")
+# source("R/figures.R")
+```
+
+**Who edits it.** Whoever adds a definitive script puts its `source()` line at the right point, in the same pull request that adds the script.
+
+**What the assistant does with it.** It reads `main.R` to learn which scripts are definitive and in what order. It asks before running the full pipeline. On restricted data, results are produced by an authorised person, not by the assistant.
+
+## `R/setup.R`
+
+**What it is.** The script every other script relies on. It attaches the packages the analysis uses and defines the shared values.
+
+**What's in it.**
+
+- every `library()` call for the analysis;
+- **named constants**: any number a reader might want to change (a time window, a year, a threshold, a ratio) gets a name here instead of appearing as a bare number in a later script;
+- code lists (the diagnosis or procedure codes that define a condition);
+- shared paths and parameters.
+
+The labels on the participant flow diagram are also built from these constants, so the diagram can't fall out of step with them.
+
+**What it never holds.** The location of restricted data. That is found only through the data source's own package configuration.
+
+**Rules for the other scripts.** They don't call `library()`, don't run `setup.R` again, and don't hard-code values.
+
+## `R/functions.R`
+
+**What it is.** The home for reusable helper functions: steps the analysis does more than once, or steps worth checking on their own. A large project may split them into subfolders instead.
+
+**What's in it.** Named functions. Each takes everything it needs as arguments and doesn't reach for objects defined elsewhere, so it can be tested on its own. Some functions must be tested on synthetic data (made-up data built in code) with a known answer:
+
+- code that turns model output into reported numbers;
+- any step that needs base R (for example matrix algebra for pooling), kept inside a named function with a comment saying why.
+
+It also holds **wrappers**: when an external package's function has a problem, the project wraps it here, with a comment explaining the problem and linking any upstream issue.
+
+## A definitive script and its labelled sections
+
+**What it is.** A script that does one job in the analysis, such as building the cohort or fitting a model, and is sourced from `main.R`. The starter's `R/example.R` is a synthetic example of one.
+
+**The header comment.** Each script starts with a few comment lines saying what it does, which objects it needs from earlier scripts, and what it produces:
+
+```r
+# Purpose: synthetic demonstration of a definitive analysis step.
+# Needs: demonstration_multiplier (setup.R), scale_values() (functions.R).
+# Produces: demonstration_summary. Uses no data and writes no files.
+```
+
+**Labelled sections.** The script is divided into sections, each starting with a label line such as `## ---- compute-summary`. A label covers the code from its line down to the next label. Labels:
+
+- mark every logical step;
+- are lower-case words joined by hyphens, describing the step;
+- are unique across all scripts, because a duplicate silently picks up the wrong code;
+- are comments, so they never change what the code does.
+
+The labels exist for the website. Each script's page imports the script and shows each labelled section next to prose explaining it, so the site shows the actual code rather than a copy that can go stale. Before renaming or deleting a label, search the website pages for it.
+
+**Exploratory and definitive scripts.** Exploring is welcome on a branch or a fork. An exploratory script doesn't need to be sourced from `main.R` or have a website page, and anything it finds is labelled preliminary. A script becomes **definitive** when `main.R` sources it. From then on every rule on this page applies, and the same pull request also:
+
+- labels the script and gives it its header comment;
+- adds its website page and sidebar entry;
+- updates `ARCHITECTURE.md`.
+
+**What it never holds.** Results, counts or data values from restricted data that aren't cleared for release, whether in the code, its comments or its commit messages. That holds for exploratory scripts too.
+
+## `R/tables.R` and `R/figures.R`
+
+**What they are.** The scripts that make the outputs. Each can build its outputs directly or run more specialised scripts that do. In the starter `main.R` their lines are commented out until the project has outputs to make.
+
+**What they produce.** Tables saved to `tables/` and figures saved to `figures/`, following the reporting guidance:
+
+| Output | Built with |
+|---|---|
+| Participant flow (STROBE) diagram | flowchart, from the same code that builds the cohort |
+| Descriptions, Table 1, model tables | gtsummary |
+| Figures | ggplot2, following the PSI graphics principles, each with a caption and alt text |
+| Survival curves | ggsurvfit, KMunicate style: confidence intervals and a table of numbers at risk, censored and with events |
+
+**What it never holds.** Counts below the governing small-cell rule. Flowchart boxes and risk tables are checked against it before they leave the approved environment.
+
+**Tracked or not.** Whether `tables/` and `figures/` are committed to the repository is the project's choice, recorded in its `AGENTS.md`. Outputs from restricted data stay out of the repository until the governing review clears them.
+
+## `ARCHITECTURE.md`
+
+**What it is.** A description of the code as it is actually built: the scripts, how data flows between them, and the objects they pass along. It complements two other files. `REPOSITORY-BLUEPRINT.md` is the intended layout, kept unchanged from the plugin; `analysis-plan.md` is what the analysis must do.
+
+**Where it lives.** At the top of the repository. The project website shows it on its Architecture page, read from this one file.
+
+**What's in it.** Only what is implemented now. It names the commit it describes and says whether uncommitted changes were included.
+
+**What it never holds.** Planned work or how far the work has got. Those belong in the plan and in GitHub issues.
+
+**Who edits it.** Whoever makes a structural change: a script added, removed or reordered, or a change in how data flows between scripts. It is refreshed in the same pull request.
+
+**What the assistant does with it.** It refreshes the file after such a change, using Posit's `describe-design` skill if that is installed, and says so if it isn't.
+
+## Writing readable R
+
+The code is written so that a clinician-analyst who learned R from online guides can read it. In practice:
+
+- data steps use pipes and the dplyr and tidyr verbs; `case_when()` replaces nested `if`;
+- repeating a step over subgroups, years or models is a plain loop over names, or a list looked up by name;
+- clever shortcuts are avoided, such as the `apply` family, `Reduce` or picking items by position (`[[1]]`);
+- where base R is unavoidable, it sits inside a named, tested function with a comment saying why.
+
+A plain step beats a clever one. A project's own established conventions win over these. Old code is brought into line only in a style-only pull request, which changes no logic and shows that every model and table is identical before and after.
+
+## Data sources and their packages
+
+Each source the analysis loads is listed in the project's `AGENTS.md` with the package that reads it, and **code that touches a source goes through that package**. Scripts don't rewrite loading, cleaning or definitions that the package already provides. The table also says whether each package is maintained by the project's team or is external:
+
+- **Team package:** problems are fixed in the package, or wrapped in the project with a comment linking the package's issue until it is fixed.
+- **External package:** problems are worked around in `R/functions.R`, with a comment explaining why.
+- **No package:** one loading script records where the data came from, which release, and any processing.
+
+The same table says what AI agents may do with each source. For a restricted source the answer starts as "None: code, documentation and synthetic data only".

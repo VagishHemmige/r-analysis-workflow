@@ -1,0 +1,43 @@
+---
+title: "What setup creates"
+---
+
+*Written for version 0.1.14. Sources: [the repository blueprint](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md) and [the starter files](https://github.com/VagishHemmige/r-analysis-workflow/tree/main/plugin/assets/starter).*
+
+This manual walks through every file a project set up with the plugin has: what each is for, who edits it, and what the assistant does with it. This page is the map. An existing project keeps its own layout unless its team chooses to change it, so yours may differ.
+
+```text
+repository/
+├── analysis-plan.md          what the analysis must do
+├── AGENTS.md                 the rules for working here
+├── ARCHITECTURE.md           how the code is built, once it exists
+├── REPOSITORY-BLUEPRINT.md   the intended layout
+├── README.Rmd, README.md     overview and how to run it
+├── references.bib            verified citations
+├── references/               supporting documents
+├── .gitignore                what Git must never pick up
+├── R/
+│   ├── main.R                runs the analysis in order
+│   ├── setup.R               packages and shared constants
+│   ├── functions.R           reusable helpers
+│   ├── <one script per step>
+│   ├── tables.R, figures.R   the outputs, once they exist
+├── figures/, tables/         outputs (public only once cleared)
+├── _quarto.yml               the website's settings
+├── index.qmd, 404.qmd        Home and the missing-page page
+├── styles.css                the website's icon colours and marks
+├── quarto/                   the website's other pages
+├── _extensions/              website add-ons
+└── docs/                     the rendered website, or none if a workflow publishes it
+```
+
+| Page | Covers |
+|---|---|
+| [The plan and its decisions](plan-and-decisions.qmd) | `analysis-plan.md`, decision issues, deciders, locking the plan |
+| [Rules for working](rules.qmd) | `AGENTS.md`, `.gitignore`, `REPOSITORY-BLUEPRINT.md`, and your own assistant project's instructions |
+| [The code](code.qmd) | `R/` and `ARCHITECTURE.md` |
+| [The website](website.qmd) | `_quarto.yml`, the pages, `styles.css`, `_extensions/`, and how the site is published |
+| [References and README](references-readme.qmd) | `references.bib`, `references/`, `README.Rmd` and `README.md` |
+| [On GitHub, not in files](github.qmd) | Branch protection, the website switch, issues, pull requests, milestones, check-ins and leaving a project |
+
+**What is never in the repository:** restricted data, passwords and keys, and outputs that aren't yet cleared for release.
