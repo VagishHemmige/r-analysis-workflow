@@ -5,6 +5,8 @@ subtitle: "A plugin that helps an AI assistant set up, explain, report and revie
 
 *Written for version 0.1.13.*
 
+*An early version. It has been tested in simulated projects and used by the maintainer on his own analyses; it has not yet been used by other teams.*
+
 ## What it is
 
 R Analysis Workflow is a plugin for ChatGPT and Claude. A plugin is a set of instructions the assistant reads when a task calls for them, so it works the same way every time and in every chat. This one is for biomedical analyses written in R, whose code and methods are published on GitHub and explained on a website. It is not for building R packages.

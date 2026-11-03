@@ -30,8 +30,6 @@ If your organization limits which marketplaces you can add, Claude will refuse i
 6. Still in **Customize** → **Plugins**, open the **Discover** tab.
 7. Select **R Analysis Workflow** and click **Add**.
 
-In Cowork, open the **Cowork** tab first, then **Customize**.
-
 Once installed, it works in chat on the web, the Chat tab of the desktop app, Cowork, and Claude Code when you sign in with the same account.
 
 Source: Anthropic, [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude). Tried by the maintainer in Cowork with version 0.1.14 on 3 November 2026 (see [VALIDATION.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/VALIDATION.md)).
