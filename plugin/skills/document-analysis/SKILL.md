@@ -15,9 +15,11 @@ A script joins when `R/main.R` sources it. In the same pull request:
 
 1. **Label the script.** Divide it into `## ---- step-name` sections: kebab-case, describing the step, unique across all scripts. Labels never change what the code does. Give it the header comment AGENTS.md requires.
 2. **Write its page** in `quarto/`, named after the script, following [the example page](assets/starter/quarto/example.qmd): one-sentence purpose, the Source code callout linking the script and its helpers on GitHub, the hidden `knitr::read_chunk("../R/<script>.R")` import, then one section per label with prose followed by an empty `eval: false` chunk.
-3. **Add it to the sidebar** in `_quarto.yml`, numbered in the order `main.R` sources it, and to the list on the About page.
+3. **Add it to the sidebar** in `_quarto.yml`, under Code, numbered in the order `main.R` sources it and with the `laptop` icon (see the [visual cues](references/quarto.md#visual-cues)), and to the list on the About page.
 4. **Link neighbours.** Link the scripts it depends on and the ones that use its output.
-5. **Render, check and commit `docs/`** (see "Before committing").
+5. **Render and check** (see "Before committing"), and commit `docs/` if the site is published from it; when a workflow publishes the site, `docs/` stays uncommitted; render the site locally before opening the pull request, since a render check on pull requests comes with the publish workflow (#46).
+
+Other pages follow the same rule: give each new page the icon of its kind, and when a document is added at the repository root to be shown on the site, add its page in `quarto/` and its sidebar entry under Project documents (see [project-document pages](references/quarto.md#project-document-pages)).
 
 ## Writing the prose
 
@@ -47,9 +49,11 @@ If the project has `README.Rmd`, it is the source: edit it and knit `README.md`.
 
 When an existing site departs from these conventions (pasted code, `.html` sidebar links, a missing page, a different layout), list the differences and ask before changing them. Do not restyle a site silently. Install the custom-callout extension only when authorized.
 
-## Before committing `docs/`
+## Before committing
 
-- Every label used by a page exists exactly once across `R/`, and every definitive script has a page and a sidebar entry.
+- Every label used by a page exists exactly once across `R/`, and every definitive script has a page and a sidebar entry with its kind's icon.
+- Each root project document has its page, and every yellow **Decision pending** mark is still an open decision.
+- No starter `<placeholder>` text or example **Decision pending** line remains.
 - No chunk runs analysis code; the site renders without restricted data. Results pages read only outputs cleared for public release.
 - Script links use the right repository and branch; citations resolve; figures have alt text.
 - Render, then look at the changed pages.

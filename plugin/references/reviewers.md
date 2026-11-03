@@ -88,7 +88,7 @@ material would have let you assess it. Do not praise; do not restate the work.
 
 Not a statistician. Reads as a clinician who would use the result.
 
-**Packet:** `README.md`; the whole of `analysis-plan.md`; the site's home, background and results pages; published tables and figures with their captions.
+**Packet:** `README.md`; the whole of `analysis-plan.md`; the site's home, Clinical and Methodological background, Study design and methods, and results pages; published tables and figures with their captions.
 
 ```text
 Load the alt-text skill if it is installed, and use it to judge any published figures.

@@ -11,7 +11,7 @@ Read [onboarding](references/onboarding.md), the project's AGENTS.md and README,
 
 Use the project as it is now; do not assume the person can read code or knows the folders.
 
-- **The website** is the way in for anyone who does not code: it explains each step of the analysis in plain language. Start a clinician there.
+- **The website** is the way in for anyone who does not code: it explains each step of the analysis in plain language. Start a clinician at Clinical background and Study design and methods, and send them to the code pages only for detail.
 - **`analysis-plan.md`** says what the analysis must do. Its "Open:" markers point to the scientific questions still undecided.
 - **GitHub Issues** hold those open decisions, plus known gaps between code and plan.
 - **`AGENTS.md`** says how work is done here, including the data rules and who the deciders are.

@@ -1,0 +1,26 @@
+---
+title: "Study design and methods"
+format: html
+---
+
+This page explains, in plain language and without code, what this study chose and why. The general background it relies on is on [Methodological background](methodological_background.qmd). The formal specification is the [analysis plan](analysis-plan.qmd); each section below ends by linking the part of the plan that governs it. Three kinds of note mark where the description stands:
+
+- **Specified in:** the section of the analysis plan that defines the method.
+- **Current code:** where the code does not yet do what the plan says, what it does now, with a link to the GitHub issue tracking the difference.
+- **Decision pending:** a choice the plan has not yet made, linked to its decision issue. A paragraph that starts with **Decision pending:** is highlighted in yellow automatically.
+
+<Replace each placeholder like this one, angle brackets included. Start with one page. When it grows too long, split it into a "Study design and methods" section of pages, each opening with a line pointing back to this key; the pages are chosen for the study, not fixed.>
+
+## The question and the design in brief
+
+<The question, the approach and what is estimated.>
+
+**Specified in:** <plan sections, linked, for example [§2 Design](analysis-plan.qmd#2-design)>.
+
+## A step of the design
+
+<Rename this heading. What this study chose, and why.>
+
+**Specified in:** <plan section, linked, for example [§6 Comparator or matching](analysis-plan.qmd#6-comparator-or-matching)>.
+
+**Decision pending:** <an open choice, linked to its decision issue, for example whether controls may be reused across risk sets ([#12](https://github.com/OWNER/REPOSITORY/issues/12)); delete this line if nothing here is open>.

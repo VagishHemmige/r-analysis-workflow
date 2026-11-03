@@ -1,0 +1,14 @@
+---
+title: "Methodological background"
+format: html
+---
+
+<In general terms and without code: the data sources and methods this study rests on (what the data are, how records become the outcome, how comparison groups are chosen, why the models fit the data). Nothing specific to this study: no links to the analysis plan or issues, no study numbers. What this study chose goes on [Study design and methods](study_methods.qmd).>
+
+## A data source
+
+<Rename this heading. What it is and what it links, with verified citations from `references.bib`.>
+
+## A method
+
+<Rename this heading. How it works and why studies like this one use it.>

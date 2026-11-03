@@ -14,11 +14,14 @@ repository/
 ├── figures/                 # Generated figures
 ├── tables/                  # Generated tables
 ├── references/              # Supporting literature and evidence
-├── quarto/                  # Explanatory Quarto pages
+├── quarto/                  # Explanatory Quarto pages, and _pending.lua
 ├── _extensions/             # Quarto extensions, when used
-├── docs/                    # Example rendered website directory
+├── .github/workflows/       # Publish workflow, when a workflow publishes the site
+├── docs/                    # Rendered website (tracked, or ignored when a workflow publishes it)
 ├── _quarto.yml              # Quarto configuration
 ├── index.qmd                # Website entry point
+├── 404.qmd                  # Page for a missing address
+├── styles.css               # Website icon colours and marks
 ├── README.md                # Overview and execution
 ├── README.Rmd               # Optional source for README.md
 ├── analysis-plan.md         # Scientific objectives and methods
