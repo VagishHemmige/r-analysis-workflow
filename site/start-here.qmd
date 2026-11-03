@@ -1,0 +1,41 @@
+---
+title: "Start here"
+---
+
+*Written for version 0.1.14.*
+
+![Code moves between your computer, GitHub and the assistant; a person approves every change. By default, data stay on your computer.](images/workflow.svg){fig-alt="Three boxes. Your computer: a person runs the R code on the data, and the data stay there; results leave only once cleared for release. GitHub, in the middle: the analysis plan, decision issues, the shared R code, pull requests and history; people decide, review and merge. The AI assistant with the plugin: reads the plan, open questions and code, writes code on a branch and proposes it as a pull request, which a person approves; it never decides and, by default, never sees the data. Arrows show code moving both ways between the computer and GitHub, and between GitHub and the assistant; no data leave the computer. The project website is built from the code on GitHub."}
+
+Find the line that fits you. Each says what to have ready and the first thing to type to the assistant once the plugin is [installed](install.qmd). You don't need to name a skill or know the Git words: the assistant explains them as they come up.
+
+New to GitHub? The [GitHub glossary](https://docs.github.com/en/get-started/learning-about-github/github-glossary) explains repository, branch, commit, pull request and issue; [Happy Git and GitHub for the useR](https://happygitwithr.com/) shows how to use them from RStudio. The plugin's own terms (analysis plan, decision issue, decider, AGENTS.md) are explained on [Home](index.qmd#what-a-project-built-with-it-has).
+
+## I'm a student starting a new project
+
+- **Have ready:** the idea or protocol, and about an hour. You don't need R, Git or a GitHub account yet; the assistant walks you through what the work needs.
+- **Type:** "I have no GitHub account and no R. Help me get this project started."
+- **Then:** it asks a few questions one at a time, including who decides the scientific questions, and drafts the plan and the repository. Whoever sets up can own the repository; it can move to the PI later. More on [Start a project](using/start.qmd).
+
+## I'm joining a project that already exists
+
+- **Have ready:** the repository's link, and access from whoever owns it if you'll change code.
+- **Type:** "I'm joining this project: [repository link]. What's done, what's open, and what's waiting on me?"
+- **Then:** it works from the repository (the plan, open issues and pull requests), not from the last person's files or chats, and gives one next step at a time. More on [Join or leave a project](using/join-leave.qmd).
+
+## I'm taking over, or answering reviewer comments
+
+- **Have ready:** the repository's link, and the reviewers' requests.
+- **Type:** "The analysts have left and I need to answer reviewer comments. Where does this project stand, and who decides what?"
+- **Then:** it finds the deciders in the project's AGENTS.md. A reviewer's request to change the methods is a new decision for them, not something to change directly; once the plan is locked, a change is recorded as a dated amendment.
+
+## I'm the PI or a decider
+
+- **You'll be asked to:** confirm who decides what; protect the main branch and switch on the website (the assistant gives the steps); settle open questions in their GitHub issues, or by email.
+- **By email:** your exact words are posted in the issue. If the repository is public, they are public.
+- **Optional:** a weekly check-in that tells you only what is waiting on you.
+
+## I'm a clinician advising the project
+
+- **You don't need** R, GitHub or the plugin. Read the project's website, starting at Clinical background and Study design and methods. Yellow text is not yet decided, and links to the open question.
+- **To give input:** reply by email, or comment on the linked issue if you have a GitHub account. A public repository's issues can be read without an account.
+- **If you're named a decider** for part of the study, your reply settles that question, and your exact words are posted in the issue.

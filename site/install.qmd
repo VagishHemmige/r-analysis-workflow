@@ -4,7 +4,9 @@ title: "Install"
 
 *Written for version 0.1.14. Steps checked against the help pages linked under each one on 30 October 2026. Menus change; if what you see differs, tell the maintainer through a [GitHub issue](https://github.com/VagishHemmige/r-analysis-workflow/issues).*
 
-Installing the plugin gives the assistant instructions only. It grants no access to data, to your GitHub account or to anything on your computer.
+Installing the plugin gives the assistant instructions only. The plugin itself adds no access to data, to your GitHub account or to anything on your computer; what the assistant app can reach is set in the app.
+
+**What you need:** a paid Claude plan (Pro, Max, Team or Enterprise), Claude Code, or ChatGPT where Plugin Creator is available. If someone already set the plugin up for your lab, ask them whether you need your own copy.
 
 Pick the assistant you use.
 

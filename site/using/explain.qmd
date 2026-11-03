@@ -1,9 +1,8 @@
 ---
 title: "Explain the code"
-subtitle: "Skill: document-analysis"
 ---
 
-*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md).*
+*Written for version 0.1.14.*
 
 ## What it is for
 
@@ -56,6 +55,7 @@ Each kind of page has its own icon and colour in the sidebar. Text that depends 
 
 ## Where the detail lives
 
+- The skill's full instructions: [`document-analysis`](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md)
 - [Quarto website guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md)
 - [Example script page](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/quarto/example.qmd)
 - [Shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md)

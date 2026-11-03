@@ -1,9 +1,8 @@
 ---
 title: "Start a project"
-subtitle: "Skill: initialize-analysis"
 ---
 
-*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md).*
+*Written for version 0.1.14.*
 
 ## What it is for
 
@@ -25,7 +24,7 @@ Then it proposes a setup plan and, once you agree, drafts:
 - **AGENTS.md**, the project's rules for any assistant: who the deciders are and for what, every data source and the package that reads it, and what an assistant may never read;
 - **the website starter**, once you've said whether the site will be published from a folder in the repository or by a GitHub workflow;
 - a README, a reference list, and a `.gitignore` that keeps data and secrets out of the repository;
-- **steps for the maintainer** to protect the main copy, so every change arrives through a pull request, and to switch on the website.
+- **steps for the maintainer** to protect the main branch, so every change arrives through a pull request, and to switch on the website.
 
 It also offers, without requiring them: your own ChatGPT or Claude project for this repository with instructions filled in for how you like to work, milestones with dates, and a periodic check-in that tells you what is waiting on you.
 
@@ -44,6 +43,7 @@ It also offers, without requiring them: your own ChatGPT or Claude project for t
 
 ## Where the detail lives
 
+- The skill's full instructions: [`initialize-analysis`](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md)
 - [The questionnaire](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/initialization.md)
 - [Writing the analysis plan](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/analysis-plan.md)
 - [The repository blueprint](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md)

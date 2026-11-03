@@ -43,9 +43,9 @@ Test results use the scorecards' scale: **✔** worked as intended, **~** worked
 - **The risk:** a student with no GitHub account and no R is asked to install tools, learn Git and set up a repository before anything useful happens.
 - **What the plugin does:** a short questionnaire, one question at a time, reusing what is already known, with no installs until the work needs them ([initialize-analysis][init]).
 - **Since:** before 0.1.7; setting up from R added in 0.1.12.
-- **Tested:** **✔** a novice went from nothing to a public repository, protected main copy, setup notes, a draft pull request and her own assistant project in one session ([0.1.8 scorecard][s08]).
+- **Tested:** **✔** a novice went from nothing to a public repository, protected main branch, setup notes, a draft pull request and her own assistant project in one session ([0.1.8 scorecard][s08]).
 
-### The main copy is unprotected, or the website never goes live
+### The main branch is unprotected, or the website never goes live
 
 - **The risk:** a repository's rules say changes go through pull requests when nothing enforces it, or a site is built but never switched on.
 - **What the plugin does:** gives the maintainer the steps to protect the default branch and switch on GitHub Pages, reminds them when the first site is merged, and offers a check that reads the actual settings rather than assuming them ([GitHub workflow][gh]).
