@@ -16,6 +16,7 @@ website:
   site-url: https://vagishhemmige.github.io/r-analysis-workflow
   repo-url: https://github.com/VagishHemmige/r-analysis-workflow
   repo-branch: main
+  repo-actions: [edit, issue]
   page-navigation: true
 
   sidebar:
