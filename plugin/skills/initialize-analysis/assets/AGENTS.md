@@ -84,10 +84,13 @@ Label analysis variables with human-readable descriptions (for example `labelled
 
 The site documents the code. It does not run the analysis.
 
-- `_quarto.yml` and `index.qmd` sit at the root; `quarto/` has one page per definitive script, named after it. The `custom-callout` extension in `_extensions/` provides the `Rcode` callout.
+- `_quarto.yml`, `index.qmd`, `404.qmd` (the page GitHub Pages shows for a missing address) and `styles.css` sit at the root; `quarto/` has one page per definitive script, named after it, plus the Background, Study design and methods, About and project-document pages. The `custom-callout` extension in `_extensions/` provides the `Rcode`, `Results` and `Pending` callouts.
+- **Visual cues.** Each kind of page has one sidebar icon, coloured by `styles.css`, and pages mark the same kind of content with the callout of that colour: background `book` (blue); study design and methods `diagram-3` (orange); R code `laptop` (pink, `Rcode` 💻); results `clipboard-data` (green, `Results` 📊); project documents `file-earmark-ruled` (grey). Give every new page the icon of its kind.
+- **Provisional content.** `quarto/_pending.lua` highlights in yellow every paragraph that starts with **Decision pending:** and any `[text]{.pending}`, and adds a ⏳ `Pending` callout to pages that have a mark. Mark only what an open decision could change, and remove the mark when the decision is settled.
+- **Project documents.** `analysis-plan.md`, `ARCHITECTURE.md`, `AGENTS.md` and `REPOSITORY-BLUEPRINT.md` are shown on the site by pages in `quarto/` that only include the root file, which stays the one source: edit the root file, not the page.
 - Each page loads its script with `knitr::read_chunk("../R/<script>.R")` in a hidden chunk and shows each labelled section with `#| eval: false`, with prose explaining what the section does and why. Pages link to the script on GitHub and to the scripts it depends on.
-- **Never evaluate analysis code in the site.** Pages render without restricted data.
-- The site renders to `docs/` and is served by GitHub Pages. When you add a script, add its page and sidebar entry in the same pull request, and re-render.
+- **Never evaluate analysis code in the site.** Pages render without restricted data. Only the `read_chunk()` imports, the Architecture page's chunk that reads `ARCHITECTURE.md`, site helpers that read code or text, and results pages that read cleared outputs run.
+- The site renders to `docs/` <and is committed and served by GitHub Pages | which is not committed; a GitHub Actions workflow renders and publishes it>. When you add a script, add its page and sidebar entry in the same pull request, and re-render.
 - **Prose must match the code.** If a change alters what a section does, update its explanation in the same pull request.
 
 ## Outputs

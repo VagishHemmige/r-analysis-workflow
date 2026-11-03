@@ -13,7 +13,7 @@ format: html
 
 ## Methods
 
-<A short summary for readers. The authoritative specification is [`analysis-plan.md`](https://github.com/OWNER/REPOSITORY/blob/BRANCH/analysis-plan.md).>
+<Short summary for readers, in two or three sentences. [Study design and methods](quarto/study_methods.qmd) explains each step, and the authoritative specification is the [analysis plan](quarto/analysis-plan.qmd).>
 
 ## Status
 
