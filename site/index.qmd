@@ -31,7 +31,8 @@ The plugin does not assume which of these you are. It asks what you want to do a
 - **R code** in labelled sections, with the analysis run from one script.
 - **A website** that explains each step of the code in plain language for a clinician reader. It shows the real code, and never runs the analysis.
 - **AGENTS.md**, the rules any assistant follows in that project: who decides what, which data it may never read, and how changes are made.
-- **Pull requests** for every change to the main copy, so each change can be seen and checked before it goes in.
+- **Pull requests** for every change to the main branch, so each change can be seen and checked before it goes in.
+- **Locking the plan**: once the plan is final, it is frozen before results are seen; any later change is recorded as a dated amendment.
 
 ## Where to start
 

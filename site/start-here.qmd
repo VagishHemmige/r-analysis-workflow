@@ -8,6 +8,8 @@ title: "Start here"
 
 Find the line that fits you. Each says what to have ready and the first thing to type to the assistant once the plugin is [installed](install.qmd). You don't need to name a skill or know the Git words: the assistant explains them as they come up.
 
+New to GitHub? The [GitHub glossary](https://docs.github.com/en/get-started/learning-about-github/github-glossary) explains repository, branch, commit, pull request and issue; [Happy Git and GitHub for the useR](https://happygitwithr.com/) shows how to use them from RStudio. The plugin's own terms (analysis plan, decision issue, decider, AGENTS.md) are explained on [Home](index.qmd#what-a-project-built-with-it-has).
+
 ## I'm a student starting a new project
 
 - **Have ready:** the idea or protocol, and about an hour. You don't need R, Git or a GitHub account yet; the assistant walks you through what the work needs.

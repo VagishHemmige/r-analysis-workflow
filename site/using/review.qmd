@@ -27,7 +27,7 @@ You choose the kind of review, or describe what you want checked and the assista
 | Plan | The plan is complete, its methods fit the question, and its citations say what it claims |
 | Site ↔ code | The website explains the code as it is |
 | Architecture | `ARCHITECTURE.md` matches the scripts |
-| Repository | The required files, the data-sources table, `.gitignore` and protection of the main copy |
+| Repository | The required files, the data-sources table, `.gitignore` and protection of the main branch |
 | Reporting | The flow diagram, tables, models and numbers in prose agree |
 | Release | Nothing restricted or uncleared, no credentials, and alt text, before anything goes public; then a person signs off |
 
