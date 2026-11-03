@@ -1,9 +1,14 @@
-# Validation — 0.1.13, 2026-10-30
+# Validation — 0.1.14, 2026-11-03
 
 What was checked, and what was not.
 
 ## Checked
 
+- **0.1.14 changes** (#48, #49, #50, merged as #51: sidebar icons and colours by kind of page; Rcode, Results and Pending callouts; `_pending.lua` yellow marks for **Decision pending** notes and, on the plan's page, **Open:** points; Clinical and Methodological background, Study design and methods, four project-document pages, 404; two publishing routes recorded in AGENTS.md; a numbered procedure for bringing an existing site up to date):
+  - At `13d1f4d`, `check_links.py` and `build_skills.py --check` pass.
+  - At `6c32ec2`, with Quarto 1.7.32, R 4.3.3 and custom-callout `810a647`, the starter rendered with stand-in root files, with and without `ARCHITECTURE.md`. Without `REPOSITORY-BLUEPRINT.md` it fails ("Include directive failed").
+  - At `6c32ec2`, the main-branch starter (`45c8a67`) was given an extra root page, its own stylesheet and an "Open decision" table cell, then migrated by the documented steps. It rendered with every old page, both stylesheets linked, and the Pending marks.
+  - The `9558a21` changes (inline **Open:** on the plan page, publishing notes) were checked by the session that made them, as its commit message reports, not independently.
 - **Layout: the plugin in `plugin/`** (0.1.13; issue #11, 2026-10-30). The skills, references, assets, both `plugin.json` manifests and `LICENSE` moved unchanged into `plugin/`; `.claude-plugin/marketplace.json` now points to `./plugin`. Tested: `build_skills.py --check`, `check_links.py` (which now also checks the root documents' links) and `claude plugin validate` on `plugin/` and on the marketplace all pass. Claude Code 2.1.314, in an isolated home folder, installed `main` (`bf27386`) and the branch from GitHub: `main` installed 101 files, the branch 95. The 95 are the same files with the same contents, except `README.md`, now a short one. The six no longer installed are `marketplace.json`, `.gitignore`, `SOURCES.md`, `VALIDATION.md`, `build_skills.py` and `check_links.py`. Nothing from `testing/` is installed. Not tested: claude.ai, Desktop and Cowork ("Add from a repository").
 - **ChatGPT, Plugin Creator, with the `plugin/` layout** (2026-10-30, reported by the maintainer): asked to create a plugin from the `plugin/` folder of the `plugin-subfolder` branch at `b4147f6`, it worked. The report did not say which version ChatGPT showed, which skills it listed, or whether files outside `plugin/` were included.
 - **`testing/`** (2026-10-30) holds what is needed to rerun the tests (the procedure and personas) and, for each run, its scorecard and run notes (setup, environment and deviations): [`2026-10-26-user-simulation-0.1.8`](testing/runs/2026-10-26-user-simulation-0.1.8/) and [`2026-10-27-retest-0.1.9`](testing/runs/2026-10-27-retest-0.1.9/). Gap logs and transcripts are working material and are not kept here. The files were copied word for word from the maintainer's Claude project; they were not compared byte for byte with the originals, which no longer exist outside that project. The plugin review and Test A records are not here.
@@ -26,6 +31,7 @@ What was checked, and what was not.
 
 ## Not yet checked
 
+- 0.1.14: mermaid diagrams on the Architecture page (plain mermaid cells also rendered empty in the test environment); visual inspection of the rendered pages; the GitHub Actions publishing route, which needs #46; bringing a real older site up to date (for example Dialysis-facility-density-USRDS).
 - Whether a ChatGPT scheduled task inside a person's project can see that project's earlier chats (needed for the check-in's draft search). OpenAI's documentation does not say; test in ChatGPT.
 - The librarian reviewer has not been run.
 - Reviewers have not been rerun since their access rules and prompts were revised, including the 0.1.7 combining step (known findings, team-package headings), the coding expert's tracked-file check and the real-data check suggestions.
