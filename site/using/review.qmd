@@ -1,9 +1,8 @@
 ---
 title: "Review"
-subtitle: "Skill: review-analysis"
 ---
 
-*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md).*
+*Written for version 0.1.14.*
 
 ## What it is for
 
@@ -31,7 +30,9 @@ You choose the kind of review, or describe what you want checked and the assista
 | Reporting | The flow diagram, tables, models and numbers in prose agree |
 | Release | Nothing restricted or uncleared, no credentials, and alt text, before anything goes public; then a person signs off |
 
-Most reviews use some of five **blind reviewers**: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. Each works as a separate assistant with only the files its role needs and public material such as cited papers, without seeing the other reviewers' findings or the conversation that produced the work. A final step checks every claimed error against the source before reporting it, and marks findings already known from issues.
+Most reviews use some of five **blind AI reviewers**: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. Each works as a separate assistant with only the files its role needs and public material such as cited papers, without seeing the other reviewers' findings or the conversation that produced the work. A final step checks every claimed error against the source before reporting it, and marks findings already known from issues. The AI reviewers don't replace review by the team's own clinicians and statistician.
+
+With restricted data, reviewers see only the code and documentation, so a check that needs the data (model fit, for example) comes back as a focused check for a person with access to run.
 
 ## What it will not do
 
@@ -46,6 +47,7 @@ Most reviews use some of five **blind reviewers**: a clinician reader, a clinici
 
 ## Where the detail lives
 
+- The skill's full instructions: [`review-analysis`](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md)
 - [The blind reviewers](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md): what each reads, its prompt, and how reports are combined
 - [Data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md), for the Release review
 

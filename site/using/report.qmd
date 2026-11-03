@@ -1,9 +1,8 @@
 ---
 title: "Report results"
-subtitle: "Skill: report-analysis"
 ---
 
-*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/report-analysis/SKILL.md).*
+*Written for version 0.1.14.*
 
 ## What it is for
 
@@ -24,10 +23,12 @@ The work follows a fixed order, using the parts that fit the design:
 4. **Two-variable and stratified summaries**, where the plan calls for them.
 5. **Repeated measurements over time**, where they exist.
 6. **Time to event**: follow-up, events and censoring, before any model.
-7. **Figures**, following published principles for clear statistical graphics, with survival curves in the KMunicate style and rules for small counts.
+7. **Figures**, following the PSI/EFSPI graphics principles, with survival curves in the KMunicate style (numbers at risk, censored and with events under the plot) and rules for small counts.
 8. **Model tables** that report the model actually fitted.
 
-Before finishing it checks that every number reconciles with the flow diagram, that estimates and their labels match the fitted model, and that every number written in prose comes from a computed value, never retyped.
+Before finishing it checks that every number reconciles with the flow diagram, that an analysis on fewer people than the cohort reports its own number, that proportional hazards were checked for any Cox model, that estimates and their labels match the fitted model, and that every number written in prose comes from a computed value, never retyped.
+
+**Not yet tested:** the recipes for mixed models, GEE, overall p-values and multiple imputation have been checked against package documentation but not run.
 
 ## What it will not do
 
@@ -42,6 +43,7 @@ Before finishing it checks that every number reconciles with the flow diagram, t
 
 ## Where the detail lives
 
+- The skill's full instructions: [`report-analysis`](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/report-analysis/SKILL.md)
 - [Reporting guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reporting.md)
 - [Data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md)
 

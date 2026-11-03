@@ -1,6 +1,7 @@
 ---
 title: "R Analysis Workflow"
 subtitle: "A plugin that helps an AI assistant set up, explain, report and review R analysis projects published on GitHub"
+author: "Vagish Hemmige"
 ---
 
 *Written for version 0.1.14.*

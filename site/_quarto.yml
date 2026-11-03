@@ -8,9 +8,6 @@ project:
   type: website
   output-dir: _site
 
-author:
-  - name: "Vagish Hemmige"
-
 website:
   title: "R Analysis Workflow"
   site-url: https://vagishhemmige.github.io/r-analysis-workflow

@@ -1,9 +1,8 @@
 ---
 title: "Join or leave a project"
-subtitle: "Skill: onboard-collaborator"
 ---
 
-*Written for version 0.1.14. Full instructions: [SKILL.md](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md).*
+*Written for version 0.1.14.*
 
 ## What it is for
 
@@ -27,7 +26,12 @@ Ways to contribute:
 
 It also offers your own ChatGPT or Claude project for the repository, with instructions for how you like to work (review only, step by step, or hands-off), and an optional check-in that reports what is waiting on you.
 
-When you take over from someone, it starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person's files or chats.
+## Taking over from someone
+
+The assistant starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person's files or chats. Ask it, for example:
+
+- "I'm taking over this project from the last student. What's done, what's open, and what's waiting on me?"
+- "Who decides what on this project?"
 
 ## Leaving
 
@@ -54,6 +58,7 @@ Not everything has to be finished. Something left open with a clear note is fine
 
 ## Where the detail lives
 
+- The skill's full instructions: [`onboard-collaborator`](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md)
 - [Onboarding and leaving a project](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md)
 - [Personal instructions template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md)
 - [Happy Git and GitHub for the useR](https://happygitwithr.com/), for learning Git with R
