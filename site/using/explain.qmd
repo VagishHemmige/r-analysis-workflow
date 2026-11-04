@@ -6,7 +6,7 @@ title: "Explain the code"
 
 ## What it is for
 
-Keeping the project's website, README and `ARCHITECTURE.md` in step with the code. The website is how a clinician, a reviewer or the next student understands what the analysis does without reading R.
+Keeping the project's website, README and `ARCHITECTURE.md` in step with the code. The website is how a clinician, a reviewer or the next person understands what the analysis does without reading R.
 
 ## When to use it
 

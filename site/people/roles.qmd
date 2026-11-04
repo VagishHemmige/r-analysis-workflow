@@ -4,13 +4,13 @@ title: "Contributing in your role"
 
 *Written for version 0.1.14. Sources: [onboard-collaborator](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md), [onboarding](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md), [writing the analysis plan](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/analysis-plan.md), [the AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md), [GitHub workflow](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md), [review-analysis](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md), [blind reviewers](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md).*
 
-The plugin assumes no role. It starts from what you want to contribute and what you already know, and offers the help that fits you. A project may have several students and no single lead, and the PI may use the plugin too. The roles below are common patterns, not boxes: one person can hold several, and each project fills them its own way.
+The plugin assumes no role. It starts from what you want to contribute and what you already know, and offers the help that fits you. A project may have several people leading parts of it and no single lead, and the PI may use the plugin too. The roles below are common patterns, not boxes: one person can hold several, and each project fills them its own way.
 
 Two rules hold in every role. Only a named **decider** settles a scientific question. And every change reaches the main branch through a **pull request**, a proposed change that others can see before it is merged.
 
-## Student lead
+## Project lead
 
-**You.** You move the analysis forward day to day: drafting the plan, writing code, opening pull requests, and keeping open questions moving. Several students may share this, and someone may take over from a student who leaves.
+**You.** You move the analysis forward day to day: drafting the plan, writing code, opening pull requests, and keeping open questions moving. The lead can be anyone: a student, resident, fellow or faculty member. Several people may share this, and someone may take over from a lead who leaves.
 
 **The assistant.**
 
@@ -20,7 +20,7 @@ Two rules hold in every role. Only a named **decider** settles a scientific ques
 - Drafts options and evidence for a decision issue, and writes the plan change and code once a decider has chosen.
 - It won't choose among options, merge a pull request, read restricted data, or post anything as you without showing you the exact text first, unless your own instructions say otherwise.
 
-**In the repository.** Your work arrives as pull requests that say which plan section or issue they address and what was checked. Before you leave, the assistant helps you move drafts, notes and unanswered requests out of your chats and laptop into issues or draft pull requests, and mark unfinished work as paused with what it is waiting on. The next student starts from the repository, not from your files.
+**In the repository.** Your work arrives as pull requests that say which plan section or issue they address and what was checked. Before you leave, the assistant helps you move drafts, notes and unanswered requests out of your chats and laptop into issues or draft pull requests, and mark unfinished work as paused with what it is waiting on. The next person starts from the repository, not from your files.
 
 **Who decides.** The deciders named in `AGENTS.md`. You decide too only if you are named there.
 
@@ -28,14 +28,14 @@ Two rules hold in every role. Only a named **decider** settles a scientific ques
 
 ## PI or maintainer
 
-**You.** The maintainer owns or administers the repository. That may be a student or the PI, and a PI may also be named as a decider and use the plugin directly. Some steps on GitHub need admin rights, so they fall to whoever has them.
+**You.** The maintainer owns or administers the repository. That can be anyone on the project, and a PI may also be named as a decider and use the plugin directly. Some steps on GitHub need admin rights, so they fall to whoever has them.
 
 **The assistant.** It describes the one-off GitHub steps and leaves them to you, because agents don't change repository settings:
 
 - protecting the main branch so changes arrive only through pull requests;
 - turning on GitHub Pages so the website goes live;
 - tags, for example when the plan is locked, which are made by the maintainer or with their explicit say-so;
-- accepting the repository if a leaving student transfers it to the PI, then updating the site's links and turning Pages on again;
+- accepting the repository if a leaving owner transfers it to you, then updating the site's links and turning Pages on again;
 - removing anything pushed by mistake from the history. Agents don't attempt this.
 
 If you work in R, it can suggest the console commands one at a time, after checking where things stand. You run them; it never does. Like everyone, you can ask for a periodic check-in that lists what is waiting on you: assigned issues, decisions you make, and pull requests awaiting your review.

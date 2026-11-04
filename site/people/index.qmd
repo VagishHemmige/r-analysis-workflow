@@ -4,7 +4,7 @@ title: "People on a project"
 
 *Written for version 0.1.14.*
 
-Projects outlast the people on them. Students often lead for a few weeks and hand on; clinicians and statisticians advise; the PI may decide, maintain the repository, or do the work. The plugin assumes none of these roles: it asks what you want to do and how much help you want. This section follows one person's time on a project. [Project stages](../stages/index.qmd) follows the project itself.
+Projects outlast the people on them. Anyone can lead for a while and hand on, whether a student, resident, fellow or faculty member; clinicians and statisticians advise; the PI may decide, maintain the repository, or do the work. The plugin assumes none of these roles: it asks what you want to do and how much help you want. This section follows one person's time on a project. [Project stages](../stages/index.qmd) follows the project itself.
 
 | Part | What happens | Page |
 |---|---|---|

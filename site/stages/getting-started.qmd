@@ -12,7 +12,7 @@ Every project starts somewhere: an idea, a protocol, an old R Markdown file or a
 
 **The assistant.**
 
-- It suggests creating the repository first, before drafting anything. Whoever is setting up can create it under their own account. Ownership can move later, for example to the PI when a student leaves.
+- It suggests creating the repository first, before drafting anything. Whoever is setting up can create it under their own account. Ownership can move later, for example when the person who set it up leaves.
 - If the repository has to wait (say, someone else will create it), it keeps drafts as files in your own assistant project for this repository, not only in the chat. It moves them into the repository once it exists.
 - It will not open files that may hold restricted data while it takes stock of your materials. Being able to see a file does not mean it may be published.
 

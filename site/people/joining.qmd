@@ -4,7 +4,7 @@ title: "Joining"
 
 *Written for version 0.1.14. Sources: [onboard-collaborator skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md), [onboarding](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md), [personal instructions template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md).*
 
-People join a project at any point: a student taking over from one who has left, a clinician asked for input, a statistician brought in for the methods. This page follows you through your first days, from finding where the project stands to setting up the help you want.
+People join a project at any point: someone taking over from a lead who has left, a clinician asked for input, a statistician brought in for the methods. This page follows you through your first days, from finding where the project stands to setting up the help you want.
 
 ## Starting from the repository
 

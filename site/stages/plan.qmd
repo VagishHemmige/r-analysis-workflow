@@ -8,7 +8,7 @@ The analysis plan, `analysis-plan.md`, says what the analysis must do. It is the
 
 ## Deciding the plan
 
-**You.** Bring what the investigators already have: the protocol, the IRB approval, earlier scripts, papers. When the assistant lists the choices those materials already make, the deciders go through the list together and confirm or change each one. Anyone on the project, clinician or student, can open a **decision issue** (a GitHub issue for one open scientific question) or add options, evidence and clinical reasoning to one.
+**You.** Bring what the investigators already have: the protocol, the IRB approval, earlier scripts, papers. When the assistant lists the choices those materials already make, the deciders go through the list together and confirm or change each one. Anyone on the project can open a **decision issue** (a GitHub issue for one open scientific question) or add options, evidence and clinical reasoning to one.
 
 **The assistant.**
 
@@ -68,6 +68,6 @@ The analysis plan, `analysis-plan.md`, says what the analysis must do. It is the
 - A new tag for each amended version, such as `sap-v1.1`.
 - The decision issue behind each amendment, closed by the pull request that made it.
 
-**Who decides.** The named deciders, exactly as before locking. A reviewer, a student or an agent can raise the question and argue for an answer; only a decider settles it.
+**Who decides.** The named deciders, exactly as before locking. A reviewer, anyone on the project or an agent can raise the question and argue for an answer; only a decider settles it.
 
 **More.** [The plan and its decisions](../manual/plan-and-decisions.qmd#locking-the-plan) in the Manual; [Review](../using/review.qmd) for acting on review findings; [Explain the code](../using/explain.qmd) for updating the plan and the website to match.
