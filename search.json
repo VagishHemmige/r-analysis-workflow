@@ -64,7 +64,7 @@
     "href": "problems.html#starting-a-project",
     "title": "Problems it solves",
     "section": "Starting a project",
-    "text": "Starting a project\n\nA novice can’t get from an idea to a working repository\n\nThe risk: a student with no GitHub account and no R is asked to install tools, learn Git and set up a repository before anything useful happens.\nWhat the plugin does: a short questionnaire, one question at a time, reusing what is already known, with no installs until the work needs them (initialize-analysis).\nSince: before 0.1.7; setting up from R added in 0.1.12.\nTested: ✔ a novice went from nothing to a public repository, protected main branch, setup notes, a draft pull request and her own assistant project in one session (0.1.8 scorecard).\n\n\n\nThe main branch is unprotected, or the website never goes live\n\nThe risk: a repository’s rules say changes go through pull requests when nothing enforces it, or a site is built but never switched on.\nWhat the plugin does: gives the maintainer the steps to protect the default branch and switch on GitHub Pages, reminds them when the first site is merged, and offers a check that reads the actual settings rather than assuming them (GitHub workflow).\nSince: Pages reminder 0.1.7; the settings check 0.1.12.\nTested: not yet tested. The 0.1.12 check has not been run (VALIDATION.md).\n\n\n\nData or secrets end up in a public repository\n\nThe risk: data files, credentials or outputs not yet cleared are committed, and deleting them later doesn’t remove them from history.\nWhat the plugin does: a .gitignore adapted to the project and reviewed before the first commit, the full file list read before committing, and steps for what to do if something was pushed by mistake (data handling).\nSince: .gitignore before 0.1.7; reading the file list and the steps after a mistake 0.1.12.\nTested: the ignore rules were tested with git check-ignore in a scratch repository (VALIDATION.md).",
+    "text": "Starting a project\n\nA novice can’t get from an idea to a working repository\n\nThe risk: someone with no GitHub account and no R is asked to install tools, learn Git and set up a repository before anything useful happens.\nWhat the plugin does: a short questionnaire, one question at a time, reusing what is already known, with no installs until the work needs them (initialize-analysis).\nSince: before 0.1.7; setting up from R added in 0.1.12.\nTested: ✔ a novice went from nothing to a public repository, protected main branch, setup notes, a draft pull request and her own assistant project in one session (0.1.8 scorecard).\n\n\n\nThe main branch is unprotected, or the website never goes live\n\nThe risk: a repository’s rules say changes go through pull requests when nothing enforces it, or a site is built but never switched on.\nWhat the plugin does: gives the maintainer the steps to protect the default branch and switch on GitHub Pages, reminds them when the first site is merged, and offers a check that reads the actual settings rather than assuming them (GitHub workflow).\nSince: Pages reminder 0.1.7; the settings check 0.1.12.\nTested: not yet tested. The 0.1.12 check has not been run (VALIDATION.md).\n\n\n\nData or secrets end up in a public repository\n\nThe risk: data files, credentials or outputs not yet cleared are committed, and deleting them later doesn’t remove them from history.\nWhat the plugin does: a .gitignore adapted to the project and reviewed before the first commit, the full file list read before committing, and steps for what to do if something was pushed by mistake (data handling).\nSince: .gitignore before 0.1.7; reading the file list and the steps after a mistake 0.1.12.\nTested: the ignore rules were tested with git check-ignore in a scratch repository (VALIDATION.md).",
     "crumbs": [
       "Problems it solves"
     ]
@@ -74,7 +74,7 @@
     "href": "problems.html#deciding-the-science",
     "title": "Problems it solves",
     "section": "Deciding the science",
-    "text": "Deciding the science\n\nSomeone settles a scientific question who shouldn’t\n\nThe risk: a student, or an assistant, quietly chooses a cut-off, covariate or exclusion in code, and nobody can later say who decided or why.\nWhat the plugin does: the analysis plan decides; every open choice is a decision issue on GitHub settled only by a named decider; assistants draft options and never choose (analysis plan). The deciders are asked for at setup.\nSince: before 0.1.7; deciders asked at setup 0.1.8.\nTested: ✔ across two student leads, an impatient statistician and a clinician who used only email (0.1.8 scorecard); ✔ through peer review six months later (continuation scorecard).\n\n\n\nInput from a collaborator who doesn’t use GitHub is lost\n\nThe risk: a clinician’s decision arrives by email or in a meeting, lives in one person’s inbox, and is gone when they leave.\nWhat the plugin does: whoever received it posts the decider’s exact words in the decision issue, with name, date and how it was given; a summary from memory doesn’t settle anything (analysis plan).\nSince: 0.1.8.\nTested: ✔ throughout (0.1.8 scorecard). ✘ on consent: a collaborator’s whole email was posted to a public repository before she knew it was public; no rule yet covers this.\n\n\n\nA decision is credited to the wrong person\n\nThe risk: a draft says “Dr. X decided” when Dr. X didn’t, or puts someone’s words in another’s mouth.\nWhat the plugin does: writing that a person decided, said or wrote something needs a link to the record; if there is none, the assistant asks instead (conventions).\nSince: 0.1.9.\nTested: ~ in 0.1.8, before the rule, two wrong attributions were caught only by the people concerned (continuation scorecard); ✔ in the 0.1.9 re-test, where an agreement given only verbally was not asserted (0.1.9 scorecard).\n\n\n\nThe plan changes after results are seen, without a record\n\nThe risk: a locked plan is edited once results are in, and a reader can’t tell what was planned from what was chosen afterwards.\nWhat the plugin does: at locking, an empty “Amendments after locking” section and a tag; every later change gets a dated entry saying whether it was made before or after outcome data were seen, and a new tag (analysis plan).\nSince: the amendment rule before 0.1.9; the empty section at locking 0.1.9.\nTested: ~ in 0.1.8 the rule never reached the repository and three claims about when results had been seen proved false (continuation scorecard); ✔ in the 0.1.9 re-test, the section was added at locking (0.1.9 scorecard).",
+    "text": "Deciding the science\n\nSomeone settles a scientific question who shouldn’t\n\nThe risk: someone on the project, or an assistant, quietly chooses a cut-off, covariate or exclusion in code, and nobody can later say who decided or why.\nWhat the plugin does: the analysis plan decides; every open choice is a decision issue on GitHub settled only by a named decider; assistants draft options and never choose (analysis plan). The deciders are asked for at setup.\nSince: before 0.1.7; deciders asked at setup 0.1.8.\nTested: ✔ across two student leads, an impatient statistician and a clinician who used only email (0.1.8 scorecard); ✔ through peer review six months later (continuation scorecard).\n\n\n\nInput from a collaborator who doesn’t use GitHub is lost\n\nThe risk: a clinician’s decision arrives by email or in a meeting, lives in one person’s inbox, and is gone when they leave.\nWhat the plugin does: whoever received it posts the decider’s exact words in the decision issue, with name, date and how it was given; a summary from memory doesn’t settle anything (analysis plan).\nSince: 0.1.8.\nTested: ✔ throughout (0.1.8 scorecard). ✘ on consent: a collaborator’s whole email was posted to a public repository before she knew it was public; no rule yet covers this.\n\n\n\nA decision is credited to the wrong person\n\nThe risk: a draft says “Dr. X decided” when Dr. X didn’t, or puts someone’s words in another’s mouth.\nWhat the plugin does: writing that a person decided, said or wrote something needs a link to the record; if there is none, the assistant asks instead (conventions).\nSince: 0.1.9.\nTested: ~ in 0.1.8, before the rule, two wrong attributions were caught only by the people concerned (continuation scorecard); ✔ in the 0.1.9 re-test, where an agreement given only verbally was not asserted (0.1.9 scorecard).\n\n\n\nThe plan changes after results are seen, without a record\n\nThe risk: a locked plan is edited once results are in, and a reader can’t tell what was planned from what was chosen afterwards.\nWhat the plugin does: at locking, an empty “Amendments after locking” section and a tag; every later change gets a dated entry saying whether it was made before or after outcome data were seen, and a new tag (analysis plan).\nSince: the amendment rule before 0.1.9; the empty section at locking 0.1.9.\nTested: ~ in 0.1.8 the rule never reached the repository and three claims about when results had been seen proved false (continuation scorecard); ✔ in the 0.1.9 re-test, the section was added at locking (0.1.9 scorecard).",
     "crumbs": [
       "Problems it solves"
     ]
@@ -124,7 +124,7 @@
     "href": "problems.html#handing-over",
     "title": "Problems it solves",
     "section": "Handing over",
-    "text": "Handing over\n\nThe next lead can’t find out where things stand\n\nThe risk: a rotating student leaves, and the next one has only a repository link and no idea what was done, decided or promised.\nWhat the plugin does: the next person starts from the repository, not the last person’s files; leaving follows four steps (documents, open work, pending requests, ownership), started by the person or by a check-in that sees their end date (onboarding).\nSince: 0.1.7.\nTested: ✔ the hand-over was started by the plugin’s own scheduled reminder, and the next lead rebuilt the state from the repository in one reply (0.1.8 scorecard).\n\n\n\nTransferring the repository breaks the website\n\nThe risk: a student who owns the repository leaves; after the transfer the old site address stops working, because GitHub doesn’t redirect websites.\nWhat the plugin does: raises the transfer before the student leaves, orders it last, and lists the links to update and the site to switch on again (onboarding).\nSince: 0.1.7.\nTested: ~ the transfer was done in the right order, but old links were still on the site at the end (0.1.8 scorecard).",
+    "text": "Handing over\n\nThe next lead can’t find out where things stand\n\nThe risk: the lead leaves, and the next one has only a repository link and no idea what was done, decided or promised.\nWhat the plugin does: the next person starts from the repository, not the last person’s files; leaving follows four steps (documents, open work, pending requests, ownership), started by the person or by a check-in that sees their end date (onboarding).\nSince: 0.1.7.\nTested: ✔ the hand-over was started by the plugin’s own scheduled reminder, and the next lead rebuilt the state from the repository in one reply (0.1.8 scorecard).\n\n\n\nTransferring the repository breaks the website\n\nThe risk: the person who owns the repository leaves; after the transfer the old site address stops working, because GitHub doesn’t redirect websites.\nWhat the plugin does: raises the transfer before the owner leaves, orders it last, and lists the links to update and the site to switch on again (onboarding).\nSince: 0.1.7.\nTested: ~ the transfer was done in the right order, but old links were still on the site at the end (0.1.8 scorecard).",
     "crumbs": [
       "Problems it solves"
     ]
@@ -372,6 +372,72 @@
     ]
   },
   {
+    "objectID": "people/index.html",
+    "href": "people/index.html",
+    "title": "People on a project",
+    "section": "",
+    "text": "Written for version 0.1.14.\nProjects outlast the people on them. Anyone can lead for a while and hand on, whether a student, resident, fellow or faculty member; clinicians and statisticians advise; the PI may decide, maintain the repository, or do the work. The plugin assumes none of these roles: it asks what you want to do and how much help you want. This section follows one person’s time on a project. Project stages follows the project itself.\n\n\n\nPart\nWhat happens\nPage\n\n\n\n\nJoining\nAt whatever stage the project is in, the assistant finds where things stand from the repository, not from the last person’s files or chats\nJoining\n\n\nContributing\nWhat each role does, and what the assistant does for them\nContributing in your role\n\n\nLeaving\nWork moved out of chats and laptops, open items handed on, ownership transferred last\nLeaving\n\n\n\nThe rule that holds throughout: people decide and approve, and the assistant drafts and implements. Only the deciders named in the project’s AGENTS.md settle scientific questions.",
+    "crumbs": [
+      "People on a project",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "people/joining.html",
+    "href": "people/joining.html",
+    "title": "Joining",
+    "section": "",
+    "text": "Written for version 0.1.14. Sources: onboard-collaborator skill, onboarding, personal instructions template, shared conventions, AGENTS.md template.\nPeople join a project at any point: someone taking over from a lead who has left, a clinician asked for input, a statistician brought in for the methods. This page follows you through your first days, from finding where the project stands to setting up the help you want.",
+    "crumbs": [
+      "People on a project",
+      "Joining"
+    ]
+  },
+  {
+    "objectID": "people/joining.html#starting-from-the-repository",
+    "href": "people/joining.html#starting-from-the-repository",
+    "title": "Joining",
+    "section": "Starting from the repository",
+    "text": "Starting from the repository\nYou. You are new to the project, or you are taking over someone else’s work. You don’t need anything from the person before you.\nThe assistant.\n\nIt starts from the repository as it is now: the analysis plan, the open decision issues, the open pull requests and their notes, and anything the previous person left marked as paused.\nIt does not rely on the previous person’s files or chats.\nIt explains the project through its own documents and does not assume you can read code. The website is the way in for anyone who doesn’t code; a clinician starts at Clinical background and Study design and methods, and goes to the code pages only for detail.\nBefore asking you something, it looks for the answer in the repository and in earlier chats in your own assistant project, where it can see them. It asks only what is still unclear, and says what it found.\n\nIn the repository. These are the documents you will be shown:\n\nanalysis-plan.md, which says what the analysis must do. Its Open: markers point to questions still undecided.\nGitHub issues, which hold those open decisions (decision issues) and known gaps between the code and the plan.\nAGENTS.md, which says how work is done here, including the data rules and who the deciders are.\nARCHITECTURE.md, which says how the code fits together, for people who will work on it.\n\nWho decides. Joining does not make you a decider. AGENTS.md names the deciders and their areas. Anyone may inform a decision with options, evidence or clinical reasoning; only a named decider settles it.\nMore. The plan and its decisions, Rules for working, Join or leave a project.",
+    "crumbs": [
+      "People on a project",
+      "Joining"
+    ]
+  },
+  {
+    "objectID": "people/joining.html#help-at-the-level-you-choose",
+    "href": "people/joining.html#help-at-the-level-you-choose",
+    "title": "Joining",
+    "section": "Help at the level you choose",
+    "text": "Help at the level you choose\nYou. Say what you want to contribute and what you already know. You can ask to learn as you go, or to have the assistant do more of the work with you.\nThe assistant.\n\nIt starts from your goal and gives one next step at a time, keeping your earlier answers.\nFor a clinician, it begins with the scientific question, the cohort, the outcomes and the protocol decisions still open.\nFor someone who knows R but not Git, it explains local files, commits, branches or forks, and pull request review, using the workflow you are actually allowed to use. (Git keeps the history of the files; a pull request is a proposed change that others review before it joins the main branch.)\nIt explains only the Git steps your own tool needs, and does not prescribe a tool. For deeper learning it points to Happy Git and GitHub for the useR.\nIt won’t require R, Git or Quarto for work that doesn’t need them.\nIt checks what is already installed and authorised before suggesting any installation. It treats the assistant’s connection to GitHub as separate from a working Git setup on your own computer.\nIt never asks you to paste a token or password. It won’t change account settings, install software or publish work without your say-so.\n\nIn the repository. Your contribution, in whatever form suits you:\n\nClinical input without code: a comment on a decision issue, a review of the plan or the site for clinical accuracy and clarity, or suggested literature.\nCode: a change made on a branch and offered as a pull request, following AGENTS.md.\nReview: anyone may ask for one through the review skill.\n\nWho decides. You decide how much help you want and which tool you use. Joining does not change the data rules: restricted data stay with authorised people in approved environments, whatever your role.\nMore. On GitHub, not in files, Review.",
+    "crumbs": [
+      "People on a project",
+      "Joining"
+    ]
+  },
+  {
+    "objectID": "people/joining.html#your-own-assistant-project",
+    "href": "people/joining.html#your-own-assistant-project",
+    "title": "Joining",
+    "section": "Your own assistant project",
+    "text": "Your own assistant project\nYou. The assistant offers to help you create your own assistant project for this repository (the plugin calls it an LLM project), one per repository. It is an offer, not a requirement. Its instructions mean each chat starts with your context, so you don’t paste it each time.\nThe assistant. It fills in the plugin’s personal instructions template with you. It asks:\n\nWhich working style you want. Review only: it reads, reviews and suggests, and changes nothing. Step by step: it says what will change and waits for your yes. Hands-off: it builds agreed work on branches and opens pull requests without asking at each step. Without a style, it works step by step.\nHow you work with GitHub: through the assistant’s connection, from your own tools, or both.\nYour role and the help you prefer, what it may do for you, your data access boundaries, and whether it may post anything as you without showing you first.\n\nIn every style, it shows you the exact text before posting or sending anything as you; hands-off covers only the pull requests it opens. Afterwards it walks you through what was made in your name. If it cannot edit your assistant’s settings itself, it gives you the text to paste and says so.\nIn the repository. Nothing. Your instructions live in your own assistant project and are not shared. The repository stays the shared record, so nothing others need should live only in your project.\nWho decides. You choose your working style and may add stricter rules than AGENTS.md. Your instructions never loosen its rules on data, decisions or pull requests, and nothing in them can widen what agents may do with a data source.\nMore. Personal project instructions.",
+    "crumbs": [
+      "People on a project",
+      "Joining"
+    ]
+  },
+  {
+    "objectID": "people/joining.html#the-check-in",
+    "href": "people/joining.html#the-check-in",
+    "title": "Joining",
+    "section": "The check-in",
+    "text": "The check-in\nYou. The assistant asks whether you want a periodic check-in, run as one of the assistant’s scheduled tasks where it has them. It is for anyone who asks, whatever their role. You choose how often it runs.\nThe assistant. The check-in always reports what is waiting on you:\n\nissues assigned to you;\ndecisions you make, each with the question, each option in a line, and a link to the decision issue;\npull requests awaiting your review.\n\nYou can also choose to include what you are waiting on from others, work with no recent activity, and milestones due soon. It can look over your recent chats in your own assistant project for drafts that never reached the repository, and offer to save them. If you have email connected and want it, it reviews only your messages about this project and proposes where to record each decision or request. Anything holding results from restricted data not cleared for release stays where it is, and you are told why.\nWhat it won’t do: it reads the repository and may draft messages, but it never posts or sends anything on its own.\nIn the repository. Nothing changes unless you agree to save something there. Your check-in and email choices are recorded in your own instructions, not in shared files.\nWho decides. If you are a decider, you can decide from the check-in, but the decision itself is recorded in the decision issue.\nMore. The setup note and check-ins, Join or leave a project.",
+    "crumbs": [
+      "People on a project",
+      "Joining"
+    ]
+  },
+  {
     "objectID": "using/explain.html",
     "href": "using/explain.html",
     "title": "Explain the code",
@@ -387,7 +453,7 @@
     "href": "using/explain.html#what-it-is-for",
     "title": "Explain the code",
     "section": "What it is for",
-    "text": "What it is for\nKeeping the project’s website, README and ARCHITECTURE.md in step with the code. The website is how a clinician, a reviewer or the next student understands what the analysis does without reading R.",
+    "text": "What it is for\nKeeping the project’s website, README and ARCHITECTURE.md in step with the code. The website is how a clinician, a reviewer or the next person understands what the analysis does without reading R.",
     "crumbs": [
       "Using the plugin",
       "Explain the code"
@@ -614,6 +680,171 @@
     ]
   },
   {
+    "objectID": "stages/getting-started.html",
+    "href": "stages/getting-started.html",
+    "title": "Getting started",
+    "section": "",
+    "text": "Written for version 0.1.14. Sources: the initialize-analysis skill, the questionnaire, GitHub workflow, onboarding, shared conventions, data handling, personal instructions template, Quarto setup.\nEvery project starts somewhere: an idea, a protocol, an old R Markdown file or a folder of scripts. This page follows a project from that point until it has a repository, a draft plan, working rules and a starter website. The next person to join can then pick it up from the repository alone.",
+    "crumbs": [
+      "Project stages",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "stages/getting-started.html#before-theres-a-repository",
+    "href": "stages/getting-started.html#before-theres-a-repository",
+    "title": "Getting started",
+    "section": "Before there’s a repository",
+    "text": "Before there’s a repository\nYou. You bring what exists: the idea, a protocol or IRB approval, earlier scripts, papers or a draft plan. If you have several versions of a script, you say which one is current; the assistant takes your word for it. You do not need R or Git to help at this stage. A clinician can work on the protocol from the browser.\nThe assistant.\n\nIt suggests creating the repository first, before drafting anything. Whoever is setting up can create it under their own account. Ownership can move later, for example when the person who set it up leaves.\nIf the repository has to wait (say, someone else will create it), it keeps drafts as files in your own assistant project for this repository, not only in the chat. It moves them into the repository once it exists.\nIt will not open files that may hold restricted data while it takes stock of your materials. Being able to see a file does not mean it may be published.\n\nIn the repository. Nothing yet. The drafts live in your assistant project until the repository exists.\nWho decides. The person setting up decides where the repository is created and under whose account. Scientific choices are not made at this stage; they wait for the named deciders.\nMore. Start a project; On GitHub, not in files, which covers moving ownership when someone leaves.",
+    "crumbs": [
+      "Project stages",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "stages/getting-started.html#setting-up",
+    "href": "stages/getting-started.html#setting-up",
+    "title": "Getting started",
+    "section": "Setting up",
+    "text": "Setting up\nYou. You answer a short questionnaire. The assistant asks one question at a time, and skips anything you have already told it or that is already in your files. The questions cover:\n\nDeciders. Who makes the scientific decisions, and in which areas. If your protocol names investigators, the assistant suggests them for you to confirm or change. If no one is named yet, decision issues can be drafted but not settled until someone is.\nData boundaries. Which data the project uses, where they are kept and what agreement governs them. The assistant records the policy, never passwords or patient data.\nReview before release. Whether the figures and tables need a review before they can be public. The assistant asks this directly rather than guessing from the data source.\nPublishing route. Whether the website is built into a docs/ folder in the repository and served from there (the default), or built and published by a GitHub workflow instead.\nPublic or private. The plugin assumes a public repository on GitHub’s free plan. On that plan a private repository has neither a website (GitHub Pages) nor branch rulesets.\nLayout. Whether an existing project keeps its own organisation or adopts the plugin’s blueprint, the intended layout.\n\nThe assistant. It turns your answers into a short setup plan, then drafts what you have agreed to:\n\nThe analysis plan (analysis-plan.md), from the template that fits the study. Each choice still open becomes a draft decision issue: a GitHub issue for one open scientific question. It does not pick an answer.\nAGENTS.md, the shared rules for working here. It names the deciders and lists every data source with the package that reads it. For every restricted source, agents may do nothing beyond code, documentation and synthetic data, and the assistant does not suggest allowing more.\n.gitignore, the list of files Git must never pick up. It is adapted from the starter, not copied blindly. Ignoring a file keeps it out of Git, but it does not stop an assistant from reading it.\nA README, written as README.Rmd and knitted to README.md, unless you prefer a plain README.md.\nThe starter website, with all its pages, its stylesheet and the filter that highlights open decisions.\n\nIt also offers three things you can turn down:\n\nYour own assistant project for this repository, with instructions filled in for how you like to work. It asks which working style you want to start from: review only, step by step, or hands-off.\nMilestones: phases of the project with target dates, which your team chooses.\nA periodic check-in that tells you what is waiting on you.\n\nFinally it records the setup decisions, and anything still open, in one agreed setup note or an existing tracker, so a later chat can carry on without asking again. Your personal permissions stay in your own instructions, never in shared files.\nWhat it will not do: choose a scientific option, install tools, publish anything, make changes on GitHub without your go-ahead, or change repository settings. If you set up from R, it suggests one command at a time based on what usethis::git_sitrep() shows; you run each one.\nIn the repository. At the root: analysis-plan.md, AGENTS.md, REPOSITORY-BLUEPRINT.md (copied unchanged), .gitignore, the README, references.bib, the starter R/ scripts and the website files. ARCHITECTURE.md can come later, once there is code.\nFor an existing project, nothing that already exists is overwritten. The assistant compares each file with the starter and lists what differs. An existing website is brought up to date only after the maintainer agrees to that list. It is then done in one pull request, which keeps every page the site already has. Nothing is treated as disposable because it is old.\nWho decides.\n\nThe maintainer, the person with admin rights on the repository, does two things in GitHub’s settings that the assistant only describes. First, protecting the main branch, so every change arrives through a pull request. Second, switching on GitHub Pages so the website goes live: once the first pull request containing docs/ is merged, or, with a workflow, once its first run has created the gh-pages branch.\nThe deciders settle every open scientific choice, in its decision issue.\nYou decide what the assistant may do for you, and whether to take up the optional offers.\n\nMore. Start a project; What setup creates; The plan and its decisions; Rules for working; The website; References and README; On GitHub, not in files.",
+    "crumbs": [
+      "Project stages",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "stages/results.html",
+    "href": "stages/results.html",
+    "title": "Results",
+    "section": "",
+    "text": "Written for version 0.1.14. Sources: report skill, reporting guidance, review skill, blind reviewers, data handling, AGENTS.md template, Quarto guidance.\nThis page follows a project from its first tables to the moment its outputs can be made public. There are three stages: building the reporting, reviewing it, and clearing it for release. Throughout, the analysis plan decides what is reported, and restricted data never pass through the assistant.",
+    "crumbs": [
+      "Project stages",
+      "Results"
+    ]
+  },
+  {
+    "objectID": "stages/results.html#reporting",
+    "href": "stages/results.html#reporting",
+    "title": "Results",
+    "section": "Reporting",
+    "text": "Reporting\nYou. You ask the assistant to build the tables, figures and numbers the plan calls for. If you are the authorized person, you run the finished code on the real data in the approved environment. Before any output leaves that environment, you check it against the project’s disclosure rules.\nThe assistant. It works through a fixed order, using only the parts that fit the design:\n\nParticipant flow: the diagram of who was included and excluded (the STROBE flow diagram). It is built with the flowchart package by the same code that builds the analysis cohort, so the two cannot disagree.\nDescriptions and missingness: every analysis variable, with its missing count shown, and the patterns of missing values.\nTable 1, grouped the way the plan says, with gtsummary.\nTwo-variable and stratified summaries, where the plan calls for them.\nLongitudinal structure, when the same people are measured repeatedly over time.\nTime to event: follow-up, events and censoring, described before any model.\nFigures, following the PSI/EFSPI graphics principles. Survival curves follow the KMunicate style: confidence intervals, and a table under the plot with the numbers at risk, censored and with events.\nModel tables that report the model actually fitted.\n\nWhat it won’t do:\n\nIt won’t choose the model, the covariates, how to handle missing data, or the target journal’s style. These come from the plan. Where the plan leaves one open, it opens or points to a decision issue (a GitHub issue for one open scientific question) instead.\nIt won’t read restricted data. It writes and tests the reporting code on synthetic data: made-up data built in code and labelled as synthetic. Real results come from an authorized person.\n\nSmall counts need care before anything leaves the approved environment. Every table, figure and flowchart box must pass the project’s disclosure rules, including counts someone could work out by subtraction. Numbers at risk shrink late in follow-up, so under a small-cell rule a survival curve ends, or its cells are hidden, before any count falls below the threshold. Figures that plot individual people are not published from restricted data. The threshold itself comes from each data source’s own agreement; the plugin does not set one.\nBefore finishing, the assistant checks that:\n\nevery count in tables, figures and text matches the flow diagram;\nestimates, confidence intervals, model counts, reference groups and scales match the fitted model and are labelled correctly;\nevery number in the text comes from a computed value, never retyped;\nevery figure has a caption and alt text (a written description for readers who cannot see the image).\n\nIt says which checks ran on synthetic data and which were only read, and then offers an independent Reporting review.\nIn the repository. The reporting code, in R/tables.R and R/figures.R. These write their outputs to tables/ and figures/. Whether those folders are kept in Git depends on the project’s setup (see “Going public”).\nWho decides. The plan decides what is reported and how. Open choices go to the deciders named in AGENTS.md. The assistant asks about the journal’s style rather than choosing one.\nMore. Report results; The code; The plan and its decisions; Rules for working.",
+    "crumbs": [
+      "Project stages",
+      "Results"
+    ]
+  },
+  {
+    "objectID": "stages/results.html#reviewing",
+    "href": "stages/results.html#reviewing",
+    "title": "Results",
+    "section": "Reviewing",
+    "text": "Reviewing\nYou. You choose the kind of review, or describe what you want checked and let the assistant pick. After the review, you decide what happens to each finding.\nThe assistant. It offers several kinds of review:\n\nChange: a pull request, a branch, or work not yet committed, checked against the plan and AGENTS.md.\nPlan ↔︎ code, Plan, Site ↔︎ code and Architecture: whether the code, plan, website and ARCHITECTURE.md agree and are complete.\nRepository conformance: whether the repository matches the blueprint.\nReporting: the flow diagram, tables, models and numbers in the text, checked against the cohort and what was fitted.\nRelease: covered under “Going public”.\n\nA request for “a full review” runs the Plan, Plan ↔︎ code, Site ↔︎ code and Reporting reviews together.\nA change review reads every file the change touches, not a sample. The report lists them, and names any file not read with the reason.\nMost reviews use up to five blind reviewers: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. “Blind” means each one works on its own, as a separate agent where the host allows, and cannot see the other reviewers’ findings or the conversation that produced the work. Each gets a packet of the repository files its role reviews, and may also read public material its role needs: the data-access packages the analysis uses, the sources the work cites, and official code sets and reporting guidelines. No reviewer ever receives restricted data or outputs not yet cleared for release. Where the host cannot run independent agents, the report says that blindness was not guaranteed.\nThe assistant then combines the reports. Before it lists a finding as an error, it checks the claim against the source itself, and moves any claim that does not hold to a “Corrections” list. It merges duplicates, keeps disagreements visible without settling them, and numbers every finding.\nWhat it won’t do: change anything during the review. Reviews are read-only. A finding that is really a scientific choice becomes a proposed decision issue; the assistant does not choose.\nIn the repository. Nothing, until you act. Then, finding by finding, you can keep the report, open GitHub issues, propose decision issues, post a pull-request review, fix chosen findings on a branch with a pull request, or ask for a re-review of what was fixed.\nWho decides. You, the reader, decide what to act on, one finding at a time. Scientific choices still go to the named deciders.\nMore. Review; On GitHub, not in files.",
+    "crumbs": [
+      "Project stages",
+      "Results"
+    ]
+  },
+  {
+    "objectID": "stages/results.html#going-public",
+    "href": "stages/results.html#going-public",
+    "title": "Results",
+    "section": "Going public",
+    "text": "Going public\nYou. Before the website, tables or figures go public, you ask for the Release review. A person signs off on its result.\nThe assistant. For the Release review it checks the files itself rather than using the blind reviewers. It checks that nothing from restricted data is included unless the review named in AGENTS.md has cleared it, that figures have alt text, and that no passwords or keys are included. It does not sign off; a person does.\nIn the repository.\n\nAt setup, the assistant asks whether the tables and figures need review before they can be public. If they don’t, tables/ and figures/ are tracked in Git from the start.\nIf they do, both folders stay out of Git (in .gitignore) until the review named in AGENTS.md clears them. Someone then removes the two lines from .gitignore and inspects the contents before adding them.\nA Results page on the project website exists only for outputs cleared for release, by that review or because setup decided they need none. It reads the cleared files in tables/ and figures/, never reruns the analysis and never touches restricted data. It has the green Results look.\nThe published website never contains results from restricted data unless the named review has cleared them.\n\nWho decides. The review named in AGENTS.md clears outputs for release, under the data agreement’s rules. A person signs off on the Release review. The assistant decides neither.\nSubmitting to a journal and publishing a paper are outside the plugin; it stops there.\nMore. Review; Rules for working; The website.",
+    "crumbs": [
+      "Project stages",
+      "Results"
+    ]
+  },
+  {
+    "objectID": "stages/plan.html",
+    "href": "stages/plan.html",
+    "title": "The plan",
+    "section": "",
+    "text": "Written for version 0.1.14. Sources: writing the analysis plan, AGENTS.md template, shared conventions, GitHub workflow, blind reviewers, document-analysis skill, review-analysis skill.\nThe analysis plan, analysis-plan.md, says what the analysis must do. It is the project’s source of truth: the code carries out the plan and never redefines it. This page follows the plan through three stages: deciding what goes in it, locking it, and changing it after that. For how the file itself is laid out, see The plan and its decisions.",
+    "crumbs": [
+      "Project stages",
+      "The plan"
+    ]
+  },
+  {
+    "objectID": "stages/plan.html#deciding-the-plan",
+    "href": "stages/plan.html#deciding-the-plan",
+    "title": "The plan",
+    "section": "Deciding the plan",
+    "text": "Deciding the plan\nYou. Bring what the investigators already have: the protocol, the IRB approval, earlier scripts, papers. When the assistant lists the choices those materials already make, the deciders go through the list together and confirm or change each one. Anyone on the project can open a decision issue (a GitHub issue for one open scientific question) or add options, evidence and clinical reasoning to one.\nThe assistant.\n\nDrafts the plan from the template that fits the study, and from the investigators’ materials.\nPresents the choices the materials already make as one list, for the deciders to confirm or change.\nOpens a decision issue for anything not confirmed, with the options and the evidence for each, and marks the open point in the plan with Open: and a link to the issue.\nChecks codes and variable definitions against the data source’s own documentation for that release, rather than guessing from their names.\nCites every definition, threshold or method taken from a source with a key from the project’s references.bib. It never invents a citation or cites from memory.\nOnce a decider has stated a choice, it can write the plan change for it.\nIt won’t choose among the options, in the issue, the plan or the code. It won’t say someone decided something unless there is a written record of it.\n\nIn the repository.\n\nanalysis-plan.md at the top of the repository, with an Open: marker wherever a question is still open. On the project website, those paragraphs are highlighted in yellow.\nOne decision issue per open question. How they are marked (a label, a word in the title) is the project’s choice.\nEntries in references.bib for every source the plan cites.\nWhile the plan is a draft, git’s history is the record of changes: each design change is committed on its own, with the reason and whether any results that depend on it had already been seen.\n\nWho decides. The deciders named in the project’s AGENTS.md, each in their own area. Only a decider settles a decision issue, by stating the choice in it.\n\nA decider who doesn’t use GitHub can decide by email or in a meeting. Whoever received the decision posts the decider’s exact words in the issue, with their name, the date and how it was given. A summary or a memory of what was said doesn’t settle it.\nA choice already settled in a signed protocol or IRB approval counts as decided, and is cited as such.\nA decision takes effect when the plan changes. Once the decider has stated the choice, anyone may write the pull request that rewrites the passage, gives the reason, cites the evidence, removes the Open: marker and closes the issue. It counts when that pull request is merged into the protected default branch. An agent never merges it.\n\nMore. The plan and its decisions and References and README in the Manual; Start a project for the first draft and Explain the code for updating the plan after a decision.",
+    "crumbs": [
+      "Project stages",
+      "The plan"
+    ]
+  },
+  {
+    "objectID": "stages/plan.html#locking-the-plan",
+    "href": "stages/plan.html#locking-the-plan",
+    "title": "The plan",
+    "section": "Locking the plan",
+    "text": "Locking the plan\nYou. Once the plan is final, lock it: before outcome data are analysed, or when the study is registered. Locking means that from then on every change is recorded openly, with its date and reason.\nThe assistant. When asked, it updates the plan for locking: it adds an empty section called “Amendments after locking”, and, if the study is registered, cites the registration and the tag in the plan’s header. Before that, a plan review can check that the plan is complete (see below). It won’t create the tag on its own.\nIn the repository.\n\nThe plan’s empty Amendments after locking section.\nA tag on that commit, such as sap-v1.0. A tag is a fixed name for one saved version of the repository, so anyone can see exactly what the plan said when it was locked.\nIf the project uses milestones, “plan locked” can be one of them; the phases and dates are the team’s choice.\n\nWho decides. The deciders decide that the plan is final. Tags are created by the maintainer, or with the maintainer’s explicit authorization.\nMore. The plan and its decisions and On GitHub, not in files in the Manual; Review for the Plan review, in which blind reviewers (a clinician reader, a clinician-researcher, a statistician and a librarian) check the plan against its reporting guideline, the question and its citations.",
+    "crumbs": [
+      "Project stages",
+      "The plan"
+    ]
+  },
+  {
+    "objectID": "stages/plan.html#revisions-after-results",
+    "href": "stages/plan.html#revisions-after-results",
+    "title": "The plan",
+    "section": "Revisions after results",
+    "text": "Revisions after results\nYou. After locking, the plan can still change, but never silently. A change of scientific choice, including one a reviewer suggests, goes through a decision issue like any other choice.\nThe assistant.\n\nWrites each agreed change as a dated entry in the Amendments after locking section: what changed, why, and whether it was made before or after outcome data were seen.\nTreats a reviewer’s request to change the methods as a new scientific choice. It proposes a decision issue with the options and the reviewers’ arguments; the plan and code change only after a decider has settled it.\nIn a Plan ↔︎ code review, checks that every plan section has code and every analysis has a plan section, that each open point links an open decision issue, and that no open decision has been settled in the code.\nIt won’t make a quiet edit to a locked plan, and it won’t settle a decision issue.\n\nIn the repository.\n\nA new dated entry under Amendments after locking for every change.\nA new tag for each amended version, such as sap-v1.1.\nThe decision issue behind each amendment, closed by the pull request that made it.\n\nWho decides. The named deciders, exactly as before locking. A reviewer, anyone on the project or an agent can raise the question and argue for an answer; only a decider settles it.\nMore. The plan and its decisions in the Manual; Review for acting on review findings; Explain the code for updating the plan and the website to match.",
+    "crumbs": [
+      "Project stages",
+      "The plan"
+    ]
+  },
+  {
+    "objectID": "stages/code-and-website.html",
+    "href": "stages/code-and-website.html",
+    "title": "Code and website",
+    "section": "",
+    "text": "Written for version 0.1.14. Sources: AGENTS.md template, shared conventions, GitHub workflow, document-analysis skill, Quarto guidance, data sources.\nOnce the analysis plan says what to do, the work is writing R code that does it, and explaining that code on the project website. The two go together: a script that joins the analysis gets its web page in the same change. This page follows that stage from a first experiment to a published explanation.",
+    "crumbs": [
+      "Project stages",
+      "Code and website"
+    ]
+  },
+  {
+    "objectID": "stages/code-and-website.html#writing-the-code",
+    "href": "stages/code-and-website.html#writing-the-code",
+    "title": "Code and website",
+    "section": "Writing the code",
+    "text": "Writing the code\nYou. You may explore freely. Experiments live on a branch (a separate working copy of the repository on GitHub) or a fork, need no web page, and their findings are labelled preliminary. A script becomes part of the definitive analysis when R/main.R runs it (in R terms, “sources” it). From then on, every rule in the project’s AGENTS.md applies to it. If you have access to restricted data, you are the one who runs the code on it; results on real data are produced by an authorised person, never by the assistant.\nThe assistant.\n\nWrites R that a clinician-analyst who learned R from online guides can read: pipes and dplyr verbs, case_when() instead of nested if, loops over names rather than clever shortcuts. Where base R is unavoidable, it goes in a named, tested function with a comment saying why.\nSends any code that touches a data source through that source’s package, as listed in the “Data sources” table of AGENTS.md. It reads the package’s documentation for the installed version first, rather than guessing from a function’s name.\nWrites and tests the code on synthetic data: made-up data, built in code and labelled as such. It never reads restricted data, unless that table explicitly allows it for a source, and then only within those words.\nAsks before running the full pipeline or making expensive calls.\nProposes, rather than commits, any other way of writing something already agreed, and shows whether the outputs stay identical.\nNever makes a scientific choice in code. If the code would need to depart from the plan, it opens a decision issue (or comments on the existing one) for the deciders.\nNever merges a pull request.\n\nIn the repository.\n\nOne branch per piece of work, and one pull request (a proposed change, shown on GitHub before it lands) to bring it into the main branch. Each pull request starts from the main branch.\nA new definitive script gets its source() line in main.R and an update to ARCHITECTURE.md, in the same pull request.\nEach pull request says which plan section or issue it addresses and what was checked. When the assistant opened it, it also says whether the checks were done by running code on synthetic data or by reading only. Synthetic results are never described as results.\nThe checks come from the list in AGENTS.md: does the change follow the plan and leave open decisions open; does it use the data package as documented; does it name the package version relied on; do cohort steps, joins and reported numbers match the plan; is the structure current; does anything in the files, commit messages or pull-request text look like it came from restricted data; and does main.R run in a fresh session.\nNo results, counts or data values from restricted data go into any file, commit message, issue or pull request unless cleared for release.\n\nWho decides. The plan’s named deciders make every scientific choice. Changing what the assistant may do with a data source is for a person, through a pull request that names the agreement permitting it; the assistant never proposes that change. How many approvals a pull request needs before merging is the team’s choice. Which tool you use for branches and pull requests is your own.\nMore. The code, Rules for working, On GitHub, not in files. For an independent check of code or a pull request, see Review.",
+    "crumbs": [
+      "Project stages",
+      "Code and website"
+    ]
+  },
+  {
+    "objectID": "stages/code-and-website.html#explaining-the-code",
+    "href": "stages/code-and-website.html#explaining-the-code",
+    "title": "Code and website",
+    "section": "Explaining the code",
+    "text": "Explaining the code\nYou. You read the page the assistant writes for each script, and check that it says what the code actually does. If you are a clinician, this page is written for you: it should make sense without reading R.\nThe assistant.\n\nGives each new definitive script its web page and its sidebar entry in the same pull request that adds it to main.R.\nDivides the script into labelled sections, each starting with a comment line such as ## ---- step-name. Labels are unique across all scripts and never change what the code does.\nBuilds the page so it imports those sections from the script itself, with knitr::read_chunk(). The code on the page is therefore always the code that runs. The website never runs the analysis, so it is built without the analysis data.\nUnder each section, explains what the step does and why, what it takes in, which part of the plan it carries out, and what it hands on. It defines abbreviations, gives statistics their plain meaning, and does not describe associations as causes.\nCites sources from the project’s references.bib. It never invents a citation; a missing one is flagged for the librarian review.\nDescribes the code as it is. If code and plan disagree, the page says so rather than smoothing it over.\nKeeps the Study design and methods page current. That page explains the study’s choices in plain language, with three kinds of note: Specified in (the plan section that defines a method), Current code (where the code does not yet do what the plan says, linked to the issue tracking it) and Decision pending.\nMarks text that depends on an open decision. A paragraph starting with Decision pending: is highlighted in yellow and linked to its decision issue; the mark comes off when the decision is settled. Yellow is used for nothing else.\nRefreshes ARCHITECTURE.md after a structural change: a script added, removed or reordered, or a change in how data flow between scripts.\nRenders the site and looks at the changed pages, and reports static checks, a successful render and the visual check separately.\nDoes not change an existing site’s layout or wording without first listing the differences and asking.\n\nIn the repository.\n\nA page in quarto/ named after the script, with its sidebar entry in _quarto.yml under Code, numbered in the order main.R runs it.\nWhen code changes, the prose of every section whose behaviour changed is updated in the same pull request.\nPublishing follows the route the project’s AGENTS.md records. Either the built site in docs/ is committed and served by GitHub Pages, or docs/ stays uncommitted and a GitHub Actions workflow builds and publishes it. The plugin does not yet provide that workflow.\n\nWho decides. The project chooses its publishing route at setup. The site goes live only when someone with admin or maintainer permission on the repository turns on GitHub Pages; the assistant cannot change settings, so it tells that person the steps. What the site says about the science follows the plan and the deciders.\nMore. The website, The code (for ARCHITECTURE.md), Explain the code. For an independent check that pages match the code, see Review.",
+    "crumbs": [
+      "Project stages",
+      "Code and website"
+    ]
+  },
+  {
+    "objectID": "stages/index.html",
+    "href": "stages/index.html",
+    "title": "Project stages",
+    "section": "",
+    "text": "Written for version 0.1.14.\nA project with the plugin moves through the same stages whoever is working on it. People join and leave along the way; People on a project follows that side. For each file mentioned here, the Manual explains it in detail.\n\n\n\nStage\nWhat happens\nPage\n\n\n\n\nBefore there’s a repository\nAn idea or protocol; whoever sets up can create the repository\nGetting started\n\n\nSetting up\nA few questions, one at a time; then the plan draft, the rules, the website starter and the steps to protect the main branch\nGetting started\n\n\nDeciding the plan\nOpen scientific questions become decision issues; named deciders settle them; the plan changes by pull request\nThe plan\n\n\nLocking the plan\nThe plan is frozen and tagged before outcome data are analysed\nThe plan\n\n\nWriting the code\nExploration on a branch; definitive scripts run from main.R; the assistant works on made-up data\nCode and website\n\n\nExplaining the code\nEach script’s website page, in the same pull request as the script\nCode and website\n\n\nReporting\nThe flow diagram, tables, figures and models, in the plan’s order\nResults\n\n\nReviewing\nA review of every changed file, and independent AI reviewers when wanted\nResults\n\n\nGoing public\nA release review, cleared outputs, and a person’s sign-off\nResults\n\n\nRevisions after results\nAny change to the plan becomes a dated amendment, decided like any other question\nThe plan\n\n\n\nThe plugin stops before journal submission and publication; those tasks belong to the authors.",
+    "crumbs": [
+      "Project stages",
+      "Overview"
+    ]
+  },
+  {
     "objectID": "sites.html",
     "href": "sites.html",
     "title": "Sites built with it",
@@ -758,7 +989,7 @@
     "href": "using/join-leave.html#taking-over-from-someone",
     "title": "Join or leave a project",
     "section": "Taking over from someone",
-    "text": "Taking over from someone\nThe assistant starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person’s files or chats. Ask it, for example:\n\n“I’m taking over this project from the last student. What’s done, what’s open, and what’s waiting on me?”\n“Who decides what on this project?”",
+    "text": "Taking over from someone\nThe assistant starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person’s files or chats. Ask it, for example:\n\n“I’m taking over this project from the last lead. What’s done, what’s open, and what’s waiting on me?”\n“Who decides what on this project?”",
     "crumbs": [
       "Using the plugin",
       "Join or leave a project"
@@ -809,6 +1040,149 @@
     ]
   },
   {
+    "objectID": "people/leaving.html",
+    "href": "people/leaving.html",
+    "title": "Leaving",
+    "section": "",
+    "text": "Written for version 0.1.14. Sources: collaborator onboarding, onboard-collaborator skill, shared conventions, GitHub workflow, AGENTS.md template.\nPeople leave projects all the time: a rotation ends, a job changes, someone hands their part to a colleague. The plugin’s aim is that the next person can carry on from the repository alone, without your files or your chats. So before your last session, the assistant works through four steps with you. Each step asks you; nothing is forced. Not everything can be finished, given an owner or closed, and a project may go dormant. What stays open is recorded, with the reason, rather than pushed onto someone.",
+    "crumbs": [
+      "People on a project",
+      "Leaving"
+    ]
+  },
+  {
+    "objectID": "people/leaving.html#how-leaving-starts",
+    "href": "people/leaving.html#how-leaving-starts",
+    "title": "Leaving",
+    "section": "How leaving starts",
+    "text": "How leaving starts\nYou. Tell the assistant you are leaving or handing over. Someone else can also ask for a handover from a person who is leaving. If you set up a check-in and gave it your end date, the check-in can raise it as that date approaches.\nThe assistant. It works through the steps below with you, before your last session. It asks at each step rather than deciding for you.\nIn the repository. Nothing yet.\nWho decides. You choose what happens to each piece of your work. Scientific questions stay with the deciders named in the project’s AGENTS.md; leaving does not change who they are.\nMore. Join or leave a project; check-ins are described in On GitHub, not in files.",
+    "crumbs": [
+      "People on a project",
+      "Leaving"
+    ]
+  },
+  {
+    "objectID": "people/leaving.html#documents-out-of-chats-laptops-and-email",
+    "href": "people/leaving.html#documents-out-of-chats-laptops-and-email",
+    "title": "Leaving",
+    "section": "Documents out of chats, laptops and email",
+    "text": "Documents out of chats, laptops and email\nYou. Think of anything that exists only in a chat, on your laptop or in your email: drafts, notes, data checks, and correspondence that settles something.\nThe assistant. It asks for these and offers to move each into the repository. It checks each against the project’s disclosure rules first. Anything holding results from restricted data that are not cleared for release stays where it is, and it tells you why. It shows you the exact text before posting anything as you.\nIn the repository. Each item becomes one of three things:\n\na draft pull request (a proposed change that is not yet ready to merge);\na comment on an existing issue;\na new issue.\n\nWho decides. You choose what to move. The project’s disclosure rules decide what may not be moved.\nMore. The same habit applies at the end of every working session: see On GitHub, not in files.",
+    "crumbs": [
+      "People on a project",
+      "Leaving"
+    ]
+  },
+  {
+    "objectID": "people/leaving.html#open-issues-and-pull-requests",
+    "href": "people/leaving.html#open-issues-and-pull-requests",
+    "title": "Leaving",
+    "section": "Open issues and pull requests",
+    "text": "Open issues and pull requests\nYou. Go through each open issue and pull request that is yours.\nThe assistant. For each one, it asks which of four things fits:\n\nfinish it;\nhand it to someone;\nclose it with a reason;\nleave it open with a note saying it is paused and what it is waiting on.\n\nFor an open pull request, it also writes down what remains, the order in which open pull requests should be merged, and any conflicts between them. It never merges a pull request itself.\nIn the repository. Notes on issues and pull requests, and some items closed with their reasons.\nWho decides. You, with whoever takes an item on. A person, not an agent, merges a pull request. Closing an issue does not settle a scientific question; only a named decider does that.\nMore. Issues and pull requests; the plan and its decisions.",
+    "crumbs": [
+      "People on a project",
+      "Leaving"
+    ]
+  },
+  {
+    "objectID": "people/leaving.html#requests-with-no-answer-yet",
+    "href": "people/leaving.html#requests-with-no-answer-yet",
+    "title": "Leaving",
+    "section": "Requests with no answer yet",
+    "text": "Requests with no answer yet\nYou. Think of what you have asked of others that has not been answered: an email to a collaborator, a question to the PI.\nThe assistant. It asks what these are and offers to record each one as an issue.\nIn the repository. One issue per request, saying who was asked, when, and what for. The question is then no longer held only in your inbox.\nWho decides. You choose which to record.\nMore. Issues.",
+    "crumbs": [
+      "People on a project",
+      "Leaving"
+    ]
+  },
+  {
+    "objectID": "people/leaving.html#ownership-last",
+    "href": "people/leaving.html#ownership-last",
+    "title": "Leaving",
+    "section": "Ownership, last",
+    "text": "Ownership, last\nYou. This step applies only if you own the repository on GitHub.\nThe assistant. It raises transferring the repository to the PI. The plugin gives the steps as Settings → General → Transfer, and the new owner must accept within a day. The assistant cannot change GitHub settings; it tells the person who can.\nIn the repository. Issues, pull requests and history move with the repository, and old links to the repository redirect to the new address. The website does not: GitHub does not redirect it. After the transfer, someone must:\n\nupdate the site and repository links in _quarto.yml (the website’s settings file), the site pages and the README;\nre-render the site;\nturn GitHub Pages on again under the new owner.\n\nWho decides. The owner starts the transfer, and the new owner accepts it.\nMore. Transferring ownership and the website caveat; GitHub Pages; _quarto.yml; the README.",
+    "crumbs": [
+      "People on a project",
+      "Leaving"
+    ]
+  },
+  {
+    "objectID": "people/leaving.html#what-the-next-person-finds",
+    "href": "people/leaving.html#what-the-next-person-finds",
+    "title": "Leaving",
+    "section": "What the next person finds",
+    "text": "What the next person finds\nYou. At the end, the assistant tells you what was recorded where. It offers a short message for the PI or the team pointing to it. Nothing is sent as you without your go-ahead.\nThe assistant. When someone later takes over, their assistant starts from the repository: the analysis plan, open decision issues, open pull requests and their notes, and anything you marked as paused. It does not rely on your files or chats.\nIn the repository. What the next person finds there:\n\nyour drafts and notes, as draft pull requests, issue comments or issues;\neach open item finished, handed on, closed with a reason, or paused with what it waits on;\nnotes on open pull requests: what remains, the merge order and any conflicts;\nan issue for each unanswered request;\nif ownership moved, the repository under its new owner.\n\nWho decides. The deciders named in AGENTS.md, as before. If no one picks the work up, the project can stay dormant, with its open items and their reasons on record.\nMore. Joining.",
+    "crumbs": [
+      "People on a project",
+      "Leaving"
+    ]
+  },
+  {
+    "objectID": "people/roles.html",
+    "href": "people/roles.html",
+    "title": "Contributing in your role",
+    "section": "",
+    "text": "Written for version 0.1.14. Sources: onboard-collaborator, onboarding, writing the analysis plan, the AGENTS.md template, GitHub workflow, review-analysis, blind reviewers.\nThe plugin assumes no role. It starts from what you want to contribute and what you already know, and offers the help that fits you. A project may have several people leading parts of it and no single lead, and the PI may use the plugin too. The roles below are common patterns, not boxes: one person can hold several, and each project fills them its own way.\nTwo rules hold in every role. Only a named decider settles a scientific question. And every change reaches the main branch through a pull request, a proposed change that others can see before it is merged.",
+    "crumbs": [
+      "People on a project",
+      "Contributing in your role"
+    ]
+  },
+  {
+    "objectID": "people/roles.html#project-lead",
+    "href": "people/roles.html#project-lead",
+    "title": "Contributing in your role",
+    "section": "Project lead",
+    "text": "Project lead\nYou. You move the analysis forward day to day: drafting the plan, writing code, opening pull requests, and keeping open questions moving. The lead can be anyone: a student, resident, fellow or faculty member. Several people may share this, and someone may take over from a lead who leaves.\nThe assistant.\n\nExplains the project through its own documents: the website, analysis-plan.md, GitHub issues, AGENTS.md and ARCHITECTURE.md.\nIf you know R but not GitHub, explains branches, commits and pull requests using the tool you already use. It doesn’t prescribe one.\nWorks in the style you choose in your own instructions: review only, step by step, or hands-off. Without a choice, it works step by step.\nDrafts options and evidence for a decision issue, and writes the plan change and code once a decider has chosen.\nIt won’t choose among options, merge a pull request, read restricted data, or post anything as you without showing you the exact text first, unless your own instructions say otherwise.\n\nIn the repository. Your work arrives as pull requests that say which plan section or issue they address and what was checked. Before you leave, the assistant helps you move drafts, notes and unanswered requests out of your chats and laptop into issues or draft pull requests, and mark unfinished work as paused with what it is waiting on. The next person starts from the repository, not from your files.\nWho decides. The deciders named in AGENTS.md. You decide too only if you are named there.\nMore. Rules for working, On GitHub, not in files, Join or leave a project.",
+    "crumbs": [
+      "People on a project",
+      "Contributing in your role"
+    ]
+  },
+  {
+    "objectID": "people/roles.html#pi-or-maintainer",
+    "href": "people/roles.html#pi-or-maintainer",
+    "title": "Contributing in your role",
+    "section": "PI or maintainer",
+    "text": "PI or maintainer\nYou. The maintainer owns or administers the repository. That can be anyone on the project, and a PI may also be named as a decider and use the plugin directly. Some steps on GitHub need admin rights, so they fall to whoever has them.\nThe assistant. It describes the one-off GitHub steps and leaves them to you, because agents don’t change repository settings:\n\nprotecting the main branch so changes arrive only through pull requests;\nturning on GitHub Pages so the website goes live;\ntags, for example when the plan is locked, which are made by the maintainer or with their explicit say-so;\naccepting the repository if a leaving owner transfers it to you, then updating the site’s links and turning Pages on again;\nremoving anything pushed by mistake from the history. Agents don’t attempt this.\n\nIf you work in R, it can suggest the console commands one at a time, after checking where things stand. You run them; it never does. Like everyone, you can ask for a periodic check-in that lists what is waiting on you: assigned issues, decisions you make, and pull requests awaiting your review.\nIn the repository. Branch protection, the Pages setting and tags live on GitHub rather than in files. AGENTS.md records the deciders, the data sources and what agents may do with each.\nWho decides. You settle the areas AGENTS.md assigns you. Allowing agents to do more with a data source is a change a person makes to AGENTS.md through a pull request, naming the agreement that permits it. Agents never propose it.\nMore. On GitHub, not in files, The plan and its decisions, Start a project.",
+    "crumbs": [
+      "People on a project",
+      "Contributing in your role"
+    ]
+  },
+  {
+    "objectID": "people/roles.html#decider",
+    "href": "people/roles.html#decider",
+    "title": "Contributing in your role",
+    "section": "Decider",
+    "text": "Decider\nYou. Anyone AGENTS.md names for an area, such as a clinical question or the statistical methods. A project may have several deciders, each for their own area.\nThe assistant. It drafts each decision issue with the question, the options and the evidence, and asks you. A check-in can list each decision waiting on you, one line per option, with a link to the issue. It won’t choose for you, and it won’t say you decided something unless there is a written record of it.\nIn the repository. You state your choice in the decision issue. If you don’t use GitHub, you can decide by email or in a meeting. Whoever received your answer then posts your exact words in the issue, with your name, the date and how it was given. A summary or a memory of what you said doesn’t count. The decision takes effect when a pull request that rewrites the plan and closes the issue is merged.\nWho decides. You, within your area. Anyone else may add options and evidence.\nMore. The plan and its decisions.",
+    "crumbs": [
+      "People on a project",
+      "Contributing in your role"
+    ]
+  },
+  {
+    "objectID": "people/roles.html#clinician-adviser",
+    "href": "people/roles.html#clinician-adviser",
+    "title": "Contributing in your role",
+    "section": "Clinician adviser",
+    "text": "Clinician adviser\nYou. You bring clinical knowledge. You don’t need R, Git or Quarto, and the assistant won’t ask you to learn them for work that doesn’t need them.\nThe assistant.\n\nStarts you on the project website, at Clinical background and Study design and methods, with the research question, cohort, outcomes and open questions. Code pages are there only if you want the detail.\nShows you how to comment on a decision issue with options, evidence and clinical reasoning, and how to review the plan or site for clinical accuracy and clarity, or suggest literature.\nIf you connect your email and ask for it, a check-in can find project decisions and requests in it and propose where to record each. It posts nothing without your go-ahead.\n\nIn the repository. Your comments on issues, or your words relayed into an issue by someone you emailed. Once a decider has chosen, anyone may write the pull request that changes the plan.\nWho decides. Your input informs a decision. You settle one only if AGENTS.md names you as a decider for that area.\nMore. The plan and its decisions, The website, Join or leave a project.",
+    "crumbs": [
+      "People on a project",
+      "Contributing in your role"
+    ]
+  },
+  {
+    "objectID": "people/roles.html#statistician",
+    "href": "people/roles.html#statistician",
+    "title": "Contributing in your role",
+    "section": "Statistician",
+    "text": "Statistician\nYou. You shape and check the design and analysis. You may be named in AGENTS.md as a decider for statistical areas, and you may review pull requests that change the analysis.\nThe assistant. It drafts options and evidence for statistical decision issues, and you or another named decider choose. You can ask it for a review of a change, the plan, or the plan against the code.\nThe review skill includes a statistician reviewer, but that is an AI agent, not you. It works blind: it sees only a packet of the plan, the methods and analysis pages, the analysis scripts and published tables, plus public material such as cited papers. It never sees restricted data, so a question that needs the data comes back as a focused check for an authorized person to run. Where the plan leaves a choice open, it comments on the options but doesn’t decide. Acting on its findings is your choice, finding by finding.\nIn the repository. Your choices in decision issues, your reviews on pull requests, and any issues opened from review findings you choose to act on.\nWho decides. You, in the areas AGENTS.md assigns you. The AI reviewer never decides.\nMore. The plan and its decisions, The code, Review.",
+    "crumbs": [
+      "People on a project",
+      "Contributing in your role"
+    ]
+  },
+  {
     "objectID": "start-here.html",
     "href": "start-here.html",
     "title": "Start here",
@@ -819,11 +1193,11 @@
     ]
   },
   {
-    "objectID": "start-here.html#im-a-student-starting-a-new-project",
-    "href": "start-here.html#im-a-student-starting-a-new-project",
+    "objectID": "start-here.html#im-starting-a-new-project",
+    "href": "start-here.html#im-starting-a-new-project",
     "title": "Start here",
-    "section": "I’m a student starting a new project",
-    "text": "I’m a student starting a new project\n\nHave ready: the idea or protocol, and about an hour. You don’t need R, Git or a GitHub account yet; the assistant walks you through what the work needs.\nType: “I have no GitHub account and no R. Help me get this project started.”\nThen: it asks a few questions one at a time, including who decides the scientific questions, and drafts the plan and the repository. Whoever sets up can own the repository; it can move to the PI later. More on Start a project.",
+    "section": "I’m starting a new project",
+    "text": "I’m starting a new project\n\nHave ready: the idea or protocol, and about an hour. You don’t need R, Git or a GitHub account yet; the assistant walks you through what the work needs.\nType: “I have no GitHub account and no R. Help me get this project started.”\nThen: it asks a few questions one at a time, including who decides the scientific questions, and drafts the plan and the repository. Whoever sets up can own the repository; it can move to the PI later. More on Start a project.",
     "crumbs": [
       "Start here"
     ]
@@ -1267,7 +1641,7 @@
     "href": "index.html#who-it-is-for",
     "title": "R Analysis Workflow",
     "section": "Who it is for",
-    "text": "Who it is for\nAnyone working on such a project:\n\nclinicians who will never write R, and who contribute through the plan, the website and the discussion of open questions;\nstudents who know some R but not GitHub, or neither, often leading a project for a few weeks before handing it on;\nstatisticians, who review methods and decide statistical questions;\nthe person who maintains the repository, often the principal investigator.\n\nThe plugin does not assume which of these you are. It asks what you want to do and how much help you want.",
+    "text": "Who it is for\nAnyone working on such a project:\n\nclinicians who will never write R, and who contribute through the plan, the website and the discussion of open questions;\npeople who lead the work (students, residents, fellows or faculty) and may know some R but not GitHub, or neither, often for a few weeks before handing it on;\nstatisticians, who review methods and decide statistical questions;\nthe person who maintains the repository, often the principal investigator.\n\nThe plugin does not assume which of these you are. It asks what you want to do and how much help you want.",
     "crumbs": [
       "Home"
     ]
