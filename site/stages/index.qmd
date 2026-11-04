@@ -1,0 +1,22 @@
+---
+title: "Project stages"
+---
+
+*Written for version 0.1.14.*
+
+A project with the plugin moves through the same stages whoever is working on it. People join and leave along the way; [People on a project](../people/index.qmd) follows that side. For each file mentioned here, the [Manual](../manual/index.qmd) explains it in detail.
+
+| Stage | What happens | Page |
+|---|---|---|
+| Before there's a repository | An idea or protocol; whoever sets up can create the repository | [Getting started](getting-started.qmd) |
+| Setting up | A few questions, one at a time; then the plan draft, the rules, the website starter and the steps to protect the main branch | [Getting started](getting-started.qmd) |
+| Deciding the plan | Open scientific questions become decision issues; named deciders settle them; the plan changes by pull request | [The plan](plan.qmd) |
+| Locking the plan | The plan is frozen and tagged before outcome data are analysed | [The plan](plan.qmd) |
+| Writing the code | Exploration on a branch; definitive scripts run from `main.R`; the assistant works on made-up data | [Code and website](code-and-website.qmd) |
+| Explaining the code | Each script's website page, in the same pull request as the script | [Code and website](code-and-website.qmd) |
+| Reporting | The flow diagram, tables, figures and models, in the plan's order | [Results](results.qmd) |
+| Reviewing | A review of every changed file, and independent AI reviewers when wanted | [Results](results.qmd) |
+| Going public | A release review, cleared outputs, and a person's sign-off | [Results](results.qmd) |
+| Revisions after results | Any change to the plan becomes a dated amendment, decided like any other question | [The plan](plan.qmd) |
+
+The plugin stops before journal submission and publication; those tasks belong to the authors.

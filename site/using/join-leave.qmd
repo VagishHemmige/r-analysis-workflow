@@ -30,7 +30,7 @@ It also offers your own ChatGPT or Claude project for the repository, with instr
 
 The assistant starts from the repository: the plan, open issues, open pull requests and their notes. It does not need the previous person's files or chats. Ask it, for example:
 
-- "I'm taking over this project from the last student. What's done, what's open, and what's waiting on me?"
+- "I'm taking over this project from the last lead. What's done, what's open, and what's waiting on me?"
 - "Who decides what on this project?"
 
 ## Leaving

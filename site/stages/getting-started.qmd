@@ -1,0 +1,64 @@
+---
+title: "Getting started"
+---
+
+*Written for version 0.1.14. Sources: [the initialize-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md), [the questionnaire](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/initialization.md), [GitHub workflow](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md), [onboarding](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md), [personal instructions template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md), [Quarto setup](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md).*
+
+Every project starts somewhere: an idea, a protocol, an old R Markdown file or a folder of scripts. This page follows a project from that point until it has a repository, a draft plan, working rules and a starter website. The next person to join can then pick it up from the repository alone.
+
+## Before there's a repository
+
+**You.** You bring what exists: the idea, a protocol or IRB approval, earlier scripts, papers or a draft plan. If you have several versions of a script, you say which one is current; the assistant takes your word for it. You do not need R or Git to help at this stage. A clinician can work on the protocol from the browser.
+
+**The assistant.**
+
+- It suggests creating the repository first, before drafting anything. Whoever is setting up can create it under their own account. Ownership can move later, for example when the person who set it up leaves.
+- If the repository has to wait (say, someone else will create it), it keeps drafts as files in your own assistant project for this repository, not only in the chat. It moves them into the repository once it exists.
+- It will not open files that may hold restricted data while it takes stock of your materials. Being able to see a file does not mean it may be published.
+
+**In the repository.** Nothing yet. The drafts live in your assistant project until the repository exists.
+
+**Who decides.** The person setting up decides where the repository is created and under whose account. Scientific choices are not made at this stage; they wait for the named deciders.
+
+**More.** [Start a project](../using/start.qmd); [On GitHub, not in files](../manual/github.qmd), which covers moving ownership when someone leaves.
+
+## Setting up
+
+**You.** You answer a short questionnaire. The assistant asks one question at a time, and skips anything you have already told it or that is already in your files. The questions cover:
+
+- **Deciders.** Who makes the scientific decisions, and in which areas. If your protocol names investigators, the assistant suggests them for you to confirm or change. If no one is named yet, decision issues can be drafted but not settled until someone is.
+- **Data boundaries.** Which data the project uses, where they are kept and what agreement governs them. The assistant records the policy, never passwords or patient data.
+- **Review before release.** Whether the figures and tables need a review before they can be public. The assistant asks this directly rather than guessing from the data source.
+- **Publishing route.** Whether the website is built into a `docs/` folder in the repository and served from there (the default), or built and published by a GitHub workflow instead.
+- **Public or private.** The plugin assumes a public repository on GitHub's free plan. On that plan a private repository has neither a website (GitHub Pages) nor branch rulesets.
+- **Layout.** Whether an existing project keeps its own organisation or adopts the plugin's blueprint, the intended layout.
+
+**The assistant.** It turns your answers into a short setup plan, then drafts what you have agreed to:
+
+- **The analysis plan** (`analysis-plan.md`), from the template that fits the study. Each choice still open becomes a draft **decision issue**: a GitHub issue for one open scientific question. It does not pick an answer.
+- **`AGENTS.md`**, the shared rules for working here. It names the deciders and lists every data source with the package that reads it. For every restricted source, agents may do nothing beyond code, documentation and synthetic data, and the assistant does not suggest allowing more.
+- **`.gitignore`**, the list of files Git must never pick up. It is adapted from the starter, not copied blindly. Ignoring a file keeps it out of Git, but it does not stop an assistant from reading it.
+- **A README**, written as `README.Rmd` and knitted to `README.md`, unless you prefer a plain `README.md`.
+- **The starter website**, with all its pages, its stylesheet and the filter that highlights open decisions.
+
+It also offers three things you can turn down:
+
+- **Your own assistant project** for this repository, with instructions filled in for how you like to work. It asks which working style you want to start from: review only, step by step, or hands-off.
+- **Milestones**: phases of the project with target dates, which your team chooses.
+- **A periodic check-in** that tells you what is waiting on you.
+
+Finally it records the setup decisions, and anything still open, in one agreed setup note or an existing tracker, so a later chat can carry on without asking again. Your personal permissions stay in your own instructions, never in shared files.
+
+What it will not do: choose a scientific option, install tools, publish anything, make changes on GitHub without your go-ahead, or change repository settings. If you set up from R, it suggests one command at a time based on what `usethis::git_sitrep()` shows; you run each one.
+
+**In the repository.** At the root: `analysis-plan.md`, `AGENTS.md`, `REPOSITORY-BLUEPRINT.md` (copied unchanged), `.gitignore`, the README, `references.bib`, the starter `R/` scripts and the website files. `ARCHITECTURE.md` can come later, once there is code.
+
+For an **existing project**, nothing that already exists is overwritten. The assistant compares each file with the starter and lists what differs. An existing website is brought up to date only after the maintainer agrees to that list. It is then done in one pull request, which keeps every page the site already has. Nothing is treated as disposable because it is old.
+
+**Who decides.**
+
+- **The maintainer**, the person with admin rights on the repository, does two things in GitHub's settings that the assistant only describes. First, protecting the main branch, so every change arrives through a pull request. Second, switching on GitHub Pages so the website goes live: once the first pull request containing `docs/` is merged, or, with a workflow, once its first run has created the `gh-pages` branch.
+- **The deciders** settle every open scientific choice, in its decision issue.
+- **You** decide what the assistant may do for you, and whether to take up the optional offers.
+
+**More.** [Start a project](../using/start.qmd); [What setup creates](../manual/index.qmd); [The plan and its decisions](../manual/plan-and-decisions.qmd); [Rules for working](../manual/rules.qmd); [The website](../manual/website.qmd); [References and README](../manual/references-readme.qmd); [On GitHub, not in files](../manual/github.qmd).

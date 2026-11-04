@@ -19,7 +19,7 @@ With the plugin installed, you ask in plain words ("Help me start this project",
 Anyone working on such a project:
 
 - clinicians who will never write R, and who contribute through the plan, the website and the discussion of open questions;
-- students who know some R but not GitHub, or neither, often leading a project for a few weeks before handing it on;
+- people who lead the work (students, residents, fellows or faculty) and may know some R but not GitHub, or neither, often for a few weeks before handing it on;
 - statisticians, who review methods and decide statistical questions;
 - the person who maintains the repository, often the principal investigator.
 

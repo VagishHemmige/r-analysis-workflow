@@ -1,0 +1,15 @@
+---
+title: "People on a project"
+---
+
+*Written for version 0.1.14.*
+
+Projects outlast the people on them. Anyone can lead for a while and hand on, whether a student, resident, fellow or faculty member; clinicians and statisticians advise; the PI may decide, maintain the repository, or do the work. The plugin assumes none of these roles: it asks what you want to do and how much help you want. This section follows one person's time on a project. [Project stages](../stages/index.qmd) follows the project itself.
+
+| Part | What happens | Page |
+|---|---|---|
+| Joining | At whatever stage the project is in, the assistant finds where things stand from the repository, not from the last person's files or chats | [Joining](joining.qmd) |
+| Contributing | What each role does, and what the assistant does for them | [Contributing in your role](roles.qmd) |
+| Leaving | Work moved out of chats and laptops, open items handed on, ownership transferred last | [Leaving](leaving.qmd) |
+
+The rule that holds throughout: people decide and approve, and the assistant drafts and implements. Only the deciders named in the project's AGENTS.md settle scientific questions.

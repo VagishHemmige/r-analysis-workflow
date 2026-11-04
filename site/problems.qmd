@@ -40,7 +40,7 @@ Test results use the scorecards' scale: **✔** worked as intended, **~** worked
 
 ### A novice can't get from an idea to a working repository
 
-- **The risk:** a student with no GitHub account and no R is asked to install tools, learn Git and set up a repository before anything useful happens.
+- **The risk:** someone with no GitHub account and no R is asked to install tools, learn Git and set up a repository before anything useful happens.
 - **What the plugin does:** a short questionnaire, one question at a time, reusing what is already known, with no installs until the work needs them ([initialize-analysis][init]).
 - **Since:** before 0.1.7; setting up from R added in 0.1.12.
 - **Tested:** **✔** a novice went from nothing to a public repository, protected main branch, setup notes, a draft pull request and her own assistant project in one session ([0.1.8 scorecard][s08]).
@@ -63,7 +63,7 @@ Test results use the scorecards' scale: **✔** worked as intended, **~** worked
 
 ### Someone settles a scientific question who shouldn't
 
-- **The risk:** a student, or an assistant, quietly chooses a cut-off, covariate or exclusion in code, and nobody can later say who decided or why.
+- **The risk:** someone on the project, or an assistant, quietly chooses a cut-off, covariate or exclusion in code, and nobody can later say who decided or why.
 - **What the plugin does:** the analysis plan decides; every open choice is a decision issue on GitHub settled only by a named decider; assistants draft options and never choose ([analysis plan][plan]). The deciders are asked for at setup.
 - **Since:** before 0.1.7; deciders asked at setup 0.1.8.
 - **Tested:** **✔** across two student leads, an impatient statistician and a clinician who used only email ([0.1.8 scorecard][s08]); **✔** through peer review six months later ([continuation scorecard][s08c]).
@@ -185,14 +185,14 @@ Test results use the scorecards' scale: **✔** worked as intended, **~** worked
 
 ### The next lead can't find out where things stand
 
-- **The risk:** a rotating student leaves, and the next one has only a repository link and no idea what was done, decided or promised.
+- **The risk:** the lead leaves, and the next one has only a repository link and no idea what was done, decided or promised.
 - **What the plugin does:** the next person starts from the repository, not the last person's files; leaving follows four steps (documents, open work, pending requests, ownership), started by the person or by a check-in that sees their end date ([onboarding][onb]).
 - **Since:** 0.1.7.
 - **Tested:** **✔** the hand-over was started by the plugin's own scheduled reminder, and the next lead rebuilt the state from the repository in one reply ([0.1.8 scorecard][s08]).
 
 ### Transferring the repository breaks the website
 
-- **The risk:** a student who owns the repository leaves; after the transfer the old site address stops working, because GitHub doesn't redirect websites.
-- **What the plugin does:** raises the transfer before the student leaves, orders it last, and lists the links to update and the site to switch on again ([onboarding][onb]).
+- **The risk:** the person who owns the repository leaves; after the transfer the old site address stops working, because GitHub doesn't redirect websites.
+- **What the plugin does:** raises the transfer before the owner leaves, orders it last, and lists the links to update and the site to switch on again ([onboarding][onb]).
 - **Since:** 0.1.7.
 - **Tested:** **~** the transfer was done in the right order, but old links were still on the site at the end ([0.1.8 scorecard][s08]).

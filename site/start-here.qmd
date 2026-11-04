@@ -10,7 +10,7 @@ Find the line that fits you. Each says what to have ready and the first thing to
 
 New to GitHub? The [GitHub glossary](https://docs.github.com/en/get-started/learning-about-github/github-glossary) explains repository, branch, commit, pull request and issue; [Happy Git and GitHub for the useR](https://happygitwithr.com/) shows how to use them from RStudio. The plugin's own terms (analysis plan, decision issue, decider, AGENTS.md) are explained on [Home](index.qmd#what-a-project-built-with-it-has).
 
-## I'm a student starting a new project
+## I'm starting a new project
 
 - **Have ready:** the idea or protocol, and about an hour. You don't need R, Git or a GitHub account yet; the assistant walks you through what the work needs.
 - **Type:** "I have no GitHub account and no R. Help me get this project started."

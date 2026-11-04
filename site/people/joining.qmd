@@ -1,0 +1,91 @@
+---
+title: "Joining"
+---
+
+*Written for version 0.1.14. Sources: [onboard-collaborator skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md), [onboarding](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md), [personal instructions template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md).*
+
+People join a project at any point: someone taking over from a lead who has left, a clinician asked for input, a statistician brought in for the methods. This page follows you through your first days, from finding where the project stands to setting up the help you want.
+
+## Starting from the repository
+
+**You.** You are new to the project, or you are taking over someone else's work. You don't need anything from the person before you.
+
+**The assistant.**
+
+- It starts from the repository as it is now: the analysis plan, the open decision issues, the open pull requests and their notes, and anything the previous person left marked as paused.
+- It does not rely on the previous person's files or chats.
+- It explains the project through its own documents and does not assume you can read code. The website is the way in for anyone who doesn't code; a clinician starts at Clinical background and Study design and methods, and goes to the code pages only for detail.
+- Before asking you something, it looks for the answer in the repository and in earlier chats in your own assistant project, where it can see them. It asks only what is still unclear, and says what it found.
+
+**In the repository.** These are the documents you will be shown:
+
+- `analysis-plan.md`, which says what the analysis must do. Its **Open:** markers point to questions still undecided.
+- GitHub issues, which hold those open decisions (decision issues) and known gaps between the code and the plan.
+- `AGENTS.md`, which says how work is done here, including the data rules and who the deciders are.
+- `ARCHITECTURE.md`, which says how the code fits together, for people who will work on it.
+
+**Who decides.** Joining does not make you a decider. `AGENTS.md` names the deciders and their areas. Anyone may inform a decision with options, evidence or clinical reasoning; only a named decider settles it.
+
+**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd), [Rules for working](../manual/rules.qmd), [Join or leave a project](../using/join-leave.qmd).
+
+## Help at the level you choose
+
+**You.** Say what you want to contribute and what you already know. You can ask to learn as you go, or to have the assistant do more of the work with you.
+
+**The assistant.**
+
+- It starts from your goal and gives one next step at a time, keeping your earlier answers.
+- For a clinician, it begins with the scientific question, the cohort, the outcomes and the protocol decisions still open.
+- For someone who knows R but not Git, it explains local files, commits, branches or forks, and pull request review, using the workflow you are actually allowed to use. (Git keeps the history of the files; a pull request is a proposed change that others review before it joins the main branch.)
+- It explains only the Git steps your own tool needs, and does not prescribe a tool. For deeper learning it points to [Happy Git and GitHub for the useR](https://happygitwithr.com/).
+- It won't require R, Git or Quarto for work that doesn't need them.
+- It checks what is already installed and authorised before suggesting any installation. It treats the assistant's connection to GitHub as separate from a working Git setup on your own computer.
+- It never asks you to paste a token or password. It won't change account settings, install software or publish work without your say-so.
+
+**In the repository.** Your contribution, in whatever form suits you:
+
+- **Clinical input without code:** a comment on a decision issue, a review of the plan or the site for clinical accuracy and clarity, or suggested literature.
+- **Code:** a change made on a branch and offered as a pull request, following `AGENTS.md`.
+- **Review:** anyone may ask for one through the review skill.
+
+**Who decides.** You decide how much help you want and which tool you use. Joining does not change the data rules: restricted data stay with authorised people in approved environments, whatever your role.
+
+**More.** [On GitHub, not in files](../manual/github.qmd), [Review](../using/review.qmd).
+
+## Your own assistant project
+
+**You.** The assistant offers to help you create your own assistant project for this repository (the plugin calls it an LLM project), one per repository. It is an offer, not a requirement. Its instructions mean each chat starts with your context, so you don't paste it each time.
+
+**The assistant.** It fills in the plugin's personal instructions template with you. It asks:
+
+- **Which working style you want.** *Review only*: it reads, reviews and suggests, and changes nothing. *Step by step*: it says what will change and waits for your yes. *Hands-off*: it builds agreed work on branches and opens pull requests without asking at each step. Without a style, it works step by step.
+- **How you work with GitHub:** through the assistant's connection, from your own tools, or both.
+- Your role and the help you prefer, what it may do for you, your data access boundaries, and whether it may post anything as you without showing you first.
+
+In every style, it shows you the exact text before posting or sending anything as you; hands-off covers only the pull requests it opens. Afterwards it walks you through what was made in your name. If it cannot edit your assistant's settings itself, it gives you the text to paste and says so.
+
+**In the repository.** Nothing. Your instructions live in your own assistant project and are not shared. The repository stays the shared record, so nothing others need should live only in your project.
+
+**Who decides.** You choose your working style and may add stricter rules than `AGENTS.md`. Your instructions never loosen its rules on data, decisions or pull requests, and nothing in them can widen what agents may do with a data source.
+
+**More.** [Personal project instructions](../manual/rules.qmd#personal-project-instructions).
+
+## The check-in
+
+**You.** The assistant asks whether you want a periodic check-in, run as one of the assistant's scheduled tasks where it has them. It is for anyone who asks, whatever their role. You choose how often it runs.
+
+**The assistant.** The check-in always reports what is waiting on you:
+
+- issues assigned to you;
+- decisions you make, each with the question, each option in a line, and a link to the decision issue;
+- pull requests awaiting your review.
+
+You can also choose to include what you are waiting on from others, work with no recent activity, and milestones due soon. It can look over your recent chats in your own assistant project for drafts that never reached the repository, and offer to save them. If you have email connected and want it, it reviews only your messages about this project and proposes where to record each decision or request. Anything holding results from restricted data not cleared for release stays where it is, and you are told why.
+
+What it won't do: it reads the repository and may draft messages, but it never posts or sends anything on its own.
+
+**In the repository.** Nothing changes unless you agree to save something there. Your check-in and email choices are recorded in your own instructions, not in shared files.
+
+**Who decides.** If you are a decider, you can decide from the check-in, but the decision itself is recorded in the decision issue.
+
+**More.** [The setup note and check-ins](../manual/github.qmd#the-setup-note-and-check-ins), [Join or leave a project](../using/join-leave.qmd).
