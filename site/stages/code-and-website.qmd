@@ -1,0 +1,61 @@
+---
+title: "Code and website"
+---
+
+*Written for version 0.1.14. Sources: [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [GitHub workflow](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md), [document-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md), [Quarto guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md), [data sources](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-sources.md).*
+
+Once the analysis plan says what to do, the work is writing R code that does it, and explaining that code on the project website. The two go together: a script that joins the analysis gets its web page in the same change. This page follows that stage from a first experiment to a published explanation.
+
+## Writing the code
+
+**You.** You may explore freely. Experiments live on a branch (a separate working copy of the repository on GitHub) or a fork, need no web page, and their findings are labelled preliminary. A script becomes part of the definitive analysis when `R/main.R` runs it (in R terms, "sources" it). From then on, every rule in the project's `AGENTS.md` applies to it. If you have access to restricted data, you are the one who runs the code on it; results on real data are produced by an authorised person, never by the assistant.
+
+**The assistant.**
+
+- Writes R that a clinician-analyst who learned R from online guides can read: pipes and dplyr verbs, `case_when()` instead of nested `if`, loops over names rather than clever shortcuts. Where base R is unavoidable, it goes in a named, tested function with a comment saying why.
+- Sends any code that touches a data source through that source's package, as listed in the "Data sources" table of `AGENTS.md`. It reads the package's documentation for the installed version first, rather than guessing from a function's name.
+- Writes and tests the code on synthetic data: made-up data, built in code and labelled as such. It never reads restricted data, unless that table explicitly allows it for a source, and then only within those words.
+- Asks before running the full pipeline or making expensive calls.
+- Proposes, rather than commits, any other way of writing something already agreed, and shows whether the outputs stay identical.
+- Never makes a scientific choice in code. If the code would need to depart from the plan, it opens a decision issue (or comments on the existing one) for the deciders.
+- Never merges a pull request.
+
+**In the repository.**
+
+- One branch per piece of work, and one pull request (a proposed change, shown on GitHub before it lands) to bring it into the main branch. Each pull request starts from the main branch.
+- A new definitive script gets its `source()` line in `main.R` and an update to `ARCHITECTURE.md`, in the same pull request.
+- Each pull request says which plan section or issue it addresses and what was checked. When the assistant opened it, it also says whether the checks were done by running code on synthetic data or by reading only. Synthetic results are never described as results.
+- The checks come from the list in `AGENTS.md`: does the change follow the plan and leave open decisions open; does it use the data package as documented; does it name the package version relied on; do cohort steps, joins and reported numbers match the plan; is the structure current; does anything in the files, commit messages or pull-request text look like it came from restricted data; and does `main.R` run in a fresh session.
+- No results, counts or data values from restricted data go into any file, commit message, issue or pull request unless cleared for release.
+
+**Who decides.** The plan's named deciders make every scientific choice. Changing what the assistant may do with a data source is for a person, through a pull request that names the agreement permitting it; the assistant never proposes that change. How many approvals a pull request needs before merging is the team's choice. Which tool you use for branches and pull requests is your own.
+
+**More.** [The code](../manual/code.qmd), [Rules for working](../manual/rules.qmd), [On GitHub, not in files](../manual/github.qmd). For an independent check of code or a pull request, see [Review](../using/review.qmd).
+
+## Explaining the code
+
+**You.** You read the page the assistant writes for each script, and check that it says what the code actually does. If you are a clinician, this page is written for you: it should make sense without reading R.
+
+**The assistant.**
+
+- Gives each new definitive script its web page and its sidebar entry in the same pull request that adds it to `main.R`.
+- Divides the script into labelled sections, each starting with a comment line such as `## ---- step-name`. Labels are unique across all scripts and never change what the code does.
+- Builds the page so it imports those sections from the script itself, with `knitr::read_chunk()`. The code on the page is therefore always the code that runs. The website never runs the analysis, so it is built without the analysis data.
+- Under each section, explains what the step does and why, what it takes in, which part of the plan it carries out, and what it hands on. It defines abbreviations, gives statistics their plain meaning, and does not describe associations as causes.
+- Cites sources from the project's `references.bib`. It never invents a citation; a missing one is flagged for the librarian review.
+- Describes the code as it is. If code and plan disagree, the page says so rather than smoothing it over.
+- Keeps the Study design and methods page current. That page explains the study's choices in plain language, with three kinds of note: **Specified in** (the plan section that defines a method), **Current code** (where the code does not yet do what the plan says, linked to the issue tracking it) and **Decision pending**.
+- Marks text that depends on an open decision. A paragraph starting with **Decision pending:** is highlighted in yellow and linked to its decision issue; the mark comes off when the decision is settled. Yellow is used for nothing else.
+- Refreshes `ARCHITECTURE.md` after a structural change: a script added, removed or reordered, or a change in how data flow between scripts.
+- Renders the site and looks at the changed pages, and reports static checks, a successful render and the visual check separately.
+- Does not change an existing site's layout or wording without first listing the differences and asking.
+
+**In the repository.**
+
+- A page in `quarto/` named after the script, with its sidebar entry in `_quarto.yml` under Code, numbered in the order `main.R` runs it.
+- When code changes, the prose of every section whose behaviour changed is updated in the same pull request.
+- Publishing follows the route the project's `AGENTS.md` records. Either the built site in `docs/` is committed and served by GitHub Pages, or `docs/` stays uncommitted and a GitHub Actions workflow builds and publishes it. The plugin does not yet provide that workflow.
+
+**Who decides.** The project chooses its publishing route at setup. The site goes live only when someone with admin or maintainer permission on the repository turns on GitHub Pages; the assistant cannot change settings, so it tells that person the steps. What the site says about the science follows the plan and the deciders.
+
+**More.** [The website](../manual/website.qmd), [The code](../manual/code.qmd) (for `ARCHITECTURE.md`), [Explain the code](../using/explain.qmd). For an independent check that pages match the code, see [Review](../using/review.qmd).

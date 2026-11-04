@@ -1,0 +1,100 @@
+---
+title: "Leaving"
+---
+
+*Written for version 0.1.14. Sources: [collaborator onboarding](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md), [onboard-collaborator skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/onboard-collaborator/SKILL.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [GitHub workflow](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md), [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md).*
+
+People leave projects all the time: a rotation ends, a job changes, someone hands their part to a colleague. The plugin's aim is that the next person can carry on from the repository alone, without your files or your chats. So before your last session, the assistant works through four steps with you. Each step asks you; nothing is forced. Not everything can be finished, given an owner or closed, and a project may go dormant. What stays open is recorded, with the reason, rather than pushed onto someone.
+
+## How leaving starts
+
+**You.** Tell the assistant you are leaving or handing over. Someone else can also ask for a handover from a person who is leaving. If you set up a check-in and gave it your end date, the check-in can raise it as that date approaches.
+
+**The assistant.** It works through the steps below with you, before your last session. It asks at each step rather than deciding for you.
+
+**In the repository.** Nothing yet.
+
+**Who decides.** You choose what happens to each piece of your work. Scientific questions stay with the deciders named in the project's `AGENTS.md`; leaving does not change who they are.
+
+**More.** [Join or leave a project](../using/join-leave.qmd); check-ins are described in [On GitHub, not in files](../manual/github.qmd#the-setup-note-and-check-ins).
+
+## Documents out of chats, laptops and email
+
+**You.** Think of anything that exists only in a chat, on your laptop or in your email: drafts, notes, data checks, and correspondence that settles something.
+
+**The assistant.** It asks for these and offers to move each into the repository. It checks each against the project's disclosure rules first. Anything holding results from restricted data that are not cleared for release stays where it is, and it tells you why. It shows you the exact text before posting anything as you.
+
+**In the repository.** Each item becomes one of three things:
+
+- a draft pull request (a proposed change that is not yet ready to merge);
+- a comment on an existing issue;
+- a new issue.
+
+**Who decides.** You choose what to move. The project's disclosure rules decide what may not be moved.
+
+**More.** The same habit applies at the end of every working session: see [On GitHub, not in files](../manual/github.qmd#the-setup-note-and-check-ins).
+
+## Open issues and pull requests
+
+**You.** Go through each open issue and pull request that is yours.
+
+**The assistant.** For each one, it asks which of four things fits:
+
+- finish it;
+- hand it to someone;
+- close it with a reason;
+- leave it open with a note saying it is paused and what it is waiting on.
+
+For an open pull request, it also writes down what remains, the order in which open pull requests should be merged, and any conflicts between them. It never merges a pull request itself.
+
+**In the repository.** Notes on issues and pull requests, and some items closed with their reasons.
+
+**Who decides.** You, with whoever takes an item on. A person, not an agent, merges a pull request. Closing an issue does not settle a scientific question; only a named decider does that.
+
+**More.** [Issues and pull requests](../manual/github.qmd#issues); [the plan and its decisions](../manual/plan-and-decisions.qmd).
+
+## Requests with no answer yet
+
+**You.** Think of what you have asked of others that has not been answered: an email to a collaborator, a question to the PI.
+
+**The assistant.** It asks what these are and offers to record each one as an issue.
+
+**In the repository.** One issue per request, saying who was asked, when, and what for. The question is then no longer held only in your inbox.
+
+**Who decides.** You choose which to record.
+
+**More.** [Issues](../manual/github.qmd#issues).
+
+## Ownership, last
+
+**You.** This step applies only if you own the repository on GitHub.
+
+**The assistant.** It raises transferring the repository to the PI. The plugin gives the steps as **Settings → General → Transfer**, and the new owner must accept within a day. The assistant cannot change GitHub settings; it tells the person who can.
+
+**In the repository.** Issues, pull requests and history move with the repository, and old links to the repository redirect to the new address. The website does not: GitHub does not redirect it. After the transfer, someone must:
+
+- update the site and repository links in `_quarto.yml` (the website's settings file), the site pages and the README;
+- re-render the site;
+- turn GitHub Pages on again under the new owner.
+
+**Who decides.** The owner starts the transfer, and the new owner accepts it.
+
+**More.** [Transferring ownership and the website caveat](../manual/github.qmd#the-setup-note-and-check-ins); [GitHub Pages](../manual/github.qmd#github-pages); [`_quarto.yml`](../manual/website.qmd#quarto.yml); [the README](../manual/references-readme.qmd#readme.rmd-and-readme.md).
+
+## What the next person finds
+
+**You.** At the end, the assistant tells you what was recorded where. It offers a short message for the PI or the team pointing to it. Nothing is sent as you without your go-ahead.
+
+**The assistant.** When someone later takes over, their assistant starts from the repository: the analysis plan, open decision issues, open pull requests and their notes, and anything you marked as paused. It does not rely on your files or chats.
+
+**In the repository.** What the next person finds there:
+
+- your drafts and notes, as draft pull requests, issue comments or issues;
+- each open item finished, handed on, closed with a reason, or paused with what it waits on;
+- notes on open pull requests: what remains, the merge order and any conflicts;
+- an issue for each unanswered request;
+- if ownership moved, the repository under its new owner.
+
+**Who decides.** The deciders named in `AGENTS.md`, as before. If no one picks the work up, the project can stay dormant, with its open items and their reasons on record.
+
+**More.** [Joining](joining.qmd).

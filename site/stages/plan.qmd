@@ -1,0 +1,73 @@
+---
+title: "The plan"
+---
+
+*Written for version 0.1.14. Sources: [writing the analysis plan](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/analysis-plan.md), [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md), [shared conventions](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md), [GitHub workflow](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md), [blind reviewers](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md), [document-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md), [review-analysis skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md).*
+
+The analysis plan, `analysis-plan.md`, says what the analysis must do. It is the project's source of truth: the code carries out the plan and never redefines it. This page follows the plan through three stages: deciding what goes in it, locking it, and changing it after that. For how the file itself is laid out, see [The plan and its decisions](../manual/plan-and-decisions.qmd).
+
+## Deciding the plan
+
+**You.** Bring what the investigators already have: the protocol, the IRB approval, earlier scripts, papers. When the assistant lists the choices those materials already make, the deciders go through the list together and confirm or change each one. Anyone on the project, clinician or student, can open a **decision issue** (a GitHub issue for one open scientific question) or add options, evidence and clinical reasoning to one.
+
+**The assistant.**
+
+- Drafts the plan from the template that fits the study, and from the investigators' materials.
+- Presents the choices the materials already make as one list, for the deciders to confirm or change.
+- Opens a decision issue for anything not confirmed, with the options and the evidence for each, and marks the open point in the plan with **Open:** and a link to the issue.
+- Checks codes and variable definitions against the data source's own documentation for that release, rather than guessing from their names.
+- Cites every definition, threshold or method taken from a source with a key from the project's `references.bib`. It never invents a citation or cites from memory.
+- Once a decider has stated a choice, it can write the plan change for it.
+- It won't choose among the options, in the issue, the plan or the code. It won't say someone decided something unless there is a written record of it.
+
+**In the repository.**
+
+- `analysis-plan.md` at the top of the repository, with an **Open:** marker wherever a question is still open. On the project website, those paragraphs are highlighted in yellow.
+- One decision issue per open question. How they are marked (a label, a word in the title) is the project's choice.
+- Entries in `references.bib` for every source the plan cites.
+- While the plan is a draft, git's history is the record of changes: each design change is committed on its own, with the reason and whether any results that depend on it had already been seen.
+
+**Who decides.** The deciders named in the project's `AGENTS.md`, each in their own area. Only a decider settles a decision issue, by stating the choice in it.
+
+- A decider who doesn't use GitHub can decide by email or in a meeting. Whoever received the decision posts the decider's exact words in the issue, with their name, the date and how it was given. A summary or a memory of what was said doesn't settle it.
+- A choice already settled in a signed protocol or IRB approval counts as decided, and is cited as such.
+- A decision takes effect when the plan changes. Once the decider has stated the choice, anyone may write the pull request that rewrites the passage, gives the reason, cites the evidence, removes the **Open:** marker and closes the issue. It counts when that pull request is merged into the protected default branch. An agent never merges it.
+
+**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd) and [References and README](../manual/references-readme.qmd) in the Manual; [Start a project](../using/start.qmd) for the first draft and [Explain the code](../using/explain.qmd) for updating the plan after a decision.
+
+## Locking the plan
+
+**You.** Once the plan is final, lock it: before outcome data are analysed, or when the study is registered. Locking means that from then on every change is recorded openly, with its date and reason.
+
+**The assistant.** When asked, it updates the plan for locking: it adds an empty section called "Amendments after locking", and, if the study is registered, cites the registration and the tag in the plan's header. Before that, a plan review can check that the plan is complete (see below). It won't create the tag on its own.
+
+**In the repository.**
+
+- The plan's empty **Amendments after locking** section.
+- A tag on that commit, such as `sap-v1.0`. A tag is a fixed name for one saved version of the repository, so anyone can see exactly what the plan said when it was locked.
+- If the project uses milestones, "plan locked" can be one of them; the phases and dates are the team's choice.
+
+**Who decides.** The deciders decide that the plan is final. Tags are created by the maintainer, or with the maintainer's explicit authorization.
+
+**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd#locking-the-plan) and [On GitHub, not in files](../manual/github.qmd) in the Manual; [Review](../using/review.qmd) for the Plan review, in which blind reviewers (a clinician reader, a clinician-researcher, a statistician and a librarian) check the plan against its reporting guideline, the question and its citations.
+
+## Revisions after results
+
+**You.** After locking, the plan can still change, but never silently. A change of scientific choice, including one a reviewer suggests, goes through a decision issue like any other choice.
+
+**The assistant.**
+
+- Writes each agreed change as a dated entry in the **Amendments after locking** section: what changed, why, and whether it was made before or after outcome data were seen.
+- Treats a reviewer's request to change the methods as a new scientific choice. It proposes a decision issue with the options and the reviewers' arguments; the plan and code change only after a decider has settled it.
+- In a Plan ↔ code review, checks that every plan section has code and every analysis has a plan section, that each open point links an open decision issue, and that no open decision has been settled in the code.
+- It won't make a quiet edit to a locked plan, and it won't settle a decision issue.
+
+**In the repository.**
+
+- A new dated entry under **Amendments after locking** for every change.
+- A new tag for each amended version, such as `sap-v1.1`.
+- The decision issue behind each amendment, closed by the pull request that made it.
+
+**Who decides.** The named deciders, exactly as before locking. A reviewer, a student or an agent can raise the question and argue for an answer; only a decider settles it.
+
+**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd#locking-the-plan) in the Manual; [Review](../using/review.qmd) for acting on review findings; [Explain the code](../using/explain.qmd) for updating the plan and the website to match.

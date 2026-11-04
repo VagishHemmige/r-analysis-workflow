@@ -41,6 +41,30 @@ website:
           - href: using/join-leave.qmd
             text: Join or leave a project
 
+      - section: Project stages
+        contents:
+          - href: stages/index.qmd
+            text: Overview
+          - href: stages/getting-started.qmd
+            text: Getting started
+          - href: stages/plan.qmd
+            text: The plan
+          - href: stages/code-and-website.qmd
+            text: Code and website
+          - href: stages/results.qmd
+            text: Results
+
+      - section: People on a project
+        contents:
+          - href: people/index.qmd
+            text: Overview
+          - href: people/joining.qmd
+            text: Joining
+          - href: people/roles.qmd
+            text: Contributing in your role
+          - href: people/leaving.qmd
+            text: Leaving
+
       - section: Manual
         contents:
           - href: manual/index.qmd

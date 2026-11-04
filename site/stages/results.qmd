@@ -1,0 +1,91 @@
+---
+title: "Results"
+---
+
+*Written for version 0.1.14. Sources: [report skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/report-analysis/SKILL.md), [reporting guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reporting.md), [review skill](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/review-analysis/SKILL.md), [blind reviewers](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/reviewers.md), [data handling](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md), [AGENTS.md template](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md), [Quarto guidance](https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md).*
+
+This page follows a project from its first tables to the moment its outputs can be made public. There are three stages: building the reporting, reviewing it, and clearing it for release. Throughout, the analysis plan decides what is reported, and restricted data never pass through the assistant.
+
+## Reporting
+
+**You.** You ask the assistant to build the tables, figures and numbers the plan calls for. If you are the authorized person, you run the finished code on the real data in the approved environment. Before any output leaves that environment, you check it against the project's disclosure rules.
+
+**The assistant.** It works through a fixed order, using only the parts that fit the design:
+
+1. **Participant flow**: the diagram of who was included and excluded (the STROBE flow diagram). It is built with the flowchart package by the same code that builds the analysis cohort, so the two cannot disagree.
+2. **Descriptions and missingness**: every analysis variable, with its missing count shown, and the patterns of missing values.
+3. **Table 1**, grouped the way the plan says, with gtsummary.
+4. **Two-variable and stratified summaries**, where the plan calls for them.
+5. **Longitudinal structure**, when the same people are measured repeatedly over time.
+6. **Time to event**: follow-up, events and censoring, described before any model.
+7. **Figures**, following the PSI/EFSPI graphics principles. Survival curves follow the KMunicate style: confidence intervals, and a table under the plot with the numbers at risk, censored and with events.
+8. **Model tables** that report the model actually fitted.
+
+What it won't do:
+
+- It won't choose the model, the covariates, how to handle missing data, or the target journal's style. These come from the plan. Where the plan leaves one open, it opens or points to a decision issue (a GitHub issue for one open scientific question) instead.
+- It won't read restricted data. It writes and tests the reporting code on **synthetic data**: made-up data built in code and labelled as synthetic. Real results come from an authorized person.
+
+Small counts need care before anything leaves the approved environment. Every table, figure and flowchart box must pass the project's disclosure rules, including counts someone could work out by subtraction. Numbers at risk shrink late in follow-up, so under a small-cell rule a survival curve ends, or its cells are hidden, before any count falls below the threshold. Figures that plot individual people are not published from restricted data. The threshold itself comes from each data source's own agreement; the plugin does not set one.
+
+Before finishing, the assistant checks that:
+
+- every count in tables, figures and text matches the flow diagram;
+- estimates, confidence intervals, model counts, reference groups and scales match the fitted model and are labelled correctly;
+- every number in the text comes from a computed value, never retyped;
+- every figure has a caption and alt text (a written description for readers who cannot see the image).
+
+It says which checks ran on synthetic data and which were only read, and then offers an independent Reporting review.
+
+**In the repository.** The reporting code, in `R/tables.R` and `R/figures.R`. These write their outputs to `tables/` and `figures/`. Whether those folders are kept in Git depends on the project's setup (see "Going public").
+
+**Who decides.** The plan decides what is reported and how. Open choices go to the deciders named in `AGENTS.md`. The assistant asks about the journal's style rather than choosing one.
+
+**More.** [Report results](../using/report.qmd); [The code](../manual/code.qmd); [The plan and its decisions](../manual/plan-and-decisions.qmd); [Rules for working](../manual/rules.qmd).
+
+## Reviewing
+
+**You.** You choose the kind of review, or describe what you want checked and let the assistant pick. After the review, you decide what happens to each finding.
+
+**The assistant.** It offers several kinds of review:
+
+- **Change**: a pull request, a branch, or work not yet committed, checked against the plan and `AGENTS.md`.
+- **Plan ↔ code**, **Plan**, **Site ↔ code** and **Architecture**: whether the code, plan, website and `ARCHITECTURE.md` agree and are complete.
+- **Repository conformance**: whether the repository matches the blueprint.
+- **Reporting**: the flow diagram, tables, models and numbers in the text, checked against the cohort and what was fitted.
+- **Release**: covered under "Going public".
+
+A request for "a full review" runs the Plan, Plan ↔ code, Site ↔ code and Reporting reviews together.
+
+A change review reads every file the change touches, not a sample. The report lists them, and names any file not read with the reason.
+
+Most reviews use up to five **blind reviewers**: a clinician reader, a clinician-researcher, a statistician, a coding expert and a librarian. "Blind" means each one works on its own, as a separate agent where the host allows, and cannot see the other reviewers' findings or the conversation that produced the work. Each gets a packet of the repository files its role reviews, and may also read public material its role needs: the data-access packages the analysis uses, the sources the work cites, and official code sets and reporting guidelines. No reviewer ever receives restricted data or outputs not yet cleared for release. Where the host cannot run independent agents, the report says that blindness was not guaranteed.
+
+The assistant then combines the reports. Before it lists a finding as an error, it checks the claim against the source itself, and moves any claim that does not hold to a "Corrections" list. It merges duplicates, keeps disagreements visible without settling them, and numbers every finding.
+
+What it won't do: change anything during the review. Reviews are read-only. A finding that is really a scientific choice becomes a proposed decision issue; the assistant does not choose.
+
+**In the repository.** Nothing, until you act. Then, finding by finding, you can keep the report, open GitHub issues, propose decision issues, post a pull-request review, fix chosen findings on a branch with a pull request, or ask for a re-review of what was fixed.
+
+**Who decides.** You, the reader, decide what to act on, one finding at a time. Scientific choices still go to the named deciders.
+
+**More.** [Review](../using/review.qmd); [On GitHub, not in files](../manual/github.qmd).
+
+## Going public
+
+**You.** Before the website, tables or figures go public, you ask for the Release review. A person signs off on its result.
+
+**The assistant.** For the Release review it checks the files itself rather than using the blind reviewers. It checks that nothing from restricted data is included unless the review named in `AGENTS.md` has cleared it, that figures have alt text, and that no passwords or keys are included. It does not sign off; a person does.
+
+**In the repository.**
+
+- At setup, the assistant asks whether the tables and figures need review before they can be public. If they don't, `tables/` and `figures/` are tracked in Git from the start.
+- If they do, both folders stay out of Git (in `.gitignore`) until the review named in `AGENTS.md` clears them. Someone then removes the two lines from `.gitignore` and inspects the contents before adding them.
+- A **Results** page on the project website exists only for outputs cleared for release, by that review or because setup decided they need none. It reads the cleared files in `tables/` and `figures/`, never reruns the analysis and never touches restricted data. It has the green Results look.
+- The published website never contains results from restricted data unless the named review has cleared them.
+
+**Who decides.** The review named in `AGENTS.md` clears outputs for release, under the data agreement's rules. A person signs off on the Release review. The assistant decides neither.
+
+Submitting to a journal and publishing a paper are outside the plugin; it stops there.
+
+**More.** [Review](../using/review.qmd); [Rules for working](../manual/rules.qmd); [The website](../manual/website.qmd).
