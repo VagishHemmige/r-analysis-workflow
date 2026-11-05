@@ -37,20 +37,33 @@
 .sidebar-navigation .bi-file-earmark-ruled { color: var(--cue-reference); }
 .sidebar-navigation .bi-clipboard-data { color: var(--cue-evidence); }
 
-/* As on the analysis sites: section headings read as group labels rather
-   than pages; a thin rule between sections and before a page that follows
-   one; sections inside another section a little lighter and smaller, so the
-   levels show without relying on indentation. */
-.sidebar-navigation .sidebar-item-section > .sidebar-item-container .menu-text {
+/* Type scale, one job per level (chosen 4 Nov 2026 over the analysis sites'
+   rules, which made nested headings smaller than their own pages here):
+   parts are small capitals; top-level sections bold and darkest; nested
+   sections semi-bold, a shade lighter, at page size; every page the same
+   size and regular. A thin rule separates sections. */
+.sidebar-navigation .sidebar-item .menu-text {
+  font-size: .875rem;
+  font-weight: 400;
+  color: #343a40;
+}
+.sidebar-navigation .sidebar-menu-container > ul > li.sidebar-item-section > .sidebar-item-container .menu-text {
+  font-size: .9375rem;
+  font-weight: 650;
+  color: #212529;
+}
+.sidebar-navigation .sidebar-section .sidebar-item-section > .sidebar-item-container .menu-text {
+  font-size: .875rem;
   font-weight: 600;
+  color: #495057;
+}
+.sidebar-navigation li.sidebar-item > span.menu-text {
+  font-size: .6875rem;
+  letter-spacing: .08em;
 }
 .sidebar-navigation .sidebar-item-section + .sidebar-item-section,
 .sidebar-navigation .sidebar-item-section + .sidebar-item {
   border-top: 1px solid rgba(0, 0, 0, .08);
   margin-top: .35rem;
   padding-top: .35rem;
-}
-.sidebar-navigation .sidebar-section .sidebar-item-section > .sidebar-item-container .menu-text {
-  font-weight: 500;
-  font-size: .95em;
 }
