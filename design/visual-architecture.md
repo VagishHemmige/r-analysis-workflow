@@ -1,9 +1,9 @@
 # Visual teaching architecture — working plan
 
-**Status:** Discussion draft for review, 5 November 2026. This document records the
-ambitious direction discussed with the maintainer; it is **not** an approved
-specification for every individual figure or a claim that the described system
-has been implemented. Design choices are to be made one at a time before edits.
+**Status:** Working design plan, 5 November 2026. The conceptual direction below
+was agreed with the maintainer, but individual figures, navigation changes, and
+implementation details remain proposals requiring separate approval. This is
+not a claim that the described system has been implemented.
 
 **Scope:** The explanatory website *about the R Analysis Workflow plugin*, in
 `site/`. The plugin's instructions for figures in users' analysis repositories
@@ -23,6 +23,10 @@ material. We are open to reorganizing the sidebar as the visual structure
 emerges; the current hierarchy is not a fixed constraint.
 
 ## Agreed conceptual direction
+
+The four perspectives, nested component views, and extensive cross-linking are
+agreed goals. They do **not** approve a specific figure, layout, sidebar
+reorganization, or technical implementation.
 
 ### Four perspectives on the same system
 
@@ -61,7 +65,8 @@ forcing a linear pipeline.
 
 ### Visuals as navigation
 
-There will be extensive cross-linking:
+The agreed direction calls for extensive cross-linking; the specific links and
+interaction mechanisms remain to be designed:
 
 1. **Figure → figure:** switch perspective, zoom into a component, or follow a
    related process.
@@ -198,9 +203,11 @@ This is **proposed sequencing**, not approved implementation work:
 
 The R Analysis Workflow plugin also needs guidance for **planning, developing,
 and reviewing figures in other analysis repositories**. Planned table/figure
-shells are proposed in #70. A sixth Visual Communication Reviewer and its
-rendered-HTML/source packet are tracked in #91, including the agreed two-stage
-independent and committee review. Conditional package reviewers are in #92;
+shells are proposed in #70. The addition of a sixth Visual Communication Reviewer and the two-stage
+independent-then-committee review were agreed in discussion and are tracked in
+#91; their precise implementation is pending. The current project instructions
+still describe five reviewers and need to be reconciled when this change is
+implemented. The proposed rendered-HTML/source packet is also tracked in #91. Conditional package reviewers are in #92;
 other possible specialists are deferred in #93. These do not authorize
 changing this website or implementing a figure-design workflow here.
 
