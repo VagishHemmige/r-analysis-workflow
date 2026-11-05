@@ -1,0 +1,21 @@
+/* Part labels in the sidebar (Introduction, Guides, Reference, Evidence).
+   Each is a sidebar entry with text and no link (_quarto.yml), so it renders
+   as a bare span directly inside its list item; links and section headings
+   sit inside other elements and are not affected. */
+.sidebar-navigation li.sidebar-item > span.menu-text {
+  display: block;
+  margin-top: .25rem;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #6c757d;
+}
+
+/* The rule before each part: a little heavier than a hairline */
+.sidebar-navigation .sidebar-divider {
+  border-top: 2px solid rgba(0, 0, 0, .15);
+  opacity: 1;
+  margin: .6rem 0 .3rem;
+}
+

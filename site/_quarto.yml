@@ -23,12 +23,20 @@ website:
     collapse-level: 3
     search: true
     contents:
+      # Four parts, shown with a label and a rule (styles.css), not as
+      # sections, so the sidebar keeps its depth.
+      - text: "Introduction"
       - href: index.qmd
         text: Home
       - href: start-here.qmd
         text: Start here
       - href: install.qmd
         text: Install
+      - href: sites.qmd
+        text: Sites built with it
+
+      - text: "---"
+      - text: "Guides"
 
       - section: Using the plugin
         contents:
@@ -79,6 +87,8 @@ website:
           - href: people/leaving.qmd
             text: Leaving
 
+      - text: "---"
+      - text: "Reference"
       - section: Manual
         contents:
           - href: manual/index.qmd
@@ -122,6 +132,8 @@ website:
               - href: manual/github-setup-note.qmd
                 text: The setup note and check-ins
 
+      - text: "---"
+      - text: "Evidence"
       - section: Testing
         contents:
           - href: testing/index.qmd
@@ -135,11 +147,10 @@ website:
 
       - href: problems.qmd
         text: Problems it solves
-      - href: sites.qmd
-        text: Sites built with it
 
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     page-layout: full
