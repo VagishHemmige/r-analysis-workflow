@@ -4,7 +4,29 @@ title: "Start here"
 
 *Written for version 0.1.14.*
 
+::: {.workflow-online}
+[Open the interactive figure full screen](images/workflow-interactive.html) · [View the static figure](images/workflow-cloud.svg)
+
+```{=html}
+<iframe id="workflow-player" src="images/workflow-interactive.html"
+        title="Explore the R analysis workflow" style="width:100%;height:900px;border:0"></iframe>
+<script>
+const player = document.getElementById("workflow-player");
+function fitWorkflow() {
+  const content = player.contentDocument?.querySelector("main");
+  if (!content) return;
+  const resize = () => { player.style.height = Math.ceil(content.getBoundingClientRect().height) + "px"; };
+  new ResizeObserver(resize).observe(content);
+  resize();
+}
+player.addEventListener("load", fitWorkflow);
+</script>
+```
+:::
+
+::: {.workflow-print}
 ![Code moves between your computer, GitHub and the assistant; a person approves every change. By default, data stay on your computer.](images/workflow-cloud.svg){.lightbox fig-alt="On your computer, data feed into R, which produces results. A blocked red arrow shows that the chat app cannot access restricted data; the LLM runs in the cloud. Code panels align across the computer, GitHub and cloud assistant, with arrows for code changes, reviewed code, project files and pull requests. Cleared results go to GitHub. A person reviews, approves and merges there. GitHub also holds the analysis plan, decision issues and history. The project website displays explanations, code and cleared results."}
+:::
 
 Find the line that fits you. Each says what to have ready and the first thing to type to the assistant once the plugin is [installed](install.qmd). You don't need to name a skill or know the Git words: the assistant explains them as they come up.
 

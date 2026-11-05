@@ -48,3 +48,7 @@ What was checked, and what was not.
 - None of the 0.1.12 R has been run: the state check, the ruleset call, the `docs/` and Pages checks, and the full sequence from a new folder. To test: in a throwaway public repository, run the check, the ruleset call, and the check again; confirm what GitHub does with a second ruleset call; run the check on a repository with classic protection. GitHub's documentation does not say whether the rules endpoint reports classic protection, so the check reads both.
 - Real-user testing of the setup questionnaire.
 - No scientific results were reproduced.
+
+### Interactive workflow on Start here
+
+Rendered all 46 website pages with Quarto 1.8.25. Confirmed the output includes the generated interactive HTML and SVG. In desktop Chrome, played the embedded animation, advanced a step and opened the GitHub explanation. The repository link checker passed. Physical-phone and print testing remain outstanding.

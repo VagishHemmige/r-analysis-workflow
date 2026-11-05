@@ -1,0 +1,380 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explore the R analysis workflow</title>
+<style>
+
+*{box-sizing:border-box}
+body{margin:0; font-family:system-ui,sans-serif; color:#243644; background:#f5f7fa}
+main{max-width:1420px; margin:auto; padding:20px}
+h1{font-size:24px; margin:0 0 8px}
+.controls{display:flex; gap:8px; flex-wrap:wrap; margin:16px 0}
+button{font:inherit; cursor:pointer; border:1px solid #abb9c4; background:white; color:#243644; border-radius:6px; padding:9px 12px}
+button[aria-pressed=true]{background:#214e70; color:white}
+button:focus-visible{outline:3px solid #c45709; outline-offset:3px}
+.layout{display:grid; grid-template-columns:minmax(0,1fr) 290px; gap:18px}
+.figure{position:relative; background:white; border-radius:10px}
+.figure svg{display:block; width:100%; height:auto}
+.hotspot{position:absolute; border:2px solid transparent; background:transparent; padding:0; border-radius:9px}
+.hotspot:hover,.hotspot:focus-visible,.hotspot.selected{border-color:#d27918; background:#f5be5210}
+.figure [data-part]{transition:opacity .25s}
+.figure.focused [data-part]{opacity:.17}
+.figure.focused [data-part].active{opacity:1}
+aside{background:white; border:1px solid #d6dfe5; border-radius:10px; padding:18px; align-self:start; position:sticky; top:15px}
+aside h2{font-size:19px; margin-top:0}
+aside p{line-height:1.6}
+#route{min-height:3em; line-height:1.5}
+small{display:block; color:#536675; margin-top:12px}
+.zoomed .layout{display:block}
+.zoomed aside{position:static; margin-top:18px}
+.zoomed .figure{min-width:1000px}
+.zoomed .viewport{overflow:auto}
+details{margin-top:20px; padding:16px; background:white}
+details p{max-width:80ch; line-height:1.6}
+@media(max-width:850px){.layout{display:flex; flex-direction:column}
+aside{position:static}
+.controls button{flex:1 1 140px}
+main{padding:12px}
+}
+@media(prefers-reduced-motion:reduce){.figure [data-part]{transition:none}
+}
+@media print{.controls,.hotspot,aside,#route{display:none}
+.layout{display:block}
+.figure [data-part]{opacity:1!important}
+}
+
+
+.process{background:#fff; border:1px solid #cbd9e3; border-radius:10px; padding:12px 16px; margin:0 0 18px}
+.process h2{font-size:18px; margin:0 0 8px}
+.process .controls{margin:8px 0}
+.process p{margin:8px 0; line-height:1.5; min-height:3em}
+.process button{min-height:44px}
+button:disabled{opacity:.45; cursor:default}
+.process progress{width:100%; height:7px; accent-color:#215e87}
+.figure svg .motion-layer{pointer-events:none}
+.process-active{stroke:#df780d!important; stroke-width:5!important; opacity:1!important}
+.review-glow{fill:#fff0ca; fill-opacity:.25; stroke:#df780d; stroke-width:4}
+ @media print{.process,.motion-layer{display:none}
+}
+
+
+</style>
+<main>
+<h1>Explore the R analysis workflow</h1>
+<p>Play “Revise the code” to follow the process. Tap a box to learn about a component.</p>
+<div class="controls" aria-label="Workflow paths">
+<button data-route="all" aria-pressed="true">Show everything</button>
+<button data-route="run" aria-pressed="false">Run the analysis</button>
+<button data-route="revise" aria-pressed="false">Revise the code</button>
+<button data-route="share" aria-pressed="false">Publish results</button>
+<button id="zoom" aria-pressed="false">Enlarge figure</button>
+</div>
+<p id="route" aria-live="polite">The complete workflow. Choose a path to follow one part of the work.</p>
+<section class="process" aria-label="Animate revising code">
+<h2>Follow the process: revise the code</h2>
+<div class="controls">
+<button id="play">Play</button>
+<button id="next">Next step</button>
+<button id="replay">Replay</button>
+</div>
+<p id="step-caption" aria-live="polite">Ready — five steps, from reading the project to running the revised code.</p>
+<progress id="progress" max="5" value="0" aria-label="Process progress"></progress>
+</section>
+<div class="layout">
+<div class="viewport">
+<div class="figure"><!-- WORKFLOW SVG -->
+<button class="hotspot" data-detail="r" aria-label="Explain R session" style="left:5.078125%;top:46.96132596685082%;width:22.34375%;height:13.701657458563535%"></button>
+<button class="hotspot" data-detail="data" aria-label="Explain Restricted data" style="left:5.078125%;top:64.30939226519337%;width:22.34375%;height:9.944751381215468%"></button>
+<button class="hotspot" data-detail="results" aria-label="Explain Results" style="left:5.078125%;top:25.856353591160218%;width:22.34375%;height:12.817679558011049%"></button>
+<button class="hotspot" data-detail="chat" aria-label="Explain Chat app" style="left:3.828125%;top:80.88397790055248%;width:23.59375%;height:12.928176795580109%"></button>
+<button class="hotspot" data-detail="github" aria-label="Explain GitHub" style="left:36.71875%;top:18.78453038674033%;width:26.5625%;height:46.1878453038674%"></button>
+<button class="hotspot" data-detail="llm" aria-label="Explain Cloud LLM and plugin" style="left:71.09375%;top:18.78453038674033%;width:26.5625%;height:46.1878453038674%"></button>
+<button class="hotspot" data-detail="website" aria-label="Explain Project website" style="left:36.71875%;top:70.71823204419888%;width:60.9375%;height:24.53038674033149%"></button>
+</div>
+</div>
+<aside aria-live="polite">
+<h2 id="detail-title">Explore a box</h2>
+<p id="detail-body">Select a box to read what happens there. You can open explanations while a workflow path is highlighted.</p>
+<button id="close">Clear selection</button>
+<small id="status">No box selected</small></aside>
+</div>
+<details>
+<summary>Read all explanations</summary>
+<h3>R session</h3>
+<p>You run the R code on your computer. It reads the data and produces results. You can edit the code yourself. If it fails, share an error message only after checking that it contains no restricted data.</p>
+<h3>Restricted data</h3>
+<p>These data stay in the approved local environment. The red interrupted arrow means the assistant must not read them. Check outputs before sharing: a table, log or error message can also contain restricted information.</p>
+<h3>Results</h3>
+<p>R produces the tables and plots. Only results cleared for release follow the green arrow to GitHub and can appear on the website. The numbers in this diagram are illustrative.</p>
+<h3>Browser or chat app</h3>
+<p>You talk to the assistant here, on the same computer as R. The language model runs in the cloud. Ask for code changes and discuss cleared outputs without giving it restricted data.</p>
+<h3>GitHub</h3>
+<p>The shared record holds the analysis plan, decision issues, code and change history. The assistant proposes a pull request. A person reviews and approves the change before it is merged. Named deciders settle scientific questions.</p>
+<h3>Cloud LLM + plugin</h3>
+<p>The assistant reads the project instructions, plan, questions and code. The plugin guides how it works. It proposes code changes; it does not decide the science or access restricted data.</p>
+<h3>Project website</h3>
+<p>Collaborators read explanations of the actual code and cleared results without running R. Building the website does not run the analysis. The repository supplies the material used to build it.</p></details></main><script>
+const details = {
+  "r": [
+    "R session",
+    "You run the R code on your computer. It reads the data and produces results. You can edit the code yourself. If it fails, share an error message only after checking that it contains no restricted data.",
+  ],
+  "data": [
+    "Restricted data",
+    "These data stay in the approved local environment. The red interrupted arrow means the assistant must not read them. Check outputs before sharing: a table, log or error message can also contain restricted information.",
+  ],
+  "results": [
+    "Results",
+    "R produces the tables and plots. Only results cleared for release follow the green arrow to GitHub and can appear on the website. The numbers in this diagram are illustrative.",
+  ],
+  "chat": [
+    "Browser or chat app",
+    "You talk to the assistant here, on the same computer as R. The language model runs in the cloud. Ask for code changes and discuss cleared outputs without giving it restricted data.",
+  ],
+  "github": [
+    "GitHub",
+    "The shared record holds the analysis plan, decision issues, code and change history. The assistant proposes a pull request. A person reviews and approves the change before it is merged. Named deciders settle scientific questions.",
+  ],
+  "llm": [
+    "Cloud LLM + plugin",
+    "The assistant reads the project instructions, plan, questions and code. The plugin guides how it works. It proposes code changes; it does not decide the science or access restricted data.",
+  ],
+  "website": [
+    "Project website",
+    "Collaborators read explanations of the actual code and cleared results without running R. Building the website does not run the analysis. The repository supplies the material used to build it.",
+  ],
+};
+const paths = {
+  all: [],
+  run: ["data", "r", "results", "run"],
+  revise: ["r", "code", "review", "llm", "exchange"],
+  share: ["results", "shared-results", "release", "website", "publish"],
+};
+const descriptions = {
+  all: "The complete workflow. Choose a path to follow one part of the work.",
+  run:
+    "Data feed into R on your computer. You run the code; R produces results.",
+  revise:
+    "The assistant proposes code through a pull request. A person reviews, approves and merges it in GitHub. Reviewed code returns to your computer to run.",
+  share:
+    "After results are cleared for release, they go to GitHub. The website presents explanations, code and cleared results.",
+};
+const figure = document.querySelector(".figure");
+let pinned = null, timer;
+function show(k, pin = false) {
+  document.querySelector("#detail-title").textContent = details[k][0];
+  document.querySelector("#detail-body").textContent = details[k][1];
+  document.querySelector("#status").textContent = pin
+    ? "Selected — Escape or Clear selection to dismiss"
+    : "Preview — click to keep open";
+  document.querySelectorAll(".hotspot").forEach((b) =>
+    b.classList.toggle("selected", b.dataset.detail === k)
+  );
+}
+function clear() {
+  pinned = null;
+  clearTimeout(timer);
+  document.querySelector("#detail-title").textContent = "Explore a box";
+  document.querySelector("#detail-body").textContent =
+    "Select a box to read what happens there. You can open explanations while a workflow path is highlighted.";
+  document.querySelector("#status").textContent = "No box selected";
+  document.querySelectorAll(".hotspot").forEach((b) =>
+    b.classList.remove("selected")
+  );
+}
+document.querySelectorAll("[data-route]").forEach((b) =>
+  b.addEventListener("click", () => {
+    const k = b.dataset.route;
+    document.querySelectorAll("[data-route]").forEach((x) =>
+      x.setAttribute("aria-pressed", x === b)
+    );
+    figure.classList.toggle("focused", k !== "all");
+    figure.querySelectorAll("[data-part]").forEach((e) =>
+      e.classList.toggle("active", paths[k].includes(e.dataset.part))
+    );
+    document.querySelector("#route").textContent = descriptions[k];
+  })
+);
+document.querySelectorAll(".hotspot").forEach((b) => {
+  b.addEventListener("click", () => {
+    clearTimeout(timer);
+    pinned = b.dataset.detail;
+    show(pinned, true);
+  });
+  b.addEventListener("pointerenter", (e) => {
+    if (e.pointerType === "mouse" && !pinned) {
+      timer = setTimeout(() => show(b.dataset.detail), 350);
+    }
+  });
+  b.addEventListener("pointerleave", () => clearTimeout(timer));
+});
+document.querySelector("#close").onclick = clear;
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") clear();
+});
+document.querySelector("#zoom").onclick = function () {
+  const z = document.body.classList.toggle("zoomed");
+  this.setAttribute("aria-pressed", z);
+  this.textContent = z ? "Fit figure" : "Enlarge figure";
+};
+
+// Five reader-controlled stages. All movement stays on the approved arrows.
+figure.querySelector("svg").insertAdjacentHTML(
+  "beforeend",
+  '<g class="motion-layer" aria-hidden="true"><rect id="review-glow" class="review-glow" x="487" y="341" width="306" height="101" rx="9" visibility="hidden"/><circle id="traveller" r="8" fill="#df780d" stroke="white" stroke-width="2" visibility="hidden"/></g>',
+);
+const stages = [
+  {
+    text:
+      "GitHub → LLM: the assistant reads the project instructions, plan and code.",
+    parts: ["code", "review", "llm"],
+    arrows: ['line[x1="812"][y1="490"]'],
+    segments: [[812, 490, 906, 490]],
+  },
+  {
+    text:
+      "LLM → GitHub: the assistant proposes changed code as a pull request.",
+    parts: ["llm", "code", "review"],
+    arrows: ['line[x1="906"][y1="530"]'],
+    segments: [[906, 530, 814, 530]],
+  },
+  {
+    text: "In GitHub: a person reviews, approves and merges the change.",
+    parts: ["review", "code"],
+    arrows: [],
+    segments: [],
+  },
+  {
+    text:
+      "GitHub → your computer: the reviewed code is brought into the local R session.",
+    parts: ["code", "r"],
+    arrows: ['line[x1="466"][y1="530"]'],
+    segments: [[466, 530, 374, 530]],
+  },
+  {
+    text:
+      "On your computer: you run the code. Data go into R; R produces results. The data stay local.",
+    parts: ["data", "r", "results", "run"],
+    arrows: ['path[d="M208 580 V553"]', 'path[d="M208 423 V354"]'],
+    segments: [[208, 580, 208, 553], [208, 423, 208, 354]],
+  },
+];
+let stage = -1, playing = false, elapsed = 0, lastTime = 0;
+const playButton = document.querySelector("#play"),
+  nextButton = document.querySelector("#next"),
+  traveller = document.querySelector("#traveller");
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function pauseProcess() {
+  playing = false;
+  playButton.textContent = stage === 4 && elapsed >= 5200
+    ? "Play again"
+    : stage < 0
+    ? "Play"
+    : "Resume";
+}
+function drawStage(n) {
+  stage = n;
+  elapsed = 0;
+  clear();
+  figure.classList.add("focused");
+  document.querySelectorAll("[data-route]").forEach((b) =>
+    b.setAttribute("aria-pressed", b.dataset.route === "revise")
+  );
+  figure.querySelectorAll("[data-part]").forEach((e) =>
+    e.classList.toggle("active", stages[n].parts.includes(e.dataset.part))
+  );
+  figure.querySelectorAll(".process-active").forEach((e) =>
+    e.classList.remove("process-active")
+  );
+  stages[n].arrows.forEach((sel) =>
+    figure.querySelector(sel).classList.add("process-active")
+  );
+  document.querySelector("#review-glow").setAttribute(
+    "visibility",
+    n === 2 ? "visible" : "hidden",
+  );
+  document.querySelector("#step-caption").textContent = `${n + 1} of 5 — ${
+    stages[n].text
+  }`;
+  document.querySelector("#progress").value = n + 1;
+  nextButton.disabled = n === 4;
+  document.querySelector("#route").textContent =
+    "Follow the highlighted arrow. You can pause to explore any box.";
+  positionTraveller(0);
+}
+function positionTraveller(t) {
+  const seg = stage >= 0 ? stages[stage].segments : [];
+  traveller.setAttribute(
+    "visibility",
+    seg.length && !reduceMotion ? "visible" : "hidden",
+  );
+  if (!seg.length) return;
+  const position = (t / 2400) % 1 * seg.length,
+    idx = Math.floor(position),
+    f = position - idx,
+    a = seg[idx];
+  traveller.setAttribute("cx", a[0] + (a[2] - a[0]) * f);
+  traveller.setAttribute("cy", a[1] + (a[3] - a[1]) * f);
+}
+let frameId = 0;
+function startClock() {
+  cancelAnimationFrame(frameId);
+  lastTime = 0;
+  frameId = requestAnimationFrame(tick);
+}
+function tick(t) {
+  if (!playing) return;
+  if (playing) {
+    elapsed += lastTime ? t - lastTime : 0;
+    if (elapsed >= 5200) {
+      if (stage < 4) drawStage(stage + 1);
+      else pauseProcess();
+    }
+    positionTraveller(elapsed);
+  }
+  lastTime = t;
+  if (playing) frameId = requestAnimationFrame(tick);
+}
+playButton.onclick = () => {
+  if (playing) {
+    pauseProcess();
+    return;
+  }
+  if (stage < 0 || (stage === 4 && elapsed >= 5200)) drawStage(0);
+  playing = true;
+  startClock();
+  playButton.textContent = "Pause";
+};
+nextButton.onclick = () => {
+  pauseProcess();
+  drawStage(Math.min(stage + 1, 4));
+  playButton.textContent = "Resume";
+};
+document.querySelector("#replay").onclick = () => {
+  drawStage(0);
+  playing = true;
+  startClock();
+  playButton.textContent = "Pause";
+};
+document.querySelectorAll("[data-route]").forEach((b) =>
+  b.addEventListener("click", () => {
+    pauseProcess();
+    stage = -1;
+    elapsed = 0;
+    figure.querySelectorAll(".process-active").forEach((e) =>
+      e.classList.remove("process-active")
+    );
+    traveller.setAttribute("visibility", "hidden");
+    document.querySelector("#review-glow").setAttribute("visibility", "hidden");
+    document.querySelector("#step-caption").textContent =
+      "Ready — five steps, from reading the project to running the revised code.";
+    document.querySelector("#progress").value = 0;
+    nextButton.disabled = false;
+    playButton.textContent = "Play";
+  })
+);
+document.querySelectorAll(".hotspot").forEach((b) =>
+  b.addEventListener("click", pauseProcess)
+);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) pauseProcess();
+});
+
+</script></html>
