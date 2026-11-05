@@ -1,0 +1,242 @@
+"""Build the workflow figure for the Quarto site.
+
+Run from any directory: python3 site/scripts/draw_workflow.py
+Quarto invokes this script before rendering. SVG needs only Python 3.
+Optional PNG: python3 site/scripts/draw_workflow.py --png
+PNG export requires cairosvg (python3 -m pip install cairosvg).
+Logos and icons are embedded; building requires no network access.
+"""
+import argparse
+from pathlib import Path
+
+SVG = r'''
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 905" width="1280" height="905" role="img" aria-labelledby="t d" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title id="t">Structure your R analysis for LLM coding</title>
+  <desc id="d">The browser or chat app and R are on the same computer. Separate boxes show data flowing into R and R producing results. An interrupted red arrow between the data and chat app shows that the assistant cannot access the data. Prompts and replies travel to the cloud LLM. GitHub is also a cloud service. Three places. On your computer, a person runs the R code on the data, and the data stay there. GitHub holds the analysis plan, decision issues, R code, pull requests and history, and people review, decide and merge there. The AI assistant with the plugin reads the plan, issues and code from GitHub and proposes code as a pull request, which a person approves. Cleared results also go from the computer to GitHub. Code moves between the computer and GitHub, and between GitHub and the assistant; data never leave the computer. The project website is built from the code on GitHub.</desc>
+  <defs>
+    <!-- R logo: https://www.r-project.org/logo/Rlogo.svg -->
+<symbol id="r-logo" viewBox="0 0 724 561">
+  <defs>
+    <linearGradient id="gradientFill-1" x1="0" x2="1" y1="0" y2="1" gradientUnits="objectBoundingBox" spreadMethod="pad">
+      <stop offset="0" stop-color="rgb(203,206,208)" stop-opacity="1"/>
+      <stop offset="1" stop-color="rgb(132,131,139)" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="gradientFill-2" x1="0" x2="1" y1="0" y2="1" gradientUnits="objectBoundingBox" spreadMethod="pad">
+      <stop offset="0" stop-color="rgb(39,109,195)" stop-opacity="1"/>
+      <stop offset="1" stop-color="rgb(22,92,170)" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <path d="M361.453,485.937 C162.329,485.937 0.906,377.828 0.906,244.469 C0.906,111.109 162.329,3.000 361.453,3.000 C560.578,3.000 722.000,111.109 722.000,244.469 C722.000,377.828 560.578,485.937 361.453,485.937 ZM416.641,97.406 C265.289,97.406 142.594,171.314 142.594,262.484 C142.594,353.654 265.289,427.562 416.641,427.562 C567.992,427.562 679.687,377.033 679.687,262.484 C679.687,147.971 567.992,97.406 416.641,97.406 Z" fill="url(#gradientFill-1)" fill-rule="evenodd"/>
+  <path d="M550.000,377.000 C550.000,377.000 571.822,383.585 584.500,390.000 C588.899,392.226 596.510,396.668 602.000,402.500 C607.378,408.212 610.000,414.000 610.000,414.000 L696.000,559.000 L557.000,559.062 L492.000,437.000 C492.000,437.000 478.690,414.131 470.500,407.500 C463.668,401.969 460.755,400.000 454.000,400.000 C449.298,400.000 420.974,400.000 420.974,400.000 L421.000,558.974 L298.000,559.026 L298.000,152.938 L545.000,152.938 C545.000,152.938 657.500,154.967 657.500,262.000 C657.500,369.033 550.000,377.000 550.000,377.000 ZM496.500,241.024 L422.037,240.976 L422.000,310.026 L496.500,310.002 C496.500,310.002 531.000,309.895 531.000,274.877 C531.000,239.155 496.500,241.024 496.500,241.024 Z" fill="url(#gradientFill-2)" fill-rule="evenodd"/>
+</symbol>
+
+<symbol id="github-logo" viewBox="0 0 24 24"><path d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"/></symbol>
+
+    <!-- GitHub Octicons, primer/octicons.
+MIT License
+
+Copyright (c) 2026 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+    -->
+    <symbol id="git-pull-request" viewBox="0 0 16 16"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></symbol>
+    <symbol id="git-merge" viewBox="0 0 16 16"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></symbol>
+
+    <marker id="chat-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#a3245f"/></marker>
+    <symbol id="code-object" viewBox="0 0 260 66">
+      <rect x="1" y="1" width="258" height="64" rx="6" fill="#f5f8fc" stroke="#9fb9d4"/>
+      <g font-family="DejaVu Sans Mono, monospace" font-size="12">
+        <text x="12" y="20" fill="#657587"># Summarize the data</text>
+        <text x="12" y="39" fill="#225ea8">results &lt;- data |&gt;</text>
+        <text x="12" y="57" fill="#713d85">  count(group)</text>
+      </g>
+    </symbol>
+    <symbol id="data-object" viewBox="0 0 260 59">
+      <rect x="1" y="1" width="258" height="57" rx="4" fill="white" stroke="#aeb8c2"/>
+      <path d="M2 2 H258 V20 H2 Z" fill="#e5ebf1"/>
+      <path d="M1 20 H259 M1 39 H259 M65 1 V58 M158 1 V58" stroke="#b8c2cc" fill="none"/>
+      <g font-size="11" font-family="DejaVu Sans Mono, monospace" fill="#344454">
+        <text x="10" y="15">ID</text><text x="76" y="15">group</text><text x="170" y="15">value</text>
+        <text x="10" y="34">001</text><text x="76" y="34">A</text><text x="170" y="34">12</text>
+        <text x="10" y="53">002</text><text x="76" y="53">B</text><text x="170" y="53">18</text>
+      </g>
+    </symbol>
+    <symbol id="results-object" viewBox="0 0 260 62">
+      <rect x="1" y="1" width="258" height="60" rx="5" fill="#f4faf6" stroke="#91bea3"/>
+      <path d="M15 10 V48 H119" fill="none" stroke="#768579"/>
+      <rect x="34" y="26" width="23" height="22" fill="#4c86b5"/>
+      <rect x="77" y="14" width="23" height="34" fill="#438d6b"/>
+      <text x="41" y="58" font-size="9" fill="#344454">A</text><text x="84" y="58" font-size="9" fill="#344454">B</text>
+      <path d="M140 21 H247 M140 39 H247 M199 7 V55" stroke="#aec4b6"/>
+      <g font-size="10" fill="#344454"><text x="146" y="16">Group</text><text x="212" y="16">n</text><text x="146" y="34">A</text><text x="210" y="34">24</text><text x="146" y="52">B</text><text x="210" y="52">36</text></g>
+    </symbol>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#495057"/>
+    </marker>
+    <marker id="green-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#198754"/></marker>
+  </defs>
+  <rect width="1280" height="905" fill="#ffffff"/>
+
+  <!-- Title and subtitle -->
+  <text x="640" y="58" text-anchor="middle" font-size="34" font-weight="700" fill="#212529">Structure your R analysis for LLM coding</text>
+  <text x="640" y="98" text-anchor="middle" font-size="19" fill="#495057">The plugin gives the work a structure. The GitHub repository holds that structure.</text>
+  <text x="640" y="125" text-anchor="middle" font-size="19" fill="#495057">An AI assistant, working from it, can write the code, and people decide and approve.</text>
+
+  <!-- Remote services, separate from the local computer. -->
+  <rect x="451" y="158" width="818" height="443" rx="20" fill="#f5f7fa" stroke="#a9b5c2" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="640" y="152" text-anchor="middle" font-size="16" font-weight="700" fill="#526477">CLOUD SERVICES</text>
+  <!-- Computer contains separate R, results, data and chat panels. -->
+  <rect x="30" y="170" width="340" height="695" rx="14" fill="#eef4fb" stroke="#293e54" stroke-width="7"/>
+  <circle cx="200" cy="179" r="3" fill="#8fa1b4"/>
+  <path d="M180 868 L174 890 L226 890 L220 868" fill="#293e54"/>
+  <rect x="145" y="889" width="110" height="9" rx="4" fill="#293e54"/>
+  <text x="200" y="213" text-anchor="middle" font-size="22" font-weight="700" fill="#1a5fa8">Your computer</text>
+
+  <rect x="65" y="234" width="286" height="116" rx="9" fill="white" stroke="#91bea3" stroke-width="1.5"/>
+  <text x="79" y="259" font-size="16" font-weight="700" fill="#146c43">Results</text>
+  <use href="#results-object" x="77" y="277" width="262" height="62"/>
+
+  <path d="M208 423 V354" fill="none" stroke="#495057" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="222" y="394" font-size="12" fill="#495057">produces</text>
+  <rect x="65" y="425" width="286" height="124" rx="9" fill="white" stroke="#a5bfda" stroke-width="1.5"/>
+  <use href="#r-logo" x="79" y="433" width="29" height="23"/>
+  <text x="114" y="448" font-size="18" font-weight="700" fill="#2166ad">session</text>
+  <text x="79" y="470" font-size="13" fill="#212529">Run and edit the code</text>
+  <use href="#code-object" x="77" y="477" width="262" height="66"/>
+
+
+  <rect x="65" y="582" width="286" height="90" rx="9" fill="white" stroke="#aeb8c2" stroke-width="1.5"/>
+  <text x="79" y="604" font-size="13" font-weight="700" fill="#212529">Data — stay on your computer</text>
+  <use href="#data-object" x="78" y="614" width="260" height="51"/>
+  <path d="M208 580 V553" fill="none" stroke="#495057" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- Interrupted red arrow: data cannot pass to the assistant. -->
+  <path d="M208 674 V689 M208 714 V727" fill="none" stroke="#c43636" stroke-width="2.5"/>
+  <path d="M202 722 L208 728 L214 722" fill="none" stroke="#c43636" stroke-width="2.5"/>
+  <path d="M201 695 L215 709 M215 695 L201 709" fill="none" stroke="#c43636" stroke-width="3"/>
+
+  <rect x="49" y="732" width="302" height="117" rx="9" fill="white" stroke="#d9a4c0" stroke-width="1.5"/>
+  <path d="M50 754 H350" stroke="#d9a4c0"/>
+  <circle cx="61" cy="744" r="3" fill="#d9a4c0"/><circle cx="72" cy="744" r="3" fill="#d9a4c0"/>
+  <text x="89" y="748" font-size="12" fill="#86546f">Browser or chat app</text>
+  <text x="65" y="780" font-size="15" font-weight="700" fill="#a3245f">You talk to the assistant here</text>
+  <rect x="65" y="792" width="239" height="23" rx="6" fill="#fdf0f6"/>
+  <text x="75" y="808" font-size="12" fill="#495057">“Help me revise this R code.”</text>
+  <text x="65" y="835" font-size="13" fill="#495057">The LLM runs in the cloud</text>
+
+  <!-- ===== GitHub ===== -->
+  <rect x="470" y="170" width="340" height="418" rx="14" fill="#f8f9fa" stroke="#212529" stroke-width="2.5"/>
+  <use href="#github-logo" x="581" y="188" width="24" height="24" fill="#212529"/>
+  <text x="613" y="208" font-size="22" font-weight="700" fill="#212529">GitHub</text>
+  <text x="494" y="259" font-size="15" font-weight="700" fill="#146c43">Results cleared for release</text>
+  <use href="#results-object" x="509" y="277" width="262" height="62"/>
+  <text x="494" y="359" font-size="16" fill="#212529"><tspan font-weight="700">Analysis plan:</tspan> what it must do</text>
+  <text x="494" y="383" font-size="16" fill="#212529"><tspan font-weight="700">Decision issues:</tspan> open questions</text>
+  <text x="494" y="407" font-size="14" fill="#212529">Pull requests and history</text>
+  <use href="#git-merge" x="494" y="417" width="18" height="18" fill="#8250df"/>
+  <text x="520" y="431" font-size="14" fill="#212529">A person reviews, approves and merges</text>
+  <text x="494" y="458" font-size="15" font-weight="700" fill="#212529">R code: the shared copy</text>
+  <use href="#code-object" x="509" y="477" width="262" height="66"/>
+  <text x="494" y="558" font-size="12" font-style="italic" fill="#495057">The next person starts from this record,</text>
+  <text x="494" y="574" font-size="12" font-style="italic" fill="#495057">not from a laptop or a chat</text>
+
+  <!-- ===== AI assistant ===== -->
+  <rect x="910" y="170" width="340" height="418" rx="14" fill="#fdf0f6" stroke="#d63384" stroke-width="2"/>
+  <text x="1080" y="208" text-anchor="middle" font-size="22" font-weight="700" fill="#a3245f">Cloud LLM + plugin</text>
+  <!-- simple assistant mark: chat bubble -->
+  <path d="M940,232 h40 a8,8 0 0 1 8,8 v20 a8,8 0 0 1 -8,8 h-24 l-10,10 v-10 h-6 a8,8 0 0 1 -8,-8 v-20 a8,8 0 0 1 8,-8 z" fill="#d63384"/>
+  <circle cx="950" cy="250" r="3" fill="#ffffff"/><circle cx="960" cy="250" r="3" fill="#ffffff"/><circle cx="970" cy="250" r="3" fill="#ffffff"/>
+  <text x="1000" y="246" font-size="16" fill="#212529">The plugin tells it</text>
+  <text x="1000" y="266" font-size="16" fill="#212529">how this kind of</text>
+  <text x="1000" y="286" font-size="16" fill="#212529">project works</text>
+  <text x="936" y="321" font-size="16" fill="#212529">Reads the plan, questions and code</text>
+  <use href="#code-object" x="949" y="477" width="262" height="66"/>
+  <text x="936" y="360" font-size="16" fill="#212529">Writes code on a branch;</text>
+  <text x="936" y="382" font-size="16" fill="#212529">proposes it as a pull request</text>
+  <text x="1080" y="420" text-anchor="middle" font-size="16" font-style="italic" fill="#a3245f">Drafts and implements;</text>
+  <text x="1080" y="442" text-anchor="middle" font-size="16" font-style="italic" fill="#a3245f">never decides, never sees the data</text>
+
+  <!-- ===== Code between computer and GitHub ===== -->
+  <line x1="372" y1="490" x2="466" y2="490" stroke="#495057" stroke-width="2.5" marker-end="url(#ah)"/>
+  <line x1="466" y1="530" x2="374" y2="530" stroke="#495057" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="420" y="472" text-anchor="middle" font-size="12" fill="#495057">code changes</text>
+  <text x="420" y="554" text-anchor="middle" font-size="12" fill="#495057">reviewed code</text>
+
+  <!-- Cleared results travel separately from code changes. -->
+  <line x1="374" y1="310" x2="466" y2="310" stroke="#198754" stroke-width="2.5" marker-end="url(#green-arrow)"/>
+  <text x="420" y="271" text-anchor="middle" font-size="12" fill="#146c43">results</text>
+  <text x="420" y="287" text-anchor="middle" font-size="12" fill="#146c43">cleared for</text>
+  <text x="420" y="303" text-anchor="middle" font-size="12" fill="#146c43">release</text>
+
+  <!-- ===== Code between GitHub and the assistant ===== -->
+  <line x1="812" y1="490" x2="906" y2="490" stroke="#495057" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="860" y="472" text-anchor="middle" font-size="12" fill="#495057">project files</text>
+  <line x1="906" y1="530" x2="814" y2="530" stroke="#495057" stroke-width="2.5" marker-end="url(#ah)"/>
+  <use href="#git-pull-request" x="816" y="542" width="14" height="14" fill="#1a7f37"/>
+  <text x="835" y="554" font-size="12" fill="#495057">pull request</text>
+
+  <!-- ===== Website ===== -->
+  <line x1="640" y1="590" x2="640" y2="636" stroke="#495057" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="654" y="618" font-size="12" fill="#495057">built from the code</text>
+  <text x="860" y="625" text-anchor="middle" font-size="22" font-weight="700" fill="#146c43">Project website</text>
+  <!-- Browser frame, address bar, sidebar and explanatory page. -->
+  <rect x="470" y="640" width="780" height="222" rx="10" fill="white" stroke="#198754" stroke-width="2"/>
+  <path d="M480 641 H1240 Q1249 641 1249 651 V672 H471 V651 Q471 641 480 641" fill="#e8eef0"/>
+  <circle cx="486" cy="656" r="3" fill="#9aabb3"/><circle cx="498" cy="656" r="3" fill="#9aabb3"/><circle cx="510" cy="656" r="3" fill="#9aabb3"/>
+  <rect x="538" y="646" width="570" height="20" rx="5" fill="white" stroke="#ccd7dc"/>
+  <text x="552" y="660" font-size="11" fill="#64757c">https://your-team.github.io/analysis/</text>
+  <path d="M471 673 H624 V861 H480 Q471 861 471 851 Z" fill="#f1f5f6"/>
+  <line x1="624" y1="673" x2="624" y2="861" stroke="#d5dfe1"/>
+  <text x="486" y="696" font-size="14" font-weight="700" fill="#294b50">Analysis project</text>
+  <text x="486" y="726" font-size="13" fill="#495057">Background</text>
+  <text x="486" y="752" font-size="13" fill="#495057">Methods</text>
+  <text x="486" y="778" font-size="13" fill="#495057">Code</text>
+  <rect x="478" y="789" width="137" height="25" rx="4" fill="#dcefe4"/>
+  <text x="486" y="806" font-size="13" font-weight="700" fill="#146c43">Results</text>
+  <text x="644" y="699" font-size="19" font-weight="700" fill="#212529">Results by group</text>
+  <text x="644" y="722" font-size="13" fill="#495057">We count the observations in each group. The code and cleared results are shown below.</text>
+  <text x="644" y="745" font-size="12" font-weight="700" fill="#1a5fa8">R code</text>
+  <text x="949" y="745" font-size="12" font-weight="700" fill="#146c43">Results</text>
+  <use href="#code-object" x="644" y="753" width="275" height="72"/>
+  <use href="#results-object" x="949" y="753" width="275" height="72"/>
+  <text x="644" y="846" font-size="11" fill="#66777b">View the analysis plan  ·  View the script on GitHub</text>
+  <text x="860" y="887" text-anchor="middle" font-size="12" fill="#68747d">Code, data rows and results shown here are illustrative.</text>
+</svg>
+
+'''
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--png", action="store_true", help="also export PNG using CairoSVG")
+    args = parser.parse_args()
+    directory = Path(__file__).resolve().parents[1] / "images"
+    directory.mkdir(exist_ok=True)
+    target = directory / "workflow-cloud.svg"
+    target.write_text(SVG, encoding="utf-8")
+    print(f"Wrote {target}")
+    if args.png:
+        import cairosvg
+        cairosvg.svg2png(bytestring=SVG.encode("utf-8"),
+                        write_to=str(directory / "workflow-cloud.png"), scale=2)
+
+
+if __name__ == "__main__":
+    main()

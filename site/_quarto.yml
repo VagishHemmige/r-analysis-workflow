@@ -7,6 +7,8 @@
 project:
   type: website
   output-dir: _site
+  pre-render:
+    - python3 scripts/draw_workflow.py
 
 website:
   title: "R Analysis Workflow"
