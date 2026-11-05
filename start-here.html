@@ -581,11 +581,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><em>Written for version 0.1.14.</em></p>
+<div class="workflow-online">
+<p><a href="images/workflow-interactive.html">Open the interactive figure full screen</a> · <a href="images/workflow-cloud.svg">View the static figure</a></p>
+<iframe id="workflow-player" src="images/workflow-interactive.html" title="Explore the R analysis workflow" style="width:100%;height:900px;border:0"></iframe>
+<script>
+const player = document.getElementById("workflow-player");
+function fitWorkflow() {
+  const content = player.contentDocument?.querySelector("main");
+  if (!content) return;
+  const resize = () => { player.style.height = Math.ceil(content.getBoundingClientRect().height) + "px"; };
+  new ResizeObserver(resize).observe(content);
+  resize();
+}
+player.addEventListener("load", fitWorkflow);
+</script>
+</div>
+<div class="workflow-print">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="images/workflow-cloud.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Code moves between your computer, GitHub and the assistant; a person approves every change. By default, data stay on your computer."><img src="images/workflow-cloud.svg" class="img-fluid figure-img" alt="On your computer, data feed into R, which produces results. A blocked red arrow shows that the chat app cannot access restricted data; the LLM runs in the cloud. Code panels align across the computer, GitHub and cloud assistant, with arrows for code changes, reviewed code, project files and pull requests. Cleared results go to GitHub. A person reviews, approves and merges there. GitHub also holds the analysis plan, decision issues and history. The project website displays explanations, code and cleared results."></a></p>
 <figcaption>Code moves between your computer, GitHub and the assistant; a person approves every change. By default, data stay on your computer.</figcaption>
 </figure>
+</div>
 </div>
 <p>Find the line that fits you. Each says what to have ready and the first thing to type to the assistant once the plugin is <a href="./install.html">installed</a>. You don’t need to name a skill or know the Git words: the assistant explains them as they come up.</p>
 <p>New to GitHub? The <a href="https://docs.github.com/en/get-started/learning-about-github/github-glossary">GitHub glossary</a> explains repository, branch, commit, pull request and issue; <a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a> shows how to use them from RStudio. The plugin’s own terms (analysis plan, decision issue, decider, AGENTS.md) are explained on <a href="./index.html#what-a-project-built-with-it-has">Home</a>.</p>
