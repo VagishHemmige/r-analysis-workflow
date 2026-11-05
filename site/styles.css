@@ -36,3 +36,21 @@
 .sidebar-navigation .bi-people { color: var(--cue-guides); }
 .sidebar-navigation .bi-file-earmark-ruled { color: var(--cue-reference); }
 .sidebar-navigation .bi-clipboard-data { color: var(--cue-evidence); }
+
+/* As on the analysis sites: section headings read as group labels rather
+   than pages; a thin rule between sections and before a page that follows
+   one; sections inside another section a little lighter and smaller, so the
+   levels show without relying on indentation. */
+.sidebar-navigation .sidebar-item-section > .sidebar-item-container .menu-text {
+  font-weight: 600;
+}
+.sidebar-navigation .sidebar-item-section + .sidebar-item-section,
+.sidebar-navigation .sidebar-item-section + .sidebar-item {
+  border-top: 1px solid rgba(0, 0, 0, .08);
+  margin-top: .35rem;
+  padding-top: .35rem;
+}
+.sidebar-navigation .sidebar-section .sidebar-item-section > .sidebar-item-container .menu-text {
+  font-weight: 500;
+  font-size: .95em;
+}
