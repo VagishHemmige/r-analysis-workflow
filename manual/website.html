@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,7 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../manual/references-readme.html" rel="next">
+<link href="../manual/website-config.html" rel="next">
 <link href="../manual/code.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -107,6 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -118,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/website.html">The website</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/website.html">The website</a></li><li class="breadcrumb-item"><a href="../manual/website.html">Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,23 +109,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text">Introduction</span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../start-here.html" class="sidebar-item-text sidebar-link">
+  <a href="../start-here.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
  <span class="menu-text">Start here</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../install.html" class="sidebar-item-text sidebar-link">
+  <a href="../install.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
  <span class="menu-text">Install</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sites.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Sites built with it</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+ <span class="menu-text">Guides</span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -171,31 +154,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/start.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/start.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Start a project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/explain.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/explain.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Explain the code</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/report.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/report.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Report results</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/review.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/review.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Review</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/join-leave.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/join-leave.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Join or leave a project</span></a>
   </div>
 </li>
@@ -212,31 +200,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/getting-started.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/getting-started.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/plan.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/plan.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">The plan</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/code-and-website.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/code-and-website.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Code and website</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/results.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Results</span></a>
   </div>
 </li>
@@ -253,87 +246,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../people/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/joining.html" class="sidebar-item-text sidebar-link">
+  <a href="../people/joining.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
  <span class="menu-text">Joining</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Contributing in your role</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/roles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contributing in your role</span></a>
+  <a href="../people/roles.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/leaving.html" class="sidebar-item-text sidebar-link">
+  <a href="../people/roles-lead.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Project lead</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-pi.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">PI or maintainer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-decider.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Decider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-clinician.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Clinician adviser</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-statistician.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Statistician</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/leaving.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
  <span class="menu-text">Leaving</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Manual</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">What setup creates</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/plan-and-decisions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The plan and its decisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/rules.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Rules for working</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The code</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/website.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">The website</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/references-readme.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References and README</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">On GitHub, not in files</span></a>
-  </div>
-</li>
-      </ul>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+ <span class="menu-text">Reference</span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Testing</span></a>
+ <span class="menu-text">Manual</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -341,25 +335,196 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../manual/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">What setup creates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/plan-and-decisions.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The plan and its decisions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Rules for working</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules-agents.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">AGENTS.md</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules-gitignore.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">.gitignore</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules-blueprint-instructions.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Blueprint and personal instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/code.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">The website</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website.html" class="sidebar-item-text sidebar-link active"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-config.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">_quarto.yml and the home pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-pages.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The pages in quarto/</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-styles.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Styles, 404 and extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-publishing.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Publishing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/references-readme.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">References and README</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">On GitHub, not in files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github-protection-pages.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Protecting main and Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github-issues-prs.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Issues, pull requests and milestones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github-setup-note.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The setup note and check-ins</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+ <span class="menu-text">Evidence</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Testing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../testing/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">How it’s tested</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/blind-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../testing/blind-review.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">Blind review (Test A)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/user-simulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../testing/user-simulation.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">User simulation (Test B)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/runs.html" class="sidebar-item-text sidebar-link">
+  <a href="../testing/runs.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">Runs</span></a>
   </div>
 </li>
@@ -367,14 +532,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../problems.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">Problems it solves</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../sites.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sites built with it</span></a>
   </div>
 </li>
     </ul>
@@ -382,32 +542,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link active" data-scroll-target="#quarto.yml"><code>_quarto.yml</code></a></li>
-  <li><a href="#index.qmd-and-quartoabout.qmd" id="toc-index.qmd-and-quartoabout.qmd" class="nav-link" data-scroll-target="#index.qmd-and-quartoabout.qmd"><code>index.qmd</code> and <code>quarto/about.qmd</code></a></li>
-  <li><a href="#the-pages-in-quarto" id="toc-the-pages-in-quarto" class="nav-link" data-scroll-target="#the-pages-in-quarto">The pages in <code>quarto/</code></a></li>
-  <li><a href="#styles.css-and-quarto_pending.lua" id="toc-styles.css-and-quarto_pending.lua" class="nav-link" data-scroll-target="#styles.css-and-quarto_pending.lua"><code>styles.css</code> and <code>quarto/_pending.lua</code></a></li>
-  <li><a href="#qmd" id="toc-qmd" class="nav-link" data-scroll-target="#qmd"><code>404.qmd</code></a></li>
-  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><code>_extensions/</code></a></li>
-  <li><a href="#docs-or-the-publish-workflow" id="toc-docs-or-the-publish-workflow" class="nav-link" data-scroll-target="#docs-or-the-publish-workflow"><code>docs/</code> or the publish workflow</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/website.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/website.html">The website</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/website.html">The website</a></li><li class="breadcrumb-item"><a href="../manual/website.html">Overview</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">The website</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -420,173 +568,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><em>Written for version 0.1.14. Source: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/quarto.md">Quarto guidance</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/_quarto.yml">the starter site</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/document-analysis/SKILL.md">the document-analysis skill</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md">the AGENTS.md template</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/github-workflow.md">GitHub workflow</a>.</em></p>
-<p>Every project publishes a website, built with Quarto (a tool that turns text and code files into web pages), that explains the analysis code to a clinician reader. The website shows the code and explains it; <strong>it never runs the analysis</strong>, so it is built without the analysis data. This page goes through the files that make up the site, in the order you meet them in a repository. The plugin gives a new project a starter copy of each one.</p>
-<section id="quarto.yml" class="level2">
-<h2 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h2>
-<p><strong>What it is.</strong> The settings file for the whole site: its title, its look, its sidebar and which pages it builds.</p>
-<p><strong>Where it lives.</strong> At the top of the repository, next to <code>index.qmd</code>, <code>404.qmd</code> and <code>styles.css</code>. The explanatory pages sit in the <code>quarto/</code> folder.</p>
-<p><strong>What’s in it.</strong></p>
+<p>Every project publishes a website, built with Quarto (a tool that turns text and code files into web pages), that explains the analysis code to a clinician reader. The website shows the code and explains it; <strong>it never runs the analysis</strong>, so it is built without the analysis data. These pages go through the files that make up the site, in the order you meet them in a repository. The plugin gives a new project a starter copy of each one.</p>
 <ul>
-<li><p><strong>Site settings.</strong> The site’s address, the repository’s address and its default branch (the repository’s actual main branch, whatever it is called) are filled in before the site is first built. A <code>render:</code> list names the pages to build (<code>index.qmd</code>, <code>404.qmd</code> and everything in <code>quarto/</code>), so the Markdown documents at the top of the repository don’t also turn into stray pages.</p></li>
-<li><p><strong>The look.</strong> The <code>cosmo</code> theme with <code>styles.css</code>, a table of contents on each page, and code folded away behind a “Click to show/hide R Code” button.</p></li>
-<li><p><strong>The sidebar.</strong> Docked on the left, with search, and every section starts open. Each entry points to a page’s source file and only to pages that exist. Each entry also carries an icon for its kind of page (see the table below).</p></li>
-<li><p><strong>Callouts.</strong> A callout is a coloured box on a page. Three are defined here: a pink <code>Rcode</code> box (💻), a green <code>Results</code> box (📊) and a yellow <code>Pending</code> box (⏳).</p></li>
-<li><p><strong>Filters.</strong> Small programs that adjust each page as it is built. The starter runs <code>quarto/_pending.lua</code> first, then <code>custom-callout</code>. A third, for reader comments, is present but switched off.</p></li>
-<li><p><strong>The rule that nothing runs.</strong> One setting stops every chunk of code on the site from running:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Only a few chunks may switch this back on: the hidden import that reads a script’s code, the Architecture page’s chunk that reads <code>ARCHITECTURE.md</code> as text, site helpers that read code or text and never data, and Results pages that read outputs already cleared for release. The project’s <code>AGENTS.md</code> lists any others it allows.</p></li>
+<li><a href="../manual/website-config.html">_quarto.yml and the home pages</a></li>
+<li><a href="../manual/website-pages.html">The pages in quarto/</a></li>
+<li><a href="../manual/website-styles.html">Styles, 404 and extensions</a></li>
+<li><a href="../manual/website-publishing.html">Publishing</a></li>
 </ul>
-<p><strong>Who edits it.</strong> Whoever adds or moves a page, through a pull request. A new script’s sidebar entry goes in the same pull request as the script.</p>
-<p><strong>What the assistant does with it.</strong> It fills in the starter’s placeholders, adds a sidebar entry with the right icon for each new page, and numbers code pages in the order <code>R/main.R</code> runs them. On a site built before these conventions, it lists how the site differs and changes nothing until the maintainer agrees.</p>
-</section>
-<section id="index.qmd-and-quartoabout.qmd" class="level2">
-<h2 class="anchored" data-anchor-id="index.qmd-and-quartoabout.qmd"><code>index.qmd</code> and <code>quarto/about.qmd</code></h2>
-<p><strong>What they are.</strong> The Home page and the About page, the two pages a new reader is most likely to open first.</p>
-<p><strong>What’s in them.</strong></p>
-<ul>
-<li><strong>Home</strong> (<code>index.qmd</code>, sidebar icon <code>house</code>): a brief clinical background, what the analysis does, a short methods summary that points to Study design and methods and to the analysis plan, and the project’s status (preliminary, under review or final), with links to the open decision issues.</li>
-<li><strong>About</strong> (<code>quarto/about.qmd</code>, sidebar icon <code>info-circle</code>): the study and who makes its scientific decisions; how the repository is organised and where the data live; how the site was made, including any AI assistants and the limits they work under; the four project documents, each in one line; and a one-line description of every page in the sidebar.</li>
-</ul>
-<p>About is the only page that ends with a list of the other pages. Elsewhere the sidebar already does that job.</p>
-<p><strong>Who edits them.</strong> The study team, through pull requests. When a script gets a page, its line on About is added in the same pull request.</p>
-</section>
-<section id="the-pages-in-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="the-pages-in-quarto">The pages in <code>quarto/</code></h2>
-<p>Each kind of page has one sidebar icon and one colour. A page that doesn’t fit takes the kind of its main content; for example, a page of historical code is R code. The kind is only a label: it doesn’t make anything publishable.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Kind</th>
-<th>Pages</th>
-<th>Icon</th>
-<th>Colour</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Background</td>
-<td>Clinical background, Methodological background</td>
-<td><code>book</code></td>
-<td>blue</td>
-</tr>
-<tr class="even">
-<td>Study design and methods</td>
-<td>Study design and methods</td>
-<td><code>diagram-3</code></td>
-<td>orange</td>
-</tr>
-<tr class="odd">
-<td>R code</td>
-<td>One page per script</td>
-<td><code>laptop</code></td>
-<td>pink</td>
-</tr>
-<tr class="even">
-<td>Results</td>
-<td>Only once outputs are cleared</td>
-<td><code>clipboard-data</code></td>
-<td>green</td>
-</tr>
-<tr class="odd">
-<td>Project documents</td>
-<td>Analysis plan, Architecture, AGENTS.md, Repository blueprint</td>
-<td><code>file-earmark-ruled</code></td>
-<td>grey</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Clinical background</strong> (<code>background.qmd</code>) gives the clinical or scientific reason for the question, with citations from <code>references.bib</code>.</p>
-<p><strong>Methodological background</strong> (<code>methodological_background.qmd</code>) explains, in general terms and without code, the knowledge the methods rest on: what the data sources are, how records become an outcome, how comparison groups are chosen, why the models fit. It holds nothing specific to this study: no study numbers, and no links to the plan or to issues.</p>
-<p><strong>Study design and methods</strong> (<code>study_methods.qmd</code>) explains in plain language what <em>this</em> study chose and why. Each section carries up to three kinds of note:</p>
-<ul>
-<li><strong>Specified in:</strong> the section of the analysis plan that defines the method, linked.</li>
-<li><strong>Current code:</strong> where the code doesn’t yet do what the plan says, what it does now, with a link to the GitHub issue tracking the gap.</li>
-<li><strong>Decision pending:</strong> a choice the plan hasn’t made yet, linked to its decision issue. These are highlighted in yellow.</li>
-</ul>
-<p>It starts as one page. When it grows, it is split into a section of pages chosen for the study, each opening with a line that points back to the key to the notes, and <code>study_methods.qmd</code> stays the first page so links to it keep working.</p>
-<p><strong>One page per script.</strong> Each script that <code>R/main.R</code> runs gets its own page, named after it: <code>R/create_cohort.R</code> gets <code>quarto/create_cohort.qmd</code>. The pages sit under Code, in three groups: Setup and helper functions, Data processing and analysis, and Tables and figures (once those scripts exist). A page has:</p>
-<ol type="1">
-<li>A one-sentence purpose.</li>
-<li>A pink <code>Rcode</code> box linking the script on GitHub and the helper scripts it depends on.</li>
-<li>A hidden chunk that reads the script’s code: <code>knitr::read_chunk("../R/&lt;script&gt;.R")</code>.</li>
-<li>One section per labelled step of the script. Each has prose, then an empty chunk that shows that step’s code without running it.</li>
-</ol>
-<p>The labels are comment lines in the script, such as <code>## ---- compute-summary</code>. Because the page pulls in the actual script, the code you read on the site is the code that runs; there is no second copy to drift. The prose explains purpose, inputs, the change made, the assumptions and plan sections behind it, and what the step hands on to later scripts. It changes in the same pull request as the code it describes. Exploratory scripts get no page; a script gets its page in the pull request that adds it to <code>R/main.R</code>.</p>
-<p><strong>Results</strong> pages exist only once outputs are cleared for release, either by the review <code>AGENTS.md</code> names or because setup decided they need none. A Results page reads the cleared files in <code>tables/</code> and <code>figures/</code>. It never reruns the analysis or touches restricted data.</p>
-<p><strong>The four project-document pages</strong> show <code>analysis-plan.md</code>, <code>ARCHITECTURE.md</code>, <code>AGENTS.md</code> and <code>REPOSITORY-BLUEPRINT.md</code>. Those files stay at the top of the repository and are the only copies anyone edits; each page in <code>quarto/</code> just displays its file when the site is built. The plan’s page uses GitHub-style section links, so the plan’s links to its own sections work both on GitHub and on the site. The Architecture page draws the diagrams in <code>ARCHITECTURE.md</code>, which would otherwise show as code, and shows a short note until that file exists. The other three files must exist before the site is first built, or the build stops.</p>
-<p><strong>What the assistant does with them.</strong> It writes and updates script pages, and adds a project-document page and sidebar entry when a new document at the top of the repository is to be shown on the site. For an existing site that lacks a Background or Study design page, it proposes an outline to the maintainer rather than adding a placeholder page, because that content belongs to the study team.</p>
-</section>
-<section id="styles.css-and-quarto_pending.lua" class="level2">
-<h2 class="anchored" data-anchor-id="styles.css-and-quarto_pending.lua"><code>styles.css</code> and <code>quarto/_pending.lua</code></h2>
-<p><strong>What they are.</strong> Two small files that add the site’s visual cues: the coloured sidebar icons, and the yellow marks on provisional text.</p>
-<p><strong>What’s in <code>styles.css</code>.</strong> The colour for each sidebar icon, tied to the icon itself rather than to a position in the sidebar, so pages can be added or moved without editing it. It also makes section headings bold, adds a thin rule between sections, makes the sections under Code a little lighter, and sets the yellow used for provisional text. A project that already has a <code>styles.css</code> keeps its own rules and adds these.</p>
-<p><strong>What <code>_pending.lua</code> does.</strong> It is the filter that adds the yellow marks while the site is built. It highlights:</p>
-<ul>
-<li>any paragraph that starts with <strong>Decision pending:</strong>;</li>
-<li>on the analysis plan’s page only, any paragraph that contains the plan’s <strong>Open:</strong> marker;</li>
-<li>any phrase written as <code>[text]{.pending}</code>, wherever it is, table cells included.</li>
-</ul>
-<p>A page with at least one mark also gets a yellow ⏳ box at the top, headed “Provisional”, that says highlighted text depends on a decision the plan has not yet made.</p>
-<p>The filter marks whole paragraphs only. A <strong>Decision pending:</strong> note inside a bullet or a table cell isn’t marked, so it is written as its own paragraph or wrapped as <code>[text]{.pending}</code>.</p>
-<p><strong>What it never does.</strong> Yellow means “an open decision could change this” and nothing else. A mark is removed when its decision is settled.</p>
-</section>
-<section id="qmd" class="level2">
-<h2 class="anchored" data-anchor-id="qmd"><code>404.qmd</code></h2>
-<p><strong>What it is.</strong> The page GitHub Pages shows when someone follows a link to an address that doesn’t exist. Quarto doesn’t make one on its own.</p>
-<p><strong>What’s in it.</strong> A short note that the page isn’t on the site, a link to the home page, and a pointer to the search box. It is built from the top of the repository, so its links work from any address once the site’s address is set in <code>_quarto.yml</code>. It has no sidebar entry.</p>
-</section>
-<section id="extensions" class="level2">
-<h2 class="anchored" data-anchor-id="extensions"><code>_extensions/</code></h2>
-<p><strong>What it is.</strong> The folder where Quarto keeps add-ons the site uses. It is committed with the repository.</p>
-<p><strong>What’s in it.</strong></p>
-<ul>
-<li><strong>custom-callout</strong> (required). The MIT-licensed <code>coatless-quarto/custom-callout</code> extension turns the three callouts defined in <code>_quarto.yml</code> into the coloured boxes. Its code isn’t bundled in the plugin. It is added with <code>quarto add coatless-quarto/custom-callout</code>, or copied from another repository that has it, and the assistant installs it only when authorised.</li>
-<li><strong>Reader comments</strong> (optional). The <a href="https://github.com/VagishHemmige/quarto-commenting-extension">issue-comments</a> extension lets a reader highlight text and leave a comment, which is filed as a GitHub issue in the repository. It needs a relay and a GitHub App set up once, then three things switched on together for each site: the extension in <code>_extensions/</code>, the filter line in <code>_quarto.yml</code>, and the <code>issue-comments:</code> settings block. With all three on, the yellow Pending box also tells readers how to comment. Whether to use it is the project’s choice.</li>
-</ul>
-</section>
-<section id="docs-or-the-publish-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="docs-or-the-publish-workflow"><code>docs/</code> or the publish workflow</h2>
-<p><strong>What it is.</strong> The built site is written to <code>docs/</code>. There are two ways to put it online, and each project chooses one. Its <code>AGENTS.md</code> records which, in the “Quarto website” section.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Route</th>
-<th><code>docs/</code> in the repository?</th>
-<th>Who builds the site</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong><code>docs/</code> committed</strong></td>
-<td>Yes, committed with each change</td>
-<td>The person making the change, before opening the pull request</td>
-</tr>
-<tr class="even">
-<td><strong>Published by a workflow</strong></td>
-<td>No; listed in <code>.gitignore</code></td>
-<td>A GitHub Actions workflow (an automated job on GitHub), on every push to the default branch</td>
-</tr>
-</tbody>
-</table>
-<p><strong>On the first route,</strong> the site is rebuilt on the same branch as the change it reflects, and the rebuilt <code>docs/</code> goes in the same pull request.</p>
-<p><strong>On the second route,</strong> the workflow file lives in <code>.github/workflows/</code>. The plugin doesn’t provide one yet. Each person still builds the site on their own computer before opening a pull request, to check it.</p>
-<p><strong>Turning it on.</strong> The site goes live only after someone with admin or maintainer permission turns on GitHub Pages in the repository’s <strong>Settings → Pages</strong>. Under “Build and deployment”, <strong>Source</strong> is set to <strong>Deploy from a branch</strong>; then the default branch and the <strong>/docs</strong> folder are chosen for the first route, or the <code>gh-pages</code> branch (which the workflow creates on its first run) and the <strong>/ (root)</strong> folder for the second. A maintainer who works in R can do the first route with <code>usethis::use_github_pages()</code>. On GitHub’s free plan, a private repository can’t use Pages.</p>
-<p><strong>What the assistant does.</strong> It never changes repository settings. It tells the person who can, and gives them these steps.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -989,15 +979,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
       <a href="../manual/code.html" class="pagination-link" aria-label="The code">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The code</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../manual/references-readme.html" class="pagination-link" aria-label="References and README">
-        <span class="nav-page-text">References and README</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../manual/website-config.html" class="pagination-link" aria-label="_quarto.yml and the home pages">
+        <span class="nav-page-text">_quarto.yml and the home pages</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1006,4 +996,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/website.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/website.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

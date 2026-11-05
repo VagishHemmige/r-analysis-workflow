@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../manual/code.html" rel="next">
+<link href="../manual/rules-agents.html" rel="next">
 <link href="../manual/plan-and-decisions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -72,6 +72,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -83,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Rules for working</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Rules for working</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,23 +109,40 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text">Introduction</span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../start-here.html" class="sidebar-item-text sidebar-link">
+  <a href="../start-here.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
  <span class="menu-text">Start here</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../install.html" class="sidebar-item-text sidebar-link">
+  <a href="../install.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
  <span class="menu-text">Install</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sites.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Sites built with it</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+ <span class="menu-text">Guides</span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -136,31 +154,36 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/start.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/start.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Start a project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/explain.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/explain.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Explain the code</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/report.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/report.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Report results</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/review.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/review.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Review</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../using/join-leave.html" class="sidebar-item-text sidebar-link">
+  <a href="../using/join-leave.html" class="sidebar-item-text sidebar-link"><i class="bi bi-list-check" role="img">
+</i> 
  <span class="menu-text">Join or leave a project</span></a>
   </div>
 </li>
@@ -177,31 +200,36 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/getting-started.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/getting-started.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/plan.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/plan.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">The plan</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/code-and-website.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/code-and-website.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Code and website</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stages/results.html" class="sidebar-item-text sidebar-link">
+  <a href="../stages/results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clock-history" role="img">
+</i> 
  <span class="menu-text">Results</span></a>
   </div>
 </li>
@@ -218,87 +246,88 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../people/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/joining.html" class="sidebar-item-text sidebar-link">
+  <a href="../people/joining.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
  <span class="menu-text">Joining</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Contributing in your role</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/roles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contributing in your role</span></a>
+  <a href="../people/roles.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../people/leaving.html" class="sidebar-item-text sidebar-link">
+  <a href="../people/roles-lead.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Project lead</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-pi.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">PI or maintainer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-decider.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Decider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-clinician.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Clinician adviser</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/roles-statistician.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
+ <span class="menu-text">Statistician</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../people/leaving.html" class="sidebar-item-text sidebar-link"><i class="bi bi-people" role="img">
+</i> 
  <span class="menu-text">Leaving</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Manual</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">What setup creates</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/plan-and-decisions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The plan and its decisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/rules.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Rules for working</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The code</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/website.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The website</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/references-readme.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References and README</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../manual/github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">On GitHub, not in files</span></a>
-  </div>
-</li>
-      </ul>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+ <span class="menu-text">Reference</span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Testing</span></a>
+ <span class="menu-text">Manual</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -306,25 +335,196 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../manual/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">What setup creates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/plan-and-decisions.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The plan and its decisions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Rules for working</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules.html" class="sidebar-item-text sidebar-link active"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules-agents.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">AGENTS.md</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules-gitignore.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">.gitignore</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/rules-blueprint-instructions.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Blueprint and personal instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/code.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">The website</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-config.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">_quarto.yml and the home pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-pages.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The pages in quarto/</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-styles.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Styles, 404 and extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/website-publishing.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Publishing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/references-readme.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">References and README</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">On GitHub, not in files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github-protection-pages.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Protecting main and Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github-issues-prs.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Issues, pull requests and milestones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manual/github-setup-note.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">The setup note and check-ins</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+ <span class="menu-text">Evidence</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Testing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../testing/index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">How it’s tested</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/blind-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../testing/blind-review.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">Blind review (Test A)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/user-simulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../testing/user-simulation.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">User simulation (Test B)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testing/runs.html" class="sidebar-item-text sidebar-link">
+  <a href="../testing/runs.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">Runs</span></a>
   </div>
 </li>
@@ -332,14 +532,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../problems.html" class="sidebar-item-text sidebar-link">
+  <a href="../problems.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
  <span class="menu-text">Problems it solves</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../sites.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sites built with it</span></a>
   </div>
 </li>
     </ul>
@@ -347,29 +542,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#agents.md" id="toc-agents.md" class="nav-link active" data-scroll-target="#agents.md"><code>AGENTS.md</code></a></li>
-  <li><a href="#gitignore" id="toc-gitignore" class="nav-link" data-scroll-target="#gitignore"><code>.gitignore</code></a></li>
-  <li><a href="#repository-blueprint.md" id="toc-repository-blueprint.md" class="nav-link" data-scroll-target="#repository-blueprint.md"><code>REPOSITORY-BLUEPRINT.md</code></a></li>
-  <li><a href="#personal-project-instructions" id="toc-personal-project-instructions" class="nav-link" data-scroll-target="#personal-project-instructions">Personal project instructions</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/rules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Rules for working</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manual/index.html">Manual</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Rules for working</a></li><li class="breadcrumb-item"><a href="../manual/rules.html">Overview</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Rules for working</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -382,168 +568,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><em>Written for version 0.1.14. Source: <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/AGENTS.md">AGENTS.md template</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/starter/gitignore.template">starter .gitignore</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-handling.md">data handling</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/data-sources.md">data sources</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/REPOSITORY-BLUEPRINT.md">repository blueprint</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/conventions.md">shared conventions</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/initialization.md">initialization questions</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/assets/project-instructions.md">personal instructions template</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/references/onboarding.md">onboarding</a>, <a href="https://github.com/VagishHemmige/r-analysis-workflow/blob/main/plugin/skills/initialize-analysis/SKILL.md">initialize-analysis skill</a>.</em></p>
-<p>The plan says what the analysis does. This page covers the files that say how people and assistants work on it: <code>AGENTS.md</code>, the shared rulebook; <code>.gitignore</code>, the list of files Git leaves out; <code>REPOSITORY-BLUEPRINT.md</code>, the intended layout; and each person’s own instructions for their assistant, which stay outside the repository.</p>
-<section id="agents.md" class="level2">
-<h2 class="anchored" data-anchor-id="agents.md"><code>AGENTS.md</code></h2>
-<p><strong>What it is.</strong> The rules for working in the repository, for everyone: the people on the project and any AI agents working for them. It covers conventions, data handling and checks. It opens by dividing the documentation into four places, each covering its own topic without repeating the others:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Where</th>
-<th>Covers</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>analysis-plan.md</code></td>
-<td>What the analysis is meant to do</td>
-</tr>
-<tr class="even">
-<td><code>ARCHITECTURE.md</code></td>
-<td>How the code is built: scripts, data flow, and the objects passed between them</td>
-</tr>
-<tr class="odd">
-<td><code>AGENTS.md</code></td>
-<td>How to work in the repository: rules, conventions and checks</td>
-</tr>
-<tr class="even">
-<td>GitHub Issues</td>
-<td>Open scientific decisions (decision issues), gaps between code and plan, and known defects</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Where it lives.</strong> At the top of the repository. The project website shows it on a page that only includes the root file, so you edit the root file, never the page.</p>
-<p><strong>What’s in it.</strong> The plugin’s template has these sections. Parts in angle brackets are filled in for each project.</p>
+<p>The plan says what the analysis does. These pages cover the files that say how people and assistants work on it: <code>AGENTS.md</code>, the shared rulebook; <code>.gitignore</code>, the list of files Git leaves out; <code>REPOSITORY-BLUEPRINT.md</code>, the intended layout; and each person’s own instructions for their assistant, which stay outside the repository.</p>
 <ul>
-<li><strong>The project.</strong> One paragraph on the question and the data. Then the standing rules: the analysis plan is the source of truth, and code that needs to depart from it goes to a decision issue first. The <strong>deciders</strong> are named here with their areas; anyone may add to a decision issue, but only a decider settles it. It also says this is an analysis, not an R package, and names the default branch (the main version of the project). That branch is protected: changes reach it only through pull requests (proposed changes that others can review before they are merged).</li>
-<li><strong>Data sources and what agents may do.</strong> A table with one row per data source the analysis uses: the source, the package that loads it, the package’s documentation, whether the team maintains that package or it is external, how access is restricted, and what AI agents may do with it. Code that touches a source goes through its package. For a restricted source, the agents’ column starts at “None: code, documentation and synthetic data only”. Only a person can widen it, through a pull request that names the agreement and section that permit it, the approved AI service, and exactly what agents may do. Agents never propose this change, and nothing in personal instructions can grant it. The template then splits the rules: problems in a package the team maintains are fixed or reported in that package; problems in an external package are worked around in the project’s own code, and whether to report them upstream is the person’s call.</li>
-<li><strong>Exploration and definitive analysis.</strong> Exploring on a branch or fork is welcome, and its findings are labelled preliminary. A script joins the definitive analysis when <code>R/main.R</code> runs it; from then on every rule applies.</li>
-<li><strong>Scripts and labels.</strong> <code>R/main.R</code> runs everything in order. Each script does one job and starts with a short header saying what it needs and what it makes. Settings a reader might want to change (a window, a year, a threshold) are named once in <code>R/setup.R</code>. Scripts are divided into labelled sections, marked with a comment line like <code>## ---- compute-summary</code>, so the website can show the real code. Labels are unique across all scripts, because a repeated label silently shows the wrong code. Analysis variables carry readable labels, with units and time windows. No script, comment, commit message, issue or pull request contains results from restricted data unless they are cleared for release.</li>
-<li><strong>Website.</strong> The site explains the code and never runs the analysis. It lists the page layout, the colour and icon for each kind of page, and the yellow highlight for content an open decision could change. It records the project’s publishing route: either the rendered <code>docs/</code> folder is committed and served by GitHub Pages, or a GitHub Actions workflow renders and publishes the site. A new definitive script gets its page in the same pull request.</li>
-<li><strong>Outputs.</strong> Tables and figures are written to <code>tables/</code> and <code>figures/</code>. The project states whether they are tracked or kept out of Git until a named review clears them, and if they are kept out, whether that is because of restricted data or only publication timing. Published figures need alt text.</li>
-<li><strong>Restricted data.</strong> These rules apply to everyone. Data and anything derived from patient-level records are never committed. AI agents never open restricted data, or outputs from it that are not yet cleared; anything an agent opens is sent to the model provider. Agents write and test code on <strong>synthetic data</strong>: made-up data built in code and labelled as such. Real results come from an authorized person. The section also holds the agreement’s small-cell rule and the rules for keys, tokens and paid services.</li>
-<li><strong>Coding conventions.</strong> The participant flow (the cohort and its STROBE diagram) comes from one piece of code using the <code>flowchart</code> package. Code lists are checked against the official code sets, and joins are checked so rows don’t multiply. Package functions are checked against their documentation rather than written from memory. The style is meant to be readable by a clinician-analyst who learned R from online guides.</li>
-<li><strong>Checks for any change.</strong> A checklist to run before opening a pull request: does the change follow the plan and leave open decisions open; are the cohort counts reproducible; is <code>ARCHITECTURE.md</code> current; does any site page run analysis code; could anything changed reveal restricted data; does <code>main.R</code> run in a fresh session? A project adds checks its own design needs.</li>
-<li><strong>Working with agents.</strong> Each person sets their agent’s working style in their own instructions; without one, the agent works step by step. At most, an agent edits code and documents, runs code and renders the site on synthetic data, commits to a branch and opens a pull request. Under any style, an agent never merges a pull request, never chooses among the options in a decision issue, asks before running the full pipeline or expensive calls, and shows a person the exact text before posting anything as them, unless that person’s own instructions say otherwise.</li>
+<li><a href="../manual/rules-agents.html">AGENTS.md</a></li>
+<li><a href="../manual/rules-gitignore.html">.gitignore</a></li>
+<li><a href="../manual/rules-blueprint-instructions.html">Blueprint and personal instructions</a></li>
 </ul>
-<p><strong>Who edits it.</strong> Anyone, through a pull request. Widening what agents may do with a restricted source is a person’s change, made as described above.</p>
-<p><strong>What the assistant does with it.</strong> It reads <code>AGENTS.md</code>, the plan and <code>ARCHITECTURE.md</code> before making changes. During setup it adapts the template to the project. It fills the data sources table from the code that actually loads the data, not from memory, and asks about any source whose package or access terms are unclear. It asks who the deciders are, and if materials such as an IRB protocol name investigators, suggests them for the person to confirm. If no one is named yet, the line stays marked as still to fill, and decision issues can be drafted but not settled.</p>
-</section>
-<section id="gitignore" class="level2">
-<h2 class="anchored" data-anchor-id="gitignore"><code>.gitignore</code></h2>
-<p><strong>What it is.</strong> A list of files and folders that Git should leave out, so they are never added to the repository by accident.</p>
-<p><strong>Where it lives.</strong> At the top of the repository. Some apps hide files whose names start with a dot, so the plugin also keeps a visible copy of its template.</p>
-<p><strong>What’s in it.</strong> The assistant adapts the plugin’s starter template to each project rather than copying it blindly. The template has groups for:</p>
-<ul>
-<li>R and editor files (saved sessions, history, settings);</li>
-<li>Quarto’s working files;</li>
-<li>credentials such as <code>.Renviron</code> and key files;</li>
-<li>common data formats (<code>.csv</code>, <code>.rds</code>, <code>.sas7bdat</code>, <code>.parquet</code> and others) and a <code>data-raw/</code> folder, as a safety net, since data should live outside the repository anyway;</li>
-<li><code>figures/</code> and <code>tables/</code>, when they need review before release;</li>
-<li>narrow exceptions for approved files, for example <code>!tests/fixtures/synthetic.csv</code>. Exceptions are kept narrow and never cover a whole format.</li>
-</ul>
-<p><strong>How <code>figures/</code>, <code>tables/</code> and <code>docs/</code> are decided.</strong> At setup, two questions decide them.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Question at setup</th>
-<th>Answer</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Do the figures and tables need review before they can be public?</td>
-<td>Yes</td>
-<td><code>figures/</code> and <code>tables/</code> stay ignored until the named review clears them; <code>AGENTS.md</code> names the review</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>No</td>
-<td>They are tracked from the start</td>
-</tr>
-<tr class="odd">
-<td>How is the website published?</td>
-<td>From the committed <code>docs/</code> folder</td>
-<td><code>docs/</code> is tracked</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>By a GitHub Actions workflow</td>
-<td><code>docs/</code> is ignored; the workflow publishes the same pages</td>
-</tr>
-</tbody>
-</table>
-<p>The assistant asks the first question directly rather than guessing from the data sources. When a review later clears the outputs, someone removes the two lines and inspects the contents before adding them. Tables saved as <code>.csv</code> or <code>.rds</code> stay hidden by the data-format lines even then, so cleared tables need their own exceptions.</p>
-<p><strong>What it never does.</strong> Ignoring a file doesn’t remove it from history: anything already committed stays in Git’s history, in forks and in everyone’s copies. It doesn’t control access either: an ignored folder inside the project is still readable by any AI tool connected to that folder. That is why the plugin prefers keeping restricted data in a separate folder outside the project. File names can’t identify every sensitive file; text, images, logs and other outputs can hold restricted information too.</p>
-<p><strong>If something was pushed by mistake.</strong> Stop pushing. Revoke any password, token or key first. For restricted data, tell the PI and whoever the agreement names; the agreement decides what follows. Removing it from history is the maintainer’s job, following GitHub’s guide on removing sensitive data. Agents do not attempt it.</p>
-<p><strong>What the assistant does with it.</strong> It adapts the template, checks that the rules cover the project’s real output folders without hiding source files, and reports any tracked file that looks sensitive without opening it. It can confirm a rule works with <code>git check-ignore --no-index -v</code>. It doesn’t untrack, delete or rewrite history unless someone with the authority to do so asks.</p>
-</section>
-<section id="repository-blueprint.md" class="level2">
-<h2 class="anchored" data-anchor-id="repository-blueprint.md"><code>REPOSITORY-BLUEPRINT.md</code></h2>
-<p><strong>What it is.</strong> The intended layout of an R analysis repository: which folders and files exist and what each is for. <code>ARCHITECTURE.md</code> describes what the project has actually built; the blueprint describes what it aims for.</p>
-<p><strong>Where it lives.</strong> At the top of the repository. It must be there before the website is first rendered, and the site shows it on its own page.</p>
-<p><strong>What’s in it.</strong> A tree of the layout, with a one-line note on each part: the <code>R/</code> folder with <code>main.R</code>, <code>setup.R</code>, <code>functions.R</code>, <code>tables.R</code> and <code>figures.R</code>; <code>figures/</code> and <code>tables/</code>; <code>references/</code> for supporting literature; <code>quarto/</code> for the website pages; <code>docs/</code> for the rendered site; and the root files (<code>analysis-plan.md</code>, <code>references.bib</code>, <code>AGENTS.md</code>, <code>ARCHITECTURE.md</code>, the README and <code>.gitignore</code>). Some files are marked optional, such as a licence or an RStudio project file. Short notes follow on scripts, documentation and which outputs to keep in Git.</p>
-<p><strong>Who edits it.</strong> It is kept unchanged. The assistant copies the plugin’s blueprint into the project as it is. What the project has actually built goes in <code>ARCHITECTURE.md</code> instead.</p>
-</section>
-<section id="personal-project-instructions" class="level2">
-<h2 class="anchored" data-anchor-id="personal-project-instructions">Personal project instructions</h2>
-<p><strong>What they are.</strong> Each person’s own instructions for their AI assistant, kept in their own assistant project for this repository (the plugin calls it an “LLM project”). They tell the assistant who you are, how much help you want, and what it may do for you, so each chat starts with that context instead of you pasting it again.</p>
-<p><strong>Where they live.</strong> Outside the repository, in your own assistant project, one project per repository. They are not shared. The repository stays the shared record: nothing others need should live only in your project.</p>
-<p><strong>What’s in them.</strong> The plugin’s template asks for:</p>
-<ul>
-<li>the project, its repository and default branch, and how you work with GitHub (through the assistant, from your own tools, or both);</li>
-<li>your role and the help you want, for example guided learning, review, or working together on code;</li>
-<li>your <strong>working style</strong>, chosen from three starting points and adjusted to suit you:</li>
-</ul>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Style</th>
-<th>What the assistant does</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Review only</td>
-<td>Reads, reviews and suggests; changes nothing</td>
-</tr>
-<tr class="even">
-<td>Step by step</td>
-<td>Proposes each change, waits for your yes, then makes it on a branch and explains it</td>
-</tr>
-<tr class="odd">
-<td>Hands-off</td>
-<td>Builds on branches and opens pull requests without asking at each step, then walks you through what it made</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>which actions it is authorized to take, kept separate (editing, running code, installing, commits and pull requests, comments, publishing);</li>
-<li>your data boundaries, by pointing to approved locations and agreements, never with credentials;</li>
-<li>whether it may post anything as you without showing you first (by default it shows you the exact text);</li>
-<li>whether you want a periodic check-in and what it should report.</li>
-</ul>
-<p>In every style, nothing else is posted or sent as you without your approval, another way of writing something already agreed is shown to you before it is committed, and scientific decisions stay with the deciders. Hands-off covers only the pull requests it opens.</p>
-<p><strong>What they never hold.</strong> Copies of the analysis plan, the blueprint or the shared review steps. They can be stricter than <code>AGENTS.md</code>, and then the assistant follows them. They never loosen its rules on data, decisions or pull requests.</p>
-<p><strong>Who edits them.</strong> You. One person’s working style or permissions are never carried into someone else’s instructions or into the shared files.</p>
-<p><strong>What the assistant does with them.</strong> When someone sets up or joins a project, the assistant offers to fill in the template, asking which working style they want and how they work with GitHub. It is an offer, not a requirement. If it cannot change your assistant’s settings itself, it gives you the text to paste and says so.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -946,15 +978,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
       <a href="../manual/plan-and-decisions.html" class="pagination-link" aria-label="The plan and its decisions">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The plan and its decisions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../manual/code.html" class="pagination-link" aria-label="The code">
-        <span class="nav-page-text">The code</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../manual/rules-agents.html" class="pagination-link" aria-label="AGENTS.md">
+        <span class="nav-page-text">AGENTS.md</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -963,4 +995,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/rules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/rules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
