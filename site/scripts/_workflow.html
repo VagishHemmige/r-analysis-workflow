@@ -58,7 +58,7 @@ button:disabled{opacity:.45; cursor:default}
 </style>
 <main>
 <h1>Explore the R analysis workflow</h1>
-<p>Play “Revise the code” to follow the process. Tap a box to learn about a component.</p>
+<p>Choose a process, then press Play or Next step. Tap a box to see what happens there.</p>
 <div class="controls" aria-label="Workflow paths">
 <button data-route="all" aria-pressed="true">Show everything</button>
 <button data-route="run" aria-pressed="false">Run the analysis</button>
@@ -67,14 +67,14 @@ button:disabled{opacity:.45; cursor:default}
 <button id="zoom" aria-pressed="false">Enlarge figure</button>
 </div>
 <p id="route" aria-live="polite">The complete workflow. Choose a path to follow one part of the work.</p>
-<section class="process" aria-label="Animate revising code">
-<h2>Follow the process: revise the code</h2>
+<section class="process" hidden aria-labelledby="process-title">
+<h2 id="process-title"></h2>
 <div class="controls">
 <button id="play">Play</button>
 <button id="next">Next step</button>
 <button id="replay">Replay</button>
 </div>
-<p id="step-caption" aria-live="polite">Ready — five steps, from reading the project to running the revised code.</p>
+<p id="step-caption" aria-live="polite"></p>
 <progress id="progress" max="5" value="0" aria-label="Process progress"></progress>
 </section>
 <div class="layout">
@@ -215,12 +215,47 @@ document.querySelector("#zoom").onclick = function () {
   this.textContent = z ? "Fit figure" : "Enlarge figure";
 };
 
-// Five reader-controlled stages. All movement stays on the approved arrows.
+// Reader-controlled processes. All movement stays on the approved arrows.
 figure.querySelector("svg").insertAdjacentHTML(
   "beforeend",
   '<g class="motion-layer" aria-hidden="true"><rect id="review-glow" class="review-glow" x="487" y="341" width="306" height="101" rx="9" visibility="hidden"/><circle id="traveller" r="8" fill="#df780d" stroke="white" stroke-width="2" visibility="hidden"/></g>',
 );
-const stages = [
+const processes = {
+  run: [
+    {
+      text: "You run the R script on your computer. R reads the restricted data there.",
+      parts: ["data", "r"],
+      arrows: ['path[d="M208 580 V553"]'],
+      segments: [[208, 580, 208, 553]],
+    },
+    {
+      text: "R produces a table or plot on your computer.",
+      parts: ["r", "results"],
+      arrows: ['path[d="M208 423 V354"]'],
+      segments: [[208, 423, 208, 354]],
+    },
+  ],
+  share: [
+    {
+      text: "On your computer, check which results are cleared for release.",
+      parts: ["results"],
+      arrows: [],
+      segments: [],
+    },
+    {
+      text: "Add the cleared results to GitHub. The underlying data stay on your computer.",
+      parts: ["results", "shared-results"],
+      arrows: ['line[data-part="release"]'],
+      segments: [[374, 310, 466, 310]],
+    },
+    {
+      text: "Quarto builds the website from GitHub. Readers can see the code and the cleared results it produced.",
+      parts: ["code", "shared-results", "website"],
+      arrows: ['line[data-part="publish"]'],
+      segments: [[640, 590, 640, 636]],
+    },
+  ],
+  revise: [
   {
     text:
       "GitHub → LLM: the assistant reads the project instructions, plan and code.",
@@ -255,7 +290,10 @@ const stages = [
     arrows: ['path[d="M208 580 V553"]', 'path[d="M208 423 V354"]'],
     segments: [[208, 580, 208, 553], [208, 423, 208, 354]],
   },
-];
+],
+};
+let route = "all";
+let stages = [];
 let stage = -1, playing = false, elapsed = 0, lastTime = 0;
 const playButton = document.querySelector("#play"),
   nextButton = document.querySelector("#next"),
@@ -263,7 +301,7 @@ const playButton = document.querySelector("#play"),
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 function pauseProcess() {
   playing = false;
-  playButton.textContent = stage === 4 && elapsed >= 5200
+  playButton.textContent = stage === stages.length - 1 && elapsed >= 5200
     ? "Play again"
     : stage < 0
     ? "Play"
@@ -275,7 +313,7 @@ function drawStage(n) {
   clear();
   figure.classList.add("focused");
   document.querySelectorAll("[data-route]").forEach((b) =>
-    b.setAttribute("aria-pressed", b.dataset.route === "revise")
+    b.setAttribute("aria-pressed", b.dataset.route === route)
   );
   figure.querySelectorAll("[data-part]").forEach((e) =>
     e.classList.toggle("active", stages[n].parts.includes(e.dataset.part))
@@ -288,15 +326,15 @@ function drawStage(n) {
   );
   document.querySelector("#review-glow").setAttribute(
     "visibility",
-    n === 2 ? "visible" : "hidden",
+    route === "revise" && n === 2 ? "visible" : "hidden",
   );
-  document.querySelector("#step-caption").textContent = `${n + 1} of 5 — ${
+  document.querySelector("#step-caption").textContent = `${n + 1} of ${stages.length} — ${
     stages[n].text
   }`;
   document.querySelector("#progress").value = n + 1;
-  nextButton.disabled = n === 4;
+  nextButton.disabled = n === stages.length - 1;
   document.querySelector("#route").textContent =
-    "Follow the highlighted arrow. You can pause to explore any box.";
+    "Tap a box to pause and read its explanation.";
   positionTraveller(0);
 }
 function positionTraveller(t) {
@@ -324,7 +362,7 @@ function tick(t) {
   if (playing) {
     elapsed += lastTime ? t - lastTime : 0;
     if (elapsed >= 5200) {
-      if (stage < 4) drawStage(stage + 1);
+      if (stage < stages.length - 1) drawStage(stage + 1);
       else pauseProcess();
     }
     positionTraveller(elapsed);
@@ -337,14 +375,14 @@ playButton.onclick = () => {
     pauseProcess();
     return;
   }
-  if (stage < 0 || (stage === 4 && elapsed >= 5200)) drawStage(0);
+  if (stage < 0 || (stage === stages.length - 1 && elapsed >= 5200)) drawStage(0);
   playing = true;
   startClock();
   playButton.textContent = "Pause";
 };
 nextButton.onclick = () => {
   pauseProcess();
-  drawStage(Math.min(stage + 1, 4));
+  drawStage(Math.min(stage + 1, stages.length - 1));
   playButton.textContent = "Resume";
 };
 document.querySelector("#replay").onclick = () => {
@@ -356,6 +394,12 @@ document.querySelector("#replay").onclick = () => {
 document.querySelectorAll("[data-route]").forEach((b) =>
   b.addEventListener("click", () => {
     pauseProcess();
+    route = b.dataset.route;
+    stages = processes[route] ?? [];
+    document.querySelector(".process").hidden = route === "all";
+    document.querySelector("#process-title").textContent = b.textContent;
+    document.querySelector("#progress").max = stages.length || 1;
+    clear();
     stage = -1;
     elapsed = 0;
     figure.querySelectorAll(".process-active").forEach((e) =>
@@ -364,7 +408,7 @@ document.querySelectorAll("[data-route]").forEach((b) =>
     traveller.setAttribute("visibility", "hidden");
     document.querySelector("#review-glow").setAttribute("visibility", "hidden");
     document.querySelector("#step-caption").textContent =
-      "Ready — five steps, from reading the project to running the revised code.";
+      stages.length ? `Ready to play · ${stages.length} steps` : "";
     document.querySelector("#progress").value = 0;
     nextButton.disabled = false;
     playButton.textContent = "Play";

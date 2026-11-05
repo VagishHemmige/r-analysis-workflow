@@ -52,3 +52,5 @@ What was checked, and what was not.
 ### Interactive workflow on Start here
 
 Rendered all 46 website pages with Quarto 1.8.25. Confirmed the output includes the generated interactive HTML and SVG. In desktop Chrome, played the embedded animation, advanced a step and opened the GitHub explanation. The repository link checker passed. Physical-phone and print testing remain outstanding.
+
+Rendered Start here again after adding the analysis and publication animations. In the embedded figure in desktop Chrome, selected all three processes, started each with Play and advanced through all ten stages. Each process stopped offering Next step at its own final stage.
