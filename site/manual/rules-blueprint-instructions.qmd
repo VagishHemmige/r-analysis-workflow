@@ -1,0 +1,46 @@
+---
+title: "Blueprint and personal instructions"
+---
+
+*Written for version 0.1.14. Part of [Rules for working](rules.qmd), which lists the sources.*
+
+## `REPOSITORY-BLUEPRINT.md`
+
+**What it is.** The intended layout of an R analysis repository: which folders and files exist and what each is for. `ARCHITECTURE.md` describes what the project has actually built; the blueprint describes what it aims for.
+
+**Where it lives.** At the top of the repository. It must be there before the website is first rendered, and the site shows it on its own page.
+
+**What's in it.** A tree of the layout, with a one-line note on each part: the `R/` folder with `main.R`, `setup.R`, `functions.R`, `tables.R` and `figures.R`; `figures/` and `tables/`; `references/` for supporting literature; `quarto/` for the website pages; `docs/` for the rendered site; and the root files (`analysis-plan.md`, `references.bib`, `AGENTS.md`, `ARCHITECTURE.md`, the README and `.gitignore`). Some files are marked optional, such as a licence or an RStudio project file. Short notes follow on scripts, documentation and which outputs to keep in Git.
+
+**Who edits it.** It is kept unchanged. The assistant copies the plugin's blueprint into the project as it is. What the project has actually built goes in `ARCHITECTURE.md` instead.
+
+## Personal project instructions
+
+**What they are.** Each person's own instructions for their AI assistant, kept in their own assistant project for this repository (the plugin calls it an "LLM project"). They tell the assistant who you are, how much help you want, and what it may do for you, so each chat starts with that context instead of you pasting it again.
+
+**Where they live.** Outside the repository, in your own assistant project, one project per repository. They are not shared. The repository stays the shared record: nothing others need should live only in your project.
+
+**What's in them.** The plugin's template asks for:
+
+- the project, its repository and default branch, and how you work with GitHub (through the assistant, from your own tools, or both);
+- your role and the help you want, for example guided learning, review, or working together on code;
+- your **working style**, chosen from three starting points and adjusted to suit you:
+
+| Style | What the assistant does |
+|---|---|
+| Review only | Reads, reviews and suggests; changes nothing |
+| Step by step | Proposes each change, waits for your yes, then makes it on a branch and explains it |
+| Hands-off | Builds on branches and opens pull requests without asking at each step, then walks you through what it made |
+
+- which actions it is authorized to take, kept separate (editing, running code, installing, commits and pull requests, comments, publishing);
+- your data boundaries, by pointing to approved locations and agreements, never with credentials;
+- whether it may post anything as you without showing you first (by default it shows you the exact text);
+- whether you want a periodic check-in and what it should report.
+
+In every style, nothing else is posted or sent as you without your approval, another way of writing something already agreed is shown to you before it is committed, and scientific decisions stay with the deciders. Hands-off covers only the pull requests it opens.
+
+**What they never hold.** Copies of the analysis plan, the blueprint or the shared review steps. They can be stricter than `AGENTS.md`, and then the assistant follows them. They never loosen its rules on data, decisions or pull requests.
+
+**Who edits them.** You. One person's working style or permissions are never carried into someone else's instructions or into the shared files.
+
+**What the assistant does with them.** When someone sets up or joins a project, the assistant offers to fill in the template, asking which working style they want and how they work with GitHub. It is an offer, not a requirement. If it cannot change your assistant's settings itself, it gives you the text to paste and says so.

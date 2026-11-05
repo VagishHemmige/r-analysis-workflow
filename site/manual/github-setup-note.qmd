@@ -1,0 +1,23 @@
+---
+title: "The setup note and check-ins"
+---
+
+*Written for version 0.1.14. Part of [On GitHub, not in files](github.qmd), which lists the sources.*
+
+**The setup note.** Setting up a project asks one question at a time, and can stretch over several sessions. The assistant records the setup decisions made so far, and the questions still open, in one place the project agrees on: a setup note, or a tracker the project already uses. Nothing sensitive goes there, and no one's personal permissions. A later session resumes from this record instead of asking everything again.
+
+**Saving unfinished work.** At the end of a working session, the assistant asks whether anything unfinished should be saved to the repository: a draft pull request, an issue comment marked as a draft, or a new issue. A new chat will not remember it. Anything holding results from restricted data that are not cleared for release stays where it is, and the person is told why.
+
+**Check-ins (optional).** Anyone, whatever their role, can ask for a periodic check-in, using the assistant's scheduled tasks where the assistant has them. The person chooses how often it runs. It always reports what is waiting on them:
+
+- issues assigned to them;
+- decisions they make, each with the question, each option in a line, and a link to the decision issue. They can decide from the check-in or open the issue, but the decision itself is recorded in the issue;
+- pull requests awaiting their review.
+
+They can also choose to include what they are waiting on from others, work with no recent activity, and milestones due soon. The check-in can look over their recent chats for drafts that never reached the repository, and, if they have email connected and want it, their project email, proposing where to record each decision or request it finds. It reads the repository; it may draft messages but never sends or posts anything on its own. The person's check-in choices are kept in their own instructions, not in the project's shared files.
+
+**Leaving a project.** When someone leaves or hands over work, the assistant goes through it with them before their last session: moving anything that exists only in a chat, on a laptop or in email into the repository (subject to the project's disclosure rules); deciding for each open issue and pull request whether to finish it, hand it on, close it with a reason, or mark it paused with what it is waiting on; and recording requests to others that have no answer yet. Not everything can be finished or given an owner, and a project may go dormant; the assistant records what stays open and why.
+
+**Transferring ownership.** If the person leaving owns the repository, the assistant raises transferring it to the PI. The plugin's steps are **Settings → General → Transfer**, and the new owner must accept within a day. Issues, pull requests and history move with the repository, and old links to the repository redirect to the new one.
+
+**The website caveat.** GitHub does not redirect the website. After a transfer, someone must update the site and repository links in `_quarto.yml`, the site pages and the README, re-render the site, and turn GitHub Pages on again under the new owner.

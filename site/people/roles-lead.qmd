@@ -1,0 +1,21 @@
+---
+title: "Project lead"
+---
+
+*Written for version 0.1.14. Part of [Contributing in your role](roles.qmd), which lists the sources.*
+
+**You.** You move the analysis forward day to day: drafting the plan, writing code, opening pull requests, and keeping open questions moving. The lead can be anyone: a student, resident, fellow or faculty member. Several people may share this, and someone may take over from a lead who leaves.
+
+**The assistant.**
+
+- Explains the project through its own documents: the website, `analysis-plan.md`, GitHub issues, `AGENTS.md` and `ARCHITECTURE.md`.
+- If you know R but not GitHub, explains branches, commits and pull requests using the tool you already use. It doesn't prescribe one.
+- Works in the style you choose in your own instructions: review only, step by step, or hands-off. Without a choice, it works step by step.
+- Drafts options and evidence for a decision issue, and writes the plan change and code once a decider has chosen.
+- It won't choose among options, merge a pull request, read restricted data, or post anything as you without showing you the exact text first, unless your own instructions say otherwise.
+
+**In the repository.** Your work arrives as pull requests that say which plan section or issue they address and what was checked. Before you leave, the assistant helps you move drafts, notes and unanswered requests out of your chats and laptop into issues or draft pull requests, and mark unfinished work as paused with what it is waiting on. The next person starts from the repository, not from your files.
+
+**Who decides.** The deciders named in `AGENTS.md`. You decide too only if you are named there.
+
+**More.** [Rules for working](../manual/rules.qmd), [On GitHub, not in files](../manual/github.qmd), [Join or leave a project](../using/join-leave.qmd).

@@ -1,0 +1,56 @@
+/* Part labels in the sidebar (Introduction, Guides, Reference, Evidence).
+   Each is a sidebar entry with text and no link (_quarto.yml), so it renders
+   as a bare span directly inside its list item; links and section headings
+   sit inside other elements and are not affected. */
+.sidebar-navigation li.sidebar-item > span.menu-text {
+  display: block;
+  margin-top: .25rem;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #6c757d;
+}
+
+/* The rule before each part: a little heavier than a hairline */
+.sidebar-navigation .sidebar-divider {
+  border-top: 2px solid rgba(0, 0, 0, .15);
+  opacity: 1;
+  margin: .6rem 0 .3rem;
+}
+
+
+/* One icon and colour per kind of page (icons set in _quarto.yml). Each
+   colour follows its icon, not a position in the sidebar, so pages can be
+   added or moved without editing this file. The colours are those of the
+   maintainer's analysis sites for the nearest kind of page there. */
+.sidebar-navigation {
+  --cue-intro: #2780e3;     /* Introduction: book, cosmo's blue (Background there) */
+  --cue-guides: #e8590c;    /* Guides: orange (Study design and methods there) */
+  --cue-reference: #6c757d; /* Reference: ruled page, grey (Project documents there) */
+  --cue-evidence: #198754;  /* Evidence: clipboard, green (Results there) */
+}
+.sidebar-navigation .bi-book { color: var(--cue-intro); }
+.sidebar-navigation .bi-list-check,
+.sidebar-navigation .bi-clock-history,
+.sidebar-navigation .bi-people { color: var(--cue-guides); }
+.sidebar-navigation .bi-file-earmark-ruled { color: var(--cue-reference); }
+.sidebar-navigation .bi-clipboard-data { color: var(--cue-evidence); }
+
+/* As on the analysis sites: section headings read as group labels rather
+   than pages; a thin rule between sections and before a page that follows
+   one; sections inside another section a little lighter and smaller, so the
+   levels show without relying on indentation. */
+.sidebar-navigation .sidebar-item-section > .sidebar-item-container .menu-text {
+  font-weight: 600;
+}
+.sidebar-navigation .sidebar-item-section + .sidebar-item-section,
+.sidebar-navigation .sidebar-item-section + .sidebar-item {
+  border-top: 1px solid rgba(0, 0, 0, .08);
+  margin-top: .35rem;
+  padding-top: .35rem;
+}
+.sidebar-navigation .sidebar-section .sidebar-item-section > .sidebar-item-container .menu-text {
+  font-weight: 500;
+  font-size: .95em;
+}

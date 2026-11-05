@@ -1,0 +1,35 @@
+---
+title: ".gitignore"
+---
+
+*Written for version 0.1.14. Part of [Rules for working](rules.qmd), which lists the sources.*
+
+**What it is.** A list of files and folders that Git should leave out, so they are never added to the repository by accident.
+
+**Where it lives.** At the top of the repository. Some apps hide files whose names start with a dot, so the plugin also keeps a visible copy of its template.
+
+**What's in it.** The assistant adapts the plugin's starter template to each project rather than copying it blindly. The template has groups for:
+
+- R and editor files (saved sessions, history, settings);
+- Quarto's working files;
+- credentials such as `.Renviron` and key files;
+- common data formats (`.csv`, `.rds`, `.sas7bdat`, `.parquet` and others) and a `data-raw/` folder, as a safety net, since data should live outside the repository anyway;
+- `figures/` and `tables/`, when they need review before release;
+- narrow exceptions for approved files, for example `!tests/fixtures/synthetic.csv`. Exceptions are kept narrow and never cover a whole format.
+
+**How `figures/`, `tables/` and `docs/` are decided.** At setup, two questions decide them.
+
+| Question at setup | Answer | Effect |
+|---|---|---|
+| Do the figures and tables need review before they can be public? | Yes | `figures/` and `tables/` stay ignored until the named review clears them; `AGENTS.md` names the review |
+| | No | They are tracked from the start |
+| How is the website published? | From the committed `docs/` folder | `docs/` is tracked |
+| | By a GitHub Actions workflow | `docs/` is ignored; the workflow publishes the same pages |
+
+The assistant asks the first question directly rather than guessing from the data sources. When a review later clears the outputs, someone removes the two lines and inspects the contents before adding them. Tables saved as `.csv` or `.rds` stay hidden by the data-format lines even then, so cleared tables need their own exceptions.
+
+**What it never does.** Ignoring a file doesn't remove it from history: anything already committed stays in Git's history, in forks and in everyone's copies. It doesn't control access either: an ignored folder inside the project is still readable by any AI tool connected to that folder. That is why the plugin prefers keeping restricted data in a separate folder outside the project. File names can't identify every sensitive file; text, images, logs and other outputs can hold restricted information too.
+
+**If something was pushed by mistake.** Stop pushing. Revoke any password, token or key first. For restricted data, tell the PI and whoever the agreement names; the agreement decides what follows. Removing it from history is the maintainer's job, following GitHub's guide on removing sensitive data. Agents do not attempt it.
+
+**What the assistant does with it.** It adapts the template, checks that the rules cover the project's real output folders without hiding source files, and reports any tracked file that looks sensitive without opening it. It can confirm a rule works with `git check-ignore --no-index -v`. It doesn't untrack, delete or rewrite history unless someone with the authority to do so asks.

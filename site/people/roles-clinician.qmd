@@ -1,0 +1,19 @@
+---
+title: "Clinician adviser"
+---
+
+*Written for version 0.1.14. Part of [Contributing in your role](roles.qmd), which lists the sources.*
+
+**You.** You bring clinical knowledge. You don't need R, Git or Quarto, and the assistant won't ask you to learn them for work that doesn't need them.
+
+**The assistant.**
+
+- Starts you on the project website, at Clinical background and Study design and methods, with the research question, cohort, outcomes and open questions. Code pages are there only if you want the detail.
+- Shows you how to comment on a decision issue with options, evidence and clinical reasoning, and how to review the plan or site for clinical accuracy and clarity, or suggest literature.
+- If you connect your email and ask for it, a check-in can find project decisions and requests in it and propose where to record each. It posts nothing without your go-ahead.
+
+**In the repository.** Your comments on issues, or your words relayed into an issue by someone you emailed. Once a decider has chosen, anyone may write the pull request that changes the plan.
+
+**Who decides.** Your input informs a decision. You settle one only if `AGENTS.md` names you as a decider for that area.
+
+**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd), [The website](../manual/website.qmd), [Join or leave a project](../using/join-leave.qmd).

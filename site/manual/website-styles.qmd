@@ -1,0 +1,38 @@
+---
+title: "Styles, 404 and extensions"
+---
+
+*Written for version 0.1.14. Part of [The website](website.qmd), which lists the sources.*
+
+## `styles.css` and `quarto/_pending.lua`
+
+**What they are.** Two small files that add the site's visual cues: the coloured sidebar icons, and the yellow marks on provisional text.
+
+**What's in `styles.css`.** The colour for each sidebar icon, tied to the icon itself rather than to a position in the sidebar, so pages can be added or moved without editing it. It also makes section headings bold, adds a thin rule between sections, makes the sections under Code a little lighter, and sets the yellow used for provisional text. A project that already has a `styles.css` keeps its own rules and adds these.
+
+**What `_pending.lua` does.** It is the filter that adds the yellow marks while the site is built. It highlights:
+
+- any paragraph that starts with **Decision pending:**;
+- on the analysis plan's page only, any paragraph that contains the plan's **Open:** marker;
+- any phrase written as `[text]{.pending}`, wherever it is, table cells included.
+
+A page with at least one mark also gets a yellow ⏳ box at the top, headed "Provisional", that says highlighted text depends on a decision the plan has not yet made.
+
+The filter marks whole paragraphs only. A **Decision pending:** note inside a bullet or a table cell isn't marked, so it is written as its own paragraph or wrapped as `[text]{.pending}`.
+
+**What it never does.** Yellow means "an open decision could change this" and nothing else. A mark is removed when its decision is settled.
+
+## `404.qmd`
+
+**What it is.** The page GitHub Pages shows when someone follows a link to an address that doesn't exist. Quarto doesn't make one on its own.
+
+**What's in it.** A short note that the page isn't on the site, a link to the home page, and a pointer to the search box. It is built from the top of the repository, so its links work from any address once the site's address is set in `_quarto.yml`. It has no sidebar entry.
+
+## `_extensions/`
+
+**What it is.** The folder where Quarto keeps add-ons the site uses. It is committed with the repository.
+
+**What's in it.**
+
+- **custom-callout** (required). The MIT-licensed `coatless-quarto/custom-callout` extension turns the three callouts defined in `_quarto.yml` into the coloured boxes. Its code isn't bundled in the plugin. It is added with `quarto add coatless-quarto/custom-callout`, or copied from another repository that has it, and the assistant installs it only when authorised.
+- **Reader comments** (optional). The [issue-comments](https://github.com/VagishHemmige/quarto-commenting-extension) extension lets a reader highlight text and leave a comment, which is filed as a GitHub issue in the repository. It needs a relay and a GitHub App set up once, then three things switched on together for each site: the extension in `_extensions/`, the filter line in `_quarto.yml`, and the `issue-comments:` settings block. With all three on, the yellow Pending box also tells readers how to comment. Whether to use it is the project's choice.

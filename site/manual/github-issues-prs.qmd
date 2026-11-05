@@ -1,0 +1,41 @@
+---
+title: "Issues, pull requests and milestones"
+---
+
+*Written for version 0.1.14. Part of [On GitHub, not in files](github.qmd), which lists the sources.*
+
+## Issues
+
+**What they are.** GitHub issues hold three kinds of open item:
+
+- **Decision issues**: one open scientific question each, settled only by a named decider (see [The plan and its decisions](plan-and-decisions.qmd)).
+- **Gaps between code and plan**: places where the code does not yet do what the plan says.
+- **Known defects**: things that are wrong.
+
+**Labels and templates.** Each project chooses its own labels, templates and conventions. The plugin prescribes none.
+
+**What the assistant does with them.** It drafts a decision issue for each choice the plan leaves open, rather than choosing. Before asking anyone a question, it looks in the issues (and the plan, `AGENTS.md` and pull requests) for the answer. Before posting a comment as a person, it shows them the exact text and waits for their go-ahead, unless their own instructions say otherwise.
+
+**For someone joining or taking over.** The open issues, with the plan and the open pull requests, are where a newcomer finds the project's state. The assistant starts there, not from the previous person's files or chats.
+
+## Pull requests
+
+**What they are.** A pull request offers a set of changes, made on a separate branch, for merging into the main branch. Any tool that creates a branch and opens a pull request will do; each person uses what they prefer, and the plugin does not prescribe one.
+
+**The rules.** Good practice for everyone, and required of agents:
+
+- **One branch per piece of work**, not one per commit.
+- **Based on the main branch.** If a change needs another that has not been merged yet, wait for that one to merge, or fold both into one pull request. Pull requests are not stacked on each other, so no one is left to work out an order to merge them in.
+- **The website follows the change.** When `docs/` is committed, the site is re-rendered on the same branch as the change it reflects.
+- **It says what it addresses and what was checked.** Each pull request names the plan section or issue it addresses. It says what was checked, from the list in the project's `AGENTS.md` (for example: does the change follow the plan and leave every open decision open; does it avoid any number that could come from restricted data). A pull request opened by an agent also says whether the checks were done by running code on synthetic data or by reading only, and never calls synthetic results "results".
+- **Closing a decision issue.** A pull request that settles a decision issue includes the plan change and the line `Closes #<n>`, where `<n>` is the issue's number. GitHub then closes the issue when the pull request is merged.
+
+**Who merges.** A person. An agent may commit to a branch and open a pull request, but never merges one.
+
+## Milestones (optional)
+
+**What they are.** A milestone groups issues and pull requests under one phase of the project, with a target date, so anyone can see what that phase is waiting on. A decision issue placed in a milestone shows which phase it holds up. GitHub's Milestones page shows each milestone's due date and how many of its items are closed.
+
+**Who chooses.** Milestones are optional. During setup the assistant asks whether the project wants them. If so, the team gives the phases and dates; for example, plan locked, cohort built, models fitted, manuscript drafted.
+
+**What the assistant does.** If its GitHub connection can create milestones and assign items, it may do this once the person has given the phases and dates. Otherwise it walks them through the steps on the GitHub website.

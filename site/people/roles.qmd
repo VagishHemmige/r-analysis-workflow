@@ -8,82 +8,8 @@ The plugin assumes no role. It starts from what you want to contribute and what 
 
 Two rules hold in every role. Only a named **decider** settles a scientific question. And every change reaches the main branch through a **pull request**, a proposed change that others can see before it is merged.
 
-## Project lead
-
-**You.** You move the analysis forward day to day: drafting the plan, writing code, opening pull requests, and keeping open questions moving. The lead can be anyone: a student, resident, fellow or faculty member. Several people may share this, and someone may take over from a lead who leaves.
-
-**The assistant.**
-
-- Explains the project through its own documents: the website, `analysis-plan.md`, GitHub issues, `AGENTS.md` and `ARCHITECTURE.md`.
-- If you know R but not GitHub, explains branches, commits and pull requests using the tool you already use. It doesn't prescribe one.
-- Works in the style you choose in your own instructions: review only, step by step, or hands-off. Without a choice, it works step by step.
-- Drafts options and evidence for a decision issue, and writes the plan change and code once a decider has chosen.
-- It won't choose among options, merge a pull request, read restricted data, or post anything as you without showing you the exact text first, unless your own instructions say otherwise.
-
-**In the repository.** Your work arrives as pull requests that say which plan section or issue they address and what was checked. Before you leave, the assistant helps you move drafts, notes and unanswered requests out of your chats and laptop into issues or draft pull requests, and mark unfinished work as paused with what it is waiting on. The next person starts from the repository, not from your files.
-
-**Who decides.** The deciders named in `AGENTS.md`. You decide too only if you are named there.
-
-**More.** [Rules for working](../manual/rules.qmd), [On GitHub, not in files](../manual/github.qmd), [Join or leave a project](../using/join-leave.qmd).
-
-## PI or maintainer
-
-**You.** The maintainer owns or administers the repository. That can be anyone on the project, and a PI may also be named as a decider and use the plugin directly. Some steps on GitHub need admin rights, so they fall to whoever has them.
-
-**The assistant.** It describes the one-off GitHub steps and leaves them to you, because agents don't change repository settings:
-
-- protecting the main branch so changes arrive only through pull requests;
-- turning on GitHub Pages so the website goes live;
-- tags, for example when the plan is locked, which are made by the maintainer or with their explicit say-so;
-- accepting the repository if a leaving owner transfers it to you, then updating the site's links and turning Pages on again;
-- removing anything pushed by mistake from the history. Agents don't attempt this.
-
-If you work in R, it can suggest the console commands one at a time, after checking where things stand. You run them; it never does. Like everyone, you can ask for a periodic check-in that lists what is waiting on you: assigned issues, decisions you make, and pull requests awaiting your review.
-
-**In the repository.** Branch protection, the Pages setting and tags live on GitHub rather than in files. `AGENTS.md` records the deciders, the data sources and what agents may do with each.
-
-**Who decides.** You settle the areas `AGENTS.md` assigns you. Allowing agents to do more with a data source is a change a person makes to `AGENTS.md` through a pull request, naming the agreement that permits it. Agents never propose it.
-
-**More.** [On GitHub, not in files](../manual/github.qmd), [The plan and its decisions](../manual/plan-and-decisions.qmd), [Start a project](../using/start.qmd).
-
-## Decider
-
-**You.** Anyone `AGENTS.md` names for an area, such as a clinical question or the statistical methods. A project may have several deciders, each for their own area.
-
-**The assistant.** It drafts each decision issue with the question, the options and the evidence, and asks you. A check-in can list each decision waiting on you, one line per option, with a link to the issue. It won't choose for you, and it won't say you decided something unless there is a written record of it.
-
-**In the repository.** You state your choice in the decision issue. If you don't use GitHub, you can decide by email or in a meeting. Whoever received your answer then posts your exact words in the issue, with your name, the date and how it was given. A summary or a memory of what you said doesn't count. The decision takes effect when a pull request that rewrites the plan and closes the issue is merged.
-
-**Who decides.** You, within your area. Anyone else may add options and evidence.
-
-**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd).
-
-## Clinician adviser
-
-**You.** You bring clinical knowledge. You don't need R, Git or Quarto, and the assistant won't ask you to learn them for work that doesn't need them.
-
-**The assistant.**
-
-- Starts you on the project website, at Clinical background and Study design and methods, with the research question, cohort, outcomes and open questions. Code pages are there only if you want the detail.
-- Shows you how to comment on a decision issue with options, evidence and clinical reasoning, and how to review the plan or site for clinical accuracy and clarity, or suggest literature.
-- If you connect your email and ask for it, a check-in can find project decisions and requests in it and propose where to record each. It posts nothing without your go-ahead.
-
-**In the repository.** Your comments on issues, or your words relayed into an issue by someone you emailed. Once a decider has chosen, anyone may write the pull request that changes the plan.
-
-**Who decides.** Your input informs a decision. You settle one only if `AGENTS.md` names you as a decider for that area.
-
-**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd), [The website](../manual/website.qmd), [Join or leave a project](../using/join-leave.qmd).
-
-## Statistician
-
-**You.** You shape and check the design and analysis. You may be named in `AGENTS.md` as a decider for statistical areas, and you may review pull requests that change the analysis.
-
-**The assistant.** It drafts options and evidence for statistical decision issues, and you or another named decider choose. You can ask it for a review of a change, the plan, or the plan against the code.
-
-The review skill includes a **statistician reviewer**, but that is an AI agent, not you. It works blind: it sees only a packet of the plan, the methods and analysis pages, the analysis scripts and published tables, plus public material such as cited papers. It never sees restricted data, so a question that needs the data comes back as a focused check for an authorized person to run. Where the plan leaves a choice open, it comments on the options but doesn't decide. Acting on its findings is your choice, finding by finding.
-
-**In the repository.** Your choices in decision issues, your reviews on pull requests, and any issues opened from review findings you choose to act on.
-
-**Who decides.** You, in the areas `AGENTS.md` assigns you. The AI reviewer never decides.
-
-**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd), [The code](../manual/code.qmd), [Review](../using/review.qmd).
+- [Project lead](roles-lead.qmd)
+- [PI or maintainer](roles-pi.qmd)
+- [Decider](roles-decider.qmd)
+- [Clinician adviser](roles-clinician.qmd)
+- [Statistician](roles-statistician.qmd)

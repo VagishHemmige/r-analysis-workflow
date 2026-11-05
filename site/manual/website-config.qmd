@@ -1,0 +1,44 @@
+---
+title: "_quarto.yml and the home pages"
+---
+
+*Written for version 0.1.14. Part of [The website](website.qmd), which lists the sources.*
+
+## `_quarto.yml`
+
+**What it is.** The settings file for the whole site: its title, its look, its sidebar and which pages it builds.
+
+**Where it lives.** At the top of the repository, next to `index.qmd`, `404.qmd` and `styles.css`. The explanatory pages sit in the `quarto/` folder.
+
+**What's in it.**
+
+- **Site settings.** The site's address, the repository's address and its default branch (the repository's actual main branch, whatever it is called) are filled in before the site is first built. A `render:` list names the pages to build (`index.qmd`, `404.qmd` and everything in `quarto/`), so the Markdown documents at the top of the repository don't also turn into stray pages.
+- **The look.** The `cosmo` theme with `styles.css`, a table of contents on each page, and code folded away behind a "Click to show/hide R Code" button.
+- **The sidebar.** Docked on the left, with search, and every section starts open. Each entry points to a page's source file and only to pages that exist. Each entry also carries an icon for its kind of page (see the table below).
+- **Callouts.** A callout is a coloured box on a page. Three are defined here: a pink `Rcode` box (💻), a green `Results` box (📊) and a yellow `Pending` box (⏳).
+- **Filters.** Small programs that adjust each page as it is built. The starter runs `quarto/_pending.lua` first, then `custom-callout`. A third, for reader comments, is present but switched off.
+- **The rule that nothing runs.** One setting stops every chunk of code on the site from running:
+
+  ```yaml
+  execute:
+    eval: false
+  ```
+
+  Only a few chunks may switch this back on: the hidden import that reads a script's code, the Architecture page's chunk that reads `ARCHITECTURE.md` as text, site helpers that read code or text and never data, and Results pages that read outputs already cleared for release. The project's `AGENTS.md` lists any others it allows.
+
+**Who edits it.** Whoever adds or moves a page, through a pull request. A new script's sidebar entry goes in the same pull request as the script.
+
+**What the assistant does with it.** It fills in the starter's placeholders, adds a sidebar entry with the right icon for each new page, and numbers code pages in the order `R/main.R` runs them. On a site built before these conventions, it lists how the site differs and changes nothing until the maintainer agrees.
+
+## `index.qmd` and `quarto/about.qmd`
+
+**What they are.** The Home page and the About page, the two pages a new reader is most likely to open first.
+
+**What's in them.**
+
+- **Home** (`index.qmd`, sidebar icon `house`): a brief clinical background, what the analysis does, a short methods summary that points to Study design and methods and to the analysis plan, and the project's status (preliminary, under review or final), with links to the open decision issues.
+- **About** (`quarto/about.qmd`, sidebar icon `info-circle`): the study and who makes its scientific decisions; how the repository is organised and where the data live; how the site was made, including any AI assistants and the limits they work under; the four project documents, each in one line; and a one-line description of every page in the sidebar.
+
+About is the only page that ends with a list of the other pages. Elsewhere the sidebar already does that job.
+
+**Who edits them.** The study team, through pull requests. When a script gets a page, its line on About is added in the same pull request.
