@@ -28,12 +28,16 @@ website:
       - text: "Introduction"
       - href: index.qmd
         text: Home
+        icon: house
       - href: start-here.qmd
         text: Start here
+        icon: book
       - href: install.qmd
         text: Install
+        icon: book
       - href: sites.qmd
         text: Sites built with it
+        icon: book
 
       - text: "---"
       - text: "Guides"
@@ -42,50 +46,69 @@ website:
         contents:
           - href: using/start.qmd
             text: Start a project
+            icon: list-check
           - href: using/explain.qmd
             text: Explain the code
+            icon: list-check
           - href: using/report.qmd
             text: Report results
+            icon: list-check
           - href: using/review.qmd
             text: Review
+            icon: list-check
           - href: using/join-leave.qmd
             text: Join or leave a project
+            icon: list-check
 
       - section: Project stages
         contents:
           - href: stages/index.qmd
             text: Overview
+            icon: clock-history
           - href: stages/getting-started.qmd
             text: Getting started
+            icon: clock-history
           - href: stages/plan.qmd
             text: The plan
+            icon: clock-history
           - href: stages/code-and-website.qmd
             text: Code and website
+            icon: clock-history
           - href: stages/results.qmd
             text: Results
+            icon: clock-history
 
       - section: People on a project
         contents:
           - href: people/index.qmd
             text: Overview
+            icon: people
           - href: people/joining.qmd
             text: Joining
+            icon: people
           - section: Contributing in your role
             contents:
               - href: people/roles.qmd
                 text: Overview
+                icon: people
               - href: people/roles-lead.qmd
                 text: Project lead
+                icon: people
               - href: people/roles-pi.qmd
                 text: PI or maintainer
+                icon: people
               - href: people/roles-decider.qmd
                 text: Decider
+                icon: people
               - href: people/roles-clinician.qmd
                 text: Clinician adviser
+                icon: people
               - href: people/roles-statistician.qmd
                 text: Statistician
+                icon: people
           - href: people/leaving.qmd
             text: Leaving
+            icon: people
 
       - text: "---"
       - text: "Reference"
@@ -93,44 +116,61 @@ website:
         contents:
           - href: manual/index.qmd
             text: What setup creates
+            icon: file-earmark-ruled
           - href: manual/plan-and-decisions.qmd
             text: The plan and its decisions
+            icon: file-earmark-ruled
           - section: Rules for working
             contents:
               - href: manual/rules.qmd
                 text: Overview
+                icon: file-earmark-ruled
               - href: manual/rules-agents.qmd
                 text: AGENTS.md
+                icon: file-earmark-ruled
               - href: manual/rules-gitignore.qmd
                 text: .gitignore
+                icon: file-earmark-ruled
               - href: manual/rules-blueprint-instructions.qmd
                 text: Blueprint and personal instructions
+                icon: file-earmark-ruled
           - href: manual/code.qmd
             text: The code
+            icon: file-earmark-ruled
           - section: The website
             contents:
               - href: manual/website.qmd
                 text: Overview
+                icon: file-earmark-ruled
               - href: manual/website-config.qmd
                 text: "_quarto.yml and the home pages"
+                icon: file-earmark-ruled
               - href: manual/website-pages.qmd
                 text: The pages in quarto/
+                icon: file-earmark-ruled
               - href: manual/website-styles.qmd
                 text: Styles, 404 and extensions
+                icon: file-earmark-ruled
               - href: manual/website-publishing.qmd
                 text: Publishing
+                icon: file-earmark-ruled
           - href: manual/references-readme.qmd
             text: References and README
+            icon: file-earmark-ruled
           - section: On GitHub, not in files
             contents:
               - href: manual/github.qmd
                 text: Overview
+                icon: file-earmark-ruled
               - href: manual/github-protection-pages.qmd
                 text: Protecting main and Pages
+                icon: file-earmark-ruled
               - href: manual/github-issues-prs.qmd
                 text: Issues, pull requests and milestones
+                icon: file-earmark-ruled
               - href: manual/github-setup-note.qmd
                 text: The setup note and check-ins
+                icon: file-earmark-ruled
 
       - text: "---"
       - text: "Evidence"
@@ -138,15 +178,20 @@ website:
         contents:
           - href: testing/index.qmd
             text: How it's tested
+            icon: clipboard-data
           - href: testing/blind-review.qmd
             text: Blind review (Test A)
+            icon: clipboard-data
           - href: testing/user-simulation.qmd
             text: User simulation (Test B)
+            icon: clipboard-data
           - href: testing/runs.qmd
             text: Runs
+            icon: clipboard-data
 
       - href: problems.qmd
         text: Problems it solves
+        icon: clipboard-data
 
 format:
   html:

@@ -19,3 +19,20 @@
   margin: .6rem 0 .3rem;
 }
 
+
+/* One icon and colour per kind of page (icons set in _quarto.yml). Each
+   colour follows its icon, not a position in the sidebar, so pages can be
+   added or moved without editing this file. The colours are those of the
+   maintainer's analysis sites for the nearest kind of page there. */
+.sidebar-navigation {
+  --cue-intro: #2780e3;     /* Introduction: book, cosmo's blue (Background there) */
+  --cue-guides: #e8590c;    /* Guides: orange (Study design and methods there) */
+  --cue-reference: #6c757d; /* Reference: ruled page, grey (Project documents there) */
+  --cue-evidence: #198754;  /* Evidence: clipboard, green (Results there) */
+}
+.sidebar-navigation .bi-book { color: var(--cue-intro); }
+.sidebar-navigation .bi-list-check,
+.sidebar-navigation .bi-clock-history,
+.sidebar-navigation .bi-people { color: var(--cue-guides); }
+.sidebar-navigation .bi-file-earmark-ruled { color: var(--cue-reference); }
+.sidebar-navigation .bi-clipboard-data { color: var(--cue-evidence); }
