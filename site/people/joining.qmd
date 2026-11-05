@@ -68,7 +68,7 @@ In every style, it shows you the exact text before posting or sending anything a
 
 **Who decides.** You choose your working style and may add stricter rules than `AGENTS.md`. Your instructions never loosen its rules on data, decisions or pull requests, and nothing in them can widen what agents may do with a data source.
 
-**More.** [Personal project instructions](../manual/rules.qmd#personal-project-instructions).
+**More.** [Personal project instructions](../manual/rules-blueprint-instructions.qmd#personal-project-instructions).
 
 ## The check-in
 
@@ -88,4 +88,4 @@ What it won't do: it reads the repository and may draft messages, but it never p
 
 **Who decides.** If you are a decider, you can decide from the check-in, but the decision itself is recorded in the decision issue.
 
-**More.** [The setup note and check-ins](../manual/github.qmd#the-setup-note-and-check-ins), [Join or leave a project](../using/join-leave.qmd).
+**More.** [The setup note and check-ins](../manual/github-setup-note.qmd), [Join or leave a project](../using/join-leave.qmd).

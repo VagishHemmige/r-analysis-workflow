@@ -1,0 +1,42 @@
+---
+title: "The pages in quarto/"
+---
+
+*Written for version 0.1.14. Part of [The website](website.qmd), which lists the sources.*
+
+Each kind of page has one sidebar icon and one colour. A page that doesn't fit takes the kind of its main content; for example, a page of historical code is R code. The kind is only a label: it doesn't make anything publishable.
+
+| Kind | Pages | Icon | Colour |
+|---|---|---|---|
+| Background | Clinical background, Methodological background | `book` | blue |
+| Study design and methods | Study design and methods | `diagram-3` | orange |
+| R code | One page per script | `laptop` | pink |
+| Results | Only once outputs are cleared | `clipboard-data` | green |
+| Project documents | Analysis plan, Architecture, AGENTS.md, Repository blueprint | `file-earmark-ruled` | grey |
+
+**Clinical background** (`background.qmd`) gives the clinical or scientific reason for the question, with citations from `references.bib`.
+
+**Methodological background** (`methodological_background.qmd`) explains, in general terms and without code, the knowledge the methods rest on: what the data sources are, how records become an outcome, how comparison groups are chosen, why the models fit. It holds nothing specific to this study: no study numbers, and no links to the plan or to issues.
+
+**Study design and methods** (`study_methods.qmd`) explains in plain language what *this* study chose and why. Each section carries up to three kinds of note:
+
+- **Specified in:** the section of the analysis plan that defines the method, linked.
+- **Current code:** where the code doesn't yet do what the plan says, what it does now, with a link to the GitHub issue tracking the gap.
+- **Decision pending:** a choice the plan hasn't made yet, linked to its decision issue. These are highlighted in yellow.
+
+It starts as one page. When it grows, it is split into a section of pages chosen for the study, each opening with a line that points back to the key to the notes, and `study_methods.qmd` stays the first page so links to it keep working.
+
+**One page per script.** Each script that `R/main.R` runs gets its own page, named after it: `R/create_cohort.R` gets `quarto/create_cohort.qmd`. The pages sit under Code, in three groups: Setup and helper functions, Data processing and analysis, and Tables and figures (once those scripts exist). A page has:
+
+1. A one-sentence purpose.
+2. A pink `Rcode` box linking the script on GitHub and the helper scripts it depends on.
+3. A hidden chunk that reads the script's code: `knitr::read_chunk("../R/<script>.R")`.
+4. One section per labelled step of the script. Each has prose, then an empty chunk that shows that step's code without running it.
+
+The labels are comment lines in the script, such as `## ---- compute-summary`. Because the page pulls in the actual script, the code you read on the site is the code that runs; there is no second copy to drift. The prose explains purpose, inputs, the change made, the assumptions and plan sections behind it, and what the step hands on to later scripts. It changes in the same pull request as the code it describes. Exploratory scripts get no page; a script gets its page in the pull request that adds it to `R/main.R`.
+
+**Results** pages exist only once outputs are cleared for release, either by the review `AGENTS.md` names or because setup decided they need none. A Results page reads the cleared files in `tables/` and `figures/`. It never reruns the analysis or touches restricted data.
+
+**The four project-document pages** show `analysis-plan.md`, `ARCHITECTURE.md`, `AGENTS.md` and `REPOSITORY-BLUEPRINT.md`. Those files stay at the top of the repository and are the only copies anyone edits; each page in `quarto/` just displays its file when the site is built. The plan's page uses GitHub-style section links, so the plan's links to its own sections work both on GitHub and on the site. The Architecture page draws the diagrams in `ARCHITECTURE.md`, which would otherwise show as code, and shows a short note until that file exists. The other three files must exist before the site is first built, or the build stops.
+
+**What the assistant does with them.** It writes and updates script pages, and adds a project-document page and sidebar entry when a new document at the top of the repository is to be shown on the site. For an existing site that lacks a Background or Study design page, it proposes an outline to the maintainer rather than adding a placeholder page, because that content belongs to the study team.

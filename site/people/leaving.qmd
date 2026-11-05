@@ -16,7 +16,7 @@ People leave projects all the time: a rotation ends, a job changes, someone hand
 
 **Who decides.** You choose what happens to each piece of your work. Scientific questions stay with the deciders named in the project's `AGENTS.md`; leaving does not change who they are.
 
-**More.** [Join or leave a project](../using/join-leave.qmd); check-ins are described in [On GitHub, not in files](../manual/github.qmd#the-setup-note-and-check-ins).
+**More.** [Join or leave a project](../using/join-leave.qmd); check-ins are described in [On GitHub, not in files](../manual/github-setup-note.qmd).
 
 ## Documents out of chats, laptops and email
 
@@ -32,7 +32,7 @@ People leave projects all the time: a rotation ends, a job changes, someone hand
 
 **Who decides.** You choose what to move. The project's disclosure rules decide what may not be moved.
 
-**More.** The same habit applies at the end of every working session: see [On GitHub, not in files](../manual/github.qmd#the-setup-note-and-check-ins).
+**More.** The same habit applies at the end of every working session: see [On GitHub, not in files](../manual/github-setup-note.qmd).
 
 ## Open issues and pull requests
 
@@ -51,7 +51,7 @@ For an open pull request, it also writes down what remains, the order in which o
 
 **Who decides.** You, with whoever takes an item on. A person, not an agent, merges a pull request. Closing an issue does not settle a scientific question; only a named decider does that.
 
-**More.** [Issues and pull requests](../manual/github.qmd#issues); [the plan and its decisions](../manual/plan-and-decisions.qmd).
+**More.** [Issues and pull requests](../manual/github-issues-prs.qmd); [the plan and its decisions](../manual/plan-and-decisions.qmd).
 
 ## Requests with no answer yet
 
@@ -63,7 +63,7 @@ For an open pull request, it also writes down what remains, the order in which o
 
 **Who decides.** You choose which to record.
 
-**More.** [Issues](../manual/github.qmd#issues).
+**More.** [Issues](../manual/github-issues-prs.qmd).
 
 ## Ownership, last
 
@@ -79,7 +79,7 @@ For an open pull request, it also writes down what remains, the order in which o
 
 **Who decides.** The owner starts the transfer, and the new owner accepts it.
 
-**More.** [Transferring ownership and the website caveat](../manual/github.qmd#the-setup-note-and-check-ins); [GitHub Pages](../manual/github.qmd#github-pages); [`_quarto.yml`](../manual/website.qmd#quarto.yml); [the README](../manual/references-readme.qmd#readme.rmd-and-readme.md).
+**More.** [Transferring ownership and the website caveat](../manual/github-setup-note.qmd); [GitHub Pages](../manual/github-protection-pages.qmd#github-pages); [`_quarto.yml`](../manual/website-config.qmd#quarto.yml); [the README](../manual/references-readme.qmd#readme.rmd-and-readme.md).
 
 ## What the next person finds
 

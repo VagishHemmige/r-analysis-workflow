@@ -1,0 +1,17 @@
+---
+title: "Statistician"
+---
+
+*Written for version 0.1.14. Part of [Contributing in your role](roles.qmd), which lists the sources.*
+
+**You.** You shape and check the design and analysis. You may be named in `AGENTS.md` as a decider for statistical areas, and you may review pull requests that change the analysis.
+
+**The assistant.** It drafts options and evidence for statistical decision issues, and you or another named decider choose. You can ask it for a review of a change, the plan, or the plan against the code.
+
+The review skill includes a **statistician reviewer**, but that is an AI agent, not you. It works blind: it sees only a packet of the plan, the methods and analysis pages, the analysis scripts and published tables, plus public material such as cited papers. It never sees restricted data, so a question that needs the data comes back as a focused check for an authorized person to run. Where the plan leaves a choice open, it comments on the options but doesn't decide. Acting on its findings is your choice, finding by finding.
+
+**In the repository.** Your choices in decision issues, your reviews on pull requests, and any issues opened from review findings you choose to act on.
+
+**Who decides.** You, in the areas `AGENTS.md` assigns you. The AI reviewer never decides.
+
+**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd), [The code](../manual/code.qmd), [Review](../using/review.qmd).

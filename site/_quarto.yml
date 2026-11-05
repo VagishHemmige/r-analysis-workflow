@@ -19,6 +19,8 @@ website:
 
   sidebar:
     style: docked
+    # Every section starts open, including those inside Manual and People
+    collapse-level: 3
     search: true
     contents:
       - href: index.qmd
@@ -60,8 +62,20 @@ website:
             text: Overview
           - href: people/joining.qmd
             text: Joining
-          - href: people/roles.qmd
-            text: Contributing in your role
+          - section: Contributing in your role
+            contents:
+              - href: people/roles.qmd
+                text: Overview
+              - href: people/roles-lead.qmd
+                text: Project lead
+              - href: people/roles-pi.qmd
+                text: PI or maintainer
+              - href: people/roles-decider.qmd
+                text: Decider
+              - href: people/roles-clinician.qmd
+                text: Clinician adviser
+              - href: people/roles-statistician.qmd
+                text: Statistician
           - href: people/leaving.qmd
             text: Leaving
 
@@ -71,16 +85,42 @@ website:
             text: What setup creates
           - href: manual/plan-and-decisions.qmd
             text: The plan and its decisions
-          - href: manual/rules.qmd
-            text: Rules for working
+          - section: Rules for working
+            contents:
+              - href: manual/rules.qmd
+                text: Overview
+              - href: manual/rules-agents.qmd
+                text: AGENTS.md
+              - href: manual/rules-gitignore.qmd
+                text: .gitignore
+              - href: manual/rules-blueprint-instructions.qmd
+                text: Blueprint and personal instructions
           - href: manual/code.qmd
             text: The code
-          - href: manual/website.qmd
-            text: The website
+          - section: The website
+            contents:
+              - href: manual/website.qmd
+                text: Overview
+              - href: manual/website-config.qmd
+                text: "_quarto.yml and the home pages"
+              - href: manual/website-pages.qmd
+                text: The pages in quarto/
+              - href: manual/website-styles.qmd
+                text: Styles, 404 and extensions
+              - href: manual/website-publishing.qmd
+                text: Publishing
           - href: manual/references-readme.qmd
             text: References and README
-          - href: manual/github.qmd
-            text: On GitHub, not in files
+          - section: On GitHub, not in files
+            contents:
+              - href: manual/github.qmd
+                text: Overview
+              - href: manual/github-protection-pages.qmd
+                text: Protecting main and Pages
+              - href: manual/github-issues-prs.qmd
+                text: Issues, pull requests and milestones
+              - href: manual/github-setup-note.qmd
+                text: The setup note and check-ins
 
       - section: Testing
         contents:

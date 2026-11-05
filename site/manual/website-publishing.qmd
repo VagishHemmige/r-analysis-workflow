@@ -1,0 +1,20 @@
+---
+title: "Publishing"
+---
+
+*Written for version 0.1.14. Part of [The website](website.qmd), which lists the sources.*
+
+**What it is.** The built site is written to `docs/`. There are two ways to put it online, and each project chooses one. Its `AGENTS.md` records which, in the "Quarto website" section.
+
+| Route | `docs/` in the repository? | Who builds the site |
+|---|---|---|
+| **`docs/` committed** | Yes, committed with each change | The person making the change, before opening the pull request |
+| **Published by a workflow** | No; listed in `.gitignore` | A GitHub Actions workflow (an automated job on GitHub), on every push to the default branch |
+
+**On the first route,** the site is rebuilt on the same branch as the change it reflects, and the rebuilt `docs/` goes in the same pull request.
+
+**On the second route,** the workflow file lives in `.github/workflows/`. The plugin doesn't provide one yet. Each person still builds the site on their own computer before opening a pull request, to check it.
+
+**Turning it on.** The site goes live only after someone with admin or maintainer permission turns on GitHub Pages in the repository's **Settings → Pages**. Under "Build and deployment", **Source** is set to **Deploy from a branch**; then the default branch and the **/docs** folder are chosen for the first route, or the `gh-pages` branch (which the workflow creates on its first run) and the **/ (root)** folder for the second. A maintainer who works in R can do the first route with `usethis::use_github_pages()`. On GitHub's free plan, a private repository can't use Pages.
+
+**What the assistant does.** It never changes repository settings. It tells the person who can, and gives them these steps.

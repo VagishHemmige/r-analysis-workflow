@@ -1,0 +1,15 @@
+---
+title: "Decider"
+---
+
+*Written for version 0.1.14. Part of [Contributing in your role](roles.qmd), which lists the sources.*
+
+**You.** Anyone `AGENTS.md` names for an area, such as a clinical question or the statistical methods. A project may have several deciders, each for their own area.
+
+**The assistant.** It drafts each decision issue with the question, the options and the evidence, and asks you. A check-in can list each decision waiting on you, one line per option, with a link to the issue. It won't choose for you, and it won't say you decided something unless there is a written record of it.
+
+**In the repository.** You state your choice in the decision issue. If you don't use GitHub, you can decide by email or in a meeting. Whoever received your answer then posts your exact words in the issue, with your name, the date and how it was given. A summary or a memory of what you said doesn't count. The decision takes effect when a pull request that rewrites the plan and closes the issue is merged.
+
+**Who decides.** You, within your area. Anyone else may add options and evidence.
+
+**More.** [The plan and its decisions](../manual/plan-and-decisions.qmd).

@@ -1,0 +1,23 @@
+---
+title: "PI or maintainer"
+---
+
+*Written for version 0.1.14. Part of [Contributing in your role](roles.qmd), which lists the sources.*
+
+**You.** The maintainer owns or administers the repository. That can be anyone on the project, and a PI may also be named as a decider and use the plugin directly. Some steps on GitHub need admin rights, so they fall to whoever has them.
+
+**The assistant.** It describes the one-off GitHub steps and leaves them to you, because agents don't change repository settings:
+
+- protecting the main branch so changes arrive only through pull requests;
+- turning on GitHub Pages so the website goes live;
+- tags, for example when the plan is locked, which are made by the maintainer or with their explicit say-so;
+- accepting the repository if a leaving owner transfers it to you, then updating the site's links and turning Pages on again;
+- removing anything pushed by mistake from the history. Agents don't attempt this.
+
+If you work in R, it can suggest the console commands one at a time, after checking where things stand. You run them; it never does. Like everyone, you can ask for a periodic check-in that lists what is waiting on you: assigned issues, decisions you make, and pull requests awaiting your review.
+
+**In the repository.** Branch protection, the Pages setting and tags live on GitHub rather than in files. `AGENTS.md` records the deciders, the data sources and what agents may do with each.
+
+**Who decides.** You settle the areas `AGENTS.md` assigns you. Allowing agents to do more with a data source is a change a person makes to `AGENTS.md` through a pull request, naming the agreement that permits it. Agents never propose it.
+
+**More.** [On GitHub, not in files](../manual/github.qmd), [The plan and its decisions](../manual/plan-and-decisions.qmd), [Start a project](../using/start.qmd).
