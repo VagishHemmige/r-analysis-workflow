@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-f6725ec72a40a9c11b774886aa13be2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -580,7 +583,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Written for version 0.1.14.</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/workflow-cloud.svg" class="img-fluid figure-img" alt="On your computer, data feed into R, which produces results. A blocked red arrow shows that the chat app cannot access restricted data; the LLM runs in the cloud. Code panels align across the computer, GitHub and cloud assistant, with arrows for code changes, reviewed code, project files and pull requests. Cleared results go to GitHub. A person reviews, approves and merges there. GitHub also holds the analysis plan, decision issues and history. The project website displays explanations, code and cleared results."></p>
+<p><a href="images/workflow-cloud.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Code moves between your computer, GitHub and the assistant; a person approves every change. By default, data stay on your computer."><img src="images/workflow-cloud.svg" class="img-fluid figure-img" alt="On your computer, data feed into R, which produces results. A blocked red arrow shows that the chat app cannot access restricted data; the LLM runs in the cloud. Code panels align across the computer, GitHub and cloud assistant, with arrows for code changes, reviewed code, project files and pull requests. Cleared results go to GitHub. A person reviews, approves and merges there. GitHub also holds the analysis plan, decision issues and history. The project website displays explanations, code and cleared results."></a></p>
 <figcaption>Code moves between your computer, GitHub and the assistant; a person approves every change. By default, data stay on your computer.</figcaption>
 </figure>
 </div>
@@ -1043,8 +1046,40 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/start-here.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/start-here.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+</body></html>
