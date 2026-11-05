@@ -7,6 +7,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - images/workflow-interactive.html
   pre-render:
     - python3 scripts/draw_workflow.py
 

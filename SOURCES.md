@@ -16,3 +16,4 @@
 - External guidance (gtsummary, ggsurvfit, flowchart, Quarto and knitr documentation; Wilke; R4DS; finalfit; Lusa et al.; Zabor; the PSI/EFSPI graphics principles; KMunicate; STROBE, RECORD and CHEERS) is linked, not copied.
 
 - The workflow figure in `site/scripts/draw_workflow.py` was developed with the maintainer in ChatGPT on 2026-11-04, adapting the earlier `site/images/workflow.svg` (retained). R logo: https://www.r-project.org/logo/Rlogo.svg (R Foundation; https://www.r-project.org/logo/). GitHub mark, pull-request and merge icons: https://github.com/primer/octicons (MIT notice embedded in the SVG source). Code, data rows and results in the figure are illustrative.
+- The interactive workflow was developed with the maintainer from that figure. The Quarto pre-render script inserts the same SVG artwork into the interactive HTML template.
