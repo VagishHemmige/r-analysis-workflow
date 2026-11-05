@@ -4,6 +4,8 @@ What was checked, and what was not.
 
 ## Checked
 
+- **Workflow figure (2026-11-04):** Python SVG generation and optional CairoSVG PNG export succeeded; the generated diagram was visually inspected. All 46 website pages rendered with Quarto 1.8.25, including the Python pre-render hook. The rendered Start here page references the new SVG, and the published SVG matches the generated source. Generated SVG/PNG paths are ignored by Git. `check_links.py` passed. GitHub Actions deployment and the live page remain to be checked after merge.
+
 - **0.1.14 changes** (#48, #49, #50, merged as #51: sidebar icons and colours by kind of page; Rcode, Results and Pending callouts; `_pending.lua` yellow marks for **Decision pending** notes and, on the plan's page, **Open:** points; Clinical and Methodological background, Study design and methods, four project-document pages, 404; two publishing routes recorded in AGENTS.md; a numbered procedure for bringing an existing site up to date):
   - At `13d1f4d`, `check_links.py` and `build_skills.py --check` pass.
   - At `6c32ec2`, with Quarto 1.7.32, R 4.3.3 and custom-callout `810a647`, the starter rendered with stand-in root files, with and without `ARCHITECTURE.md`. Without `REPOSITORY-BLUEPRINT.md` it fails ("Include directive failed").

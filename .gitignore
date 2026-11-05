@@ -1,1 +1,7 @@
 __pycache__/
+
+# Built by the site pre-render script.
+/site/images/workflow-cloud.svg
+/site/images/workflow-cloud.png
+/site/_site/
+/site/.quarto/

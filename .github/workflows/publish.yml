@@ -1,6 +1,7 @@
 # Renders the website in site/ and publishes it to the gh-pages branch, which
 # GitHub Pages serves. Runs on every push to main, or by hand from the Actions tab.
-# The pages have no code chunks, so only Quarto is needed, not R.
+# The pages have no analysis code chunks. Python generates the workflow SVG;
+# no R or third-party Python packages are needed.
 # Based on Quarto's GitHub Pages guide and quarto-dev/quarto-actions.
 
 on:
@@ -19,6 +20,11 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+
+      - name: Set up Python for the workflow figure
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
