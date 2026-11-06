@@ -547,7 +547,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#protecting-the-main-branch" id="toc-protecting-the-main-branch" class="nav-link active" data-scroll-target="#protecting-the-main-branch">Protecting the main branch</a></li>
+  <li><a href="#ai-safeguards" id="toc-ai-safeguards" class="nav-link active" data-scroll-target="#ai-safeguards">What if an AI deletes my work?</a>
+  <ul class="collapse">
+  <li><a href="#what-about-deleting-the-whole-repository" id="toc-what-about-deleting-the-whole-repository" class="nav-link" data-scroll-target="#what-about-deleting-the-whole-repository">What about deleting the whole repository?</a></li>
+  </ul></li>
+  <li><a href="#protecting-the-main-branch" id="toc-protecting-the-main-branch" class="nav-link" data-scroll-target="#protecting-the-main-branch">Protecting the main branch</a></li>
   <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages">GitHub Pages</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/edit/main/site/manual/github-protection-pages.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/r-analysis-workflow/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -575,6 +579,68 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><em>Written for version 0.1.14. Part of <a href="../manual/github.html">On GitHub, not in files</a>, which lists the sources.</em></p>
+<section id="ai-safeguards" class="level2">
+<h2 class="anchored" data-anchor-id="ai-safeguards">What if an AI deletes my work?</h2>
+<p>An assistant asked to check a document might change or delete something it should have left alone. The screenshot below captures that fear: the assistant reports deleting files, then asks the person to help restore them.</p>
+<div id="fig-ai-file-deletion" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Chat screenshot: an assistant says it accidentally deleted a syllabus and class notes while checking a citation. The user reacts with alarm; the assistant apologizes and discusses restoring the files.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-file-deletion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ai-file-deletion-example.png" class="img-fluid figure-img" style="width:100.0%" alt="Chat screenshot: an assistant says it accidentally deleted a syllabus and class notes while checking a citation. The user reacts with alarm; the assistant apologizes and discusses restoring the files.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-file-deletion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An illustrative reported interaction, supplied by the maintainer. The screenshot records the assistant’s claim; it does not independently establish what happened.
+</figcaption>
+</figure>
+</div>
+<p>The plugin already requires changes to reach the default branch through pull requests and guides the maintainer through setting up branch protection. These are different kinds of safeguard:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Safeguard</th>
+<th>What it does</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agent instructions</td>
+<td>Tell the assistant to work on a branch and open a pull request.</td>
+<td>Instructions guide behavior; they do not remove permissions.</td>
+</tr>
+<tr class="even">
+<td>GitHub branch rules</td>
+<td>Require a pull request and block force pushes and deletion of the protected branch.</td>
+<td>The rules must be active, target the right branch, and have appropriate bypass restrictions.</td>
+</tr>
+<tr class="odd">
+<td>Review before merging</td>
+<td>Makes proposed edits and deletions visible before they reach the default branch.</td>
+<td>Requiring a pull request alone does not require another person’s approval; the approval setting matters.</td>
+</tr>
+<tr class="even">
+<td>Integration permissions</td>
+<td>Limit which repositories and actions an AI connection can access.</td>
+<td>Check the actual app or token permissions, including whether it can administer or delete repositories.</td>
+</tr>
+<tr class="odd">
+<td>Git history</td>
+<td>Lets you recover previously committed file versions while that history remains available.</td>
+<td>Files never committed, ignored research data, and files in other services need their own protection and backups.</td>
+</tr>
+</tbody>
+</table>
+<p>For example, deleting a tracked script on a working branch appears as a deletion in the pull request. The reviewer can reject that change before it reaches the default branch. GitHub’s <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches">branch-protection documentation</a> explains the enforcement options. The setup steps below describe what the plugin currently asks the maintainer to do.</p>
+<section id="what-about-deleting-the-whole-repository" class="level3">
+<h3 class="anchored" data-anchor-id="what-about-deleting-the-whole-repository">What about deleting the whole repository?</h3>
+<p>Branch protection and repository deletion are separate controls. Organizations can <a href="https://docs.github.com/en/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories">limit repository deletion and transfer to owners</a>. For an AI integration, check that its access does not include unnecessary deletion or administration capabilities; GitHub documents the permissions required by the <a href="https://docs.github.com/en/rest/repos/repos#delete-a-repository">repository-deletion API</a>.</p>
+<p>Two-factor authentication helps protect the account, but it is not a promise that a person must approve every destructive action. GitHub’s browser <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/sudo-mode">sudo mode</a> temporarily remembers authentication for sensitive actions; API access uses its own credentials and permissions. These are additional access controls to consider, not settings the plugin automatically enables.</p>
+</section>
+</section>
 <section id="protecting-the-main-branch" class="level2">
 <h2 class="anchored" data-anchor-id="protecting-the-main-branch">Protecting the main branch</h2>
 <p><strong>What it is.</strong> A setting on GitHub that makes every change reach the main branch through a pull request. (The main branch is the one the project treats as current; GitHub calls it the <em>default branch</em>, and its name varies from project to project.) The plugin never renames it unless the maintainer asks.</p>

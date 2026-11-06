@@ -197,6 +197,18 @@
     ]
   },
   {
+    "objectID": "manual/github-protection-pages.html#ai-safeguards",
+    "href": "manual/github-protection-pages.html#ai-safeguards",
+    "title": "Protecting main and Pages",
+    "section": "What if an AI deletes my work?",
+    "text": "What if an AI deletes my work?\nAn assistant asked to check a document might change or delete something it should have left alone. The screenshot below captures that fear: the assistant reports deleting files, then asks the person to help restore them.\n\n\n\n\n\n\nFigure 1: An illustrative reported interaction, supplied by the maintainer. The screenshot records the assistant’s claim; it does not independently establish what happened.\n\n\n\nThe plugin already requires changes to reach the default branch through pull requests and guides the maintainer through setting up branch protection. These are different kinds of safeguard:\n\n\n\n\n\n\n\n\nSafeguard\nWhat it does\nWhat to check\n\n\n\n\nAgent instructions\nTell the assistant to work on a branch and open a pull request.\nInstructions guide behavior; they do not remove permissions.\n\n\nGitHub branch rules\nRequire a pull request and block force pushes and deletion of the protected branch.\nThe rules must be active, target the right branch, and have appropriate bypass restrictions.\n\n\nReview before merging\nMakes proposed edits and deletions visible before they reach the default branch.\nRequiring a pull request alone does not require another person’s approval; the approval setting matters.\n\n\nIntegration permissions\nLimit which repositories and actions an AI connection can access.\nCheck the actual app or token permissions, including whether it can administer or delete repositories.\n\n\nGit history\nLets you recover previously committed file versions while that history remains available.\nFiles never committed, ignored research data, and files in other services need their own protection and backups.\n\n\n\nFor example, deleting a tracked script on a working branch appears as a deletion in the pull request. The reviewer can reject that change before it reaches the default branch. GitHub’s branch-protection documentation explains the enforcement options. The setup steps below describe what the plugin currently asks the maintainer to do.\n\nWhat about deleting the whole repository?\nBranch protection and repository deletion are separate controls. Organizations can limit repository deletion and transfer to owners. For an AI integration, check that its access does not include unnecessary deletion or administration capabilities; GitHub documents the permissions required by the repository-deletion API.\nTwo-factor authentication helps protect the account, but it is not a promise that a person must approve every destructive action. GitHub’s browser sudo mode temporarily remembers authentication for sensitive actions; API access uses its own credentials and permissions. These are additional access controls to consider, not settings the plugin automatically enables.",
+    "crumbs": [
+      "Manual",
+      "On GitHub, not in files",
+      "Protecting main and Pages"
+    ]
+  },
+  {
     "objectID": "manual/github-protection-pages.html#protecting-the-main-branch",
     "href": "manual/github-protection-pages.html#protecting-the-main-branch",
     "title": "Protecting main and Pages",
