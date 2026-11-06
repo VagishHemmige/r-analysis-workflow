@@ -55,6 +55,18 @@ button:disabled{opacity:.45; cursor:default}
 }
 
 
+main {max-width:none;padding:10px}
+.layout {display:block;position:relative}
+main > .controls {margin:6px 0;gap:5px}
+#route {min-height:0;margin:4px 0 8px}
+.process:not([hidden]) {display:flex;align-items:center;flex-wrap:wrap;gap:5px 12px;padding:5px 8px;margin-bottom:6px}
+.process h2,.process .controls,.process p {margin:0;min-height:0}
+.process p {flex:1 1 14em}
+.process progress {width:64px}
+aside:not([hidden]) {position:absolute;z-index:2;width:min(310px,44%);box-shadow:0 3px 16px #23354433}
+.zoomed aside:not([hidden]) {position:absolute;margin:0}
+aside p {margin:6px 0;line-height:1.4}
+@media(max-width:650px){aside:not([hidden]),.zoomed aside:not([hidden]) {position:static;width:auto;margin-top:6px}.controls button {flex:0 1 auto}}
 </style>
 <main>
 <h1>Explore the R analysis workflow</h1>
@@ -89,7 +101,7 @@ button:disabled{opacity:.45; cursor:default}
 <button class="hotspot" data-detail="website" aria-label="Explain Project website" style="left:36.71875%;top:70.71823204419888%;width:60.9375%;height:24.53038674033149%"></button>
 </div>
 </div>
-<aside aria-live="polite">
+<aside hidden aria-live="polite">
 <h2 id="detail-title">Explore a box</h2>
 <p id="detail-body">Select a box to read what happens there. You can open explanations while a workflow path is highlighted.</p>
 <button id="close">Clear selection</button>
@@ -159,6 +171,14 @@ const descriptions = {
 const figure = document.querySelector(".figure");
 let pinned = null, timer;
 function show(k, pin = false) {
+  const panel = document.querySelector("aside");
+  const layout = document.querySelector(".layout").getBoundingClientRect();
+  const box = document.querySelector('[data-detail="' + k + '"]').getBoundingClientRect();
+  panel.hidden = false;
+  const right = box.right - layout.left + 8;
+  const left = right + panel.offsetWidth <= layout.width ? right : box.left - layout.left - panel.offsetWidth - 8;
+  panel.style.left = Math.max(0, left) + "px";
+  panel.style.top = Math.max(0, Math.min(box.top - layout.top, layout.height - panel.offsetHeight)) + "px";
   document.querySelector("#detail-title").textContent = details[k][0];
   document.querySelector("#detail-body").textContent = details[k][1];
   document.querySelector("#status").textContent = pin
@@ -169,6 +189,7 @@ function show(k, pin = false) {
   );
 }
 function clear() {
+  document.querySelector('aside').hidden = true;
   pinned = null;
   clearTimeout(timer);
   document.querySelector("#detail-title").textContent = "Explore a box";
