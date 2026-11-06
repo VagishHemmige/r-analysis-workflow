@@ -4,6 +4,8 @@ What was checked, and what was not.
 
 ## Checked
 
+- **AI safeguards example (2026-11-05):** `check_links.py` passes after the existing figure-generation step; the changed page renders with Quarto 1.8.25. Rendered HTML contains the section anchor and screenshot with alt text, and the image resource exists. `git diff --check` passes. Browser visual inspection was attempted but unavailable because the Playwright browser executable is not installed. Live deployment remains to be checked after merge. No plugin behavior or repository settings changed.
+
 - **Workflow figure (2026-11-04):** Python SVG generation and optional CairoSVG PNG export succeeded; the generated diagram was visually inspected. All 46 website pages rendered with Quarto 1.8.25, including the Python pre-render hook. The rendered Start here page references the new SVG, and the published SVG matches the generated source. Generated SVG/PNG paths are ignored by Git. `check_links.py` passed. GitHub Actions deployment and the live page remain to be checked after merge.
 
 - **0.1.14 changes** (#48, #49, #50, merged as #51: sidebar icons and colours by kind of page; Rcode, Results and Pending callouts; `_pending.lua` yellow marks for **Decision pending** notes and, on the plan's page, **Open:** points; Clinical and Methodological background, Study design and methods, four project-document pages, 404; two publishing routes recorded in AGENTS.md; a numbered procedure for bringing an existing site up to date):

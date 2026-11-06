@@ -17,3 +17,5 @@
 
 - The workflow figure in `site/scripts/draw_workflow.py` was developed with the maintainer in ChatGPT on 2026-11-04, adapting the earlier `site/images/workflow.svg` (retained). R logo: https://www.r-project.org/logo/Rlogo.svg (R Foundation; https://www.r-project.org/logo/). GitHub mark, pull-request and merge icons: https://github.com/primer/octicons (MIT notice embedded in the SVG source). Code, data rows and results in the figure are illustrative.
 - The interactive workflow was developed with the maintainer from that figure. The Quarto pre-render script inserts the same SVG artwork into the interactive HTML template.
+
+- AI safeguards example (2026-11-05): screenshot supplied by the maintainer in the discussion authorizing its placement on the site, copied without alteration to `site/images/ai-file-deletion-example.png`. It illustrates an assistant-reported incident, not an independently verified deletion. Explanatory text draws on the existing `plugin/references/github-workflow.md` and the GitHub documentation linked in `site/manual/github-protection-pages.qmd` (branch protection, deletion permissions, repository-deletion API and sudo mode).
