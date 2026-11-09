@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this plugin, please cite it as below."
+title: "R Analysis Workflow"
+type: software
+authors:
+  - family-names: Hemmige
+    given-names: Vagish
+    orcid: "https://orcid.org/0009-0006-6346-1826"
+version: "0.1.14"
+license: MIT
+abstract: "A skills-only plugin to set up, document, report and review R biomedical analysis projects published on GitHub with a Quarto website."
+repository-code: "https://github.com/VagishHemmige/r-analysis-workflow"
+url: "https://vagishhemmige.github.io/r-analysis-workflow/"
