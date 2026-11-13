@@ -64,6 +64,7 @@ Packages, data sources, a source's own tables and R objects each have their own 
 | File in the repository | Code font, with its path | `R/setup.R` |
 | Reporting guideline, method or diagram | Plain text | STROBE, Kaplan–Meier, the flowchart |
 
+- **Saying so once.** Each site's home page says, after its first list or paragraph that names packages: "[Braces](https://forum.posit.co/t/curly-braces-around-package-name-convention/122547) identify R packages throughout this site."
 - **Links.** In prose, link each package at its first mention on a page: the team's packages to their pkgdown sites, other packages to their pkgdown site or, without one, their CRAN page (`https://CRAN.R-project.org/package=<name>`). The braces go inside the link: `[{usRds}](https://vagishhemmige.github.io/usRds/)`. Later mentions on the same page are braces only.
 - **Markdown tables.** Packages in a table still take braces, because a source and its package often sit in neighbouring cells. They are not linked where the table has its own documentation column, as the AGENTS.md Data sources table does.
 - **Output tables.** Tables built by code (gtsummary, gt) are outputs, not prose; this section does not apply to them.

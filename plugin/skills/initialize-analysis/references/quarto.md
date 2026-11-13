@@ -96,7 +96,7 @@ A short script may instead be shown whole with `#| file: "../R/<script>.R"` and 
 
 - Every `label` used by a page exists exactly once across `R/`, and every definitive script has a page and a sidebar entry with its kind's icon.
 - Each root project document has its page, and every **Decision pending** note is still an open decision.
-- Packages, data sources and objects are named as in [naming packages and data](conventions.md#naming-packages-and-data).
+- Packages, data sources and objects are named as in [naming packages and data](conventions.md#naming-packages-and-data), and the home page says once that braces identify R packages.
 - No `<placeholder>` text from the starter remains, and no example **Decision pending** line is left in a page that has no open decision (search the `.qmd` files for `<` at the start of a placeholder).
 - No chunk evaluates analysis code; the site renders without restricted data.
 - Links to scripts use the correct repository and branch.
