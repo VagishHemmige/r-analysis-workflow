@@ -22,7 +22,7 @@ knitr::read_chunk("../R/setup.R")
 
 ## Packages
 
-<Which packages the analysis uses and why, including the access package for each data source.>
+<Which packages the analysis uses and why, including the access package for each data source. Name each package in braces and link it at its first mention, for example [{usRds}](https://vagishhemmige.github.io/usRds/).>
 
 ```{r}
 #| label: load-packages

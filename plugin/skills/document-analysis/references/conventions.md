@@ -49,3 +49,24 @@ Work on the right copy. If the person's local folder is connected, use it, inclu
 Before asking a person something, look for the answer in the repository (the analysis plan, AGENTS.md, issues and pull requests) and in earlier chats in their project where you can see them. Ask only what is still unclear, and say what you found. This does not replace the approvals their working style asks for.
 
 When telling someone where to click in GitHub, ChatGPT or another app, use the steps in this plugin where they exist; otherwise check the app's current help pages, or say you are not sure of the exact menu and describe what to look for.
+
+## Naming packages and data
+
+Packages, data sources, a source's own tables and R objects each have their own form, so a reader can tell them apart. This matters most where a package and its data share a name, such as {usRds} and the USRDS, or {sRtr} and the SRTR, which differ only in capitalization.
+
+| What | Form | Example |
+|---|---|---|
+| R package | Its name in braces, with the package's own capitalization | {usRds}, {gtsummary}, {strobe} |
+| Data source | Plain text: the full name with its abbreviation at first mention on a page, then the abbreviation | the United States Renal Data System (USRDS) |
+| A source's own tables or files | Code font, as the source names them | `TX_KI`, `patients` |
+| R object or column | Code font | `patients_fc`, `age_at_tx` |
+| Function | Code font, with parentheses | `load_usrds_file()` |
+| File in the repository | Code font, with its path | `R/setup.R` |
+| Reporting guideline, method or diagram | Plain text | STROBE, Kaplan–Meier, the flowchart |
+
+- **Links.** In prose, link each package at its first mention on a page: the team's packages to their pkgdown sites, other packages to their pkgdown site or, without one, their CRAN page (`https://CRAN.R-project.org/package=<name>`). The braces go inside the link: `[{usRds}](https://vagishhemmige.github.io/usRds/)`. Later mentions on the same page are braces only.
+- **Markdown tables.** Packages in a table still take braces, because a source and its package often sit in neighbouring cells. They are not linked where the table has its own documentation column, as the AGENTS.md Data sources table does.
+- **Output tables.** Tables built by code (gtsummary, gt) are outputs, not prose; this section does not apply to them.
+- **Where it applies.** Every page of the site and the root documents (README, analysis-plan.md, ARCHITECTURE.md, AGENTS.md). It does not apply to code, code comments or a package's DESCRIPTION file, where CRAN requires single quotes.
+- **Start of a sentence and headings** keep the package's own capitalization: "{usRds} loads the files", never "{UsRds}".
+- **Existing documents.** Bringing a site or document into line is a style-only change, names and links only, in its own pull request.

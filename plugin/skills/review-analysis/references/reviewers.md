@@ -213,7 +213,8 @@ Review:
    session; no reliance on leftover objects, setwd() or stale saved intermediates.
 5. Documentation sync. Every chunk label is unique and used by its page; every
    definitive script has a page and sidebar entry; site prose describes what the code
-   actually does; ARCHITECTURE.md matches the scripts and states its commit; no site
+   actually does and names packages, data sources and objects as in the plugin's
+   conventions ("Naming packages and data"); ARCHITECTURE.md matches the scripts and states its commit; no site
    chunk runs analysis code.
 6. Maintainability, only where it risks errors: duplicated logic, hidden global
    dependencies, functions without explicit inputs.

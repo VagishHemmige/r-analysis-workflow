@@ -75,6 +75,8 @@ A site built before these conventions is updated only after the maintainer agree
 6. Rewrite the site's existing open-decision labels ("Open decision" rows, "to be decided" notes and the like) as **Decision pending** notes linked to their decision issues, or wrap them as `[text]{.pending}` in tables, without changing what they say is open. This is the one content change the procedure makes; list each one in the pull request.
 7. Update the project AGENTS.md "Quarto website" section to match, including the publishing route.
 
+Package names are brought into line with [naming packages and data](conventions.md#naming-packages-and-data) in a separate, style-only pull request, so that this one stays about structure.
+
 Render, then check that every page that was on the site before is still in the sidebar and still renders, and that the icons are coloured (if not, the stylesheet is not registered). Pages the site lacks, such as Methodological background or Study design and methods, are proposed to the maintainer with an outline, never added as placeholder pages, because their content is the study team's. Apart from step 6, existing callouts, labels and wording stay as they are unless the maintainer asks.
 
 ## A script page
@@ -94,6 +96,7 @@ A short script may instead be shown whole with `#| file: "../R/<script>.R"` and 
 
 - Every `label` used by a page exists exactly once across `R/`, and every definitive script has a page and a sidebar entry with its kind's icon.
 - Each root project document has its page, and every **Decision pending** note is still an open decision.
+- Packages, data sources and objects are named as in [naming packages and data](conventions.md#naming-packages-and-data).
 - No `<placeholder>` text from the starter remains, and no example **Decision pending** line is left in a page that has no open decision (search the `.qmd` files for `<` at the start of a placeholder).
 - No chunk evaluates analysis code; the site renders without restricted data.
 - Links to scripts use the correct repository and branch.

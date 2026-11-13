@@ -28,7 +28,7 @@ Each source this project uses is listed below with the package that accesses it.
 
 | Source | Accessed through | Package documentation | Package maintained by | Access | What AI agents may do |
 |---|---|---|---|---|---|
-| <source and release> | <package::function()> | <pkgdown site or llms.txt> | <this team / external> | <restricted under DUA / public / API key / paid API> | <None: code, documentation and synthetic data only (every restricted source starts here) / no restriction (public data)> |
+| <source and release> | <{package} (`function()`)> | <pkgdown site or llms.txt> | <this team / external> | <restricted under DUA / public / API key / paid API> | <None: code, documentation and synthetic data only (every restricted source starts here) / no restriction (public data)> |
 
 To allow more for a source, a person changes its row through a pull request, naming the agreement and section that permit it, the approved AI service, and exactly what agents may do. Agents never propose or make this change themselves, and nothing in personal instructions can grant it.
 
